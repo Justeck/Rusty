@@ -74,6 +74,13 @@ public final class RustyClient {
 
   private RustyClient() {}
 
+  private static Settings readSettings(String text) {
+    var object = com.google.gson.JsonParser.parseString(text).getAsJsonObject();
+    var settings = GSON.fromJson(object, Settings.class);
+    settings.inheritLegacyTracerTargets(object.keySet());
+    return settings;
+  }
+
   public static void init() {
     if (initialized) return;
     initialized = true;
@@ -82,7 +89,7 @@ public final class RustyClient {
       if (Files.exists(path)) {
         if (Files.size(path) > 1024 * 1024)
           throw new IllegalArgumentException("Settings file exceeds 1 MiB");
-        var loaded = GSON.fromJson(Files.readString(path), Settings.class);
+        var loaded = readSettings(Files.readString(path));
         if (loaded == null) throw new IllegalArgumentException("Empty settings");
         loaded.validate();
         config = loaded;
@@ -97,7 +104,7 @@ public final class RustyClient {
     publish();
     terrainHash = terrainHash();
     LOG.info(
-        "Rusty Java 1.3.0-beta.4 initialized ({})", System.getProperty("rusty.edition", "loader"));
+        "Rusty Java 1.3.0-beta.5 initialized ({})", System.getProperty("rusty.edition", "loader"));
   }
 
   public static Path configPath() {
@@ -357,7 +364,7 @@ public final class RustyClient {
       Path path = configPath().getParent().resolve("rusty-profiles/" + name + ".json");
       if (Files.size(path) > 1024 * 1024)
         throw new IllegalArgumentException("Profile exceeds 1 MiB");
-      Settings next = GSON.fromJson(Files.readString(path), Settings.class);
+      Settings next = readSettings(Files.readString(path));
       next.validate();
       next.bindings = config.bindings;
       next.overlays = config.overlays;

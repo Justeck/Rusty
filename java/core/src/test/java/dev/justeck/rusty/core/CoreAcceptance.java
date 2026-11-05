@@ -13,6 +13,53 @@ public final class CoreAcceptance {
 
   public static void main(String[] args) {
     check(
+        new Settings().restoreField("tracerPlayers"), "tracers have an independent player setting");
+    check(new Settings().restoreField("tracerMobs"), "tracers have an independent mob setting");
+    check(new Settings().restoreField("tracerItems"), "tracers have an independent item setting");
+    for (int esp = 0; esp < 8; esp++) {
+      for (int tracer = 0; tracer < 8; tracer++) {
+        var filters = new Settings();
+        filters.espPlayers = (esp & 1) != 0;
+        filters.espMobs = (esp & 2) != 0;
+        filters.espItems = (esp & 4) != 0;
+        filters.tracerPlayers = (tracer & 1) != 0;
+        filters.tracerMobs = (tracer & 2) != 0;
+        filters.tracerItems = (tracer & 4) != 0;
+        for (boolean lines : new boolean[] {false, true}) {
+          int wanted = lines ? tracer : esp;
+          check(
+              filters.entitySelected(lines, true, true, false) == ((wanted & 1) != 0),
+              "independent player selection");
+          check(
+              filters.entitySelected(lines, false, true, false) == ((wanted & 2) != 0),
+              "independent mob selection");
+          check(
+              filters.entitySelected(lines, false, false, true) == ((wanted & 4) != 0),
+              "independent item selection");
+          check(
+              !filters.entitySelected(lines, false, false, false),
+              "other entity types stay excluded");
+        }
+      }
+    }
+    var migrated = new Settings();
+    migrated.espPlayers = false;
+    migrated.espMobs = true;
+    migrated.espItems = true;
+    migrated.inheritLegacyTracerTargets(Set.of());
+    check(
+        !migrated.tracerPlayers && migrated.tracerMobs && migrated.tracerItems,
+        "old shared choices migrate once");
+    migrated.espPlayers = true;
+    migrated.tracerMobs = false;
+    migrated.inheritLegacyTracerTargets(Set.of("tracerPlayers", "tracerMobs", "tracerItems"));
+    check(
+        !migrated.tracerPlayers && !migrated.tracerMobs && migrated.tracerItems,
+        "explicit new choices survive reload");
+    check(
+        migrated.restoreField("tracerMobs") && !migrated.tracerMobs && migrated.espMobs,
+        "tracer Default preserves ESP");
+    check(
         Catalog.ALL.stream()
             .anyMatch(m ->
                 m.id().equals("enabled_mods")

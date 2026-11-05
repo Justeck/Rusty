@@ -71,18 +71,12 @@ public final class RustyOverlay {
             || entity.isRemoved()
             || entity.distanceToSqr(mc.player) > (double) cfg.entityRange * cfg.entityRange)
           continue;
-        boolean player = entity instanceof Player,
-            eligible =
-                player
-                    ? cfg.espPlayers
-                    : entity instanceof LivingEntity
-                        ? cfg.espMobs
-                        : entity instanceof ItemEntity && cfg.espItems;
-        if (!eligible) continue;
+        boolean player = entity instanceof Player;
+        boolean living = entity instanceof LivingEntity, item = entity instanceof ItemEntity;
         int color = player ? 0xffdda167 : 0xff7dc8ab;
-        if (RustyClient.active("entity_esp"))
+        if (RustyClient.active("entity_esp") && cfg.entitySelected(false, player, living, item))
           box(out, entity.getBoundingBox().inflate(.03), color, true);
-        if (RustyClient.active("entity_tracers"))
+        if (RustyClient.active("entity_tracers") && cfg.entitySelected(true, player, living, item))
           line(out, start, entity.getBoundingBox().getCenter(), color, true);
       }
     }

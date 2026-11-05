@@ -169,7 +169,7 @@ public final class Catalog {
               "entity_tracers",
               "Entity Tracers",
               "Render",
-              "Draw bounded lines to received players and mobs within the search radius."),
+              "Choose independent player, mob and dropped-item tracers within the search radius."),
           new Module(
               "safe_walk",
               "Safe Walk",

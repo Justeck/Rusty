@@ -5,7 +5,7 @@ use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::{Arc, RwLock};
 
 pub const ID: &str = "rusty";
-pub const VERSION: &str = "1.2.5";
+pub const VERSION: &str = "1.2.6";
 pub const TITLE: &str = "Rusty";
 pub const DEFAULT_KEY: &str = "key.keyboard.x";
 pub const MAX_PROFILE_BYTES: usize = 4 * 1024 * 1024;
@@ -273,7 +273,15 @@ impl Config {
         if text.len() > MAX_PROFILE_BYTES {
             return Err("Profile exceeds the 4 MiB size limit".into());
         }
-        serde_json::from_str::<Self>(text)
+        let mut value: serde_json::Value = serde_json::from_str(text).map_err(|e| e.to_string())?;
+        // Old native tracers covered all players and mobs, independently of ESP.
+        // Migrate only an existing awareness object; fresh settings select players.
+        if let Some(awareness) = value.get_mut("awareness").and_then(|a| a.as_object_mut()) {
+            awareness.entry("tracer_players").or_insert(true.into());
+            awareness.entry("tracer_mobs").or_insert(true.into());
+            awareness.entry("tracer_items").or_insert(false.into());
+        }
+        serde_json::from_value::<Self>(value)
             .map_err(|e| e.to_string())?
             .validated()
     }
@@ -602,6 +610,35 @@ impl Activation {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn entity_tracer_targets_are_independent_saved_preferences() {
+        let text = r#"{"schema":1,"esp_players":false,"esp_mobs":true,"esp_items":false,"awareness":{"entity_tracers":true,"tracer_players":true,"tracer_mobs":false,"tracer_items":true}}"#;
+        let cfg = Config::from_json(text).expect("independent tracer targets must be accepted");
+        let saved: serde_json::Value = serde_json::from_str(&cfg.to_json().unwrap()).unwrap();
+        assert_eq!(saved["awareness"]["tracer_players"], true);
+        assert_eq!(saved["awareness"]["tracer_mobs"], false);
+        assert_eq!(saved["awareness"]["tracer_items"], true);
+        assert!(!cfg.esp_players && cfg.esp_mobs && !cfg.esp_items);
+        assert_eq!(Config::from_json(&cfg.to_json().unwrap()).unwrap(), cfg);
+    }
+    #[test]
+    fn legacy_native_tracers_keep_player_and_mob_coverage_without_overriding_new_flags() {
+        let legacy = Config::from_json(r#"{"awareness":{"entity_tracers":true}}"#).unwrap();
+        assert!(legacy.awareness.tracer_players && legacy.awareness.tracer_mobs);
+        assert!(!legacy.awareness.tracer_items);
+        let fresh = Config::from_json("{}").unwrap();
+        assert!(fresh.awareness.tracer_players);
+        assert!(!fresh.awareness.tracer_mobs && !fresh.awareness.tracer_items);
+        let explicit = Config::from_json(
+            r#"{"awareness":{"tracer_players":false,"tracer_mobs":false,"tracer_items":false}}"#,
+        )
+        .unwrap();
+        assert!(
+            !explicit.awareness.tracer_players
+                && !explicit.awareness.tracer_mobs
+                && !explicit.awareness.tracer_items
+        );
+    }
     #[test]
     fn textured_borders_leave_face_center_open_and_keep_profiles_compatible() {
         let c = Config::default();
