@@ -6,8 +6,8 @@ This page records fresh checks of the Rusty source identity. No historical raw g
 |---|---|
 | Rust pure/tool tests | 141 library +18 native release-tool tests passed after source rename |
 | Python tooling | 13 tests passed after source rename |
-| Formatting/strict lint | In progress |
-| Native SDK compilation/package | In progress |
+| Formatting/strict lint | Passed locally and in Linux CI |
+| Native SDK compilation/package | Linux SDK check and official package verification passed; Linux/Windows native archives are byte-identical |
 | Actual launcher Build/Play | Pending the Rusty-native build |
 | Singleplayer/owned multiplayer | Pending fresh executable fixtures |
 | Original screenshots/tour | Pending fresh Rusty captures |
@@ -18,3 +18,5 @@ Exact source/package/executable identities and raw receipt hashes will be record
 The supported target is Minecraft26.3, Horizon6475f62/nativeAPI359 and mixins e8cd0aa38cffef49cb2e088ef716baa107148c02. Server anti-X-ray, server authority, unknown chunks, finite scan budgets, other hardware and long sessions remain explicit limitations. Reference-client parity and perfection are not claimed.
 
 [Installation](INSTALLATION.md) · [Development](DEVELOPMENT.md) · [Performance](PERFORMANCE.md)
+
+[Independent CI package receipt](evidence/ci-package.json) records source 19a63f95, successful native checks, exact run/job/artifact identities, and archive equality. The Windows Performance build and fresh actual-game fixtures remain separate gates.

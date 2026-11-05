@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "source_commit": "19a63f95a4430b447f3f915ed506a70ce6294e33",
+  "source_tree": "6b8c19e18dc3bfde695297368ea1ae0da9addd6d",
+  "workflow_run": 41964856770,
+  "job": 127039404468,
+  "artifact": 13386807856,
+  "workflow_url": "https://github.com/Justeck/Rusty/actions/runs/41964856770",
+  "conclusion": "success",
+  "linux_artifact_sha256": "91b70d94b641d81936b8675abe2ad49dac69802512c7ff96bbc50c89c9117e44",
+  "native_package_sha256": "7fb9ade0e05595fad6ddc019c0fdb0807a802f5667091df9eeb9a58ea908db0d",
+  "native_package_bytes": 188601,
+  "linux_and_windows_native_archives_byte_identical": true,
+  "library_tests": 141,
+  "release_tool_tests": 18,
+  "python_tests": 13,
+  "strict_clippy": true,
+  "formatting": true,
+  "native_sdk_check": true,
+  "official_package_check": true,
+  "actual_game_acceptance_claimed_by_ci": false
+}
