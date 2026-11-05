@@ -1,5 +1,18 @@
 # Rusty validation
 
+## 1.2.6 independent entity tracer targets
+
+Entity Tracers has separate **Players**, **Mobs** and **Dropped Items** choices, saved in profiles and exposed with individual Default controls. Entity ESP keeps its own choices; Finder block tracers and X-ray terrain remain independent. Fresh settings select players and leave the feature off. Old native profiles keep previous player-and-mob coverage; old Java profiles inherit their prior shared ESP choices only when the new fields are missing.
+
+The official Windows **Performance** build completed and selected `native-38609b7-b664e1ab8deb`, executable SHA-256 `929a989dc7d8f0845a0e47e1e5b1414c6a118299291c077e6b0838ffe15737ed`. Its **22 actual offline game checks passed**: 8 tracer controls/rendering checks, 9 defaults/active-list regressions and 5 X-ray/Finder independence checks with paired rendered pixels. Original native menu and gameplay frames were visually inspected.
+
+An interrupted incremental build had left the render archive referencing a generated JSON deserializer without its definition. Backing up only that package's generated compiler cache and rebuilding **the same source** restored the definition and linked successfully with the normal Performance profile. No source, world or preference changes were needed for that recovery. The official package checker accepted the `.hnmod`; all 115 payloads equal the installed source candidate, with a semantically equal root manifest.
+
+Fresh checks: **150 Rust library tests, 18 native-tool tests, 14 Python tests**, format and strict Clippy. Java counterparts passed **1,215 core assertions and 76 actual game checks per loader**. Review found shared Java geometry capacity could evict entity lines under saturation; separate 128-line tracer capacity now prevents this. Main Java geometry retains its 768-entry cap. The saturation regression compares endpoint identities with and without ESP/Finder load; it is a core-buffer check, not a 400-mob live-game benchmark.
+
+[Exact acceptance, build identity, named checks, package hashes and media provenance](evidence/tracer-targets-1.2.6.json). The native build uses the official launcher CLI; game runs use owned disposable offline worlds. Public-server, second-player, endurance, arbitrary-modpack and alternate-renderer behavior were not freshly accepted. Dense selections keep received order within the 128-line budget. Release installation and published Java download equivalence are separate gates, recorded after publication.
+
+
 ## 1.2.5 public release and installation verification
 
 The immutable [native 1.2.5](https://github.com/Justeck/Rusty/releases/tag/v1.2.5) and [Java 1.3.0-beta.4](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.4) releases resolve to accepted source `0e15af28f59dc4c84f564aa5510aa78beaa79448`. Both gated release workflows succeeded. Native remains GitHub latest.

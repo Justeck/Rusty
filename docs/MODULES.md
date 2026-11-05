@@ -8,7 +8,8 @@ Rusty exposes implemented native modules rather than placeholder entries for the
 |---|---|
 | X-Ray | Select known block IDs with optional states, heights, radius, color, label and group. X toggles by default; optional Hold mode ends on release. It never requests hidden server blocks. |
 | Finder | Bounded scans of received sections, independent of X-ray. Finder owns target boxes, tracer lines and target readouts; X-Ray alone does not render them. Results and refresh have explicit budgets; dense selections are marked partial. |
-| Entity ESP / Entity Tracers | Boxes or lines for received entities within range, with bounded draw work. These do not discover unloaded entities. |
+| Entity ESP | Boxes for received Players, Mobs and Items, using its own target choices. |
+| Entity Tracers | Independently enable lines to received Players, Mobs and Dropped Items. Any combination or none; individual defaults and saved profile choices. Bounded range and draw work, without discovering unloaded entities. |
 | Storage ESP | Received live block-entity positions, including ordinary updates and removal. It cannot reveal unopened inventory contents. |
 | Light Risk | Marks known floor/headroom samples using ready received light. Red means observed darkness; amber distinguishes skylight. It is a conservative visual aid, not a complete mob-spawn predictor. |
 | Chunk Borders | Geometry aligned to the player's current chunk, including vertical section guides. |

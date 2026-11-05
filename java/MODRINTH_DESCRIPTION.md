@@ -4,7 +4,7 @@
 
 Textured world views, local navigation, movable HUDs and optional player assistance—built around Minecraft's own buttons, sliders and controls. Turn on what you need, keep the world in view, and make the layout your own.
 
-**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.4**
+**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.5**
 
 [Installation guide](https://github.com/Justeck/Rusty/blob/main/java/README.md) · [Source code](https://github.com/Justeck/Rusty) · [Report an issue](https://github.com/Justeck/Rusty/issues) · [Validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
@@ -23,6 +23,18 @@ Typical ores are preselected. Add any registered block ID to your selection. Fin
 ![Custom registered block selection with diamond ores and a chest](https://raw.githubusercontent.com/Justeck/Rusty/57f241684ccdee41badcfde2341c748474217e4b/docs/screenshots/java/tour/rusty-gallery-41-custom-block-editor.png)
 
 *Select ordinary registered block IDs, including custom storage targets. The Typical ores preset restores the ore selection.*
+
+## Choose the lines you need
+
+**Entity Tracers** has its own **Players**, **Mobs** and **Dropped items** switches. Select any combination or none, independently of **Entity ESP** boxes and **Finder** block pointers. Each choice has a Default button and is saved in profiles. Entity tracers have their own 128-line budget, so ESP boxes and Finder geometry cannot crowd them out. Older Java profiles inherit their former shared choices once; fresh settings select players and leave the feature off.
+
+![Separate entity tracer target controls](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.5/docs/screenshots/java/rusty-tracer-settings.png)
+
+*Actual Fabric menu: independent Players, Mobs and Dropped items controls, each with a Default button.*
+
+![Dropped-item tracer with a separate mob ESP box](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.5/docs/screenshots/java/rusty-independent-tracers.png)
+
+*Actual owned test-world frame: the line targets the dropped diamond on the left; the box highlights the pig on the right. Different target selections, both active together.*
 
 ## Make the interface yours
 
@@ -89,12 +101,12 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 
 | Loader | Requirements | Rusty file |
 |---|---|---|
-| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.4.jar` |
-| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.4.jar` |
+| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.5.jar` |
+| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.5.jar` |
 
 Install **one Rusty loader jar**, not both. Use the **Versions** tab for downloads. Earlier game versions and snapshots are not supported by this beta.
 
-**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.2.5 release](https://github.com/Justeck/Rusty/releases/tag/v1.2.5), targeting **Horizon Nightly 38609b7 · native API 409 · Minecraft 26.3**. Native 1.2.5 adds individual defaults, a confirmed full reset and the top-left active list. Its official Windows Performance build and 25 isolated native game checks passed. [Native installation and exact validation scope](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md). These Java jars do not go into Horizon's native mod installer.
+**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.2.6 release](https://github.com/Justeck/Rusty/releases/tag/v1.2.6), targeting **Horizon Nightly 38609b7 · native API 409 · Minecraft 26.3**. Native 1.2.6 adds independent Players, Mobs and Dropped Items choices to Entity Tracers. [Native installation and exact validation scope](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md). These Java jars do not go into Horizon's native mod installer.
 
 ## Multiplayer: permission is explicit
 
@@ -106,7 +118,7 @@ Rusty does not defeat server anti-X-ray, recover deliberately withheld blocks, b
 
 ## Tested, with clear limits
 
-This beta passed fresh builds, **692 shared behavioral assertions** and **65 actual disposable-world game checks per loader**, including actual Default buttons, confirmation/cancel behavior, runtime resets, active-list placement/update/removal, menu transforms at 50%, 100% and 300%, and the existing X-ray/Finder regressions. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this patch. These are separate kinds of evidence: the 43-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
+This beta passed fresh builds, **1,215 shared behavioral assertions** and **76 actual disposable-world game checks per loader**, including independent entity tracer/ESP targets, actual tracer menu controls and Default buttons, confirmation/cancel behavior, runtime resets, active-list placement/update/removal, menu transforms at 50%, 100% and 300%, and the existing X-ray/Finder regressions. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this patch. These are separate kinds of evidence: the 43-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
 - **Rendering:** shaders, rendering replacements and arbitrary modpacks are unverified. Textured frames add geometry and can reduce FPS; terrain rebuilds are asynchronous.
 - **World information:** the minimap shows received surface colors. Projectile paths do not predict entities, random spread or future movement. Light Risk samples floor light rather than proving spawn safety.

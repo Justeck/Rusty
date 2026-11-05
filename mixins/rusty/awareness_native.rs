@@ -314,6 +314,9 @@ pub(super) fn gizmos(game: &Game<'_>, out: &mut Gizmos, camera: [f64; 3], view: 
         let start = std::array::from_fn(|i| camera[i] + f64::from(offset[i]));
         let radius = f64::from(cfg.scan_radius);
         for mob in game.mobs.iter().take(4096).filter(|m| !m.removed) {
+            if !settings.traces_entity(mob.kind.id == "minecraft:player", false) {
+                continue;
+            }
             let at = [
                 mob.position.x,
                 mob.position.y + f64::from(mob.height()) * 0.5,
@@ -332,6 +335,17 @@ pub(super) fn gizmos(game: &Game<'_>, out: &mut Gizmos, camera: [f64; 3], view: 
                 );
                 if lines.lines.len() >= 128 {
                     break;
+                }
+            }
+        }
+        if settings.traces_entity(false, true) {
+            for item in game.dropped.iter().take(4096) {
+                if lines.lines.len() >= 128 {
+                    break;
+                }
+                let at = [item.position.x, item.position.y + 0.125, item.position.z];
+                if distance2(camera, at) <= radius * radius {
+                    lines.line(start, at, 0xffb4f28c, 1.5);
                 }
             }
         }

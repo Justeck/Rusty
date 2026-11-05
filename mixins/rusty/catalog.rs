@@ -518,6 +518,26 @@ const ENTITY_SETTINGS: &[SettingSpec] = &[
         false,
     ),
 ];
+const ENTITY_TRACER_SETTINGS: &[SettingSpec] = &[
+    boolean(
+        "tracer_players",
+        "Players",
+        "Draw lines to received players; independent of Entity ESP.",
+        true,
+    ),
+    boolean(
+        "tracer_mobs",
+        "Mobs",
+        "Draw lines to received living non-player entities; independent of Entity ESP.",
+        false,
+    ),
+    boolean(
+        "tracer_items",
+        "Dropped Items",
+        "Draw lines to received dropped items; independent of Entity ESP.",
+        false,
+    ),
+];
 const ZOOM_SETTINGS: &[SettingSpec] = &[decimal(
     "zoom_factor",
     "Zoom Factor",
@@ -910,10 +930,10 @@ pub static MODULES: &[ModuleSpec] = &[
     ModuleSpec {
         id: "entity_tracers",
         name: "Entity Tracers",
-        description: "Draw bounded lines to received players and mobs within the search radius.",
+        description: "Choose independent player, mob and dropped-item tracers within the search radius.",
         category: Category::Render,
         aliases: &["entity pointers lines"],
-        settings: &[],
+        settings: ENTITY_TRACER_SETTINGS,
         keybind_id: Some("entity_tracers"),
         default_key: Some("key.keyboard.unknown"),
         default_enabled: false,
@@ -1413,7 +1433,7 @@ mod tests {
         );
         assert_eq!(
             ids(search("received entities", None, Collection::All, &p)),
-            ["entity_esp", "storage_esp"]
+            ["entity_esp", "entity_tracers", "storage_esp"]
         );
     }
 

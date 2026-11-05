@@ -1,3 +1,11 @@
+## 1.2.6 / Java 1.3.0-beta.5 — independent entity tracer targets
+
+- Add separate Players, Mobs and Dropped Items controls to Entity Tracers, with saved preferences and individual defaults.
+- Filter native received living entities and dropped items within the existing range and 128-line budget.
+- Independently select Java entity boxes and lines in the same bounded received-entity pass.
+- Preserve legacy tracer selections on profile load/import and retain strict native duplicate-field rejection. Fresh profiles select players and keep the feature off.
+- Keep Finder block tracers and X-ray terrain controls independent.
+
 # Changelog
 
 ## Rusty 1.2.5

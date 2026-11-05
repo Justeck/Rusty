@@ -375,7 +375,32 @@ public final class RustyScreen extends Screen {
               v -> RustyClient.config.maxTargets = (int) v,
               x,
               ys));
-    } else if (selected.startsWith("entity_")) {
+    } else if (selected.equals("entity_tracers")) {
+      options.add(() ->
+          toggle(
+              "tracerPlayers",
+              "Players",
+              () -> RustyClient.config.tracerPlayers,
+              v -> RustyClient.config.tracerPlayers = v,
+              x,
+              ys));
+      options.add(() ->
+          toggle(
+              "tracerMobs",
+              "Mobs",
+              () -> RustyClient.config.tracerMobs,
+              v -> RustyClient.config.tracerMobs = v,
+              x,
+              ys));
+      options.add(() ->
+          toggle(
+              "tracerItems",
+              "Dropped items",
+              () -> RustyClient.config.tracerItems,
+              v -> RustyClient.config.tracerItems = v,
+              x,
+              ys));
+    } else if (selected.equals("entity_esp")) {
       options.add(() ->
           toggle(
               "espPlayers",

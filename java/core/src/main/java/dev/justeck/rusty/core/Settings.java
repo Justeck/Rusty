@@ -26,6 +26,21 @@ public final class Settings {
   public double hudScale = 1, zoomFactor = 4, cameraSpeed = .6;
   public boolean context = true, tracers = true, outlines = true, reducedMotion, triggerPlayers;
   public boolean espPlayers = true, espMobs, espItems, mapRound = true, mapRotate;
+  public boolean tracerPlayers = true, tracerMobs, tracerItems;
+
+  public boolean entitySelected(boolean tracer, boolean player, boolean living, boolean item) {
+    if (player) return tracer ? tracerPlayers : espPlayers;
+    if (living) return tracer ? tracerMobs : espMobs;
+    return item && (tracer ? tracerItems : espItems);
+  }
+
+  /** Old profiles shared the ESP choices. Copy only missing tracer preferences once. */
+  public void inheritLegacyTracerTargets(Set<String> fields) {
+    if (!fields.contains("tracerPlayers")) tracerPlayers = espPlayers;
+    if (!fields.contains("tracerMobs")) tracerMobs = espMobs;
+    if (!fields.contains("tracerItems")) tracerItems = espItems;
+  }
+
   public int mapSize = 96, plannerWidth = 3, plannerDepth = 3, plannerHeight = 1, eatBelow = 16;
   public boolean plannerHollow, plannerFloor = true, plannerRoof = true;
   public String theme = "Classic";

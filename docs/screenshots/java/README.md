@@ -13,3 +13,15 @@ These are direct Minecraft framebuffer screenshots from owned, disposable 26.3 t
 - `rusty-fabric-textured-view.png`: physical X-key activation at default 25% original texture coverage, real received exposed and buried ores in a disposable fixture.
 
 These are original 1280×720 framebuffer captures; the textured view is from Fabric13 and the final editor is from NeoForge11, without retouching. Only Status HUD is enabled by default; the editor previews all panels.
+
+## Independent entity targets — Java 1.3.0-beta.5
+
+Original Fabric 26.3 captures from the disposable game acceptance world, visually reviewed before publication. The new target filters and Default buttons were exercised on both loaders.
+
+![Independent tracer target settings](rusty-tracer-settings.png)
+
+The Entity Tracers pane has separate Players, Mobs and Dropped items switches.
+
+![Item tracer with a mob-only ESP box](rusty-independent-tracers.png)
+
+The line points to the dropped diamond on the left. The pig on the right has an ESP box and no tracer. This frame demonstrates different target selections together.

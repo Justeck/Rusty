@@ -13,6 +13,9 @@ pub struct AwarenessSettings {
     pub speed_hud: bool,
     pub clock_hud: bool,
     pub entity_tracers: bool,
+    pub tracer_players: bool,
+    pub tracer_mobs: bool,
+    pub tracer_items: bool,
     pub minimap: bool,
     pub minimap_rotate: bool,
     pub minimap_round: bool,
@@ -35,6 +38,9 @@ impl Default for AwarenessSettings {
             speed_hud: false,
             clock_hud: false,
             entity_tracers: false,
+            tracer_players: true,
+            tracer_mobs: false,
+            tracer_items: false,
             minimap: false,
             minimap_rotate: false,
             minimap_round: true,
@@ -48,6 +54,15 @@ impl Default for AwarenessSettings {
     }
 }
 impl AwarenessSettings {
+    pub fn traces_entity(&self, player: bool, dropped_item: bool) -> bool {
+        if player {
+            self.tracer_players
+        } else if dropped_item {
+            self.tracer_items
+        } else {
+            self.tracer_mobs
+        }
+    }
     pub fn validate(&self) -> Result<(), String> {
         if !(64..=160).contains(&self.minimap_size)
             || !self.minimap_scale.is_finite()
@@ -87,6 +102,20 @@ pub fn clock_text(ticks: i64) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn every_tracer_target_combination_selects_only_its_own_kind() {
+        for mask in 0..8 {
+            let settings = AwarenessSettings {
+                tracer_players: mask & 1 != 0,
+                tracer_mobs: mask & 2 != 0,
+                tracer_items: mask & 4 != 0,
+                ..AwarenessSettings::default()
+            };
+            assert_eq!(settings.traces_entity(true, false), mask & 1 != 0);
+            assert_eq!(settings.traces_entity(false, false), mask & 2 != 0);
+            assert_eq!(settings.traces_entity(false, true), mask & 4 != 0);
+        }
+    }
     #[test]
     fn negative_chunk_edges_use_floor() {
         assert_eq!(chunk_origin(-0.1), Some(-16));

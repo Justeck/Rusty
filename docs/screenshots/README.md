@@ -64,3 +64,17 @@ Original frames from the actual launcher-built executable in an owned offline wo
 ![Active tool names in separate top-left rows](rusty-1.2.5-enabled-mods.png)
 
 Exact file hashes, build identity and game scope are in [the acceptance receipt](../evidence/defaults-list-1.2.5.json).
+
+## Independent entity targets — native 1.2.6
+
+Actual frames from the accepted Windows Performance build, captured in a disposable offline world and visually inspected before publication.
+
+![Independent tracer target controls](rusty-1.2.6-tracer-settings.png)
+
+The saved target choices remain visible while the tracer feature is disabled. Each target has its own Default control.
+
+| Tracers include both entities; ESP selects mobs only | Tracers off; the mob ESP box stays on |
+|---|---|
+| ![Diamond and pig tracers with a pig-only ESP box](rusty-1.2.6-entity-tracers.png) | ![ESP box without any tracer lines](rusty-1.2.6-esp-without-tracers.png) |
+
+[Exact build, original-file hashes and acceptance scope](../evidence/tracer-targets-1.2.6.json).

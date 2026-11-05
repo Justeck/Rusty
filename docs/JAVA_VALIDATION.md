@@ -1,3 +1,11 @@
+# 1.3.0-beta.5 independent tracer targets
+
+Both loader builds, source packages, **1,215 shared core assertions** and **76 actual disposable-world game checks per loader** passed. Tests cover independent received pig/item lines and ESP boxes, empty selections, independent disable/default actions, actual tracer menu widgets, and the existing X-ray/Finder, chunk/dimension, menu/HUD and inventory regressions.
+
+The renderer gives entity tracers an independent **128-line budget**, alongside the existing **768 main geometry entries**. A saturation regression failed with the former shared pool, then passed with stable endpoint identities under ESP and Finder saturation. This is a core-buffer contract; the game fixture uses controlled pig/item targets. Old Java profiles inherit missing tracer flags from their former shared ESP choices once; explicit new false values survive reload/import.
+
+[Exact acceptance and media provenance](evidence/tracer-targets-1.2.6.json). The gameplay illustration shows the original beta.5 feature candidate; final core and game acceptance separately cover the reviewed capacity fix. Release-jar product-class equivalence is checked after publication. No fresh public-server, second-player, arbitrary-modpack, alternate-renderer, endurance or published-jar personal-launcher acceptance is claimed. Restricted tools still require authoritative server opt-in.
+
 # Java edition validation — 1.3.0-beta.4
 
 **Enabled Mods** is a separate, opt-in Interface feature: active Rusty tools appear alphabetically in top-left rows, excluding the list itself. The nineteenth HUD panel has independent placement/size. Minecraft-style Default controls restore individual values and shortcuts; the menu-wide Restore defaults asks for confirmation, resets all preferences and runtime tools, and retains saved waypoint/profile files.

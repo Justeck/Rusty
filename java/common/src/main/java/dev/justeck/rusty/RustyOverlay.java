@@ -1,5 +1,6 @@
 package dev.justeck.rusty;
 
+import dev.justeck.rusty.core.OverlayBuffer;
 import java.util.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -22,19 +23,18 @@ public final class RustyOverlay {
   public static volatile int renderedGeometry;
   public static String trajectoryStatus = "Hold a bow or supported throwable.";
 
-  private static void box(List<Draw> out, AABB b, int color, boolean through) {
-    if (out.size() < 768)
-      out.add(
-          new Draw(
-              new Vec3(b.minX, b.minY, b.minZ),
-              new Vec3(b.maxX, b.maxY, b.maxZ),
-              color,
-              true,
-              through));
+  private static void box(OverlayBuffer<Draw> out, AABB b, int color, boolean through) {
+    out.add(
+        new Draw(
+            new Vec3(b.minX, b.minY, b.minZ),
+            new Vec3(b.maxX, b.maxY, b.maxZ),
+            color,
+            true,
+            through));
   }
 
-  private static void line(List<Draw> out, Vec3 a, Vec3 b, int color, boolean through) {
-    if (out.size() < 768) out.add(new Draw(a, b, color, false, through));
+  private static void line(OverlayBuffer<Draw> out, Vec3 a, Vec3 b, int color, boolean through) {
+    out.add(new Draw(a, b, color, false, through));
   }
 
   public static void capture() {
@@ -43,7 +43,7 @@ public final class RustyOverlay {
       snapshot = List.of();
       return;
     }
-    var out = new ArrayList<Draw>();
+    var out = new OverlayBuffer<Draw>();
     var cfg = RustyClient.config;
     Vec3 eye = RustyClient.active("freecam") ? RustyCamera.position : mc.player.getEyePosition();
     Vec3 start =
@@ -71,19 +71,14 @@ public final class RustyOverlay {
             || entity.isRemoved()
             || entity.distanceToSqr(mc.player) > (double) cfg.entityRange * cfg.entityRange)
           continue;
-        boolean player = entity instanceof Player,
-            eligible =
-                player
-                    ? cfg.espPlayers
-                    : entity instanceof LivingEntity
-                        ? cfg.espMobs
-                        : entity instanceof ItemEntity && cfg.espItems;
-        if (!eligible) continue;
+        boolean player = entity instanceof Player;
+        boolean living = entity instanceof LivingEntity, item = entity instanceof ItemEntity;
         int color = player ? 0xffdda167 : 0xff7dc8ab;
-        if (RustyClient.active("entity_esp"))
+        if (RustyClient.active("entity_esp") && cfg.entitySelected(false, player, living, item))
           box(out, entity.getBoundingBox().inflate(.03), color, true);
-        if (RustyClient.active("entity_tracers"))
-          line(out, start, entity.getBoundingBox().getCenter(), color, true);
+        if (RustyClient.active("entity_tracers") && cfg.entitySelected(true, player, living, item))
+          out.addEntityTracer(
+              new Draw(start, entity.getBoundingBox().getCenter(), color, false, true));
       }
     }
     if (RustyClient.active("storage_esp")) {
@@ -189,10 +184,10 @@ public final class RustyOverlay {
         }
     }
     if (RustyClient.active("trajectories")) trajectory(out);
-    snapshot = List.copyOf(out);
+    snapshot = out.snapshot();
   }
 
-  private static void trajectory(List<Draw> out) {
+  private static void trajectory(OverlayBuffer<Draw> out) {
     var mc = Minecraft.getInstance();
     var p = mc.player;
     var stack = p.getMainHandItem();
