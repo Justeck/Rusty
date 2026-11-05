@@ -7,7 +7,7 @@ Rusty exposes implemented native modules rather than placeholder entries for the
 | Module | Operation and limits |
 |---|---|
 | X-Ray | Select known block IDs with optional states, heights, radius, color, label and group. X toggles by default; optional Hold mode ends on release. It never requests hidden server blocks. |
-| Finder | Bounded scans of received sections, independent of X-ray. Results, boxes, tracers and refresh have explicit budgets; dense selections are marked partial. |
+| Finder | Bounded scans of received sections, independent of X-ray. Finder owns target boxes, tracer lines and target readouts; X-Ray alone does not render them. Results and refresh have explicit budgets; dense selections are marked partial. |
 | Entity ESP / Entity Tracers | Boxes or lines for received entities within range, with bounded draw work. These do not discover unloaded entities. |
 | Storage ESP | Received live block-entity positions, including ordinary updates and removal. It cannot reveal unopened inventory contents. |
 | Light Risk | Marks known floor/headroom samples using ready received light. Red means observed darkness; amber distinguishes skylight. It is a conservative visual aid, not a complete mob-spawn predictor. |

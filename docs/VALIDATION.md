@@ -1,5 +1,18 @@
 # Rusty validation
 
+## 1.2.3 independent X-ray and Finder
+
+X-ray now changes terrain only. Finder separately owns target boxes, tracer lines and target readouts. Saved line preferences remain intact; enabling or disabling X-ray does not change Finder. Original-texture terrain frames remain part of X-ray.
+
+The official Windows launcher **Performance** build completed successfully on **Horizon 38609b7 / API 409 / Minecraft 26.3**, using its supported Rust **1.99.1** toolchain. Compilation took **13m 38s**; the launcher reported **26m 4s** including staging/installation. The sole `horizon` instance selected `native-38609b7-62e1f0c09f3c`. The accepted executable SHA-256 is `3aefe2228d77e803b1b6a4a169a579d65c622031476aa7986aaa5b431c23d0f8`.
+
+Fresh actual game checks on that executable passed: **5 X-ray/Finder independence checks**, **9 feature checks** and **10 interface checks**. The rendered regression keeps the HUD/line layer visible and proves both directions: X-ray alone is unchanged with saved lines/boxes on or off, while explicitly enabled Finder visibly renders tracers with X-ray both on and off. Hotkey toggles preserve line preferences and received block data. Original paired frames were reviewed. Drifting clouds initially contaminated one comparison despite frozen world time; clouds were disabled only in the disposable fixture, without relaxing thresholds. Failed receipts remain separate.
+
+**141 Rust library + 18 native-tool tests**, **14 Python tests**, formatting, strict lint, structural packaging and pinned-SDK CI checks passed. The [exact receipt](evidence/xray-independence-1.2.3.json) records source, executable, package and named game checks. The matching Java beta passed **49 checks per loader** and **609 shared core assertions**.
+
+These fresh checks use isolated offline worlds. Earlier server/performance/endurance results below remain historical. The build used the official launcher CLI; this patch does not claim a fresh GUI Build/Play test. No existing user game or public-server character was controlled.
+
+
 ## 1.2.2 current Nightly compatibility patch
 
 Horizon Nightly **38609b7 / native API 409 / Minecraft 26.3** replaces the old held-key set with a device-aware container. Rusty's two obsolete collection calls prevented compilation. The camera integration now removes its movement mappings individually and restores physically held movement keys on exit. No upstream production source is changed.

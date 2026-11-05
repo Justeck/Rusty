@@ -1,6 +1,6 @@
 # Usage and settings
 
-This guide describes Rusty **1.2.0**. The [module guide](MODULES.md) covers all 42 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
+This guide describes Rusty **1.2.3**. The [module guide](MODULES.md) covers all 42 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
 
 ## The live ClickGUI
 
@@ -48,6 +48,8 @@ Each block ID has one rule. Set its label, group, RGB color, outline box, tracer
 Per-rule radius limits scanned results and their boxes/tracers. Native X-ray terrain uses the block/state/height rules across received chunks within the game's render distance.
 
 ## Block Finder
+
+X-Ray changes terrain only. Enable Finder separately for target boxes, tracer lines and target readouts. The line/box controls live under Finder; X-ray activation never changes Finder or overwrites saved line preferences. An independently enabled Finder remains active when X-ray is switched off.
 
 Finder is **off by default**. Press **V** or enable it in the menu for bounded scans of received world data. Adjust scan radius, refresh interval, counts, and maximum targets to fit the selection. A manual scan is also available.
 

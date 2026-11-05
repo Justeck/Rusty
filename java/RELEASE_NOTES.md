@@ -1,19 +1,11 @@
-![Rusty — integrated copper R wordmark](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.1/docs/assets/rusty-wordmark.png)
+![Rusty - integrated copper R wordmark](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.2/docs/assets/rusty-wordmark.png)
 
-# Rusty Java 1.3.0-beta.1
+# Rusty Java 1.3.0-beta.2
 
-Fabric and NeoForge counterparts for **Minecraft 26.3 / Java 25**. Horizon native is a separate Rust edition; use its stable native release in Horizon Launcher.
+**X-ray now changes terrain only.** Enable Finder separately for target lines and boxes. X-ray toggles do not activate Finder or overwrite line preferences; an independently enabled Finder still works with X-ray off. Terrain controls stay with X-Ray, and line/box controls move to Finder.
 
-- 42 configurable tools, Minecraft widgets, search/Enabled/Favorites/Recent, contextual help and recoverable menu access.
-- Original block-texture context with adjustable retained area, typical/custom block targets, bounded received-chunk scanning, outlines and pointers.
-- Clearable/rebindable shortcuts, reliable brief toggle taps, optional hold activation, independent UI/HUD size and 18 movable panels.
-- Connection-scoped, server-authoritative opt-in for restricted multiplayer tools; local singleplayer grants. Ordinary information tools work on unmodified servers.
-- World/dimension cache resets, ordinary-action ownership, explicit correction rearming and capped render/scan work.
+Fabric and NeoForge for **Minecraft 26.3 / Java 25**. Install one matching loader jar. Fabric needs Loader 0.20.1+ and Fabric API 0.165.2+26.3; NeoForge targets 26.3.0.101. The native Horizon package is a separate Rust edition.
 
-**Verified:** 609 shared behavioral assertions and 45 fresh in-game checks on each loader, including direct captures of the standalone R menu header. Dedicated loopback server tests cover ordinary unmodified-server use and authoritative grants/revocation. See the validation report for tested scope and unverified cases.
+This patch adds actual rendered regression checks for X-ray-only geometry, Finder opt-in and independent toggle directions. Fresh results and earlier test boundaries are kept separate in [Java validation](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md).
 
-**Install one matching loader jar.** Fabric requires Fabric API 0.165.2+26.3 and Loader 0.20.1+. NeoForge targets 26.3.0.101. Do not put these jars into Horizon's native mod installer.
-
-[Java guide and permissions](https://github.com/Justeck/Rusty/blob/main/java/README.md) · [Validation and limitations](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
-
-This is a beta for one exact game version. The validation report separates real game checks from compilation and unverified cases. It does not claim feature parity with every third-party client, superiority in performance, or compatibility with arbitrary shader/rendering mods. Server anti-X-ray can withhold ore information; Rusty does not recover it.
+Restricted multiplayer tools still require explicit server opt-in. No server anti-X-ray bypass or override of server authority. [Guide and permissions](https://github.com/Justeck/Rusty/blob/main/java/README.md). Apache-2.0 with project notices preserved.

@@ -1,5 +1,13 @@
 # Changelog
 
+## Rusty 1.2.3
+
+- X-Ray changes terrain without implicitly drawing Finder target lines, boxes or target readouts.
+- Finder independently owns target overlays; X-ray toggles preserve Finder and saved line preferences.
+- Moved line and box controls out of the native X-Ray panel; advanced settings explain the Finder requirement.
+- Added actual rendered regression checks for saved preferences and both X-ray/Finder toggle directions.
+- Matching Java 1.3.0-beta.2 applies the same separation to Fabric and NeoForge.
+
 ## Rusty 1.2.2
 
 - Updated the native host pin to Horizon Nightly 38609b7, native API 409, Minecraft 26.3.

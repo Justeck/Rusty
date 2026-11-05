@@ -1,6 +1,6 @@
 # Install Rusty
 
-Rusty 1.2.2 is a Horizon-native Rust source mod for Minecraft Java 26.3. Horizon compiles the client with the enabled native mods. Fabric, Forge and NeoForge are not runtime dependencies.
+Rusty 1.2.3 is a Horizon-native Rust source mod for Minecraft Java 26.3. Horizon compiles the client with the enabled native mods. Fabric, Forge and NeoForge are not runtime dependencies.
 
 1. Select the original **Horizon** instance and open **Mods**.
 2. Choose **Add a Native Mod from GitHub** and paste `https://github.com/Justeck/Rusty`.
@@ -9,11 +9,11 @@ Rusty 1.2.2 is a Horizon-native Rust source mod for Minecraft Java 26.3. Horizon
 5. Wait for **Up to date**, then press **Play**. An identical mod set can reuse its verified native build and show green immediately.
 6. In a world, press **Right Shift**. **Options → Mods → Rusty** is the fallback.
 
-The versioned package is `rusty-1.2.2.hnmod`, accompanied by `SHA256SUMS`. A native source package still requires Horizon's build. A full source ZIP, if supplied, is for development/review; install the native package or GitHub source URL.
+The versioned package is `rusty-1.2.3.hnmod`, accompanied by `SHA256SUMS`. A native source package still requires Horizon's build. A full source ZIP, if supplied, is for development/review; install the native package or GitHub source URL.
 
 The repository URL follows the latest public release when available; Horizon resolves it to an immutable revision before installation. A fixed commit/release URL also works. Review an offered update's source and host pin before replacing a working installation. Do not combine native mods built for incompatible Horizon revisions.
 
-For the fixed 1.2.2 release, paste `https://github.com/Justeck/Rusty/releases/tag/v1.2.2`. Horizon resolves a release input to its immutable native asset. The [1.2.2 acceptance receipt](evidence/native-update-1.2.2.json) records the exact source payloads, tested executable and launcher Build/Play checks; published-release installation is a separate gate.
+For the fixed 1.2.3 release, paste `https://github.com/Justeck/Rusty/releases/tag/v1.2.3`. Horizon resolves a release input to its immutable native asset. The [1.2.3 acceptance receipt](evidence/xray-independence-1.2.3.json) records the exact source payloads, tested executable, official launcher CLI build and isolated game checks; published-release installation is a separate gate.
 
 ## Compatibility
 

@@ -20,7 +20,7 @@ class IsolationSmoke(FeatureSmoke):
         super().__init__(args)
         self.report.update(suite='xray-finder-independence', claims='Actual input, saved settings, received data and bounded paired rendered pixels.',
             not_exercised=['Remote servers, other graphics backends and unrelated modules are not exercised.'],
-            pixel_contract='F1 remains off. Status HUD is disabled separately. Fixed body/camera, frozen daytime, drained render queues. Finder-on positive control must show a line difference.')
+            pixel_contract='F1 remains off. Status HUD and drifting clouds are disabled separately. Fixed body/camera, frozen daytime, drained render queues. Finder-on positive control must show a line difference.')
 
     def option(self,key,value):
         self.key('key.keyboard.right.shift')
@@ -39,6 +39,9 @@ class IsolationSmoke(FeatureSmoke):
         self.launch();self.phase='received deterministic scene'
         # Hide only fading chat, not F1: the on-top line layer must remain visible.
         self.command('options-set chatVisibility 2')
+        # Clouds drift independently of the frozen world clock and would change
+        # pixels seen through the terrain even when no Finder geometry exists.
+        self.command('options-set renderClouds false')
         self.load_area(-16,-16,31,31,y=120)
         for command in self.context_clear_commands():self.server(command)
         for command in ['gamerule advance_time false','gamerule advance_weather false','gamerule spawn_mobs false','time set noon','weather clear',

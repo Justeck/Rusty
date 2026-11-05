@@ -4,7 +4,7 @@
 
 Textured world views, local navigation, movable HUDs and optional player assistance—built around Minecraft's own buttons, sliders and controls. Turn on what you need, keep the world in view, and make the layout your own.
 
-**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.1**
+**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.2**
 
 [Installation guide](https://github.com/Justeck/Rusty/blob/main/java/README.md) · [Source code](https://github.com/Justeck/Rusty) · [Report an issue](https://github.com/Justeck/Rusty/issues) · [Validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
@@ -18,7 +18,7 @@ Textured world views, local navigation, movable HUDs and optional player assista
 
 X-ray keeps selected blocks whole and retains frames of the surrounding blocks' **original textures and tint**. The texture slider runs from thin textured edges to **100% ordinary terrain**, so you can choose how much context to keep.
 
-Typical ores are preselected. Add any registered block ID to your selection. Finder adds target boxes and pointers, with radius, height and target limits to bound the work. Both use only loaded information the client has received.
+Typical ores are preselected. Add any registered block ID to your selection. Finder adds target boxes and pointers, with radius, height and target limits to bound the work. Both use only loaded information the client has received. **X-ray changes terrain only. Enable Finder separately for target lines and boxes; X-ray toggles preserve Finder and your saved line preferences.**
 
 ![Custom registered block selection with diamond ores and a chest](https://raw.githubusercontent.com/Justeck/Rusty/57f241684ccdee41badcfde2341c748474217e4b/docs/screenshots/java/tour/rusty-gallery-41-custom-block-editor.png)
 
@@ -30,7 +30,7 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 
 Menu size is independent of the HUD. Drag any of **18 panels**, scroll over a panel to resize it, or reset the layout. Profiles preserve your local settings, shortcuts, favorites and arrangements.
 
-![Rusty's Minecraft-style HUD layout editor with movable information panels](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.1/docs/screenshots/java/rusty-java-hud-editor.png)
+![Rusty's Minecraft-style HUD layout editor with movable information panels](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.2/docs/screenshots/java/rusty-java-hud-editor.png)
 
 *Actual NeoForge 26.3 HUD editor. Every panel is previewed for placement; only Status HUD starts enabled in normal play.*
 
@@ -77,12 +77,12 @@ Menu size is independent of the HUD. Drag any of **18 panels**, scroll over a pa
 
 | Loader | Requirements | Rusty file |
 |---|---|---|
-| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.1.jar` |
-| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.1.jar` |
+| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.2.jar` |
+| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.2.jar` |
 
 Install **one Rusty loader jar**, not both. Use the **Versions** tab for downloads. Earlier game versions and snapshots are not supported by this beta.
 
-**Playing through Horizon?** Use the separate [native Rust edition on GitHub](https://github.com/Justeck/Rusty/releases/tag/v1.2.1). These Java jars do not go into Horizon's native mod installer.
+**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.2.3 release](https://github.com/Justeck/Rusty/releases/tag/v1.2.3), targeting **Horizon Nightly 38609b7 · native API 409 · Minecraft 26.3**. This patch separates X-ray terrain from Finder target lines, boxes and readouts. The official Windows Performance build and **5 fresh independence + 9 feature + 10 interface checks** passed. [Native installation and validation](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md#123-independent-x-ray-and-finder). These Java jars do not go into Horizon's native mod installer.
 
 ## Multiplayer: permission is explicit
 
@@ -94,7 +94,7 @@ Rusty does not defeat server anti-X-ray, recover deliberately withheld blocks, b
 
 ## Tested, with clear limits
 
-Both loader editions have successful builds, **609 shared behavioral assertions**, actual disposable-world game checks and dedicated loopback-server permission tests. These are separate kinds of evidence: the 42-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
+This beta passed fresh builds, **609 shared behavioral assertions** and **49 actual disposable-world game checks per loader**, including four new X-ray/Finder rendering checks. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this patch. These are separate kinds of evidence: the 42-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
 - **Rendering:** shaders, rendering replacements and arbitrary modpacks are unverified. Textured frames add geometry and can reduce FPS; terrain rebuilds are asynchronous.
 - **World information:** the minimap shows received surface colors. Projectile paths do not predict entities, random spread or future movement. Light Risk samples floor light rather than proving spawn safety.

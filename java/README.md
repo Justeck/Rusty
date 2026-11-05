@@ -2,24 +2,26 @@
 
 Keep your bearings: textured world views, navigation, movable HUDs and ordinary player assistance in a familiar Minecraft interface.
 
-**Java edition 1.3.0-beta.1 · Minecraft 26.3 · Java 25.** These jars run in Java Edition through Fabric or NeoForge. Horizon uses the separate native Rust package; never put a Java jar into Horizon's native mod installer.
+**Java edition 1.3.0-beta.2 · Minecraft 26.3 · Java 25.** These jars run in Java Edition through Fabric or NeoForge. Horizon uses the separate native Rust package; never put a Java jar into Horizon's native mod installer.
 
 ## Install
 
-[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.1).
+[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.2).
 
 Choose exactly one loader:
 
 | Edition | Required environment | Download |
 |---|---|---|
-| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.1.jar` |
-| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.1.jar` |
+| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.2.jar` |
+| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.2.jar` |
 
 Install the matching jar in that Java installation's `mods` folder. Fabric also needs Fabric API. Do not install both Rusty loader jars together. Java 25 is required. Earlier game versions, snapshots, shader replacements and third-party rendering mods are not validated.
 
 Press **Right Shift** for the menu or use **Options → Rusty**. **X** toggles X-ray; **C** holds Zoom. Every shortcut can be rebound or cleared. X-ray also offers Hold mode. Status HUD is the only enabled module by default; restricted tools additionally need server permission in multiplayer.
 
 ## A view you can navigate
+
+X-Ray changes terrain only. Enable Finder separately for target lines and boxes; their controls are under Finder. X-ray toggles do not enable Finder, change its state or reset saved line preferences.
 
 ![Rusty Java menu](../docs/screenshots/java/rusty-neoforge-menu.png)
 

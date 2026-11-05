@@ -1,4 +1,12 @@
-# Java edition validation — 1.3.0-beta.1
+# Java edition validation — 1.3.0-beta.2
+
+X-ray terrain rendering and Finder target geometry are now independent. Line/box controls live under Finder, and X-ray toggles preserve Finder and saved preferences.
+
+Fresh builds on Minecraft **26.3 / Java 25**, **609 shared behavioral assertions**, package inspection and QA-source compilation passed. Both **Fabric and NeoForge completed 49 actual in-game checks** through their supported development toolchains in disposable offline worlds. Four added rendered-geometry assertions verify X-ray alone with saved lines/boxes enabled, explicit Finder opt-in, Finder continuing with X-ray off, and X-ray alone again after independent toggles. The [patch receipt](evidence/xray-independence-1.2.3.json) includes the exact named checks and local package hashes.
+
+No fresh remote-server or published-jar launcher test is claimed for beta.2. Earlier dedicated-server, performance and input results below retain their original version/scope. The first regression attempt stopped at accessibility onboarding; only the isolated QA options were corrected before rerunning. Restricted multiplayer features continue to require server opt-in.
+
+# 1.3.0-beta.1 acceptance (historical)
 
 Horizon native 1.2.0 has its own [accepted report](VALIDATION.md). This report applies to the separate Minecraft 26.3 Fabric/NeoForge counterparts. No personal world, public-server character, account inventory or launcher installation was used as a Java test fixture.
 

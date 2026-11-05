@@ -1,17 +1,13 @@
-![Rusty — integrated copper R wordmark](https://raw.githubusercontent.com/Justeck/Rusty/v1.2.2/docs/assets/rusty-wordmark.png)
+![Rusty - integrated copper R wordmark](https://raw.githubusercontent.com/Justeck/Rusty/v1.2.3/docs/assets/rusty-wordmark.png)
 
-# Rusty 1.2.2
+# Rusty 1.2.3
 
-Native compatibility update for **Horizon Nightly 38609b7 / API 409 / Minecraft 26.3**.
+**X-ray now changes terrain only.** It no longer implicitly draws target tracer lines, target boxes or Finder target readouts. Enable **Finder** separately for those overlays; **V** is its native default shortcut. Turning X-ray on/off preserves Finder and saved line preferences, so deliberately enabled Finder overlays keep working with ordinary terrain too.
 
-Horizon replaced its held-key set with a device-aware input container. The previous Freecam integration used collection methods that container no longer supports, preventing the native client from compiling. Rusty now removes the relevant movement mappings individually while detached and restores only movement keys physically held when Freecam exits. Unrelated held mappings retain their device ownership.
+The X-Ray panel contains terrain, activation and target-selection controls. Line/box controls live under Finder. Original-texture terrain frames and the 25% default texture coverage remain part of X-ray.
 
-The 42-tool catalog, Minecraft-style interface, integrated copper R identity, textured terrain context and configurable controls remain available. The renderer test helper recognizes the exact new SDK without modifying upstream source.
+Targets **Horizon Nightly 38609b7 / API 409 / Minecraft 26.3**. Install `https://github.com/Justeck/Rusty/releases/tag/v1.2.3` in Horizon's native GitHub input, enable Rusty, choose Performance build if offered, wait for Up to date, then Play. Right Shift opens the menu. Package: `rusty-1.2.3.hnmod`, with `SHA256SUMS`.
 
-Install in Horizon Launcher with `https://github.com/Justeck/Rusty` or the fixed release input `https://github.com/Justeck/Rusty/releases/tag/v1.2.2`. Enable Rusty, select **Performance build**, then use **Rebuild on Horizon Nightly 2026-11-05** (or **Build** if already on that base). Wait for **Up to date**, then **Play**. Right Shift opens the menu; Options → Mods → Rusty remains available. Package: `rusty-1.2.2.hnmod` with `SHA256SUMS`.
+Fresh build and rendered-regression scope is recorded in [Validation](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md). The separate Fabric/NeoForge patch is Java 1.3.0-beta.2; Java jars do not go into Horizon's native installer.
 
-Fresh build and game validation is recorded in [Validation](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md), separately from earlier exhaustive acceptance. The Fabric and NeoForge beta is a separate Java edition and has not been changed by this native patch.
-
-Server anti-X-ray may withhold or replace information. Servers retain authority over movement, inventory, reach and health. No arbitrary-server compatibility or superiority over other clients is claimed.
-
-Apache-2.0 with applicable MIT notices. Preserve LICENSE, NOTICE, THIRD-PARTY.md and component notices. No game resources, accounts or player worlds are distributed.
+Only received data is used. No server anti-X-ray bypass, reach extension or override of server authority is provided. Apache-2.0 with applicable MIT attribution and notices preserved.
