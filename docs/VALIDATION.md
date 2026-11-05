@@ -1,5 +1,24 @@
 # Rusty validation
 
+## 1.2.5 defaults and Enabled Mods list
+
+Added **Enabled Mods**, an independent, opt-in Interface feature: active Rusty tools appear alphabetically in top-left rows, excluding the list itself. Its nineteenth HUD panel supports independent placement and size. **Default** controls restore individual preferences, shortcuts and target fields. **Restore defaults** asks for confirmation and restores all Rusty settings, including keys, appearance, compact 100% menu size, favorites/recent and HUD layout; it stops active runtime tools and keeps saved waypoint/profile files.
+
+The official Horizon launcher **Performance** build completed on **38609b7 / API 409 / Minecraft 26.3**, using its supported Rust **1.99.1** toolchain. Selected build: `native-38609b7-2bbd64b7ea25`. Executable SHA-256: `596e84c91e8a43996b19a018ec20568677776a5f72334f35c93eb64adde48090`.
+
+Fresh checks passed: **146 Rust library + 18 native-tool tests**, **14 Python tests**, formatting, strict Clippy, exact SDK compilation and structural package verification. The launcher-built executable passed **9 defaults/list game checks**, **11 interface/layout checks** and **5 rendered X-ray/Finder regressions**. The defaults suite exercises actual buttons for booleans, numeric values, shortcuts and HUD positions; target-editor recovery from invalid color text; Cancel; confirmed full reset with active X-ray/Freecam; preserved saved profile and real waypoint bytes; and active-list update/removal. The interface suite covers all 19 HUD controls, menu sizing and owned-process restart persistence.
+
+Both Java editions passed fresh builds, package checks, **692 shared assertions** and **65 actual game checks per loader**. See [Java validation](JAVA_VALIDATION.md) and the [exact receipt](evidence/defaults-list-1.2.5.json) for identities and named checks.
+
+![Actual native per-setting Default controls](screenshots/rusty-1.2.5-default-controls.png)
+
+![Confirmed full reset in the native menu](screenshots/rusty-1.2.5-restore-confirmation.png)
+
+![Native top-left active-list gameplay](screenshots/rusty-1.2.5-enabled-mods.png)
+
+These fresh game checks use owned offline fixtures. They do not establish fresh external-server, arbitrary-modpack, endurance or alternate-backend compatibility. The build uses the official launcher CLI; no fresh GUI Build/Play claim is made. Existing user games/worlds remain untouched, and the reset tests do not reset installed personal preferences. Historical results below retain their own version and scope.
+
+
 ## 1.2.4 compact menu baseline
 
 The former 70% physical menu size is now the **100% default/reset**. Displayed scaling spans **50–300%** (stored physical scales 0.35–2.1). Stored values stay in their original physical units, preserving every previously supported saved size without a lossy schema migration. HUD size and feature-profile preservation remain independent. Java adds a 100% reset and applies changes after slider release or keyboard adjustment; the existing Apply size button remains available.

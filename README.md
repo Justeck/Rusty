@@ -8,7 +8,7 @@
 
 **Earlier native 1.2.0 acceptance:** 124 core checks, 10 interface checks, 3 HUD-column checks, owned Java and native multiplayer fixtures, short performance measurements and a ten-minute stability run. The current 1.2.5 defaults and active-list update has separate fresh build, game and launcher checks. [Validation](docs/VALIDATION.md) records exact identities, scope and limits.
 
-<p align="center"><img src="docs/screenshots/rusty-1.2.1-classic.png" width="960" alt="Rusty native Minecraft-style module browser"></p>
+<p align="center"><img src="docs/screenshots/rusty-1.2.5-default-controls.png" width="960" alt="Native Rusty menu with individual Default controls and confirmed full reset"></p>
 
 <p align="center"><a href="https://github.com/Justeck/Rusty/releases/latest">Download</a> · <a href="docs/INSTALLATION.md">Installation</a> · <a href="docs/MODULES.md">Modules</a> · <a href="docs/screenshots/README.md">Screenshots</a> · <a href="docs/VALIDATION.md">Validation</a></p>
 
@@ -62,7 +62,7 @@ A **ten-second still-image tour** of the real native interface and renderer. [MP
 
 ## See Rusty in use
 
-**53 original game captures**, with separate Horizon and Java galleries. The new Java tour contains 39 scenes: texture coverage from minimum to 100%, ore/custom-block filters, Finder, outlines, navigation, Freecam, lighting restoration, HUD placement and the full menu workflow. Each image has a caption and an original-file hash.
+**Original game captures**, with separate Horizon and Java galleries. The new Java tour contains 39 scenes: texture coverage from minimum to 100%, ore/custom-block filters, Finder, outlines, navigation, Freecam, lighting restoration, HUD placement and the full menu workflow. Each image has a caption and an original-file hash.
 
 | Textured view — Java edition | Compact Minecraft-style controls — Java edition |
 |---|---|
@@ -84,9 +84,9 @@ The Java tour uses an authored, disposable singleplayer fixture. Restricted Java
 | Visibility and camera | Fullbright, No Fog, Clear Weather, Zoom, No Hurt Camera, Freecam |
 | Assistance and building | Auto Sprint, Safe Walk, Auto Jump, Auto Tool, Trigger Bot, Auto Eat, Auto Fish, Auto Totem, Armor Assist, Auto Refill, Build Planner |
 | Navigation | Compass, Waypoints, Breadcrumbs, Death Markers, Waypoint Walk, Portal Coordinates |
-| Information | Coordinates, Status HUD, Equipment HUD, Environment HUD, Container Preview, Speed HUD, World Clock, Frame Rate, Click Counter |
+| Information | Coordinates, Status HUD, Enabled Mods, Equipment HUD, Environment HUD, Container Preview, Speed HUD, World Clock, Frame Rate, Click Counter |
 
-The catalog contains **42 actual modules**. **Status HUD** starts enabled; other modules start off. Zoom works while its shortcut is held. Gameplay automation and inventory actions are opt-in. [Modules](docs/MODULES.md) explains each tool's bounded behavior.
+The catalog contains **43 actual modules**. **Status HUD** starts enabled; other modules start off. Zoom works while its shortcut is held. Gameplay automation and inventory actions are opt-in. [Modules](docs/MODULES.md) explains each tool's bounded behavior.
 
 Rusty uses data the client receives. Servers may withhold or replace block information, and retain authority over movement, reach, inventory and health. Finite work budgets, unknown chunks and unsupported data remain explicit limits. Freecam leaves the player body in ordinary simulation.
 

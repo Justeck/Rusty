@@ -1,6 +1,6 @@
 # Usage and settings
 
-This guide describes Rusty **1.2.5**. The [module guide](MODULES.md) covers all 42 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
+This guide describes Rusty **1.2.5**. The [module guide](MODULES.md) covers all 43 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
 
 ## The live ClickGUI
 

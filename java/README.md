@@ -31,7 +31,7 @@ X-ray retains the surrounding blocks' original material, tint and texture coordi
 
 ![Textured terrain at 25%](../docs/screenshots/java/rusty-fabric-textured-view.png)
 
-The menu uses Minecraft buttons, text fields and sliders. Search tools; browse Enabled, Favorites, Recent and categories. Click **?** for a short explanation. Adjust menu size independently of HUD size. **HUD layout** offers 18 panels: drag to move, scroll over one to resize, or reset the layout. Default full-width packing keeps panels apart and reserves the hotbar area; manually placed panels can overlap by choice. Small viewports constrain the requested size so controls remain usable. Feature profiles preserve local bindings, theme, favorites and HUD arrangements.
+The menu uses Minecraft buttons, text fields and sliders. Search tools; browse Enabled, Favorites, Recent and categories. Click **?** for a short explanation. Adjust menu size independently of HUD size. **HUD layout** offers 19 panels: drag to move, scroll over one to resize, or reset the layout. Default full-width packing keeps panels apart and reserves the hotbar area; manually placed panels can overlap by choice. Small viewports constrain the requested size so controls remain usable. Feature profiles preserve local bindings, theme, favorites and HUD arrangements.
 
 ## Tools
 

@@ -1,4 +1,16 @@
-# Java edition validation — 1.3.0-beta.3
+# Java edition validation — 1.3.0-beta.4
+
+**Enabled Mods** is a separate, opt-in Interface feature: active Rusty tools appear alphabetically in top-left rows, excluding the list itself. The nineteenth HUD panel has independent placement/size. Minecraft-style Default controls restore individual values and shortcuts; the menu-wide Restore defaults asks for confirmation, resets all preferences and runtime tools, and retains saved waypoint/profile files.
+
+Fresh supported-toolchain builds, package inspection and QA compilation passed, with **692 shared behavioral assertions** and **65 actual disposable-world game checks per loader**. Both Fabric and NeoForge exercised real widget callbacks for numeric, true-boolean and shortcut defaults; confirmation and Cancel; full reset with active X-ray/Freecam; saved waypoint/profile preservation; and actual active-list bounds, update and removal. Original gameplay/menu frames were inspected. The existing scanner, texture, X-ray/Finder, inventory-action, chunk/dimension lifecycle, HUD-layout and menu-scale checks also ran.
+
+The [exact receipt](evidence/defaults-list-1.2.5.json) records identities and named checks. Game checks use owned singleplayer fixtures through the supported development clients. They are not a fresh public-server, arbitrary-modpack, endurance, alternate-renderer or published-jar personal-launcher acceptance. Restricted multiplayer tools still require authoritative server opt-in. Historical results below retain their own version and scope.
+
+![Actual Default controls in the compact Minecraft-style menu](screenshots/java/rusty-java-default-controls.png)
+
+![Actual active-list gameplay with two named rows](screenshots/java/rusty-java-enabled-mods.png)
+
+# 1.3.0-beta.3 compact-menu acceptance (historical)
 
 The former 70% menu size is now the **100% default**, with a **50–300%** slider and a **100% reset**. Saved physical sizes stay unchanged. Both keyboard adjustments and slider release apply the fitted scale; the existing Apply size button is retained. HUD controls remain independent.
 

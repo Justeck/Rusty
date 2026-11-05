@@ -42,3 +42,25 @@ The authored mine and interface fixtures are separate disposable worlds. Menu si
 [MP4 version](../media/rusty-1.2-ui-tour.mp4). Five actual screenshots, two seconds each, resized and encoded using FFmpeg. Duration and frame count are checked. This is a timed still-image tour, not continuous gameplay or a performance demonstration. The original PNGs remain byte-identical to their captured files.
 
 `rusty-1.2.1-classic.png` is an unretouched capture of the actual launcher-installed 1.2.1 binary in a disposable offline UI fixture. It shows the standalone copper R menu badge; the preceding 1.2 gallery remains historical evidence.
+
+## Defaults and active list — Java 1.3.0-beta.4
+
+Original, unretouched Fabric 26.3 frames from the owned disposable game test. Each was opened and inspected before publication.
+
+![Individual Default buttons and confirmed full-reset entry in Minecraft widgets](java/rusty-java-default-controls.png)
+
+![Fullbright and No Fog in separate top-left active-list rows](java/rusty-java-enabled-mods.png)
+
+The first capture shows the actual module menu, with per-control Default buttons, shortcut defaults/clear and Restore defaults. The second shows gameplay with Enabled Mods on, listing only Fullbright and No Fog; Status HUD is off. These images document the interface and list; broader behavior is bounded by the linked acceptance receipt.
+
+## Defaults and active list — native 1.2.5
+
+Original frames from the actual launcher-built executable in an owned offline world. Opened and inspected before publication; unretouched.
+
+![Native per-setting Default controls](rusty-1.2.5-default-controls.png)
+
+![Full-reset confirmation](rusty-1.2.5-restore-confirmation.png)
+
+![Active tool names in separate top-left rows](rusty-1.2.5-enabled-mods.png)
+
+Exact file hashes, build identity and game scope are in [the acceptance receipt](../evidence/defaults-list-1.2.5.json).

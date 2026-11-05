@@ -7,11 +7,19 @@ import subprocess
 import sys
 import time
 
-from game_gui_smoke import Smoke, AcceptanceFailure, canonical_digest
+from game_gui_smoke import Smoke, AcceptanceFailure, canonical_digest, digest
 from game_ui12_smoke import Ui12Smoke
 
 
 class DefaultsSmoke(Ui12Smoke):
+    def __init__(self,args):
+        super().__init__(args)
+        for key in ['pixel_contract','fixture_correction','photo_readiness','paired_camera_receipts','hud_input_transitions']:
+            self.report.pop(key,None)
+        self.report.update(suite='native-defaults-active-list',script_sha256=digest(Path(__file__)),
+            claims='Actual native Default buttons, advanced target-field repair, confirmed reset and retained saved data; active-list state and captured gameplay.',
+            not_exercised=['Physical device input, public servers, alternate graphics backends and unrelated modules are not accepted by this bounded fixture.','Screenshots require visual review; diagnostic active names alone do not prove rendered text.'])
+
     def exercise(self):
         self.launch()
         self.phase = 'individual default controls'
@@ -42,9 +50,9 @@ class DefaultsSmoke(Ui12Smoke):
         self.wait_for(self.bindings, lambda b:b.get('key.rusty.fullbright')=='key.keyboard.b', 'binding default')
         self.passed('Default keybind restores B after a saved custom shortcut')
         self.select('enabled_mods')
-        self.slider('hud:enabled_mods:x', .4, lambda c:abs(c['client']['hud_layout']['enabled_mods']['x']-.4)<.001, 'moved list X', pane='detail')
+        self.slider('hud:enabled_mods:x', .4, lambda c:abs(c['client']['hud_layout'].get('enabled_mods',{}).get('x',-99)-.4)<.001, 'moved list X', pane='detail')
         self.click('DefaultSetting("hud:enabled_mods:x")', pane='detail')
-        self.wait_for(self.config, lambda c:abs(c['client']['hud_layout']['enabled_mods']['x'])<.001, 'default list X')
+        self.wait_for(self.config, lambda c:abs(c['client']['hud_layout'].get('enabled_mods',{}).get('x',-99))<.001, 'default list X')
         self.passed('New list panel has individual position defaults')
         self.phase='advanced target defaults'
         self.click('Advanced')
@@ -61,15 +69,17 @@ class DefaultsSmoke(Ui12Smoke):
         self.wait_for(lambda:self.command('rusty-editor-ui'),lambda s:'invalid-color' in s['fields']['rule_color'],'invalid color entered')
         self.editor_click('Default("rule_color")')
         self.wait_for(lambda:self.command('rusty-editor-ui'),lambda s:len(s['fields']['rule_color'])==8 and s['status']=='Setting restored; Apply to save','default repairs invalid field')
-        self.widget('Apply')
-        self.require(not self.command('rusty-editor-ui')['dirty'],'Advanced defaults did not save')
+        self.editor_click('Apply')
+        self.wait_for(lambda:self.command('rusty-editor-ui'),lambda s:not s['dirty'],'Advanced defaults saved')
         self.key('key.keyboard.escape')
         self.wait_for(lambda:self.command('status'),lambda s:s['screen']=='playing','advanced editor closed')
         self.open_browser();self.select('enabled_mods')
         self.passed('Advanced target Default repairs invalid text and applies valid settings')
         self.phase='confirmed full reset'
         self.close_browser()
-        self.command('command rusty waypoint add Keep')
+        self.command('options-set chatVisibility 0')
+        self.typed_command('rusty waypoint add Keep')
+        self.command('options-set chatVisibility 2')
         nav=self.config_path.parent/'navigation.json'
         # Use the actual file emitted by the normal waypoint command.
         nav_files=list(self.config_path.parent.glob('*waypoint*'))+list(self.config_path.parent.glob('*navigation*'))
@@ -100,6 +110,8 @@ class DefaultsSmoke(Ui12Smoke):
         self.require(nav.read_bytes()==nav_before,'Reset changed saved waypoint data')
         self.wait_for(lambda:self.command('rusty-status'),lambda s:not s['xray'] and not s['freecam'],'reset runtime features')
         self.passed('Confirmed reset restores configuration and keybind defaults while keeping saved profiles and waypoints')
+        self.select('xray')
+        self.capture('00-default-controls','Minecraft-style native menu with individual Default controls and Restore defaults')
         self.phase='vertical active list'
         self.close_browser()
         self.set_module('status_hud',['hud'],False)
@@ -135,6 +147,9 @@ def main():
         s=DefaultsSmoke(args);s.exercise();s.report['passed']=True;return 0
     except (AcceptanceFailure,OSError,ValueError,KeyError,TypeError,subprocess.SubprocessError) as e:
         if s:s.report['passed']=False;s.report['checks'].append({'name':s.phase,'passed':False,'reason':str(e)})
+        if s:
+            try:s.report['failure_state']=s.command('status');s.report['failure_ui']=s.command('ui');s.shot('failure')
+            except (AcceptanceFailure,OSError,ValueError):pass
         print('FAIL '+str(e),file=sys.stderr,flush=True);return 1
     finally:
         if s:s.finish()

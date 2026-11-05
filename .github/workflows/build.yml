@@ -36,7 +36,8 @@ jobs:
   publish:
     name: Publish immutable native release
     needs: native
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    # Explicit release commits use the same checked publisher as manual dispatch.
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[release]')))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

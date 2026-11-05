@@ -48,3 +48,7 @@ Every fixture creates isolated offline paths and stops owned processes. Record s
 Push/PR checks run the pure/tooling lane, native SDK checks and package verification. Publishing is explicitly initiated only after real game/launcher acceptance. Preserve existing published tags and assets. A new source identity needs new game receipts and screenshots, not renamed historical results.
 
 For the native menu logo, run the executable from its official launcher-installed folder with `native-mods.json` beside it. Horizon allocates the native image atlas slot only when that build metadata lists native mods. Running a bare target executable lacks that slot and is not a valid logo integration check.
+
+## Publishing accepted versions
+
+After the exact runtime source passes the supported build and applicable isolated game checks, merge an explicitly named **[release]** commit to `main`, or use the existing manual workflow dispatch. The native and Java publishers run only after their respective build/check jobs succeed. The native publisher keeps GitHub latest; Java remains a prerelease. Already published versions and tags are preserved. Bump the relevant version identities before a new release and retain exact package/game receipts. A release marker authorizes publishing; it does not substitute for real game acceptance.
