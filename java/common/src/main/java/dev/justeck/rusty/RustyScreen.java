@@ -229,52 +229,56 @@ public final class RustyScreen extends Screen {
     var ys = new int[] {y};
     BiConsumer<String, BooleanSupplier> dummy = (a, b) -> {};
     if (selected.equals("xray") || selected.equals("finder")) {
-      options.add(() ->
-          slider(
-              "Block textures",
-              0,
-              100,
-              RustyClient.config.textureVisibility,
-              v -> RustyClient.config.textureVisibility = v,
-              x,
-              ys));
-      options.add(() ->
-          toggle(
-              "Textured context",
-              () -> RustyClient.config.context,
-              v -> RustyClient.config.context = v,
-              x,
-              ys));
-      options.add(() ->
-          toggle(
-              "Hold to activate",
-              () -> RustyClient.config.holdXray,
-              v -> RustyClient.config.holdXray = v,
-              x,
-              ys));
-      options.add(() ->
-          slider(
-              "Finder radius",
-              8,
-              128,
-              RustyClient.config.scanRadius,
-              v -> RustyClient.config.scanRadius = (int) v,
-              x,
-              ys));
-      options.add(() ->
-          toggle(
-              "Tracers",
-              () -> RustyClient.config.tracers,
-              v -> RustyClient.config.tracers = v,
-              x,
-              ys));
-      options.add(() ->
-          toggle(
-              "Boxes",
-              () -> RustyClient.config.outlines,
-              v -> RustyClient.config.outlines = v,
-              x,
-              ys));
+      if (selected.equals("xray")) {
+        options.add(() ->
+            slider(
+                "Block textures",
+                0,
+                100,
+                RustyClient.config.textureVisibility,
+                v -> RustyClient.config.textureVisibility = v,
+                x,
+                ys));
+        options.add(() ->
+            toggle(
+                "Textured context",
+                () -> RustyClient.config.context,
+                v -> RustyClient.config.context = v,
+                x,
+                ys));
+        options.add(() ->
+            toggle(
+                "Hold to activate",
+                () -> RustyClient.config.holdXray,
+                v -> RustyClient.config.holdXray = v,
+                x,
+                ys));
+      }
+      if (selected.equals("finder")) {
+        options.add(() ->
+            slider(
+                "Finder radius",
+                8,
+                128,
+                RustyClient.config.scanRadius,
+                v -> RustyClient.config.scanRadius = (int) v,
+                x,
+                ys));
+        options.add(() ->
+            toggle(
+                "Tracers",
+                () -> RustyClient.config.tracers,
+                v -> RustyClient.config.tracers = v,
+                x,
+                ys));
+        options.add(() ->
+            toggle(
+                "Boxes",
+                () -> RustyClient.config.outlines,
+                v -> RustyClient.config.outlines = v,
+                x,
+                ys));
+      }
       options.add(() -> {
         button(
             "Selected blocks...",

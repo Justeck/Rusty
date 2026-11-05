@@ -97,7 +97,7 @@ public final class RustyClient {
     publish();
     terrainHash = terrainHash();
     LOG.info(
-        "Rusty Java 1.3.0-beta.1 initialized ({})", System.getProperty("rusty.edition", "loader"));
+        "Rusty Java 1.3.0-beta.2 initialized ({})", System.getProperty("rusty.edition", "loader"));
   }
 
   public static Path configPath() {

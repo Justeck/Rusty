@@ -402,41 +402,13 @@ const XRAY_SETTINGS: &[SettingSpec] = &[
         1.0,
         25.0,
     ),
-    boolean(
-        "block_outlines",
-        "Block Outlines",
-        "Draw outlines around selected received target blocks.",
-        true,
-    ),
-    boolean(
-        "tracers",
-        "Tracers",
-        "Draw lines toward scanned targets that allow tracers.",
-        true,
-    ),
-    integer(
-        "tracer_limit",
-        "Tracer Limit",
-        "Maximum number of target tracer lines.",
-        0,
-        12,
-        12,
-    ),
-    decimal(
-        "line_width",
-        "Line Width",
-        "Width of target overlay lines.",
-        [0.5, 4.0],
-        0.1,
-        1.2,
-    ),
     EDIT_RULES,
 ];
 const FINDER_SETTINGS: &[SettingSpec] = &[
     boolean(
         "finder_enabled",
         "Finder Enabled",
-        "Show target overlays independently of X-ray terrain rendering.",
+        "Enable target boxes, tracer lines and target readouts independently of X-ray terrain rendering.",
         false,
     ),
     boolean(

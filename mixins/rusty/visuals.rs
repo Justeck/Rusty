@@ -475,7 +475,8 @@ fn line_gizmos(game: &Game<'_>, camera: [f64; 3], view: glam::Mat4, on_top: bool
             g.line(a, b, 0xffdca56f, 1.5);
         }
     }
-    if (rusty::active() && !cfg.normal_terrain()) || cfg.finder_enabled {
+    // Finder owns target geometry; X-ray only changes terrain rendering.
+    if cfg.finder_enabled {
         let c = cache().lock().unwrap_or_else(|e| e.into_inner());
         if on_top {
             let width = cfg.line_width.clamp(0.5, 4.0);
@@ -611,16 +612,11 @@ pub(super) fn hud(game: &Game<'_>, batch: &mut HudBatch) {
         return;
     }
     let s = stats();
-    let enabled = (rusty::active() && !cfg.normal_terrain()) || cfg.finder_enabled;
     let mut lines = Vec::<(String, u32)>::new();
     let finder_start = batch.vertices.len();
     let mut finder_lines = Vec::new();
-    if cfg.hud && enabled {
-        let mode = if rusty::active() && !cfg.normal_terrain() {
-            "Xray"
-        } else {
-            "Finder"
-        };
+    if cfg.hud && cfg.finder_enabled {
+        let mode = "Finder";
         let pending = if s.pending > 0 {
             format!(" | {} pending", s.pending)
         } else {
@@ -700,6 +696,9 @@ pub(super) fn hud(game: &Game<'_>, batch: &mut HudBatch) {
     super::rusty_hud_native::draw_lines_at(game, batch, &finder_lines, [24.0, 0.0]);
     super::rusty_hud_native::place(batch, finder_start, &cfg.client.hud_layout, "finder");
     if cfg.hud {
+        if rusty::active() {
+            lines.push(("Xray".into(), 0xffb7dce4));
+        }
         let mut active = Vec::new();
         for (on, name) in [
             (cfg.assistance.safe_walk, "Safe Walk"),

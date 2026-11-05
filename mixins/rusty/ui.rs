@@ -1229,7 +1229,7 @@ fn visuals(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
         "Block outlines",
         "outlines",
         c.block_outlines,
-        "Draw colored boxes around scanned target matches. Each target can opt out.",
+        "With Finder enabled, draw colored boxes around scanned matches. Each target can opt out.",
     );
     toggle(
         m,
@@ -1239,7 +1239,7 @@ fn visuals(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
         "Tracer lines",
         "tracers",
         c.tracers,
-        "Connect your view to nearby scanned target blocks. Each target can opt out.",
+        "With Finder enabled, connect your view to scanned target blocks. Each target can opt out.",
     );
     field(
         m,

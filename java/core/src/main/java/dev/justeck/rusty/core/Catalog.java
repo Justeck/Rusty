@@ -25,7 +25,7 @@ public final class Catalog {
               "finder",
               "Finder",
               "World",
-              "Scan loaded blocks for enabled target rules and render their locations."),
+              "Independently enable target boxes and tracer lines for selected loaded blocks."),
           new Module(
               "entity_esp",
               "Entity ESP",

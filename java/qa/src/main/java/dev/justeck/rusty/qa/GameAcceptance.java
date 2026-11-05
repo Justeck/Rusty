@@ -177,6 +177,38 @@ public final class GameAcceptance {
                 && TextureFrames.framedQuads.get() > 0,
         20);
     add(
+        "Xray alone does not render saved Finder lines or boxes",
+        () -> {
+          RustyClient.config.tracers = true;
+          RustyClient.config.outlines = true;
+          RustyClient.set("finder", false);
+        },
+        () -> RustyClient.active("xray") && !RustyClient.active("finder")
+            && RustyClient.targets.size() >= 3 && RustyOverlay.renderedGeometry == 0,
+        10);
+    add(
+        "Finder explicitly enables target geometry alongside Xray",
+        () -> RustyClient.set("finder", true),
+        () -> RustyClient.active("xray") && RustyClient.active("finder")
+            && RustyOverlay.renderedGeometry > 0,
+        10);
+    add(
+        "Disabling Xray preserves independently enabled Finder geometry",
+        () -> RustyClient.set("xray", false),
+        () -> !RustyClient.active("xray") && RustyClient.active("finder")
+            && RustyOverlay.renderedGeometry > 0,
+        10);
+    add(
+        "Disabling Finder restores Xray-only rendering without changing line preferences",
+        () -> {
+          RustyClient.set("finder", false);
+          RustyClient.set("xray", true);
+        },
+        () -> RustyClient.active("xray") && !RustyClient.active("finder")
+            && RustyClient.config.tracers && RustyClient.config.outlines
+            && RustyOverlay.renderedGeometry == 0,
+        10);
+    add(
         "Received block removal invalidates the target cache",
         () -> command("setblock 0 99 3 stone"),
         () ->
