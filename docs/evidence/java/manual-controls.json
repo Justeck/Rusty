@@ -1,0 +1,47 @@
+{
+  "edition": "fabric",
+  "source_attempt": "fabric13",
+  "checks": [
+    {
+      "name": "Clear X shortcut through real button",
+      "passed": true
+    },
+    {
+      "name": "Rebind X through actual key capture",
+      "passed": true
+    },
+    {
+      "name": "Drag Coordinates panel and persist normalized position",
+      "passed": true
+    },
+    {
+      "name": "Scroll to resize Coordinates to1.1 and persist",
+      "passed": true
+    },
+    {
+      "name": "Reset layout clears positions and individual scales",
+      "passed": true
+    },
+    {
+      "name": "Return to originating module from HUD editor",
+      "passed": true
+    },
+    {
+      "name": "Options recovery button opens actual Rusty screen",
+      "passed": true
+    },
+    {
+      "name": "Closing recovery screen returns to Options",
+      "passed": true
+    },
+    {
+      "name": "Physical short X press enables textured terrain",
+      "passed": true
+    },
+    {
+      "name": "Second short X press restores ordinary terrain",
+      "passed": true
+    }
+  ],
+  "scope": "Owned disposable RustyLab, actual Windows game controls. Modifier-only Right Shift input was not established by automation."
+}

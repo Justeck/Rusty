@@ -62,8 +62,16 @@ jobs:
         run: |
           tag=java-v1.3.0-beta.1
           (cd release && sha256sum --check SHA256SUMS)
-          if gh release view "$tag" >/dev/null 2>&1; then
-            echo "Preserving existing published release $tag"
-            exit 0
+          if gh release view "$tag" --json isDraft > release-state.json 2>/dev/null; then
+            if [ "$(jq -r .isDraft release-state.json)" = true ]; then
+              gh release upload "$tag" release/* --clobber
+            fi
+          else
+            gh release create "$tag" release/* --draft --target "$GITHUB_SHA" --prerelease --latest=false --title "Rusty Java 1.3.0-beta.1 - Fabric and NeoForge" --notes-file java/RELEASE_NOTES.md
           fi
-          gh release create "$tag" release/* --target "$GITHUB_SHA" --prerelease --latest=false --title "Rusty Java 1.3.0-beta.1 - Fabric and NeoForge" --notes-file java/RELEASE_NOTES.md
+          mkdir -p verified-downloads
+          gh release download "$tag" --dir verified-downloads
+          (cd verified-downloads && sha256sum --check ../release/SHA256SUMS)
+          if [ ! -f release-state.json ] || [ "$(jq -r .isDraft release-state.json)" = true ]; then
+            gh release edit "$tag" --draft=false --prerelease --latest=false
+          fi

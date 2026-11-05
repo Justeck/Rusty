@@ -33,7 +33,11 @@ public final class HudLayout {
         for (Panel panel : sorted) {
           int column = 0;
           for (int i = 1; i < columns; i++) if (y[i] < y[column]) column = i;
-          int w = Math.min(cell, Math.max(12, (int) Math.ceil(panel.width * scale)));
+          int w = Math.max(12, (int) Math.ceil(panel.width * scale));
+          if (w > cell) {
+            fits = false;
+            break;
+          }
           int h = Math.max(10, (int) Math.ceil(panel.height * scale));
           if (y[column] + h > bottom) {
             fits = false;

@@ -8,14 +8,14 @@ Horizon native 1.2.0 has its own [accepted report](VALIDATION.md). This report a
 - Fabric Loader 0.20.1, Fabric API 0.165.2+26.3, Loom 1.19.3.
 - NeoForge 26.3.0.101, ModDevGradle 2.0.148.
 - Both loader runtime/source jars build. `java/verify_artifacts.py` checks version/manifests, source completeness, notices, and absence of QA/Minecraft/loader classes in installable packages. See [checksums](../java/SHA256SUMS).
-- Shared core: **555 behavioral assertions**, run as both a JUnit acceptance entry and a plain Java executable. These cover permission lifecycle, hold/toggle/focus/quick taps, config limits, cache ownership, actual settings-file replacement and nonoverlapping HUD packing.
+- Shared core: **609 behavioral assertions**, run as both a JUnit acceptance entry and a plain Java executable. These cover permission lifecycle, hold/toggle/focus/quick taps, full-width readout fitting, config limits, cache ownership, actual settings-file replacement and nonoverlapping HUD packing.
 - The QA mod is a separate development source set. It is excluded from runtime and source jars. Its guarded fixture refuses personal game paths/worlds and non-loopback remote addresses.
 
 ## Actual game checks
 
 Both loaders launched through their supported development toolchains and joined an exact, copied disposable `RustyLab` world. Each completed **44 in-game checks**, including:
 
-- Real Minecraft widgets and recovery access with a cleared menu binding; actual local settings/profile files; independent 18-panel HUD bounds, default packing and hotbar clearance.
+- Real Minecraft widgets and recovery access with a cleared menu binding; actual local settings/profile files; independent 18-panel HUD bounds, default full-width packing, editor footer clearance and hotbar clearance.
 - Original-texture quad generation, exposed and buried received ores, removal/restoration, custom target selection, target caps/partial state, minimum/maximum context and off/on restoration.
 - Detached camera movement and rendering while preserving body position/rotation; chunk unload/reload, dimension transitions and reattachment in the new dimension.
 - A harvest-correct tool replacing a faster ineligible golden pickaxe; manual hotbar ownership; ordinary eating and slot restoration; empty-offhand totem transfer, shield preservation, empty-slot armor, exact-stack refill and an ordinary reachable living-target attack.
@@ -59,3 +59,9 @@ An independent whole-branch review identified and rechecked harvest eligibility,
 ## Evidence
 
 Sanitized [game receipts](evidence/java) include actual check names, times, counts, short performance samples and SHA256 references to preserved raw receipts. They are readouts, not generated success summaries. Original local logs/source snapshots are retained privately; account/device paths are not published. [Original Java screenshots](screenshots/java) are captured with Minecraft's F2 function, without retouching. Build Actions provide independent compilation/package checks, not live graphics proof.
+
+## Release-candidate identity
+
+Final source uses full-width fitting and an editor footer reserve. NeoForge11 and Fabric16 each passed 44 game checks on that implementation; separate Fabric14/NeoForge09 TCP tests cover the unchanged permission transport. Build10 verified all four packages. The installable runtime files match their compiled loader/core output and exclude the QA harness. Exact final SHA256 values are in the linked checksums.
+
+Additional manual controls are recorded in [the UI receipt](evidence/java/manual-controls.json). GitHub branch checks independently compile the same source; the public release is produced by the checked workflow. NeoForge version bounds apply on both client and server; a fresh dedicated-server boot with the final metadata also reached ready. The installed [native package and sole Horizon instance](evidence/java/native-installation-preserved.json) remain unchanged.

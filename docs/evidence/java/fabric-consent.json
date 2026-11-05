@@ -3,80 +3,80 @@
   "edition": "fabric",
   "finished": true,
   "passed": true,
-  "time": "2026-11-05T08:10:12.946632700Z",
+  "time": "2026-11-05T08:39:59.276158800Z",
   "checks": [
     {
-      "name": "Permission payload rejects invalid versions, masks and lengths",
-      "passed": true
+      "passed": true,
+      "name": "Permission payload rejects invalid versions, masks and lengths"
     },
     {
-      "name": "Server opt-in payload grants only its declared capabilities",
-      "passed": true
+      "passed": true,
+      "name": "Server opt-in payload grants only its declared capabilities"
     },
     {
-      "name": "Received permission enables real target scanning",
-      "passed": true
+      "passed": true,
+      "name": "Received permission enables real target scanning"
     },
     {
-      "name": "Server revocation stops restricted rendering immediately",
-      "passed": true
+      "passed": true,
+      "name": "Server revocation stops restricted rendering immediately"
     }
   ],
   "stage": 4,
-  "ticks": 245,
-  "framed_quads_emitted": 7685,
-  "rendered_overlay_geometry": 154,
+  "ticks": 250,
+  "framed_quads_emitted": 10188,
+  "rendered_overlay_geometry": 0,
   "performance_samples": [
     {
-      "overlay_primitives": 110,
-      "fps": 13,
-      "targets": 3,
-      "heap_used_bytes": 348583440,
-      "tick": 120
+      "targets": 0,
+      "fps": 1,
+      "overlay_primitives": 0,
+      "tick": 120,
+      "heap_used_bytes": 366018072
     },
     {
-      "overlay_primitives": 160,
-      "fps": 8,
-      "targets": 3,
-      "heap_used_bytes": 271509960,
-      "tick": 140
+      "targets": 5,
+      "fps": 1,
+      "overlay_primitives": 10,
+      "tick": 140,
+      "heap_used_bytes": 397475352
     },
     {
-      "overlay_primitives": 160,
-      "fps": 33,
-      "targets": 3,
-      "heap_used_bytes": 300853080,
-      "tick": 160
+      "targets": 5,
+      "fps": 23,
+      "overlay_primitives": 10,
+      "tick": 160,
+      "heap_used_bytes": 411106840
     },
     {
-      "overlay_primitives": 160,
+      "targets": 5,
+      "fps": 56,
+      "overlay_primitives": 10,
+      "tick": 180,
+      "heap_used_bytes": 421592600
+    },
+    {
+      "targets": 5,
       "fps": 60,
-      "targets": 3,
-      "heap_used_bytes": 332310384,
-      "tick": 180
+      "overlay_primitives": 10,
+      "tick": 200,
+      "heap_used_bytes": 433126936
     },
     {
-      "overlay_primitives": 160,
-      "fps": 60,
       "targets": 3,
-      "heap_used_bytes": 363767696,
-      "tick": 200
+      "fps": 52,
+      "overlay_primitives": 6,
+      "tick": 220,
+      "heap_used_bytes": 448855576
     },
     {
-      "overlay_primitives": 160,
+      "targets": 0,
       "fps": 60,
-      "targets": 3,
-      "heap_used_bytes": 273771056,
-      "tick": 220
-    },
-    {
-      "overlay_primitives": 160,
-      "fps": 60,
-      "targets": 3,
-      "heap_used_bytes": 304161544,
-      "tick": 240
+      "overlay_primitives": 0,
+      "tick": 240,
+      "heap_used_bytes": 461438488
     }
   ],
-  "raw_receipt_sha256": "c811156a3623d413603df783e283c79501ea8ecbe4aba2e86ebef5cfd95f73d5",
-  "source_attempt": "fabric11"
+  "source_attempt": "fabric14",
+  "raw_receipt_sha256": "85f9fbe8da20ab7bb17e5be543626fca1f5897cb9447b8c74f481fb523899009"
 }

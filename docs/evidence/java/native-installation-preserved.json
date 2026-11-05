@@ -1,0 +1,17 @@
+{
+  "checked_utc": "2026-11-05",
+  "instances": [
+    "horizon"
+  ],
+  "game_instance_version": "native-6475f62-84012272e8af",
+  "native_package_sha256": "7fb9ade0e05595fad6ddc019c0fdb0807a802f5667091df9eeb9a58ea908db0d",
+  "native_origin": {
+    "owner": "Justeck",
+    "repo": "Rusty",
+    "tag": "v1.2.0",
+    "commit": "d07f85bf5fd72fa6a2d1733f20d64a4d79103fac"
+  },
+  "official_current_launcher": "0.2.42",
+  "official_current_game_revision": "6475f62f3c834b7489e1816bf47f47ea5eb2b879",
+  "java_adds_no_horizon_launcher_instances": true
+}

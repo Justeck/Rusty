@@ -101,6 +101,10 @@ public final class CoreAcceptance {
       var layout = HudLayout.fit(hud, size[0], size[1], 1);
       check(layout.fits() && layout.panels().size() == 18, "all 18 default panels fit " + size[0]);
       var rectangles = new java.util.ArrayList<>(layout.panels().values());
+      for (var panel : hud)
+        check(
+            layout.panels().get(panel.id()).width() >= Math.ceil(panel.width() * layout.scale()),
+            "default fit preserves full readout width instead of truncating it");
       for (int i = 0; i < rectangles.size(); i++) {
         var rect = rectangles.get(i);
         check(

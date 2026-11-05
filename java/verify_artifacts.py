@@ -25,6 +25,7 @@ for loader in ['fabric','neoforge']:
     else:
      import tomllib
      mod=tomllib.loads(z.read('META-INF/neoforge.mods.toml').decode());assert mod['mods'][0]['modId']=='rusty' and mod['mods'][0]['version']==version
+     assert all(dep['side']=='BOTH' for dep in mod['dependencies']['rusty']),'Server version bounds must also be enforced'
   data=p.read_bytes();rows.append({'file':p.name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
 (b/'SHA256SUMS').write_text(''.join(r['sha256']+'  '+r['file']+'\n' for r in rows))
 print(json.dumps({'verified_packages':rows},indent=2))

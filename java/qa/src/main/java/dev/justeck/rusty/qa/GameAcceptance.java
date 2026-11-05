@@ -257,9 +257,12 @@ public final class GameAcceptance {
         () -> RustyNavigation.selected() != null,
         5);
     add(
-        "HUD editor exposes 18 independent panels",
+        "HUD editor exposes 18 independent panels with footer clearance",
         () -> mc.gui.setScreen(new HudEditor()),
-        () -> RustyHud.bounds.size() == 18,
+        () ->
+            RustyHud.bounds.size() == 18
+                && RustyHud.bounds.values().stream()
+                    .allMatch(r -> r[1] + r[3] <= mc.getWindow().getGuiScaledHeight() - 60),
         10);
     add(
         "Overlay positions and cleared shortcuts persist to actual local JSON",

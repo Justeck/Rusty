@@ -239,7 +239,9 @@ public final class RustyHud {
       measures.add(
           new HudLayout.Panel(id, (int) Math.ceil(iw * extra), (int) Math.ceil(ih * extra)));
     }
-    var layout = HudLayout.fit(measures, g.guiWidth(), g.guiHeight(), RustyClient.config.hudScale);
+    var layout =
+        HudLayout.fit(
+            measures, g.guiWidth(), g.guiHeight() - (editor ? 24 : 0), RustyClient.config.hudScale);
     if (!layout.fits()) {
       g.text(mc.font, "Rusty: reduce HUD size or enable fewer panels.", 4, 4, 0xffd6b990);
       return;

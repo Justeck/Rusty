@@ -25,7 +25,9 @@ Press **Right Shift** for the menu or use **Options → Rusty**. **X** toggles X
 
 X-ray retains the surrounding blocks' original material, tint and texture coordinates along their edges. **Block textures** controls retained face area: 25% initially, thin original-texture edges at minimum, full ordinary terrain at maximum. Selected blocks remain whole. Choose typical ores or add any registered block ID under **Selected blocks**. Finder scans only already received, loaded chunks; radius, height and target limits bound work. Terrain selection applies across the loaded view; Finder radius bounds scanning and pointers rather than forcing full-world remeshing as you walk.
 
-The menu uses Minecraft buttons, text fields and sliders. Search tools; browse Enabled, Favorites, Recent and categories. Click **?** for a short explanation. Adjust menu size independently of HUD size. **HUD layout** offers 18 panels: drag to move, scroll over one to resize, or reset the layout. Default packing keeps panels apart and reserves the hotbar area; manually placed panels can overlap by choice. Small viewports constrain the requested size so controls remain usable. Feature profiles preserve local bindings, theme, favorites and HUD arrangements.
+![Textured terrain at 25%](../docs/screenshots/java/rusty-fabric-textured-view.png)
+
+The menu uses Minecraft buttons, text fields and sliders. Search tools; browse Enabled, Favorites, Recent and categories. Click **?** for a short explanation. Adjust menu size independently of HUD size. **HUD layout** offers 18 panels: drag to move, scroll over one to resize, or reset the layout. Default full-width packing keeps panels apart and reserves the hotbar area; manually placed panels can overlap by choice. Small viewports constrain the requested size so controls remain usable. Feature profiles preserve local bindings, theme, favorites and HUD arrangements.
 
 ## Tools
 

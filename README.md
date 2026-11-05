@@ -1,10 +1,10 @@
 <p align="center"><img src="docs/assets/rusty-wordmark.png" width="760" alt="Rusty — original copper wordmark"></p>
 <p align="center"><strong>Keep your bearings.</strong></p>
-<p align="center">42 configurable tools · Horizon · Minecraft Java 26.3 · Native Rust</p>
+<p align="center">42 configurable tools · Horizon · Fabric · NeoForge · Minecraft 26.3</p>
 
-<p align="center"><a href="https://github.com/Justeck/Rusty/actions/workflows/build.yml"><img src="https://github.com/Justeck/Rusty/actions/workflows/build.yml/badge.svg" alt="Native checks"></a> <img src="https://img.shields.io/badge/runtime-Rust-ce8b62" alt="Rust runtime"> <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-777777" alt="Apache-2.0"></a></p>
+<p align="center"><a href="https://github.com/Justeck/Rusty/actions/workflows/build.yml"><img src="https://github.com/Justeck/Rusty/actions/workflows/build.yml/badge.svg" alt="Native checks"></a> <a href="https://github.com/Justeck/Rusty/actions/workflows/java.yml"><img src="https://github.com/Justeck/Rusty/actions/workflows/java.yml/badge.svg" alt="Java edition checks"></a> <img src="https://img.shields.io/badge/Horizon_runtime-Rust-ce8b62" alt="Horizon runtime: Rust"> <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-777777" alt="Apache-2.0"></a></p>
 
-**Rusty is a native Rust toolkit for Horizon:** a familiar Minecraft interface, textured world views, independent HUD layouts, local navigation and ordinary player assistance. Press **Right Shift** to open the menu. Search by module, setting or description, then enable the tools you want.
+**Rusty is a native Rust toolkit for Horizon, with Fabric and NeoForge counterparts:** a familiar Minecraft interface, textured world views, independent HUD layouts, local navigation and ordinary player assistance. Press **Right Shift** to open the menu. Search by module, setting or description, then enable the tools you want.
 
 **Tested in the game:** 124 core checks, 10 interface checks, 3 HUD-column checks, owned Java and native multiplayer fixtures, short performance measurements and a ten-minute stability run. The official launcher Build/Play path is checked separately. [Validation](docs/VALIDATION.md) records exact identities, scope and limits.
 

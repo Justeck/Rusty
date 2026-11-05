@@ -3,7 +3,7 @@
   "edition": "neoforge",
   "finished": true,
   "passed": true,
-  "time": "2026-11-05T08:22:14.788000300Z",
+  "time": "2026-11-05T08:49:39.408487700Z",
   "checks": [
     {
       "passed": true,
@@ -135,7 +135,7 @@
     },
     {
       "passed": true,
-      "name": "HUD editor exposes 18 independent panels"
+      "name": "HUD editor exposes 18 independent panels with footer clearance"
     },
     {
       "passed": true,
@@ -183,564 +183,564 @@
     }
   ],
   "stage": 44,
-  "ticks": 1644,
-  "framed_quads_emitted": 633916,
+  "ticks": 1672,
+  "framed_quads_emitted": 539178,
   "rendered_overlay_geometry": 0,
   "performance_samples": [
     {
-      "tick": 80,
-      "heap_used_bytes": 496185864,
-      "targets": 0,
-      "fps": 22,
-      "overlay_primitives": 0
-    },
-    {
       "tick": 100,
-      "heap_used_bytes": 344167216,
+      "heap_used_bytes": 506475112,
       "targets": 0,
-      "fps": 9,
+      "fps": 18,
       "overlay_primitives": 0
     },
     {
       "tick": 120,
-      "heap_used_bytes": 403259136,
+      "heap_used_bytes": 537134168,
       "targets": 0,
-      "fps": 16,
+      "fps": 2,
       "overlay_primitives": 0
     },
     {
       "tick": 140,
-      "heap_used_bytes": 402267320,
-      "targets": 4,
-      "fps": 18,
-      "overlay_primitives": 8
+      "heap_used_bytes": 579942280,
+      "targets": 0,
+      "fps": 5,
+      "overlay_primitives": 0
     },
     {
       "tick": 160,
-      "heap_used_bytes": 472250392,
-      "targets": 3,
-      "fps": 45,
-      "overlay_primitives": 6
+      "heap_used_bytes": 703193280,
+      "targets": 4,
+      "fps": 13,
+      "overlay_primitives": 8
     },
     {
       "tick": 180,
-      "heap_used_bytes": 402183432,
+      "heap_used_bytes": 371003048,
       "targets": 4,
-      "fps": 53,
+      "fps": 19,
       "overlay_primitives": 8
     },
     {
       "tick": 200,
-      "heap_used_bytes": 618300416,
+      "heap_used_bytes": 634584152,
       "targets": 4,
-      "fps": 53,
+      "fps": 31,
       "overlay_primitives": 8
     },
     {
       "tick": 220,
-      "heap_used_bytes": 551053400,
-      "targets": 16,
-      "fps": 55,
-      "overlay_primitives": 32
+      "heap_used_bytes": 459602016,
+      "targets": 4,
+      "fps": 28,
+      "overlay_primitives": 8
     },
     {
       "tick": 240,
-      "heap_used_bytes": 641824168,
-      "targets": 0,
-      "fps": 60,
-      "overlay_primitives": 0
+      "heap_used_bytes": 393298752,
+      "targets": 16,
+      "fps": 27,
+      "overlay_primitives": 32
     },
     {
       "tick": 260,
-      "heap_used_bytes": 674786336,
+      "heap_used_bytes": 765051800,
       "targets": 0,
-      "fps": 60,
+      "fps": 37,
       "overlay_primitives": 0
     },
     {
       "tick": 280,
-      "heap_used_bytes": 435481336,
+      "heap_used_bytes": 543494664,
       "targets": 0,
-      "fps": 60,
+      "fps": 49,
       "overlay_primitives": 0
     },
     {
       "tick": 300,
-      "heap_used_bytes": 455697664,
+      "heap_used_bytes": 763720616,
       "targets": 0,
-      "fps": 60,
+      "fps": 57,
       "overlay_primitives": 0
     },
     {
       "tick": 320,
-      "heap_used_bytes": 477407992,
+      "heap_used_bytes": 492800104,
       "targets": 0,
-      "fps": 60,
+      "fps": 40,
       "overlay_primitives": 0
     },
     {
       "tick": 340,
-      "heap_used_bytes": 496567472,
+      "heap_used_bytes": 681380264,
       "targets": 0,
-      "fps": 60,
+      "fps": 61,
       "overlay_primitives": 0
     },
     {
       "tick": 360,
-      "heap_used_bytes": 515156736,
+      "heap_used_bytes": 702416552,
       "targets": 0,
-      "fps": 60,
+      "fps": 57,
       "overlay_primitives": 0
     },
     {
       "tick": 380,
-      "heap_used_bytes": 534050552,
+      "heap_used_bytes": 723459688,
       "targets": 0,
-      "fps": 60,
+      "fps": 59,
       "overlay_primitives": 0
     },
     {
       "tick": 400,
-      "heap_used_bytes": 552905472,
+      "heap_used_bytes": 743698760,
       "targets": 0,
-      "fps": 60,
+      "fps": 58,
       "overlay_primitives": 0
     },
     {
       "tick": 420,
-      "heap_used_bytes": 570873824,
+      "heap_used_bytes": 763621704,
       "targets": 0,
-      "fps": 60,
+      "fps": 59,
       "overlay_primitives": 0
     },
     {
       "tick": 440,
-      "heap_used_bytes": 589503120,
+      "heap_used_bytes": 776204616,
       "targets": 0,
-      "fps": 60,
+      "fps": 31,
       "overlay_primitives": 0
     },
     {
       "tick": 460,
-      "heap_used_bytes": 612561712,
+      "heap_used_bytes": 788787528,
       "targets": 0,
-      "fps": 60,
+      "fps": 30,
       "overlay_primitives": 0
     },
     {
       "tick": 480,
-      "heap_used_bytes": 637727504,
+      "heap_used_bytes": 401450752,
       "targets": 0,
-      "fps": 60,
+      "fps": 29,
       "overlay_primitives": 0
     },
     {
       "tick": 500,
-      "heap_used_bytes": 727905328,
-      "targets": 5,
-      "fps": 60,
-      "overlay_primitives": 170
+      "heap_used_bytes": 424095192,
+      "targets": 0,
+      "fps": 30,
+      "overlay_primitives": 0
     },
     {
       "tick": 520,
-      "heap_used_bytes": 439644384,
+      "heap_used_bytes": 452828320,
       "targets": 5,
-      "fps": 60,
-      "overlay_primitives": 170
+      "fps": 29,
+      "overlay_primitives": 171
     },
     {
       "tick": 540,
-      "heap_used_bytes": 480538848,
+      "heap_used_bytes": 526855520,
       "targets": 5,
-      "fps": 60,
-      "overlay_primitives": 170
+      "fps": 30,
+      "overlay_primitives": 171
     },
     {
       "tick": 560,
-      "heap_used_bytes": 520384736,
+      "heap_used_bytes": 553491616,
       "targets": 5,
-      "fps": 60,
-      "overlay_primitives": 170
+      "fps": 30,
+      "overlay_primitives": 171
     },
     {
       "tick": 580,
-      "heap_used_bytes": 559182048,
+      "heap_used_bytes": 581381480,
       "targets": 5,
-      "fps": 60,
-      "overlay_primitives": 170
+      "fps": 29,
+      "overlay_primitives": 171
     },
     {
       "tick": 600,
-      "heap_used_bytes": 415152312,
-      "targets": 0,
-      "fps": 59,
-      "overlay_primitives": 110
+      "heap_used_bytes": 609720888,
+      "targets": 5,
+      "fps": 30,
+      "overlay_primitives": 171
     },
     {
       "tick": 620,
-      "heap_used_bytes": 559321776,
+      "heap_used_bytes": 649538904,
       "targets": 0,
-      "fps": 59,
-      "overlay_primitives": 119
+      "fps": 29,
+      "overlay_primitives": 110
     },
     {
       "tick": 640,
-      "heap_used_bytes": 733426424,
+      "heap_used_bytes": 780118448,
       "targets": 0,
-      "fps": 58,
-      "overlay_primitives": 136
+      "fps": 29,
+      "overlay_primitives": 116
     },
     {
       "tick": 660,
-      "heap_used_bytes": 758899720,
+      "heap_used_bytes": 529060760,
       "targets": 0,
-      "fps": 60,
-      "overlay_primitives": 156
+      "fps": 27,
+      "overlay_primitives": 129
     },
     {
       "tick": 680,
-      "heap_used_bytes": 841456768,
+      "heap_used_bytes": 550949000,
       "targets": 0,
-      "fps": 60,
-      "overlay_primitives": 176
+      "fps": 30,
+      "overlay_primitives": 149
     },
     {
       "tick": 700,
-      "heap_used_bytes": 771936912,
-      "targets": 5,
-      "fps": 60,
-      "overlay_primitives": 246
+      "heap_used_bytes": 487282336,
+      "targets": 0,
+      "fps": 30,
+      "overlay_primitives": 169
     },
     {
       "tick": 720,
-      "heap_used_bytes": 783857576,
+      "heap_used_bytes": 642750280,
       "targets": 5,
-      "fps": 54,
-      "overlay_primitives": 246
+      "fps": 29,
+      "overlay_primitives": 197
     },
     {
       "tick": 740,
-      "heap_used_bytes": 819509160,
+      "heap_used_bytes": 599810824,
       "targets": 5,
-      "fps": 60,
-      "overlay_primitives": 246
+      "fps": 26,
+      "overlay_primitives": 247
     },
     {
       "tick": 760,
-      "heap_used_bytes": 844674984,
+      "heap_used_bytes": 683629464,
       "targets": 5,
       "fps": 30,
-      "overlay_primitives": 246
+      "overlay_primitives": 247
     },
     {
       "tick": 780,
-      "heap_used_bytes": 503740544,
+      "heap_used_bytes": 712186576,
       "targets": 5,
       "fps": 30,
-      "overlay_primitives": 246
+      "overlay_primitives": 247
     },
     {
       "tick": 800,
-      "heap_used_bytes": 659550576,
+      "heap_used_bytes": 741546240,
+      "targets": 5,
+      "fps": 30,
+      "overlay_primitives": 247
+    },
+    {
+      "tick": 820,
+      "heap_used_bytes": 537733544,
       "targets": 0,
       "fps": 30,
       "overlay_primitives": 72
     },
     {
-      "tick": 820,
-      "heap_used_bytes": 615066048,
-      "targets": 0,
-      "fps": 24,
-      "overlay_primitives": 78
-    },
-    {
       "tick": 840,
-      "heap_used_bytes": 762346896,
+      "heap_used_bytes": 723952856,
       "targets": 0,
-      "fps": 30,
-      "overlay_primitives": 133
+      "fps": 6,
+      "overlay_primitives": 76
     },
     {
       "tick": 860,
-      "heap_used_bytes": 673918144,
+      "heap_used_bytes": 604894088,
       "targets": 0,
-      "fps": 29,
+      "fps": 30,
       "overlay_primitives": 133
     },
     {
       "tick": 880,
-      "heap_used_bytes": 897501112,
+      "heap_used_bytes": 654160736,
+      "targets": 0,
+      "fps": 29,
+      "overlay_primitives": 133
+    },
+    {
+      "tick": 900,
+      "heap_used_bytes": 711785960,
       "targets": 0,
       "fps": 30,
       "overlay_primitives": 133
     },
     {
-      "tick": 900,
-      "heap_used_bytes": 810197464,
-      "targets": 5,
-      "fps": 30,
-      "overlay_primitives": 170
-    },
-    {
       "tick": 920,
-      "heap_used_bytes": 1169941200,
+      "heap_used_bytes": 579175776,
       "targets": 5,
       "fps": 29,
-      "overlay_primitives": 170
+      "overlay_primitives": 133
     },
     {
       "tick": 940,
-      "heap_used_bytes": 1212737568,
+      "heap_used_bytes": 863804096,
       "targets": 5,
-      "fps": 30,
-      "overlay_primitives": 170
+      "fps": 8,
+      "overlay_primitives": 171
     },
     {
       "tick": 960,
-      "heap_used_bytes": 1237903392,
+      "heap_used_bytes": 1155710256,
       "targets": 5,
-      "fps": 30,
-      "overlay_primitives": 170
+      "fps": 29,
+      "overlay_primitives": 171
     },
     {
       "tick": 980,
-      "heap_used_bytes": 1263069216,
+      "heap_used_bytes": 1331078376,
       "targets": 5,
       "fps": 30,
-      "overlay_primitives": 170
+      "overlay_primitives": 171
     },
     {
       "tick": 1000,
-      "heap_used_bytes": 1316546592,
+      "heap_used_bytes": 776150816,
       "targets": 5,
-      "fps": 30,
-      "overlay_primitives": 170
+      "fps": 28,
+      "overlay_primitives": 171
     },
     {
       "tick": 1020,
-      "heap_used_bytes": 824813024,
-      "targets": 7,
-      "fps": 24,
-      "overlay_primitives": 14
+      "heap_used_bytes": 888159848,
+      "targets": 5,
+      "fps": 29,
+      "overlay_primitives": 171
     },
     {
       "tick": 1040,
-      "heap_used_bytes": 852076000,
+      "heap_used_bytes": 1079469592,
       "targets": 7,
-      "fps": 30,
+      "fps": 20,
       "overlay_primitives": 14
     },
     {
       "tick": 1060,
-      "heap_used_bytes": 867804640,
+      "heap_used_bytes": 1210919520,
+      "targets": 7,
+      "fps": 15,
+      "overlay_primitives": 14
+    },
+    {
+      "tick": 1080,
+      "heap_used_bytes": 1226648160,
       "targets": 7,
       "fps": 29,
       "overlay_primitives": 14
     },
     {
-      "tick": 1080,
-      "heap_used_bytes": 882484704,
-      "targets": 7,
-      "fps": 30,
-      "overlay_primitives": 14
-    },
-    {
       "tick": 1100,
-      "heap_used_bytes": 896116192,
+      "heap_used_bytes": 1243425376,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1120,
-      "heap_used_bytes": 909747680,
+      "heap_used_bytes": 1259154016,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1140,
-      "heap_used_bytes": 924427744,
+      "heap_used_bytes": 1272785504,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1160,
-      "heap_used_bytes": 938059232,
+      "heap_used_bytes": 1287465568,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1180,
-      "heap_used_bytes": 952086456,
+      "heap_used_bytes": 1302145632,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1200,
-      "heap_used_bytes": 966370784,
+      "heap_used_bytes": 1315777120,
       "targets": 7,
-      "fps": 30,
+      "fps": 29,
       "overlay_primitives": 14
     },
     {
       "tick": 1220,
-      "heap_used_bytes": 980002272,
+      "heap_used_bytes": 1329408608,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1240,
-      "heap_used_bytes": 994682336,
+      "heap_used_bytes": 1343040096,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1260,
-      "heap_used_bytes": 1009362400,
+      "heap_used_bytes": 1356671584,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1280,
-      "heap_used_bytes": 1022993888,
+      "heap_used_bytes": 1371351648,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1300,
-      "heap_used_bytes": 1036625376,
+      "heap_used_bytes": 631746480,
       "targets": 7,
-      "fps": 29,
+      "fps": 28,
       "overlay_primitives": 14
     },
     {
       "tick": 1320,
-      "heap_used_bytes": 1050256864,
+      "heap_used_bytes": 646426544,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1340,
-      "heap_used_bytes": 1063888352,
+      "heap_used_bytes": 660058032,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1360,
-      "heap_used_bytes": 1077519840,
+      "heap_used_bytes": 673689520,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1380,
-      "heap_used_bytes": 1092199904,
+      "heap_used_bytes": 687321008,
       "targets": 7,
-      "fps": 30,
+      "fps": 29,
       "overlay_primitives": 14
     },
     {
       "tick": 1400,
-      "heap_used_bytes": 1105831392,
+      "heap_used_bytes": 700952496,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1420,
-      "heap_used_bytes": 1119462880,
+      "heap_used_bytes": 715632560,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1440,
-      "heap_used_bytes": 1133094368,
+      "heap_used_bytes": 730312624,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1460,
-      "heap_used_bytes": 1146725856,
+      "heap_used_bytes": 743944112,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1480,
-      "heap_used_bytes": 1160357344,
+      "heap_used_bytes": 757575600,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1500,
-      "heap_used_bytes": 1173988832,
+      "heap_used_bytes": 771207088,
       "targets": 7,
-      "fps": 29,
+      "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1520,
-      "heap_used_bytes": 1187620320,
+      "heap_used_bytes": 786935728,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1540,
-      "heap_used_bytes": 1201251808,
+      "heap_used_bytes": 801615792,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1560,
-      "heap_used_bytes": 1214883296,
+      "heap_used_bytes": 815247280,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1580,
-      "heap_used_bytes": 1229563360,
+      "heap_used_bytes": 829927344,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1600,
-      "heap_used_bytes": 1243194848,
+      "heap_used_bytes": 843558832,
       "targets": 7,
       "fps": 30,
       "overlay_primitives": 14
     },
     {
       "tick": 1620,
-      "heap_used_bytes": 1315546592,
-      "targets": 0,
-      "fps": 27,
-      "overlay_primitives": 0
+      "heap_used_bytes": 858238896,
+      "targets": 7,
+      "fps": 30,
+      "overlay_primitives": 14
     },
     {
       "tick": 1640,
-      "heap_used_bytes": 1332323808,
+      "heap_used_bytes": 645263448,
       "targets": 0,
-      "fps": 30,
+      "fps": 23,
+      "overlay_primitives": 0
+    },
+    {
+      "tick": 1660,
+      "heap_used_bytes": 679245648,
+      "targets": 0,
+      "fps": 20,
       "overlay_primitives": 0
     }
   ],
-  "source_attempt": "neoforge10",
-  "raw_receipt_sha256": "38f096144b9acd96ff718da91d734e32d6ed461aa8982ce4a8d69ca6b299938f"
+  "source_attempt": "neoforge11",
+  "raw_receipt_sha256": "fcd4f849a6d165926406b03a260d2191d6fe51f780ea56b945f6b642b1ee349a"
 }
