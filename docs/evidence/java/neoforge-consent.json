@@ -1,0 +1,75 @@
+{
+  "mode": "remote-consent",
+  "edition": "neoforge",
+  "finished": true,
+  "passed": true,
+  "time": "2026-11-05T08:18:49.753692300Z",
+  "checks": [
+    {
+      "passed": true,
+      "name": "Permission payload rejects invalid versions, masks and lengths"
+    },
+    {
+      "passed": true,
+      "name": "Server opt-in payload grants only its declared capabilities"
+    },
+    {
+      "passed": true,
+      "name": "Received permission enables real target scanning"
+    },
+    {
+      "passed": true,
+      "name": "Server revocation stops restricted rendering immediately"
+    }
+  ],
+  "stage": 4,
+  "ticks": 238,
+  "framed_quads_emitted": 5094,
+  "rendered_overlay_geometry": 0,
+  "performance_samples": [
+    {
+      "targets": 0,
+      "fps": 26,
+      "overlay_primitives": 0,
+      "tick": 120,
+      "heap_used_bytes": 385114304
+    },
+    {
+      "targets": 0,
+      "fps": 6,
+      "overlay_primitives": 0,
+      "tick": 140,
+      "heap_used_bytes": 406927944
+    },
+    {
+      "targets": 0,
+      "fps": 48,
+      "overlay_primitives": 0,
+      "tick": 160,
+      "heap_used_bytes": 267748520
+    },
+    {
+      "targets": 0,
+      "fps": 59,
+      "overlay_primitives": 0,
+      "tick": 180,
+      "heap_used_bytes": 278122544
+    },
+    {
+      "targets": 3,
+      "fps": 60,
+      "overlay_primitives": 6,
+      "tick": 200,
+      "heap_used_bytes": 303288368
+    },
+    {
+      "targets": 3,
+      "fps": 57,
+      "overlay_primitives": 6,
+      "tick": 220,
+      "heap_used_bytes": 316919856
+    }
+  ],
+  "raw_receipt_sha256": "fd51537f0e3a3855a189eec1aa2528ff9b39b274c26b392089052cdecb221807",
+  "source_attempt": "neoforge09"
+}

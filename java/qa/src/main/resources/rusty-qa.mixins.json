@@ -1,0 +1,7 @@
+{
+  "required":true,
+  "package":"dev.justeck.rusty.qa.mixin",
+  "compatibilityLevel":"JAVA_25",
+  "client":["QaTickMixin"],
+  "injectors":{"defaultRequire":1}
+}

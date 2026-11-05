@@ -12,6 +12,16 @@
 
 <p align="center"><a href="https://github.com/Justeck/Rusty/releases/latest">Download</a> · <a href="docs/INSTALLATION.md">Installation</a> · <a href="docs/MODULES.md">Modules</a> · <a href="docs/screenshots/README.md">Screenshots</a> · <a href="docs/VALIDATION.md">Validation</a></p>
 
+## Editions
+
+| Edition | Game/runtime | Installation |
+|---|---|---|
+| **Horizon native 1.2.0** | Horizon 6475f62 · API 359 · Minecraft 26.3 · Rust | Native GitHub input below |
+| **Fabric 1.3.0-beta.1** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
+| **NeoForge 1.3.0-beta.1** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
+
+The Java counterparts share Minecraft-style controls and a 42-module catalog, with edition-specific behavior and validation. Their restricted multiplayer tools require authoritative server opt-in; ordinary information tools work on unmodified servers. [Permissions and differences](java/README.md#multiplayer-permissions) · [Java validation](docs/JAVA_VALIDATION.md). The stable native release remains the GitHub `latest` so Horizon's installer keeps resolving its native package.
+
 ## Install
 
 In Horizon Launcher, select **Horizon → Mods → Add a Native Mod from GitHub** and enter:

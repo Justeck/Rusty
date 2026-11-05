@@ -1,0 +1,57 @@
+{
+  "mode": "remote-denied",
+  "edition": "fabric",
+  "finished": true,
+  "passed": true,
+  "time": "2026-11-05T07:54:00.607184100Z",
+  "checks": [
+    {
+      "passed": true,
+      "name": "Vanilla server joins without requiring Rusty"
+    },
+    {
+      "passed": true,
+      "name": "No server permission fails closed for restricted tools"
+    },
+    {
+      "passed": true,
+      "name": "Ordinary client information remains available on vanilla server"
+    }
+  ],
+  "stage": 3,
+  "ticks": 190,
+  "framed_quads_emitted": 0,
+  "rendered_overlay_geometry": 154,
+  "performance_samples": [
+    {
+      "targets": 0,
+      "fps": 1,
+      "overlay_primitives": 154,
+      "tick": 120,
+      "heap_used_bytes": 310894064
+    },
+    {
+      "targets": 0,
+      "fps": 27,
+      "overlay_primitives": 154,
+      "tick": 140,
+      "heap_used_bytes": 342217384
+    },
+    {
+      "targets": 0,
+      "fps": 54,
+      "overlay_primitives": 154,
+      "tick": 160,
+      "heap_used_bytes": 368827024
+    },
+    {
+      "targets": 0,
+      "fps": 59,
+      "overlay_primitives": 154,
+      "tick": 180,
+      "heap_used_bytes": 267637776
+    }
+  ],
+  "raw_receipt_sha256": "7488291523473d7c9a25625624894082e5f577c23915d831efedeb841c68558d",
+  "source_attempt": "fabric09"
+}

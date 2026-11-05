@@ -1,0 +1,51 @@
+plugins { id 'net.neoforged.moddev' }
+base { archivesName = 'rusty-neoforge' }
+sourceSets.main {
+    java.srcDir '../common/src/main/java'
+    resources.srcDir '../common/src/main/resources'
+}
+dependencies { implementation project(':core') }
+if(project.hasProperty('rustyQa')) {
+    sourceSets {
+        qa {
+            java.srcDir '../qa/src/main/java'
+            resources.srcDir '../qa/src/main/resources'
+            compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+            runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
+        }
+    }
+}
+neoForge {
+    version = neoforge_version
+    runs {
+        client {
+            client(); gameDirectory = file('run'); systemProperty 'rusty.edition', 'neoforge'
+            if(project.hasProperty('rustyQa')) {
+                systemProperty 'rusty.qa',project.property('rustyQa')
+                if(project.hasProperty('rustyKeepOpen'))systemProperty 'rusty.qa.keepOpen','true'
+                programArguments.addAll '--username','RustyQA','--width','1280','--height','720'
+                if(project.property('rustyQa')=='singleplayer')programArguments.addAll '--quickPlaySingleplayer','RustyLab'
+                else programArguments.addAll '--quickPlayMultiplayer',project.findProperty('rustyServer') ?: '127.0.0.1:25576'
+            }
+        }
+        server { server(); gameDirectory=file('server-run'); programArgument '--nogui' }
+    }
+    mods {
+        rusty { sourceSet sourceSets.main }
+        if(project.hasProperty('rustyQa'))rusty_qa { sourceSet sourceSets.qa }
+    }
+}
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('META-INF/neoforge.mods.toml') { expand version: project.version }
+}
+jar {
+    from project(':core').sourceSets.main.output
+    from('../../LICENSE')
+    from('../../NOTICE')
+}
+tasks.named('sourcesJar') {
+    from project(':core').sourceSets.main.allSource
+    from('../../LICENSE')
+    from('../../NOTICE')
+}

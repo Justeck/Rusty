@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Apache-2.0"
+issueTrackerURL="https://github.com/Justeck/Rusty/issues"
+[[mods]]
+modId="rusty"
+version="${version}"
+displayName="Rusty"
+displayURL="https://github.com/Justeck/Rusty"
+iconFile="assets/rusty/icon.png"
+authors="Justeck"
+description='''Keep your bearings. Configurable views, navigation, HUDs and player assistance.'''
+[[mixins]]
+config="rusty.mixins.json"
+[[dependencies.rusty]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.101,26.4)"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.rusty]]
+modId="minecraft"
+type="required"
+versionRange="[26.3]"
+ordering="NONE"
+side="CLIENT"

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "rusty",
+  "version": "${version}",
+  "name": "Rusty",
+  "description": "Keep your bearings. Configurable views, navigation, HUDs and player assistance.",
+  "authors": ["Justeck"],
+  "contact": {"homepage": "https://github.com/Justeck/Rusty", "sources": "https://github.com/Justeck/Rusty", "issues": "https://github.com/Justeck/Rusty/issues"},
+  "license": "Apache-2.0",
+  "environment": "*",
+  "icon": "assets/rusty/icon.png",
+  "entrypoints": {"client": ["dev.justeck.rusty.fabric.RustyFabric"], "main": ["dev.justeck.rusty.fabric.RustyFabricServer"]},
+  "mixins": ["rusty.mixins.json"],
+  "depends": {"fabricloader": ">=0.20.1", "fabric-api": ">=0.165.2+26.3", "minecraft": "26.3", "java": ">=25"}
+}

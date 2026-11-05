@@ -2,3 +2,8 @@
 /dist/
 __pycache__/
 *.pyc
+/java/**/.gradle/
+/java/**/build/
+/java/**/run/
+/java/**/server-run/
+/java/release/
