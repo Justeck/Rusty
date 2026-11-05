@@ -64,13 +64,13 @@ Received chest and barrel outlines in the owned test courtyard.
 
 ### Entity outlines and tracers
 
-Received cow and sheep highlighted with the mob filter enabled.
+Received cow and sheep highlighted with the mob filter and Fullbright enabled.
 
 [![Entity outlines and tracers](rusty-gallery-10-entity-outlines.png)](rusty-gallery-10-entity-outlines.png)
 
 ### Chunk boundaries
 
-Chunk border geometry and coordinates around the test area.
+Chunk boundary grid viewed from Freecam, with the player coordinates shown.
 
 [![Chunk boundaries](rusty-gallery-11-chunk-borders.png)](rusty-gallery-11-chunk-borders.png)
 

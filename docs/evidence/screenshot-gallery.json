@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "checked_utc": "2026-11-05T15:52:00.625504+00:00",
+  "github_gallery": "https://github.com/Justeck/Rusty/blob/main/docs/screenshots/README.md",
+  "new_original_captures": 39,
+  "total_original_captures": 53,
+  "original_png_hashes_verified": 39,
+  "local_document_targets_verified": 142,
+  "visual_review": "Final files inspected against their captions. Two paused captures were retaken and replaced before final verification.",
+  "pause_title_diagnostic": {
+    "checked": 39,
+    "detected": 0,
+    "scope": "Additional same-resolution title template; does not replace visual review."
+  },
+  "modrinth": {
+    "gallery": "https://modrinth.com/mod/rusty-toolkit/gallery",
+    "status": "Under review",
+    "images": 25,
+    "new_images": 23,
+    "new_image_content_hashes_match_originals": 23,
+    "all_new_thumbnails_loaded": true,
+    "generated_menu_badge_images_uploaded": false
+  },
+  "runtime": "All 53 development product class files match the published Fabric jar. Capture code is separate QA only; no product behavior changed.",
+  "scope": "Visual presentation evidence only, not 39 new functional tests or public-server compatibility claims."
+}

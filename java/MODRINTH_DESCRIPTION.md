@@ -1,57 +1,108 @@
-<!-- Submitted for manual review with explicit AI disclosures; not confirmed approved. No generated project-page artwork uploaded. -->
-
-**AI disclosure:** Rusty was developed predominantly with an AI coding assistant. The in-game interface includes AI-generated copper branding, and this description was drafted with AI assistance. No generated project-page images are submitted. This is disclosed for Modrinth’s manual review, including its restrictions on primarily AI-produced projects.
-
 # Keep your bearings.
 
-Rusty brings textured world views, local navigation, movable information panels and optional player assistance together in Minecraft's own style. Choose the tools you need without a large dashboard covering the game.
+**42 tools. One familiar interface.**
 
-**Fabric and NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.1**
+Textured world views, local navigation, movable HUDs and optional player assistance—built around Minecraft's own buttons, sliders and controls. Turn on what you need, keep the world in view, and make the layout your own.
 
-## A familiar menu
+**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.1**
 
-Press **Right Shift**, or open **Options → Rusty**. Search the catalog, browse Enabled/Favorites/Recent and categories, and click a small **?** for help. Rebind any shortcut or clear it entirely. Resize the menu independently of the HUD; drag and individually scale any of 18 overlays.
+[Installation guide](https://github.com/Justeck/Rusty/blob/main/java/README.md) · [Source code](https://github.com/Justeck/Rusty) · [Report an issue](https://github.com/Justeck/Rusty/issues) · [Validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
-## Terrain with context
+![Selected ores and pointers surrounded by retained original block textures](https://raw.githubusercontent.com/Justeck/Rusty/57f241684ccdee41badcfde2341c748474217e4b/docs/screenshots/java/tour/rusty-gallery-03-texture-default-25.png)
 
-Selected received blocks stay visible while the surrounding blocks keep frames of their original textures. The texture slider starts at 25%: slide toward thin textured edges for visibility or all the way to 100% for ordinary terrain. Typical ores are preselected; add any registered block ID. **X** toggles the view, with optional Hold mode. Finder adds bounded target boxes and pointers.
+*Actual Fabric 26.3 test-world capture. The default 25% texture coverage keeps selected ores clear while showing the materials around you.*
 
-## Your own toolkit
+[Browse all 25 gallery images →](https://modrinth.com/mod/rusty-toolkit/gallery) · [Full 39-scene Java tour and menu controls →](https://github.com/Justeck/Rusty/blob/main/docs/screenshots/java/tour/README.md)
 
-- **Visibility and camera:** Fullbright, No Fog, Clear Weather, Zoom, No Hurt Camera and detached Freecam.
-- **World awareness:** target information, chunk borders, sampled floor-light warnings, received entity/storage outlines and approximate projectile paths.
-- **Navigation:** coordinates, compass, local waypoints, death markers, breadcrumbs, portal coordinates and a received-surface minimap.
-- **Information:** equipment durability, biome/light, embedded held-container contents, clock, speed, FPS and click counters.
-- **Optional assistance:** ordinary sprint/crouch/jump requests, tool/food/armor/refill/totem assistance, owned-hook bite reeling, explicit waypoint walking, one-action build planning and full-cooldown crosshair attacks.
+## See the blocks. Read the terrain.
 
-**Status HUD starts enabled; other modules start off.** Inventory and movement changes use the game's ordinary action paths and remain subject to the server's decisions. Freecam leaves your body in normal simulation.
+X-ray keeps selected blocks whole and retains frames of the surrounding blocks' **original textures and tint**. The texture slider runs from thin textured edges to **100% ordinary terrain**, so you can choose how much context to keep.
 
-## Multiplayer: explicit permission for restricted tools
+Typical ores are preselected. Add any registered block ID to your selection. Finder adds target boxes and pointers, with radius, height and target limits to bound the work. Both use only loaded information the client has received.
 
-Ordinary information and presentation tools work on unmodified servers. X-ray/Finder, through-block entity/storage views, Freecam and automatic combat/movement/inventory tools require an explicit capability from the server. **Without it, they remain inactive.** Singleplayer grants capabilities locally. A profile cannot grant multiplayer permission.
+![Custom registered block selection with diamond ores and a chest](https://raw.githubusercontent.com/Justeck/Rusty/57f241684ccdee41badcfde2341c748474217e4b/docs/screenshots/java/tour/rusty-gallery-41-custom-block-editor.png)
 
-A server owner can optionally install the matching Rusty server jar and edit `config/rusty-server-permissions.json`. Its default grants are empty. Capabilities (`view`, `combat`, `movement`, `assistance`) can be assigned per authenticated UUID or server-wide; updates and revocation are applied live. [Server setup and exact module groups](https://github.com/Justeck/Rusty/blob/main/java/README.md#multiplayer-permissions).
+*Select ordinary registered block IDs, including custom storage targets. The Typical ores preset restores the ore selection.*
 
-Rusty uses only information already received by the client. It does not defeat server anti-X-ray, recover withheld ores, bypass reach/cooldowns or alter server authority. Follow your server's rules.
+## Make the interface yours
 
-## Install
+Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog, browse **Enabled**, **Favorites**, **Recent** or categories, and click **?** for a short explanation. Rebind a shortcut, clear it completely, or choose Hold mode for X-ray.
 
-Choose **one** loader version for Minecraft 26.3:
+Menu size is independent of the HUD. Drag any of **18 panels**, scroll over a panel to resize it, or reset the layout. Profiles preserve your local settings, shortcuts, favorites and arrangements.
 
-- **Fabric:** Loader 0.20.1+ and Fabric API 0.165.2+26.3 are required.
-- **NeoForge:** 26.3.0.101.
-- **Java:** 25.
+![Rusty's Minecraft-style HUD layout editor with movable information panels](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.1/docs/screenshots/java/rusty-java-hud-editor.png)
 
-Put the matching Rusty jar into that Java installation's `mods` directory. Do not install both loader builds together. [Full guide](https://github.com/Justeck/Rusty/blob/main/java/README.md).
+*Actual NeoForge 26.3 HUD editor. Every panel is previewed for placement; only Status HUD starts enabled in normal play.*
 
-**Using Horizon?** Its native Rust package is a separate edition hosted on [GitHub](https://github.com/Justeck/Rusty/releases/tag/v1.2.1). These Java jars are not Horizon-native mods; Modrinth currently has no Horizon loader category.
+## Choose your toolkit
 
-## Evidence and limits
+| Area | Included tools |
+|---|---|
+| **View & camera** | Textured X-ray, Finder, entity/storage outlines and tracers, Fullbright, No Fog, Clear Weather, Zoom, No Hurt Camera, detached Freecam |
+| **Navigation** | Coordinates, compass, local waypoints, death markers, breadcrumbs, portal coordinates and a received-surface minimap |
+| **World awareness** | Target information, chunk borders, sampled floor-light warnings and approximate projectile paths |
+| **Information** | Equipment durability, biome/light, held-container contents, clock, speed, FPS and click counters |
+| **Optional assistance** | Sprint/crouch/jump requests, tool/food/armor/refill/totem assistance, owned-hook bite reeling, explicit waypoint walking, one-action build planning and full-cooldown crosshair attacks |
 
-The project keeps builds, shared behavioral checks, actual in-game fixtures and unverified cases separate. [Read the Java validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md). This beta targets one exact game version. Compatibility with arbitrary rendering replacements, shaders and modpacks is unverified.
+**Start simple:** Status HUD is enabled by default. Other modules start off. Inventory and movement assistance use normal game actions; the server decides their results.
 
-The minimap is a received surface-color map. Trajectories do not predict entities, spread or future movement; Light Risk is not a complete spawn predictor. Auto Fish reels after a received bite and needs a manual cast. Identical rejected inventory sources require an explicit off/on rearm. No claims of complete parity or better performance than unrelated clients are made.
+## A different perspective
 
-[Source](https://github.com/Justeck/Rusty) · [Report an issue](https://github.com/Justeck/Rusty/issues) · [License and attribution](https://github.com/Justeck/Rusty/blob/main/THIRD-PARTY.md)
+![Detached camera overlooking the disposable test courtyard](https://raw.githubusercontent.com/Justeck/Rusty/57f241684ccdee41badcfde2341c748474217e4b/docs/screenshots/java/tour/rusty-gallery-18-detached-camera.png)
 
-Apache-2.0 with applicable project notices. Original copper branding; no Minecraft assets or third-party mod binaries bundled.
+*Actual Freecam view. The camera is above the courtyard while the player body stays on the path. Your body remains in normal simulation.*
+
+| Ordinary cave lighting | Fullbright enabled |
+|---|---|
+| ![Same chamber with ordinary lighting](https://raw.githubusercontent.com/Justeck/Rusty/57f241684ccdee41badcfde2341c748474217e4b/docs/screenshots/java/tour/rusty-gallery-19-cave-normal.png) | ![Same chamber with Fullbright enabled](https://raw.githubusercontent.com/Justeck/Rusty/57f241684ccdee41badcfde2341c748474217e4b/docs/screenshots/java/tour/rusty-gallery-20-cave-fullbright.png) |
+
+*Same test chamber and camera. The gallery also includes the restored-lighting capture after Fullbright is disabled. These are original game frames, not edited brightness comparisons.*
+
+## Controls at a glance
+
+| Action | Default |
+|---|---|
+| Open the menu | **Right Shift**, or **Options → Rusty** |
+| Toggle X-ray | **X**; optional Hold mode |
+| Hold Zoom | **C** |
+| Change or remove a shortcut | The module's keybind control |
+| Move a HUD panel | Drag it in **HUD layout** |
+| Resize a HUD panel | Scroll over it in **HUD layout** |
+
+## Install the Java edition
+
+1. Use **Minecraft 26.3** and **Java 25**. Choose one loader below.
+2. Install the matching Rusty jar in that installation's `mods` folder. Fabric also requires Fabric API.
+3. Launch the game and open **Options → Rusty**. Enable only the tools you want.
+
+| Loader | Requirements | Rusty file |
+|---|---|---|
+| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.1.jar` |
+| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.1.jar` |
+
+Install **one Rusty loader jar**, not both. Use the **Versions** tab for downloads. Earlier game versions and snapshots are not supported by this beta.
+
+**Playing through Horizon?** Use the separate [native Rust edition on GitHub](https://github.com/Justeck/Rusty/releases/tag/v1.2.1). These Java jars do not go into Horizon's native mod installer.
+
+## Multiplayer: permission is explicit
+
+Ordinary information and presentation tools work on unmodified servers. **Restricted tools need the server's explicit opt-in:** X-ray/Finder, through-block entity/storage views, Freecam and automatic combat/movement/inventory assistance. Without a grant, they remain inactive. Singleplayer grants capabilities locally; a profile cannot grant multiplayer permission.
+
+Server owners can optionally install the matching Rusty server jar and configure `config/rusty-server-permissions.json`. Grants start empty, can be assigned per authenticated UUID or server-wide, and can be changed or revoked live. [Server setup and exact capability groups →](https://github.com/Justeck/Rusty/blob/main/java/README.md#multiplayer-permissions)
+
+Rusty does not defeat server anti-X-ray, recover deliberately withheld blocks, bypass reach/cooldowns or override server authority. Freecam leaves your body in normal simulation and does not load chunks around the detached camera. Follow your server's rules.
+
+## Tested, with clear limits
+
+Both loader editions have successful builds, **609 shared behavioral assertions**, actual disposable-world game checks and dedicated loopback-server permission tests. These are separate kinds of evidence: the 42-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
+
+- **Rendering:** shaders, rendering replacements and arbitrary modpacks are unverified. Textured frames add geometry and can reduce FPS; terrain rebuilds are asynchronous.
+- **World information:** the minimap shows received surface colors. Projectile paths do not predict entities, random spread or future movement. Light Risk samples floor light rather than proving spawn safety.
+- **Assistance:** Auto Fish reels after a received bite and needs a manual cast. Identical rejected inventory sources require an explicit off/on rearm.
+- **Compatibility:** this beta targets the exact game and loader versions above. No superiority over other clients or blanket public-server compatibility is claimed.
+
+## Development & licensing
+
+**AI disclosure:** code was predominantly produced with an AI coding assistant and iteratively tested. The in-game copper branding is AI-generated; page text is AI-assisted. No generative-AI service runs in-game. The project is submitted for Modrinth's manual review, including its restrictions on primarily AI-produced projects. Only genuine, unretouched game captures are used as project-page images; the generated icon was rejected and is not included.
+
+**Apache-2.0**, with applicable notices and attribution. No Minecraft game files or third-party mod binaries are bundled. [License](https://github.com/Justeck/Rusty/blob/main/LICENSE) · [Third-party notices](https://github.com/Justeck/Rusty/blob/main/THIRD-PARTY.md)
