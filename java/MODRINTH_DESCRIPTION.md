@@ -12,7 +12,7 @@ Textured world views, local navigation, movable HUDs and optional player assista
 
 *Actual Fabric 26.3 test-world capture. The default 25% texture coverage keeps selected ores clear while showing the materials around you.*
 
-[Browse all 27 gallery images →](https://modrinth.com/mod/rusty-toolkit/gallery) · [Full 39-scene Java tour and menu controls →](https://github.com/Justeck/Rusty/blob/main/docs/screenshots/java/tour/README.md)
+[Browse all 29 gallery images →](https://modrinth.com/mod/rusty-toolkit/gallery) · [Full 39-scene Java tour and menu controls →](https://github.com/Justeck/Rusty/blob/main/docs/screenshots/java/tour/README.md)
 
 ## See the blocks. Read the terrain.
 

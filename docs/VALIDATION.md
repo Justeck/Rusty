@@ -1,5 +1,16 @@
 # Rusty validation
 
+## 1.2.6 published assets and launcher acceptance
+
+The immutable [native 1.2.6](https://github.com/Justeck/Rusty/releases/tag/v1.2.6) and [Java beta.5](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.5) releases resolve to `04b5cee91222e14d5aa4b29570220a1b8570d0c1`. Both release workflows passed, and native remains GitHub latest. Public native bytes equal the accepted package; all Java runtime archive entries equal the game-tested packages.
+
+Horizon Launcher accepted both the fixed native release URL and repository URL, installed the exact public asset, and retained the accepted executable and sole **Horizon** instance. Both existing Rusty preference files were preserved byte-for-byte. A bookkeeping refresh reinstalled the same executable without recompiling it; the subsequent normal Performance check reported **Up to date** in **4.596 seconds**, exit 0. Selected build: `native-38609b7-b664e1ab8deb`; executable SHA-256: `929a989dc7d8f0845a0e47e1e5b1414c6a118299291c077e6b0838ffe15737ed`.
+
+Modrinth saved separate Fabric and NeoForge beta.5 entries. Their downloads equal GitHub release files byte-for-byte; the saved Fabric page lists Fabric API **0.165.2+26.3** as required. The gallery now contains **29 original game images**, including the reviewed tracer controls and independent-target scene. An independently loaded project page confirms the updated guide, target choices and validation counts. The project still displays **Under review**; manual approval is unconfirmed. AI disclosures and licensing notices remain intact.
+
+[Exact publication, download, installation and preservation receipts](evidence/tracer-publication-1.2.6.json). The existing personal game was not controlled; native updates load on a subsequent launch. No fresh public-server or second-player acceptance is claimed.
+
+
 ## 1.2.6 independent entity tracer targets
 
 Entity Tracers has separate **Players**, **Mobs** and **Dropped Items** choices, saved in profiles and exposed with individual Default controls. Entity ESP keeps its own choices; Finder block tracers and X-ray terrain remain independent. Fresh settings select players and leave the feature off. Old native profiles keep previous player-and-mob coverage; old Java profiles inherit their prior shared ESP choices only when the new fields are missing.

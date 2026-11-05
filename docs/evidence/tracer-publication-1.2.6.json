@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "release_source_commit": "04b5cee91222e14d5aa4b29570220a1b8570d0c1",
+  "github": {
+    "source_commit": "04b5cee91222e14d5aa4b29570220a1b8570d0c1",
+    "releases": {
+      "v1.2.6": {
+        "url": "https://github.com/Justeck/Rusty/releases/tag/v1.2.6",
+        "immutable": true,
+        "assets": [
+          {
+            "name": "rusty-1.2.6.hnmod",
+            "sha256": "1de743132256c5649ee925ab2479501423d010b2855095c1ad30530920afeace",
+            "bytes": 206406
+          },
+          {
+            "name": "SHA256SUMS",
+            "sha256": "436b7c143ccfab0035a6441b18f74918a8dfc1ec01d86726d5a63b1511774c49",
+            "bytes": 84
+          }
+        ]
+      },
+      "java-v1.3.0-beta.5": {
+        "url": "https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.5",
+        "immutable": true,
+        "assets": [
+          {
+            "name": "rusty-fabric-1.3.0-beta.5-sources.jar",
+            "sha256": "6bb01290dd616b81c7f75ab09c2fbccebff853f72c075f9d7c05f25abb49e50e",
+            "bytes": 1629279
+          },
+          {
+            "name": "rusty-fabric-1.3.0-beta.5.jar",
+            "sha256": "3ef3114aca249624fc949aa66e4d29cd4b3fc13cb4a1db0d477634b668b5312c",
+            "bytes": 1715473
+          },
+          {
+            "name": "rusty-neoforge-1.3.0-beta.5-sources.jar",
+            "sha256": "53293cd3595e2e9e9bc1a54cbb02815056aa0dc599c8eae3d6035e5f9335a2f5",
+            "bytes": 1627828
+          },
+          {
+            "name": "rusty-neoforge-1.3.0-beta.5.jar",
+            "sha256": "149cbf67007579f78fa55077c53b0e62aa5cbf47747612d80fa9eb5d54a50ea4",
+            "bytes": 1709820
+          },
+          {
+            "name": "SHA256SUMS",
+            "sha256": "93966e555b661e04e86e27db0efd753526cb872c1daf09efb8f296e0613b31cb",
+            "bytes": 404
+          }
+        ]
+      }
+    },
+    "inputs": [
+      {
+        "route": "fixed",
+        "url": "https://github.com/Justeck/Rusty/releases/tag/v1.2.6",
+        "exit_code": 0,
+        "origin": {
+          "id": "rusty",
+          "version": "1.2.6",
+          "owner": "Justeck",
+          "repo": "Rusty",
+          "tag": "v1.2.6",
+          "commit": "04b5cee91222e14d5aa4b29570220a1b8570d0c1",
+          "asset": "rusty-1.2.6.hnmod",
+          "sha256": "1de743132256c5649ee925ab2479501423d010b2855095c1ad30530920afeace"
+        }
+      },
+      {
+        "route": "repository",
+        "url": "https://github.com/Justeck/Rusty",
+        "exit_code": 0,
+        "origin": {
+          "id": "rusty",
+          "version": "1.2.6",
+          "owner": "Justeck",
+          "repo": "Rusty",
+          "tag": "v1.2.6",
+          "commit": "04b5cee91222e14d5aa4b29570220a1b8570d0c1",
+          "asset": "rusty-1.2.6.hnmod",
+          "sha256": "1de743132256c5649ee925ab2479501423d010b2855095c1ad30530920afeace"
+        }
+      }
+    ],
+    "sole_instance": "horizon",
+    "selected_build": "native-38609b7-b664e1ab8deb",
+    "executable_sha256": "929a989dc7d8f0845a0e47e1e5b1414c6a118299291c077e6b0838ffe15737ed",
+    "cached_build_exit": 0,
+    "cached_build_seconds": 188.498,
+    "preferences_preserved": true,
+    "preference_files_checked": 2,
+    "existing_running_user_game_controlled": false,
+    "java_ci_product_classes_equal_locally_game_tested": true
+  },
+  "followup_normal_performance_check": {
+    "exit_code": 0,
+    "seconds": 4.596,
+    "up_to_date": true
+  },
+  "java_release_runtime_entries_equal_locally_game_tested": true,
+  "modrinth": {
+    "project_url": "https://modrinth.com/mod/rusty-toolkit",
+    "project_id": "tQFy3VCO",
+    "status": "under_review",
+    "manual_approval_confirmed": false,
+    "versions": {
+      "fabric": {
+        "id": "ms21mOKi",
+        "url": "https://modrinth.com/mod/rusty-toolkit/version/ms21mOKi",
+        "download_url": "https://cdn.modrinth.com/data/tQFy3VCO/versions/ms21mOKi/rusty-fabric-1.3.0-beta.5.jar?mr_download_reason=standalone",
+        "bytes": 1715473,
+        "sha256": "3ef3114aca249624fc949aa66e4d29cd4b3fc13cb4a1db0d477634b668b5312c",
+        "equals_github_release": true
+      },
+      "neoforge": {
+        "id": "9AmzZFi1",
+        "url": "https://modrinth.com/mod/rusty-toolkit/version/9AmzZFi1",
+        "download_url": "https://cdn.modrinth.com/data/tQFy3VCO/versions/9AmzZFi1/rusty-neoforge-1.3.0-beta.5.jar?mr_download_reason=standalone",
+        "bytes": 1709820,
+        "sha256": "149cbf67007579f78fa55077c53b0e62aa5cbf47747612d80fa9eb5d54a50ea4",
+        "equals_github_release": true
+      }
+    },
+    "fabric_required_dependency": {
+      "project_id": "P7dR8mSH",
+      "version_id": "nJlcvFfj",
+      "version": "0.165.2+26.3",
+      "required": true,
+      "verified_on_saved_version_page": true
+    },
+    "gallery_images": 29,
+    "added_reviewed_images": [
+      "Choose entity tracer targets",
+      "Different targets, together"
+    ],
+    "description_source_sha256": "cbc765e47a8ad618bb7c7ee9cc4bb517f8f6f5cab7fea827a4722da6251a9305",
+    "saved_description_verified_on_independent_project_page": true,
+    "ai_disclosures_and_license_notices_preserved": true,
+    "submitted_description_text_sha256": "c54674ca5bd3ead8b5229a64a480e8f89c350fdbb13da99d38113f2c035d0240",
+    "submitted_guide_matches_maintained_source_after_terminal_whitespace_normalization": true
+  },
+  "limits": [
+    "Modrinth publication means the versions, files, gallery and guide were saved; manual review approval is not claimed.",
+    "Runtime entries match the locally game-tested Java packages; a separate personal-launcher run of the downloaded Java jars was not performed.",
+    "Existing user games and personal worlds were not controlled. No fresh public-server or second-player acceptance is claimed."
+  ]
+}

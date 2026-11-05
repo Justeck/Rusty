@@ -12,10 +12,12 @@
 - [x] Add saved independent filters, migration and default controls. Cover all selection combinations and profile round trips.
 - [x] Filter native received mobs and dropped items with bounded work; independently filter Java boxes and lines in a shared entity pass.
 - [x] Exercise real menus, dropped-item and mob positive/negative controls in owned offline worlds; inspect actual screenshots. Preserve personal world/preferences.
-- [ ] Build through the official launcher, publish immutable native and Java releases after checks, install the accepted native release and update GitHub/Modrinth documentation and artifacts.
+- [x] Build through the official launcher, publish immutable native and Java releases after checks, install the accepted native release and update GitHub/Modrinth documentation and artifacts.
 
 **Review focus:** Empty target selection draws nothing; disabled tracer module draws nothing; items must not be treated as mobs; toggling ESP targets never changes tracers; old saved choices and explicit new false values survive import.
 
 Final review: one Important Java shared-budget finding. Added a production OverlayBuffer with independent 768-main/128-entity-tracer budgets; saturation regression failed for the old shared budget and passed after separation (1,215 Java core assertions). No Critical or Minor findings.
 
 Ruling: retain received-entity order within each bounded tracer budget; nearest-target prioritization is outside this change. Cost: dense selections may omit later received targets once 128 lines are selected. Remote-server and publication acceptance remain separate pending checks.
+
+Delivery complete: native 1.2.6 and Java beta.5 immutable GitHub releases; official native release/repository installs and 4.596-second Up-to-date check; Modrinth loader versions and downloads verified, 29-image gallery and live guide synchronized. Modrinth manual review remains pending.
