@@ -42,6 +42,40 @@ mod upgrade_profile_tests {
     use super::{core::Config, rusty_catalog::Theme};
 
     #[test]
+    fn individual_defaults_preserve_other_settings_and_reject_unknown_paths_atomically() {
+        let mut cfg = Config {
+            fullbright: true,
+            no_fog: true,
+            ..Config::default()
+        };
+        cfg.client.menu_scale = 1.4;
+        cfg.restore_default_path("/fullbright").unwrap();
+        assert!(!cfg.fullbright);
+        assert!(cfg.no_fog);
+        assert_eq!(cfg.client.menu_scale, 1.4);
+        cfg.restore_default_path("/client/menu_scale").unwrap();
+        assert_eq!(cfg.client.menu_scale, 0.7);
+        assert!(cfg.no_fog);
+        let before = cfg.clone();
+        assert!(cfg.restore_default_path("/made_up").is_err());
+        assert_eq!(cfg, before);
+        assert!(cfg.restore_default_path("client/menu_scale").is_err());
+        assert_eq!(cfg, before);
+    }
+    #[test]
+    fn active_list_is_alphabetical_excludes_itself_and_tracks_removal() {
+        let names = super::rusty_catalog::enabled_names(|id| {
+            matches!(id, "enabled_mods" | "no_fog" | "fullbright")
+        });
+        assert_eq!(names, vec!["Fullbright", "No Fog"]);
+        assert_eq!(
+            super::rusty_catalog::enabled_names(|id| id == "no_fog"),
+            vec!["No Fog"]
+        );
+        assert!(super::rusty_catalog::enabled_names(|id| id == "enabled_mods").is_empty());
+    }
+
+    #[test]
     fn displayed_native_version_matches_release_identity() {
         let manifest: serde_json::Value =
             serde_json::from_str(include_str!("horizon-native.json")).unwrap();

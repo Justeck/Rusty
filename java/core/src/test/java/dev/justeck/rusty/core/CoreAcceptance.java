@@ -12,6 +12,63 @@ public final class CoreAcceptance {
   }
 
   public static void main(String[] args) {
+    check(
+        Catalog.ALL.stream()
+            .anyMatch(m ->
+                m.id().equals("enabled_mods")
+                    && m.name().equals("Enabled Mods")
+                    && m.category().equals("Interface")),
+        "Enabled Mods is available as an independent interface feature");
+    var priority =
+        HudLayout.fit(
+            java.util.List.of(
+                new HudLayout.Panel("equipment_hud", 160, 100),
+                new HudLayout.Panel("enabled_mods", 140, 40)),
+            640,
+            360,
+            1);
+    check(
+        priority.panels().get("enabled_mods").x() == 8
+            && priority.panels().get("enabled_mods").y() == 8,
+        "Enabled Mods gets the top-left anchor before taller panels");
+    check(
+        Catalog.enabledNames(id -> Set.of("enabled_mods", "no_fog", "fullbright").contains(id))
+            .equals(java.util.List.of("Fullbright", "No Fog")),
+        "active list is alphabetical and excludes itself");
+    check(
+        Catalog.enabledNames(id -> id.equals("no_fog")).equals(java.util.List.of("No Fog")),
+        "disabled names disappear");
+    check(
+        Catalog.enabledNames(id -> id.equals("enabled_mods")).isEmpty(),
+        "list excludes itself when no other modules are active");
+    var restore = new Settings();
+    restore.scanRadius = 128;
+    restore.context = false;
+    restore.theme = "Copper";
+    restore.targets.clear();
+    check(
+        restore.restoreField("scanRadius")
+            && restore.scanRadius == 64
+            && !restore.context
+            && restore.theme.equals("Copper"),
+        "one numeric default preserves other preferences");
+    check(
+        restore.restoreField("context") && restore.context && restore.theme.equals("Copper"),
+        "true boolean default restores independently");
+    check(
+        restore.restoreField("targets") && restore.targets.equals(Settings.defaultTargets()),
+        "target defaults use a fresh selection");
+    restore.targets.clear();
+    check(!Settings.defaultTargets().isEmpty(), "mutable default selections are not shared");
+    check(
+        !restore.restoreField("unknown")
+            && !restore.restoreField("DEFAULT_MENU_SCALE")
+            && restore.theme.equals("Copper"),
+        "unknown and static fields cannot reset settings");
+    restore.menuScale = 1.4;
+    check(
+        restore.restoreField("menuScale") && restore.menuScale == .7,
+        "menu default retains compact 100 percent baseline");
     var state = new SessionPolicy();
     check(!state.allows("xray"), "no connection starts denied");
     state.connect("first", false);
@@ -54,14 +111,20 @@ public final class CoreAcceptance {
     var cfg = new Settings();
     check(cfg.menuScale == .7, "100 percent menu default is the former 70 percent physical size");
     for (double[] pair : new double[][] {{.35, 50}, {.7, 100}, {2.1, 300}})
-      check(Math.abs(Settings.menuPercent(pair[0]) - pair[1]) < 1e-9, "percent uses compact baseline");
-    check(Settings.fittedMenuScale(1920, 1080, .35) == .35, "new minimum is not clamped to old minimum");
+      check(
+          Math.abs(Settings.menuPercent(pair[0]) - pair[1]) < 1e-9,
+          "percent uses compact baseline");
+    check(
+        Settings.fittedMenuScale(1920, 1080, .35) == .35,
+        "new minimum is not clamped to old minimum");
     check(Settings.fittedMenuScale(320, 200, 2.1) <= .8, "large request fits a small window");
     for (double scale : new double[] {.35, .5, .7, 1, 2, 2.1}) {
       var savedMenu = new Settings();
       savedMenu.menuScale = scale;
       savedMenu.validate();
-      check(savedMenu.menuScale == scale, "menu bounds include old physical sizes and new zoom endpoints");
+      check(
+          savedMenu.menuScale == scale,
+          "menu bounds include old physical sizes and new zoom endpoints");
     }
     check(cfg.textureVisibility == 25 && !cfg.holdXray, "readable texture default and toggle");
     check(
@@ -108,9 +171,10 @@ public final class CoreAcceptance {
     var hud = new java.util.ArrayList<HudLayout.Panel>();
     for (int i = 0; i < 17; i++) hud.add(new HudLayout.Panel("text" + i, 160, 20));
     hud.add(new HudLayout.Panel("minimap", 96, 96));
+    hud.add(new HudLayout.Panel("enabled_mods", 140, 40));
     for (int[] size : new int[][] {{320, 180}, {640, 360}, {1280, 720}}) {
       var layout = HudLayout.fit(hud, size[0], size[1], 1);
-      check(layout.fits() && layout.panels().size() == 18, "all 18 default panels fit " + size[0]);
+      check(layout.fits() && layout.panels().size() == 19, "all 19 default panels fit " + size[0]);
       var rectangles = new java.util.ArrayList<>(layout.panels().values());
       for (var panel : hud)
         check(

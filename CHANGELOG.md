@@ -1,5 +1,12 @@
 # Changelog
 
+## Rusty 1.2.5
+
+- Added an opt-in Enabled Mods overlay: alphabetic vertical rows, top-left by default, with independent HUD placement and size.
+- Added visible Default buttons for individual preferences, target fields, shortcuts and HUD controls.
+- Added a confirmed Restore defaults action covering all Rusty settings and shortcuts, stopping active runtime tools while preserving saved waypoint and named profile files.
+- Fabric/NeoForge 1.3.0-beta.4 adds the same defaults and active list using Minecraft widgets, including per-panel and full HUD layout defaults.
+
 ## Rusty 1.2.4
 
 - Made the former 70% menu size the new 100% default and reset point.

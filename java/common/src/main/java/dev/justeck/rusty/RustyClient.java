@@ -97,7 +97,7 @@ public final class RustyClient {
     publish();
     terrainHash = terrainHash();
     LOG.info(
-        "Rusty Java 1.3.0-beta.3 initialized ({})", System.getProperty("rusty.edition", "loader"));
+        "Rusty Java 1.3.0-beta.4 initialized ({})", System.getProperty("rusty.edition", "loader"));
   }
 
   public static Path configPath() {
@@ -116,6 +116,31 @@ public final class RustyClient {
     }
     publish();
     if (terrainHash() != terrainHash) refresh();
+  }
+
+  public static int defaultBinding(String id) {
+    return switch (id) {
+      case "menu" -> InputConstants.KEY_RSHIFT;
+      case "xray" -> InputConstants.KEY_X;
+      case "zoom" -> InputConstants.KEY_C;
+      default -> -1;
+    };
+  }
+
+  public static void restoreDefaults() {
+    RustyAssistance.reset();
+    RustyCamera.reset();
+    RustyNavigation.reset();
+    zoomHeld = false;
+    config = new Settings();
+    for (var id : List.of("menu", "xray", "zoom")) config.bindings.put(id, defaultBinding(id));
+    KEY_EVENTS.clear();
+    INPUT.forEach((id, input) -> input.contextChanged(requested(id), down(id)));
+    MENU.contextChanged(false, down("menu"));
+    notice = "";
+    save();
+    refresh();
+    if (notice.isEmpty()) notice = "Defaults restored.";
   }
 
   public static void changed() {

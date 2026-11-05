@@ -8,6 +8,7 @@ import java.util.*;
 import java.util.function.*;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.*;
+import net.minecraft.client.gui.screens.ConfirmScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.*;
 import net.minecraft.network.chat.Component;
@@ -131,6 +132,24 @@ public final class RustyScreen extends Screen {
           updateList();
         });
     button("HUD layout", left + 78, h - 36, 85, b -> minecraft.gui.setScreen(new HudEditor(this)));
+    button(
+        "Restore defaults",
+        left + panel - 218,
+        h - 36,
+        124,
+        b ->
+            minecraft.gui.setScreen(
+                new ConfirmScreen(
+                    confirmed -> {
+                      if (confirmed) {
+                        RustyClient.restoreDefaults();
+                        minecraft.gui.setScreen(new RustyScreen(parent));
+                      } else minecraft.gui.setScreen(this);
+                    },
+                    Component.literal("Restore all Rusty settings?"),
+                    Component.literal(
+                        "Reset features, shortcuts, menu size and HUD layout. Saved waypoints and"
+                            + " profile files are kept."))));
     button("Done", left + panel - 88, h - 36, 80, b -> onClose());
     updateList();
     details();
@@ -185,34 +204,22 @@ public final class RustyScreen extends Screen {
                           + SessionPolicy.required(selected)
                           + ".");
         });
-    int favoriteWidth = Math.min(74, bw / 3),
-        clearWidth = 44,
-        bindWidth = bw - favoriteWidth - clearWidth - 12;
+    int clearWidth = 44, defaultWidth = 56, bindWidth = bw - clearWidth - defaultWidth - 12;
     int binding = RustyClient.config.bindings.getOrDefault(selected, -1);
     String bindingLabel =
         binding < 0
             ? "None"
             : InputConstants.Type.KEYBOARD.getOrCreate(binding).getDisplayName().getString();
     button(
-        RustyClient.config.favorites.contains(selected) ? "Starred" : "Favorite",
-        x,
-        y,
-        favoriteWidth,
-        b -> {
-          if (!RustyClient.config.favorites.remove(selected))
-            RustyClient.config.favorites.add(selected);
-          RustyClient.save();
-          rebuildWidgets();
-        });
-    button(
         bindingLabel,
-        x + favoriteWidth + 6,
+        x,
         y,
         bindWidth,
         b -> {
           capturing = selected;
           popup = "Press a key. Escape cancels; Backspace clears this shortcut.";
         });
+    button("Default", x + bindWidth + 6, y, defaultWidth, b -> restoreBinding(selected));
     button(
         "Clear",
         x + bw - clearWidth,
@@ -227,11 +234,56 @@ public final class RustyScreen extends Screen {
     final int controlY = y;
     var options = new ArrayList<Runnable>();
     var ys = new int[] {y};
-    BiConsumer<String, BooleanSupplier> dummy = (a, b) -> {};
+    options.add(() -> {
+      button(
+          "Enabled: " + (RustyClient.requested(selected) ? "ON" : "OFF"),
+          x,
+          ys[0],
+          bw - 62,
+          b -> {
+            RustyClient.set(selected, !RustyClient.requested(selected));
+            rebuildWidgets();
+          });
+      button(
+          "Default",
+          x + bw - 56,
+          ys[0],
+          56,
+          b -> {
+            RustyClient.set(selected, new Settings().enabled.contains(selected));
+            rebuildWidgets();
+          });
+      ys[0] += 26;
+    });
+    options.add(() -> {
+      button(
+          RustyClient.config.favorites.contains(selected) ? "Starred" : "Favorite",
+          x,
+          ys[0],
+          bw - 62,
+          b -> {
+            if (!RustyClient.config.favorites.remove(selected))
+              RustyClient.config.favorites.add(selected);
+            RustyClient.save();
+            rebuildWidgets();
+          });
+      button(
+          "Default",
+          x + bw - 56,
+          ys[0],
+          56,
+          b -> {
+            RustyClient.config.favorites.remove(selected);
+            RustyClient.save();
+            rebuildWidgets();
+          });
+      ys[0] += 26;
+    });
     if (selected.equals("xray") || selected.equals("finder")) {
       if (selected.equals("xray")) {
         options.add(() ->
             slider(
+                "textureVisibility",
                 "Block textures",
                 0,
                 100,
@@ -241,6 +293,7 @@ public final class RustyScreen extends Screen {
                 ys));
         options.add(() ->
             toggle(
+                "context",
                 "Textured context",
                 () -> RustyClient.config.context,
                 v -> RustyClient.config.context = v,
@@ -248,6 +301,7 @@ public final class RustyScreen extends Screen {
                 ys));
         options.add(() ->
             toggle(
+                "holdXray",
                 "Hold to activate",
                 () -> RustyClient.config.holdXray,
                 v -> RustyClient.config.holdXray = v,
@@ -257,6 +311,7 @@ public final class RustyScreen extends Screen {
       if (selected.equals("finder")) {
         options.add(() ->
             slider(
+                "scanRadius",
                 "Finder radius",
                 8,
                 128,
@@ -266,6 +321,7 @@ public final class RustyScreen extends Screen {
                 ys));
         options.add(() ->
             toggle(
+                "tracers",
                 "Tracers",
                 () -> RustyClient.config.tracers,
                 v -> RustyClient.config.tracers = v,
@@ -273,6 +329,7 @@ public final class RustyScreen extends Screen {
                 ys));
         options.add(() ->
             toggle(
+                "outlines",
                 "Boxes",
                 () -> RustyClient.config.outlines,
                 v -> RustyClient.config.outlines = v,
@@ -290,6 +347,7 @@ public final class RustyScreen extends Screen {
       });
       options.add(() ->
           slider(
+              "minY",
               "Minimum Y",
               -64,
               319,
@@ -299,6 +357,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           slider(
+              "maxY",
               "Maximum Y",
               -64,
               319,
@@ -308,6 +367,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           slider(
+              "maxTargets",
               "Maximum targets",
               16,
               4096,
@@ -318,6 +378,7 @@ public final class RustyScreen extends Screen {
     } else if (selected.startsWith("entity_")) {
       options.add(() ->
           toggle(
+              "espPlayers",
               "Players",
               () -> RustyClient.config.espPlayers,
               v -> RustyClient.config.espPlayers = v,
@@ -325,6 +386,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           toggle(
+              "espMobs",
               "Mobs",
               () -> RustyClient.config.espMobs,
               v -> RustyClient.config.espMobs = v,
@@ -332,6 +394,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           toggle(
+              "espItems",
               "Dropped items",
               () -> RustyClient.config.espItems,
               v -> RustyClient.config.espItems = v,
@@ -367,6 +430,7 @@ public final class RustyScreen extends Screen {
     } else if (selected.equals("build_planner")) {
       options.add(() ->
           slider(
+              "plannerWidth",
               "Width",
               1,
               16,
@@ -376,6 +440,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           slider(
+              "plannerDepth",
               "Depth",
               1,
               16,
@@ -385,6 +450,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           slider(
+              "plannerHeight",
               "Height",
               1,
               16,
@@ -394,6 +460,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           toggle(
+              "plannerHollow",
               "Hollow",
               () -> RustyClient.config.plannerHollow,
               v -> RustyClient.config.plannerHollow = v,
@@ -418,6 +485,7 @@ public final class RustyScreen extends Screen {
     } else if (selected.equals("minimap")) {
       options.add(() ->
           slider(
+              "mapSize",
               "Map size",
               48,
               192,
@@ -427,6 +495,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           toggle(
+              "mapRound",
               "Round",
               () -> RustyClient.config.mapRound,
               v -> RustyClient.config.mapRound = v,
@@ -434,6 +503,7 @@ public final class RustyScreen extends Screen {
               ys));
       options.add(() ->
           toggle(
+              "mapRotate",
               "Rotate",
               () -> RustyClient.config.mapRotate,
               v -> RustyClient.config.mapRotate = v,
@@ -442,6 +512,7 @@ public final class RustyScreen extends Screen {
     } else if (selected.equals("freecam"))
       options.add(() ->
           slider(
+              "cameraSpeed",
               "Camera speed",
               .05,
               4,
@@ -452,6 +523,7 @@ public final class RustyScreen extends Screen {
     else if (selected.equals("zoom"))
       options.add(() ->
           slider(
+              "zoomFactor",
               "Magnification",
               1.5,
               12,
@@ -462,6 +534,7 @@ public final class RustyScreen extends Screen {
     else if (selected.equals("auto_eat"))
       options.add(() ->
           slider(
+              "eatBelow",
               "Eat below",
               1,
               19,
@@ -472,6 +545,7 @@ public final class RustyScreen extends Screen {
     else if (selected.equals("trigger_bot"))
       options.add(() ->
           toggle(
+              "triggerPlayers",
               "Include players",
               () -> RustyClient.config.triggerPlayers,
               v -> RustyClient.config.triggerPlayers = v,
@@ -480,6 +554,7 @@ public final class RustyScreen extends Screen {
     else if (selected.equals("auto_fish"))
       options.add(() ->
           slider(
+              "fishDelay",
               "Reel delay (ticks)",
               2,
               20,
@@ -489,6 +564,7 @@ public final class RustyScreen extends Screen {
               ys));
     options.add(() ->
         slider(
+            "menuScale",
             "Menu size (%)",
             50,
             300,
@@ -497,15 +573,21 @@ public final class RustyScreen extends Screen {
             x,
             ys));
     options.add(() -> {
-      button("Menu size: reset to 100%", x, ys[0], bw, b -> {
-        RustyClient.config.menuScale = Settings.DEFAULT_MENU_SCALE;
-        RustyClient.changed();
-        rebuildWidgets();
-      });
+      button(
+          "Menu size: reset to 100%",
+          x,
+          ys[0],
+          bw,
+          b -> {
+            RustyClient.config.menuScale = Settings.DEFAULT_MENU_SCALE;
+            RustyClient.changed();
+            rebuildWidgets();
+          });
       ys[0] += 26;
     });
     options.add(() ->
         slider(
+            "hudScale",
             "HUD size",
             .5,
             2,
@@ -518,7 +600,7 @@ public final class RustyScreen extends Screen {
           "Theme: " + RustyClient.config.theme,
           x,
           ys[0],
-          bw,
+          bw - 62,
           b -> {
             RustyClient.config.theme =
                 switch (RustyClient.config.theme) {
@@ -529,6 +611,7 @@ public final class RustyScreen extends Screen {
             RustyClient.save();
             rebuildWidgets();
           });
+      defaultButton("theme", x, ys[0]);
       ys[0] += 26;
     });
     options.add(() -> {
@@ -536,11 +619,12 @@ public final class RustyScreen extends Screen {
           "Rebind menu",
           x,
           ys[0],
-          bw,
+          bw - 62,
           b -> {
             capturing = "menu";
             popup = "Press a key for the menu. Escape cancels; Backspace clears.";
           });
+      button("Default", x + bw - 56, ys[0], 56, b -> restoreBinding("menu"));
       ys[0] += 26;
     });
     options.add(() -> {
@@ -591,25 +675,53 @@ public final class RustyScreen extends Screen {
         });
   }
 
-  private void toggle(String name, BooleanSupplier get, Consumer<Boolean> set, int x, int[] y) {
+  private void restoreBinding(String id) {
+    RustyClient.config.bindings.put(id, RustyClient.defaultBinding(id));
+    RustyClient.save();
+    rebuildWidgets();
+  }
+
+  private void defaultButton(String property, int x, int y) {
+    button(
+        "Default",
+        x + panel / 2 - 80,
+        y,
+        56,
+        b -> {
+          RustyClient.config.restoreField(property);
+          RustyClient.save();
+          rebuildWidgets();
+        });
+  }
+
+  private void toggle(
+      String property, String name, BooleanSupplier get, Consumer<Boolean> set, int x, int[] y) {
     button(
         name + ": " + (get.getAsBoolean() ? "ON" : "OFF"),
         x,
         y[0],
-        panel / 2 - 24,
+        panel / 2 - 86,
         b -> {
           set.accept(!get.getAsBoolean());
           RustyClient.save();
           rebuildWidgets();
         });
+    defaultButton(property, x, y[0]);
     y[0] += 26;
   }
 
   private void slider(
-      String name, double min, double max, double initial, DoubleConsumer set, int x, int[] y) {
+      String property,
+      String name,
+      double min,
+      double max,
+      double initial,
+      DoubleConsumer set,
+      int x,
+      int[] y) {
     addRenderableWidget(
         new AbstractSliderButton(
-            x, y[0], panel / 2 - 24, 20, Component.empty(), (initial - min) / (max - min)) {
+            x, y[0], panel / 2 - 86, 20, Component.empty(), (initial - min) / (max - min)) {
           {
             updateMessage();
           }
@@ -630,6 +742,7 @@ public final class RustyScreen extends Screen {
             RustyClient.changed();
           }
         });
+    defaultButton(property, x, y[0]);
     y[0] += 26;
   }
 
@@ -735,8 +848,8 @@ public final class RustyScreen extends Screen {
   }
 
   private void refreshMenuScale() {
-    if (Math.abs(scale - Settings.fittedMenuScale(width, height, RustyClient.config.menuScale)) > 1e-6)
-      rebuildWidgets();
+    if (Math.abs(scale - Settings.fittedMenuScale(width, height, RustyClient.config.menuScale))
+        > 1e-6) rebuildWidgets();
   }
 
   @Override

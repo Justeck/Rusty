@@ -81,3 +81,7 @@ Classic, Graphite and Copper themes use Minecraft's native text and controls. Th
 **Advanced / Profiles** retains detailed target editing and local JSON presets. Feature-profile import preserves local theme, reduced motion, favorites and recent selections; Horizon stores keybindings separately. Imports and file reads are bounded. World/server marker data stays local. **Options → Mods** remains available as the native entry point.
 
 See [Usage](USAGE.md), [Installation](INSTALLATION.md), [Performance](PERFORMANCE.md), and the [reference implementation analysis](research/implementation-analysis.md). The research inventory includes commands, HUD elements, aliases and historical records; it is not an implemented-module count or a claim of parity with those clients.
+
+## Enabled Mods
+
+**Interface → Enabled Mods** is an opt-in screen overlay that lists active Rusty tools alphabetically, one name per row. It excludes its own name. Its default anchor is top-left; independent HUD placement and size controls let you move it. Runtime-only tools appear while active. This is the active Rusty feature list, not the loader’s dependency/mod inventory.

@@ -91,7 +91,7 @@ public final class TargetScreen extends Screen {
           rebuildWidgets();
         });
     button(
-        "Typical ores",
+        "Default ores",
         x + 80,
         height - 58,
         116,

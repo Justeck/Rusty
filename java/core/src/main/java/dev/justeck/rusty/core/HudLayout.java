@@ -22,7 +22,9 @@ public final class HudLayout {
     if (width < 40 || height < 60) return new Layout(Map.of(), .5, false);
     int maxColumns = Math.clamp((width - 16) / 90, 1, 4), bottom = height - 36;
     var sorted = new ArrayList<>(panels);
-    sorted.sort(Comparator.comparingInt(Panel::height).reversed());
+    sorted.sort(
+        Comparator.<Panel>comparingInt(p -> p.id().equals("enabled_mods") ? 0 : 1)
+            .thenComparing(Comparator.comparingInt(Panel::height).reversed()));
     for (double scale = requested; scale >= .499; scale -= .05) {
       for (int columns = 1; columns <= maxColumns; columns++) {
         int cell = (width - 16 - (columns - 1) * 6) / columns;

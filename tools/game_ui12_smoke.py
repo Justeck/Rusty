@@ -3,7 +3,7 @@
 
 python tools/game_ui12_smoke.py --binary PATH --resources PATH --output NEW_DIR
 
-Captures actual frames for a separate visual review. Tests all 18 screen HUD
+Captures actual frames for a separate visual review. Tests all 19 screen HUD
 layout controls; conditional HUD contents still need their feature fixtures.
 The only process restarted is this suite's owned child, in its new QA instance.
 No installed instance, personal settings/world, account or clipboard is used.
@@ -26,6 +26,7 @@ from game_gui_smoke import AcceptanceFailure, Smoke, canonical_digest, digest
 
 
 PANELS = {
+    "enabled_mods": "Enabled Mods",
     "status_hud": "Status HUD", "coordinates": "Coordinates", "finder": "Finder",
     "compass": "Compass", "waypoints": "Waypoints", "equipment_hud": "Equipment HUD",
     "environment_hud": "Environment HUD", "container_preview": "Container Preview",
@@ -78,7 +79,7 @@ class Ui12Smoke(FeatureSmoke):
             manual_review="pending", expected_image_content={}, hud_control_receipts=[],
             not_exercised=[
                 "Image composition, labels, clipping and map texture alignment need review of the saved native frames; hit/config assertions alone do not accept their appearance.",
-                "All18 HUD layout controls are changed/reset; conditional finder/target/trajectory/container/build/waypoint content is not individually manufactured or accepted here.",
+                "All19 HUD layout controls are changed/reset; conditional finder/target/trajectory/container/build/waypoint content is not individually manufactured or accepted here.",
                 "Physical device input, live window resize, other graphics backends/resource packs and external servers are outside this bounded fixture.",
             ],
         )
@@ -225,7 +226,7 @@ class Ui12Smoke(FeatureSmoke):
         self.passed("All three palette controls persist and produce captured native frames")
 
     def hud_controls(self):
-        self.phase = "independent layout controls and reset for all18 HUD panels"
+        self.phase = "independent layout controls and reset for all19 HUD panels"
         for panel in PANELS:
             self.select(panel)
             before = copy.deepcopy(self.config()["client"]["hud_layout"])
@@ -245,7 +246,7 @@ class Ui12Smoke(FeatureSmoke):
             self.wait_for(self.ui, lambda s,expected=initial_controls: s["local_values"]==expected, "rendered HUD controls reflect reset")
             self.require(self.config()["client"]["hud_layout"] == before, "Per-panel reset changed another panel")
             self.report["hud_control_receipts"].append({"panel":panel,"changed":{"x":1,"y":0,"scale":2},"unrelated_panels_unchanged":True,"reset_restored":True})
-        self.passed("All18 HUD panels independently save X/Y/size and reset through actual native controls", panels=len(PANELS))
+        self.passed("All19 HUD panels independently save X/Y/size and reset through actual native controls", panels=len(PANELS))
         # Keep a few visible, spatially distinct panels for real-frame review and
         # import/restart persistence; other conditional panels remain disabled.
         for panel, fractions, placement in [

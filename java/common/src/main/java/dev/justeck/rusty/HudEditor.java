@@ -7,7 +7,7 @@ import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 
 public final class HudEditor extends Screen {
-  private String dragging;
+  private String dragging, selected;
   private double offsetX, offsetY;
   private final Screen parent;
 
@@ -24,17 +24,29 @@ public final class HudEditor extends Screen {
   protected void init() {
     addRenderableWidget(
         Button.builder(
-                Component.literal("Reset layout"),
+                Component.literal("Default panel"),
+                b -> {
+                  if (selected != null) {
+                    RustyClient.config.overlays.remove(selected);
+                    RustyClient.config.overlayScales.remove(selected);
+                    RustyClient.save();
+                  }
+                })
+            .bounds(width / 2 - 166, height - 30, 104, 20)
+            .build());
+    addRenderableWidget(
+        Button.builder(
+                Component.literal("Default layout"),
                 b -> {
                   RustyClient.config.overlays.clear();
                   RustyClient.config.overlayScales.clear();
                   RustyClient.save();
                 })
-            .bounds(width / 2 - 108, height - 30, 104, 20)
+            .bounds(width / 2 - 56, height - 30, 104, 20)
             .build());
     addRenderableWidget(
         Button.builder(Component.literal("Done"), b -> onClose())
-            .bounds(width / 2 + 4, height - 30, 104, 20)
+            .bounds(width / 2 + 54, height - 30, 104, 20)
             .build());
   }
 
@@ -44,8 +56,8 @@ public final class HudEditor extends Screen {
     RustyHud.draw(g, true);
     g.text(
         font,
-        "Drag to move. Scroll over a panel to resize.",
-        Math.max(4, width / 2 - 128),
+        "Select and drag to move. Scroll to resize. Default panel resets the selection.",
+        Math.max(4, width / 2 - 220),
         height - 44,
         0xffe0b27b);
     super.extractRenderState(g, x, y, delta);
@@ -60,7 +72,7 @@ public final class HudEditor extends Screen {
           && event.x() < r[0] + r[2]
           && event.y() >= r[1]
           && event.y() < r[1] + r[3]) {
-        dragging = entry.getKey();
+        dragging = selected = entry.getKey();
         offsetX = event.x() - r[0];
         offsetY = event.y() - r[1];
         return true;

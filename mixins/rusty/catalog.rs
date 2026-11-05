@@ -3,6 +3,17 @@ use serde::{Deserialize, Deserializer, Serialize, de};
 use std::collections::BTreeSet;
 use std::fmt;
 
+/// Stable names from the live activation predicate; the list never lists itself.
+pub fn enabled_names(mut active: impl FnMut(&str) -> bool) -> Vec<&'static str> {
+    let mut names: Vec<_> = MODULES
+        .iter()
+        .filter(|m| m.id != "enabled_mods" && active(m.id))
+        .map(|m| m.name)
+        .collect();
+    names.sort_unstable();
+    names
+}
+
 pub const MAX_QUERY_CHARS: usize = 128;
 pub const MAX_FAVORITES: usize = 128;
 pub const MAX_RECENT: usize = 16;
@@ -697,6 +708,17 @@ pub static MODULES: &[ModuleSpec] = &[
         default_enabled: true,
     },
     ModuleSpec {
+        id: "enabled_mods",
+        name: "Enabled Mods",
+        description: "List active Rusty features vertically in the top-left. Move or resize it with its HUD layout controls.",
+        category: Category::Interface,
+        aliases: &["array list", "active modules", "enabled list"],
+        settings: &[],
+        keybind_id: Some("enabled_mods"),
+        default_key: Some("key.keyboard.unknown"),
+        default_enabled: false,
+    },
+    ModuleSpec {
         id: "compass",
         name: "Compass",
         description: "Show your cardinal direction and yaw using the current player rotation.",
@@ -1348,6 +1370,13 @@ fn candidate(
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn enabled_mods_is_a_separate_opt_in_interface_feature() {
+        let feature = module("enabled_mods").expect("Enabled Mods must be in the module menu");
+        assert_eq!(feature.name, "Enabled Mods");
+        assert_eq!(feature.category, Category::Interface);
+        assert!(!feature.default_enabled);
+    }
     #[test]
     fn compact_menu_default_and_existing_physical_sizes_are_preserved() {
         assert_eq!(ClientPreferences::default().menu_scale, 0.7);

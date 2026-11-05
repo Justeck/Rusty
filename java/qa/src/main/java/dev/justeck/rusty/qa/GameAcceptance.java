@@ -25,6 +25,8 @@ public final class GameAcceptance {
   private static float bodyYaw;
   private static net.minecraft.world.entity.LivingEntity combatTarget;
   private static float combatHealth;
+  private static String savedSettings, savedWaypoints, savedProfile;
+  private static volatile boolean listCaptureComplete;
   private static final List<Map<String, Object>> performance = new ArrayList<>();
   private static final List<Step> steps = new ArrayList<>();
 
@@ -121,6 +123,8 @@ public final class GameAcceptance {
   private static void prepareLocal() {
     var mc = Minecraft.getInstance();
     mc.getTutorial().setStep(net.minecraft.client.tutorial.TutorialSteps.NONE);
+    mc.options.cloudStatus().set(net.minecraft.client.CloudStatus.OFF);
+    mc.options.chatVisibility().set(net.minecraft.world.entity.player.ChatVisiblity.HIDDEN);
     RustyClient.config = new Settings();
     RustyClient.config.bindings.put("menu", com.mojang.blaze3d.platform.InputConstants.KEY_RSHIFT);
     RustyClient.config.bindings.put("xray", com.mojang.blaze3d.platform.InputConstants.KEY_X);
@@ -128,20 +132,26 @@ public final class GameAcceptance {
     RustyClient.save();
     addCodecChecks();
     for (double physical : new double[] {.35, .7, 2.1}) {
-      add("Menu " + Math.round(Settings.menuPercent(physical)) + "% fits actual widgets at compact baseline",
+      add(
+          "Menu "
+              + Math.round(Settings.menuPercent(physical))
+              + "% fits actual widgets at compact baseline",
           () -> {
             RustyClient.config.menuScale = physical;
             mc.gui.setScreen(new RustyScreen());
           },
-          () -> menuFits(physical), 10);
+          () -> menuFits(physical),
+          10);
     }
-    add("Menu default restores compact 100% before gameplay checks",
+    add(
+        "Menu default restores compact 100% before gameplay checks",
         () -> {
           RustyClient.config.menuScale = new Settings().menuScale;
           RustyClient.save();
           mc.gui.setScreen(null);
         },
-        () -> RustyClient.config.menuScale == .7 && mc.gui.screen() == null, 5);
+        () -> RustyClient.config.menuScale == .7 && mc.gui.screen() == null,
+        5);
     add(
         "Fixture setup is received from owned integrated server",
         () -> {
@@ -198,20 +208,27 @@ public final class GameAcceptance {
           RustyClient.config.outlines = true;
           RustyClient.set("finder", false);
         },
-        () -> RustyClient.active("xray") && !RustyClient.active("finder")
-            && RustyClient.targets.size() >= 3 && RustyOverlay.renderedGeometry == 0,
+        () ->
+            RustyClient.active("xray")
+                && !RustyClient.active("finder")
+                && RustyClient.targets.size() >= 3
+                && RustyOverlay.renderedGeometry == 0,
         10);
     add(
         "Finder explicitly enables target geometry alongside Xray",
         () -> RustyClient.set("finder", true),
-        () -> RustyClient.active("xray") && RustyClient.active("finder")
-            && RustyOverlay.renderedGeometry > 0,
+        () ->
+            RustyClient.active("xray")
+                && RustyClient.active("finder")
+                && RustyOverlay.renderedGeometry > 0,
         10);
     add(
         "Disabling Xray preserves independently enabled Finder geometry",
         () -> RustyClient.set("xray", false),
-        () -> !RustyClient.active("xray") && RustyClient.active("finder")
-            && RustyOverlay.renderedGeometry > 0,
+        () ->
+            !RustyClient.active("xray")
+                && RustyClient.active("finder")
+                && RustyOverlay.renderedGeometry > 0,
         10);
     add(
         "Disabling Finder restores Xray-only rendering without changing line preferences",
@@ -219,9 +236,12 @@ public final class GameAcceptance {
           RustyClient.set("finder", false);
           RustyClient.set("xray", true);
         },
-        () -> RustyClient.active("xray") && !RustyClient.active("finder")
-            && RustyClient.config.tracers && RustyClient.config.outlines
-            && RustyOverlay.renderedGeometry == 0,
+        () ->
+            RustyClient.active("xray")
+                && !RustyClient.active("finder")
+                && RustyClient.config.tracers
+                && RustyClient.config.outlines
+                && RustyOverlay.renderedGeometry == 0,
         10);
     add(
         "Received block removal invalidates the target cache",
@@ -305,10 +325,10 @@ public final class GameAcceptance {
         () -> RustyNavigation.selected() != null,
         5);
     add(
-        "HUD editor exposes 18 independent panels with footer clearance",
+        "HUD editor exposes 19 independent panels with footer clearance",
         () -> mc.gui.setScreen(new HudEditor()),
         () ->
-            RustyHud.bounds.size() == 18
+            RustyHud.bounds.size() == RustyHud.IDS.size()
                 && RustyHud.bounds.values().stream()
                     .allMatch(r -> r[1] + r[3] <= mc.getWindow().getGuiScaledHeight() - 60),
         10);
@@ -438,6 +458,7 @@ public final class GameAcceptance {
         },
         () -> !RustyClient.view.xray(),
         10);
+    addDefaultAndListChecks();
     add(
         "Final actual menu remains usable after module exercise",
         () -> mc.gui.setScreen(new RustyScreen()),
@@ -456,6 +477,193 @@ public final class GameAcceptance {
         200);
   }
 
+  private static void press(String label) {
+    var screen = Minecraft.getInstance().gui.screen();
+    var button =
+        screen.children().stream()
+            .filter(c ->
+                c instanceof net.minecraft.client.gui.components.Button b
+                    && b.getMessage().getString().equals(label))
+            .map(c -> (net.minecraft.client.gui.components.Button) c)
+            .findFirst()
+            .orElseThrow(() -> new AssertionError("Missing actual button: " + label));
+    button.onPress(new net.minecraft.client.input.MouseButtonInfo(0, 0));
+  }
+
+  private static void defaultBeside(String prefix) {
+    var screen = Minecraft.getInstance().gui.screen();
+    var control =
+        screen.children().stream()
+            .filter(c ->
+                c instanceof net.minecraft.client.gui.components.AbstractWidget w
+                    && w.getMessage().getString().startsWith(prefix))
+            .map(c -> (net.minecraft.client.gui.components.AbstractWidget) c)
+            .findFirst()
+            .orElseThrow();
+    var button =
+        screen.children().stream()
+            .filter(c ->
+                c instanceof net.minecraft.client.gui.components.Button b
+                    && b.getMessage().getString().equals("Default")
+                    && b.getY() == control.getY()
+                    && b.getX() > control.getX())
+            .map(c -> (net.minecraft.client.gui.components.Button) c)
+            .findFirst()
+            .orElseThrow();
+    button.onPress(new net.minecraft.client.input.MouseButtonInfo(0, 0));
+  }
+
+  private static String read(Path path) {
+    try {
+      return Files.readString(path);
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  private static void addDefaultAndListChecks() {
+    var mc = Minecraft.getInstance();
+    add(
+        "Actual Default button restores a numeric preference without changing another setting",
+        () -> {
+          RustyClient.config.textureVisibility = 80;
+          RustyClient.config.context = false;
+          RustyClient.save();
+          mc.gui.setScreen(new RustyScreen());
+          defaultBeside("Block textures");
+        },
+        () -> RustyClient.config.textureVisibility == 25 && !RustyClient.config.context,
+        5);
+    add(
+        "Actual Default button restores a true boolean preference",
+        () -> defaultBeside("Textured context"),
+        () -> RustyClient.config.context,
+        5);
+    add(
+        "Actual Default shortcut button restores X after a custom binding",
+        () -> {
+          RustyClient.config.bindings.put("xray", 299);
+          RustyClient.save();
+          mc.gui.setScreen(new RustyScreen());
+          var screen = mc.gui.screen();
+          var button =
+              screen.children().stream()
+                  .filter(c ->
+                      c instanceof net.minecraft.client.gui.components.Button b
+                          && b.getMessage().getString().equals("Default"))
+                  .map(c -> (net.minecraft.client.gui.components.Button) c)
+                  .min(Comparator.comparingInt(net.minecraft.client.gui.components.Button::getY))
+                  .orElseThrow();
+          button.onPress(new net.minecraft.client.input.MouseButtonInfo(0, 0));
+        },
+        () ->
+            RustyClient.config.bindings.get("xray")
+                == com.mojang.blaze3d.platform.InputConstants.KEY_X,
+        5);
+    add(
+        "Restore defaults presents a confirmation and Cancel preserves settings",
+        () -> {
+          RustyNavigation.saveMarker();
+          RustyClient.exportProfile("default-keep");
+          savedProfile =
+              read(
+                  RustyClient.configPath().getParent().resolve("rusty-profiles/default-keep.json"));
+          savedWaypoints = read(RustyClient.configPath().resolveSibling("rusty-waypoints.json"));
+          savedSettings = RustyClient.GSON.toJson(RustyClient.config);
+          press("Restore defaults");
+          check(
+              "Full reset uses Minecraft confirmation screen",
+              mc.gui.screen() instanceof net.minecraft.client.gui.screens.ConfirmScreen);
+          press("No");
+        },
+        () ->
+            mc.gui.screen() instanceof RustyScreen
+                && savedSettings.equals(RustyClient.GSON.toJson(RustyClient.config)),
+        5);
+    add(
+        "Confirmed menu restore stops Xray and Freecam and resets all preferences and shortcuts",
+        () -> {
+          RustyClient.config.menuScale = 1.4;
+          RustyClient.config.theme = "Copper";
+          RustyClient.config.overlays.put("enabled_mods", new double[] {.5, .5});
+          RustyClient.config.bindings.put("menu", 299);
+          RustyClient.set("xray", true);
+          RustyClient.set("freecam", true);
+          RustyClient.set("auto_sprint", true);
+          mc.gui.setScreen(new RustyScreen());
+          press("Restore defaults");
+          press("Yes");
+        },
+        () ->
+            RustyClient.config.menuScale == .7
+                && RustyClient.config.theme.equals("Classic")
+                && RustyClient.config.enabled.equals(Set.of("status_hud"))
+                && RustyClient.config.overlays.isEmpty()
+                && RustyClient.config.overlayScales.isEmpty()
+                && RustyClient.config.bindings.get("menu")
+                    == com.mojang.blaze3d.platform.InputConstants.KEY_RSHIFT
+                && !RustyClient.view.xray()
+                && !RustyClient.active("freecam")
+                && !RustyClient.active("auto_sprint")
+                && savedWaypoints.equals(
+                    read(RustyClient.configPath().resolveSibling("rusty-waypoints.json"))),
+        10);
+    add(
+        "Saved quick profile survives full reset",
+        () -> RustyClient.importProfile("default-keep"),
+        () ->
+            RustyClient.notice.equals("Loaded profile default-keep")
+                && savedProfile.equals(
+                    read(
+                        RustyClient.configPath()
+                            .getParent()
+                            .resolve("rusty-profiles/default-keep.json"))),
+        5);
+    add(
+        "Enabled Mods is an independent top-left panel with alphabetic rows",
+        () -> {
+          mc.gui.setScreen(null);
+          command("kill @e[type=minecraft:item]");
+          RustyClient.restoreDefaults();
+          RustyClient.set("status_hud", false);
+          RustyClient.set("enabled_mods", true);
+          RustyClient.set("fullbright", true);
+          RustyClient.set("no_fog", true);
+        },
+        () ->
+            Catalog.enabledNames(RustyClient::active).equals(List.of("Fullbright", "No Fog"))
+                && RustyHud.bounds.containsKey("enabled_mods")
+                && RustyHud.bounds.get("enabled_mods")[0] == 8
+                && RustyHud.bounds.get("enabled_mods")[1] == 8,
+        60);
+    add(
+        "Active-list gameplay framebuffer capture completes",
+        () ->
+            net.minecraft.client.Screenshot.grab(
+                mc.gameDirectory,
+                "rusty-enabled-mods.png",
+                mc.gameRenderer.mainRenderTarget(),
+                1,
+                message -> listCaptureComplete = true),
+        () -> listCaptureComplete,
+        40);
+    add(
+        "Deactivating a feature immediately removes its active-list row",
+        () -> RustyClient.set("fullbright", false),
+        () -> Catalog.enabledNames(RustyClient::active).equals(List.of("No Fog")),
+        5);
+    add(
+        "Disabling Enabled Mods removes its rendered panel",
+        () -> RustyClient.set("enabled_mods", false),
+        () -> !RustyHud.bounds.containsKey("enabled_mods"),
+        5);
+    add(
+        "Fixture returns to default settings after reset and list checks",
+        () -> RustyClient.restoreDefaults(),
+        () -> RustyClient.config.enabled.equals(Set.of("status_hud")),
+        5);
+  }
+
   private static boolean menuFits(double requested) {
     var mc = Minecraft.getInstance();
     if (!(mc.gui.screen() instanceof RustyScreen screen)) return false;
@@ -468,10 +676,12 @@ public final class GameAcceptance {
       if (Math.abs(scale - Settings.fittedMenuScale(width, height, requested)) > 1e-6) return false;
       return screen.children().stream()
           .filter(c -> c instanceof net.minecraft.client.gui.components.AbstractWidget)
-          .map(c -> (net.minecraft.client.gui.components.AbstractWidget)c)
-          .allMatch(w -> w.getX()*scale >= -1 && w.getY()*scale >= -1
-              && (w.getX()+w.getWidth())*scale <= width+1
-              && (w.getY()+w.getHeight())*scale <= height+1);
+          .map(c -> (net.minecraft.client.gui.components.AbstractWidget) c)
+          .allMatch(w ->
+              w.getX() * scale >= -1
+                  && w.getY() * scale >= -1
+                  && (w.getX() + w.getWidth()) * scale <= width + 1
+                  && (w.getY() + w.getHeight()) * scale <= height + 1);
     } catch (ReflectiveOperationException e) {
       return false;
     }
@@ -479,7 +689,7 @@ public final class GameAcceptance {
 
   private static boolean hudFits() {
     var mc = Minecraft.getInstance();
-    if (RustyHud.bounds.size() != 18) return false;
+    if (RustyHud.bounds.size() != RustyHud.IDS.size()) return false;
     var rectangles = new ArrayList<int[]>(RustyHud.bounds.values());
     for (int i = 0; i < rectangles.size(); i++) {
       var r = rectangles.get(i);

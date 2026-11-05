@@ -38,6 +38,7 @@ pub(super) fn snapshot() -> serde_json::Value {
     MENU.with_borrow(|m| {
         serde_json::json!({
             "open": m.ui.open,
+            "confirm_defaults":m.ui.confirm_defaults,
             "query": m.ui.query.value,
             "selected": m.ui.selected,
             "category": m.ui.category.map(|c|c.id()),
@@ -153,6 +154,7 @@ pub(super) fn config_bool<'a>(c: &'a mut Config, id: &str) -> Option<&'a mut boo
         "no_hurt_camera" => &mut c.no_hurt_camera,
         "freecam_noclip" => &mut c.freecam_noclip,
         "status_hud" => &mut c.hud,
+        "enabled_mods" => &mut c.enabled_mods,
         "compass" | "compass_enabled" => &mut c.navigation.compass_enabled,
         "waypoints" | "waypoint_hud" => &mut c.navigation.waypoint_hud,
         "breadcrumbs" | "breadcrumbs_enabled" => &mut c.navigation.breadcrumbs_enabled,
@@ -212,6 +214,7 @@ fn flag(c: &Config, id: &str) -> Option<bool> {
         "no_hurt_camera" => c.no_hurt_camera,
         "freecam_noclip" => c.freecam_noclip,
         "status_hud" => c.hud,
+        "enabled_mods" => c.enabled_mods,
         "compass" | "compass_enabled" => c.navigation.compass_enabled,
         "waypoints" | "waypoint_hud" => c.navigation.waypoint_hud,
         "breadcrumbs" | "breadcrumbs_enabled" => c.navigation.breadcrumbs_enabled,
@@ -224,12 +227,15 @@ fn flag(c: &Config, id: &str) -> Option<bool> {
 }
 
 fn enabled(id: &str) -> bool {
+    enabled_with_config(&rusty::config(), id)
+}
+pub(super) fn enabled_with_config(cfg: &Config, id: &str) -> bool {
     match id {
         "xray" => rusty::active(),
         "freecam" => rusty_freecam::active(),
         "waypoint_walk" => super::rusty_waypoint_walk::active(),
         "zoom" => rusty_control::zoom_active(),
-        _ => flag(&rusty::config(), id).unwrap_or(false),
+        _ => flag(cfg, id).unwrap_or(false),
     }
 }
 
@@ -309,6 +315,25 @@ fn setting_kind(id: &str) -> Option<SettingKind> {
         .flat_map(|m| m.settings)
         .find(|s| s.id == id)
         .map(|s| s.kind)
+}
+fn default_setting(cfg: &mut Config, id: &str) -> Result<(), String> {
+    let defaults = Config::default();
+    if let Some(value) = flag(&defaults, id) {
+        *config_bool(cfg, id).ok_or("Unsupported setting")? = value;
+    } else if id == "activation" {
+        cfg.activation = defaults.activation;
+    } else if id == "theme" {
+        cfg.client.theme = defaults.client.theme;
+    } else if id == "reduced_motion" {
+        cfg.client.reduced_motion = defaults.client.reduced_motion;
+    } else if id == "edit_rules" {
+        cfg.rules = defaults.rules;
+    } else if setting_kind(id).is_some() {
+        set_number(cfg, id, number(&defaults, id))?;
+    } else {
+        return Err("Unsupported default setting".into());
+    }
+    Ok(())
 }
 fn set_number(c: &mut Config, id: &str, value: f64) -> Result<(), String> {
     let kind = setting_kind(id).ok_or("Unknown numeric setting")?;
@@ -418,6 +443,24 @@ pub(super) fn frame(game: &mut Game<'_>) {
             Intent::Numeric(id, value) => {
                 dirty = true;
                 set_number(&mut cfg, id, value)
+            }
+            Intent::DefaultSetting(id) => {
+                force = true;
+                dirty = true;
+                if matches!(id, "xray" | "freecam" | "zoom" | "waypoint_walk") {
+                    operations.push(Intent::DefaultSetting(id));
+                    Ok(())
+                } else {
+                    default_setting(&mut cfg, id)
+                }
+            }
+            Intent::RestoreDefaults => {
+                cfg = Config::default();
+                dirty = true;
+                force = true;
+                operations.clear();
+                operations.push(Intent::RestoreDefaults);
+                Ok(())
             }
             Intent::Nudge(id, steps) => {
                 dirty = true;
@@ -560,6 +603,20 @@ pub(super) fn frame(game: &mut Game<'_>) {
     if error.is_none() && !save.dirty {
         for operation in operations {
             match operation {
+                Intent::DefaultSetting(id) => rusty_control::default_module(game, id),
+                Intent::RestoreDefaults => {
+                    if let Err(e) = finish_defaults(game) {
+                        error = Some(e);
+                    } else {
+                        status = Some("All Rusty settings restored to defaults".into());
+                    }
+                    MENU.with_borrow_mut(|m| {
+                        m.ui = Model {
+                            open: true,
+                            ..Model::default()
+                        };
+                    });
+                }
                 Intent::ToggleModule("xray") => rusty_control::toggle_xray(game),
                 Intent::ToggleModule("freecam") => rusty_control::toggle_freecam(game),
                 Intent::ToggleModule("waypoint_walk") => {
@@ -663,12 +720,69 @@ fn save_binding(game: &mut Game<'_>, name: &str, value: &str) -> Result<(), Stri
     game.settings.mods = mods;
     Ok(())
 }
+fn finish_defaults(game: &mut Game<'_>) -> Result<(), String> {
+    rusty_control::default_runtime(game);
+    let mut mods = game.settings.mods.clone();
+    let keys = mods.keys.entry(rusty::ID.into()).or_default();
+    keys.clear();
+    keys.insert("menu".into(), "key.keyboard.right.shift".into());
+    for module in catalog::MODULES {
+        if let Some(id) = module.keybind_id {
+            keys.insert(
+                id.into(),
+                module.default_key.unwrap_or("key.keyboard.unknown").into(),
+            );
+        }
+    }
+    let path = Game::options_path();
+    let dir = path.parent().ok_or("Settings folder is unavailable")?;
+    let tmp = dir.join("horizon-mods.rusty.tmp");
+    std::fs::write(&tmp, mods.serialize())
+        .and_then(|()| std::fs::rename(&tmp, dir.join(mod_list::FILE)))
+        .map_err(|e| format!("Could not restore keybind defaults: {e}"))?;
+    game.settings.mods = mods;
+    Ok(())
+}
+pub(super) fn restore_all(game: &mut Game<'_>) -> Result<(), String> {
+    rusty_control::apply_config(game, Config::default())?;
+    finish_defaults(game)
+}
 
 fn act(m: &mut Menu, action: Action, at: [f32; 2], right: bool) {
     let ui = &mut m.ui;
     ui.search_focus = false;
     ui.keyboard_hit = None;
     match action {
+        Action::DefaultSetting(id) => {
+            ui.enqueue(Intent::DefaultSetting(id));
+            ui.enqueue(Intent::Flush);
+        }
+        Action::DefaultBind(id) => {
+            ui.capture = None;
+            let value = if id == "menu" {
+                "key.keyboard.right.shift"
+            } else {
+                catalog::MODULES
+                    .iter()
+                    .find(|m| m.keybind_id == Some(id))
+                    .and_then(|m| m.default_key)
+                    .unwrap_or("key.keyboard.unknown")
+            };
+            ui.enqueue(Intent::Bind(id, value.into()));
+        }
+        Action::RestoreDefaults => {
+            ui.confirm_defaults = true;
+            ui.help = None;
+            ui.categories_open = false;
+            ui.capture = None;
+            ui.dragging = None;
+        }
+        Action::CancelDefaults => ui.confirm_defaults = false,
+        Action::ConfirmDefaults => {
+            ui.confirm_defaults = false;
+            ui.enqueue(Intent::RestoreDefaults);
+            ui.enqueue(Intent::Flush);
+        }
         Action::Search => {
             ui.search_focus = true;
             ui.query.move_to(ui.query.value.chars().count(), false);
@@ -737,7 +851,10 @@ fn act(m: &mut Menu, action: Action, at: [f32; 2], right: bool) {
         }
         Action::ResetMenuScale => {
             ui.dragging = None;
-            ui.enqueue(Intent::Numeric("menu_scale", catalog::DEFAULT_MENU_SCALE as f64));
+            ui.enqueue(Intent::Numeric(
+                "menu_scale",
+                catalog::DEFAULT_MENU_SCALE as f64,
+            ));
             ui.enqueue(Intent::Flush);
         }
         Action::ResetHud(id) => {
@@ -815,7 +932,15 @@ pub(super) fn mouse(game: &Game<'_>, at: [f32; 2], button: i32, pressed: bool) -
                 m.ui.hits
                     .iter()
                     .rev()
-                    .find(|h| inside(at, h.rect) && matches!(h.action, Action::ClearBind(..)))
+                    .find(|h| {
+                        inside(at, h.rect)
+                            && matches!(
+                                h.action,
+                                Action::ClearBind(..)
+                                    | Action::DefaultBind(..)
+                                    | Action::RestoreDefaults
+                            )
+                    })
                     .cloned()
             {
                 act(m, hit.action, at, false);
@@ -917,6 +1042,10 @@ pub(super) fn key(game: &Game<'_>, key: &str, pressed: bool, repeat: bool, modif
             }
             return true;
         }
+        if key == "key.keyboard.escape" && !repeat && m.ui.confirm_defaults {
+            m.ui.confirm_defaults = false;
+            return true;
+        }
         if key == "key.keyboard.escape" && !repeat {
             if m.ui.help.take().is_none() {
                 if m.ui.categories_open {
@@ -935,6 +1064,9 @@ pub(super) fn key(game: &Game<'_>, key: &str, pressed: bool, repeat: bool, modif
             if matches!(key, "key.keyboard.enter" | "key.keyboard.space") && !repeat {
                 m.ui.help = None;
             }
+            return true;
+        }
+        if m.ui.confirm_defaults && control {
             return true;
         }
         if control && key == "key.keyboard.f" {
@@ -1297,7 +1429,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
     );
     let c = colors(cfg.client.theme).faded(fade);
     m.hits.clear();
-    m.record_controls = !m.categories_open && m.help.is_none();
+    m.record_controls = !m.categories_open && m.help.is_none() && !m.confirm_defaults;
 
     let w = (batch.width - 12.0).min(750.0).max(1.0);
     let h = (batch.height - 12.0).min(460.0).max(1.0);
@@ -1350,6 +1482,18 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
         x + 41.0,
         y + 12.0,
         c.muted,
+    );
+
+    button(
+        game,
+        batch,
+        [x + w - 168.0, y + 5.0, 114.0, 21.0],
+        "Restore defaults",
+        Action::RestoreDefaults,
+        false,
+        c,
+        None,
+        m,
     );
 
     button(game, batch, [x+w-49.0,y+5.0,20.0,21.0], "?", Action::Help("Search names, aliases, descriptions and setting labels. All words must match. Click a module to see controls; ON/OFF toggles it and * favorites it. Drag sliders or use -/+; right-click a slider to reset. Tab and Enter navigate; Ctrl+F focuses search. Escape closes help or the menu. World ticks continue while this screen is open.".into()), false, c, None, m);
@@ -1493,7 +1637,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
     button(
         game,
         batch,
-        [x + 10.0 + filterw, y + 85.0, themew, 20.0],
+        [x + 10.0 + filterw, y + 85.0, themew - 55.0, 20.0],
         match cfg.client.theme {
             Theme::Classic => "Classic",
             Theme::Graphite => "Graphite",
@@ -1509,13 +1653,41 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
     button(
         game,
         batch,
-        [x + 12.0 + filterw + themew, y + 85.0, motionw, 20.0],
+        [x + 12.0 + filterw + themew, y + 85.0, motionw - 55.0, 20.0],
         if cfg.client.reduced_motion {
             "Motion: Low"
         } else {
             "Motion: Full"
         },
         Action::Motion,
+        false,
+        c,
+        None,
+        m,
+    );
+
+    button(
+        game,
+        batch,
+        [x + 10.0 + filterw + themew - 52.0, y + 85.0, 52.0, 20.0],
+        "Default",
+        Action::DefaultSetting("theme"),
+        false,
+        c,
+        None,
+        m,
+    );
+    button(
+        game,
+        batch,
+        [
+            x + 12.0 + filterw + themew + motionw - 52.0,
+            y + 85.0,
+            52.0,
+            20.0,
+        ],
+        "Default",
+        Action::DefaultSetting("reduced_motion"),
         false,
         c,
         None,
@@ -1722,7 +1894,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
         button(
             game,
             batch,
-            [sx, yy, sw, 21.0],
+            [sx, yy, sw - 59.0, 21.0],
             if module.id == "zoom" {
                 "Hold key to zoom"
             } else if enabled(module.id) {
@@ -1732,6 +1904,17 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
             },
             Action::Toggle(module.id),
             enabled(module.id),
+            c,
+            Some(r),
+            m,
+        );
+        button(
+            game,
+            batch,
+            [sx + sw - 56.0, yy, 56.0, 21.0],
+            "Default",
+            Action::DefaultSetting(module.id),
+            false,
             c,
             Some(r),
             m,
@@ -1747,7 +1930,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
             button(
                 game,
                 batch,
-                [sx, yy, (sw - 47.0).max(20.0), 21.0],
+                [sx, yy, (sw - 106.0).max(20.0), 21.0],
                 &format!("Bind: {}", key_label(&current)),
                 Action::Bind(name),
                 m.capture == Some(name),
@@ -1761,6 +1944,17 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                 [sx + sw - 44.0, yy, 44.0, 21.0],
                 "Clear",
                 Action::ClearBind(name),
+                false,
+                c,
+                Some(r),
+                m,
+            );
+            button(
+                game,
+                batch,
+                [sx + sw - 103.0, yy, 56.0, 21.0],
+                "Default",
+                Action::DefaultBind(name),
                 false,
                 c,
                 Some(r),
@@ -1804,7 +1998,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                     button(
                         game,
                         batch,
-                        [sx, yy, sw - 20.0, 21.0],
+                        [sx, yy, sw - 79.0, 21.0],
                         &format!("{}: {}", s.label, if value { "ON" } else { "OFF" }),
                         Action::Bool(s.id),
                         value,
@@ -1823,13 +2017,24 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                         Some(r),
                         m,
                     );
+                    button(
+                        game,
+                        batch,
+                        [sx + sw - 76.0, yy, 56.0, 21.0],
+                        "Default",
+                        Action::DefaultSetting(s.id),
+                        false,
+                        c,
+                        Some(r),
+                        m,
+                    );
                     yy += 27.0;
                 }
                 SettingKind::Choice { .. } => {
                     button(
                         game,
                         batch,
-                        [sx, yy, sw - 20.0, 21.0],
+                        [sx, yy, sw - 79.0, 21.0],
                         &format!(
                             "{}: {}",
                             s.label,
@@ -1855,13 +2060,29 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                         Some(r),
                         m,
                     );
+                    button(
+                        game,
+                        batch,
+                        [sx + sw - 76.0, yy, 56.0, 21.0],
+                        "Default",
+                        Action::DefaultSetting(s.id),
+                        false,
+                        c,
+                        Some(r),
+                        m,
+                    );
                     yy += 27.0;
                 }
                 SettingKind::Action => {
                     button(
                         game,
                         batch,
-                        [sx, yy, sw, 21.0],
+                        [
+                            sx,
+                            yy,
+                            if s.id == "edit_rules" { sw - 62.0 } else { sw },
+                            21.0,
+                        ],
                         s.label,
                         match s.id {
                             "add_waypoint" => Action::AddWaypoint,
@@ -1874,6 +2095,19 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                         Some(r),
                         m,
                     );
+                    if s.id == "edit_rules" {
+                        button(
+                            game,
+                            batch,
+                            [sx + sw - 56.0, yy, 56.0, 21.0],
+                            "Default",
+                            Action::DefaultSetting("edit_rules"),
+                            false,
+                            c,
+                            Some(r),
+                            m,
+                        );
+                    }
                     yy += 27.0;
                 }
                 kind => {
@@ -1882,7 +2116,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                     text(
                         game,
                         batch,
-                        &fit(game, s.label, sw - 18.0),
+                        &fit(game, s.label, sw - 78.0),
                         sx + 2.0,
                         yy + 2.0,
                         c.text,
@@ -1899,6 +2133,17 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                         m,
                     );
 
+                    button(
+                        game,
+                        batch,
+                        [sx + sw - 76.0, yy - 2.0, 56.0, 16.0],
+                        "Default",
+                        Action::DefaultSetting(s.id),
+                        false,
+                        c,
+                        Some(r),
+                        m,
+                    );
                     let track = [sx + 21.0, yy + 17.0, (sw - 44.0).max(12.0), 19.0];
                     button(
                         game,
@@ -2021,14 +2266,14 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
     button(
         game,
         batch,
-        [x + 33.0, scale_y, w - 103.0, 21.0],
+        [x + 33.0, scale_y, w - 121.0, 21.0],
         &format!(
             "Menu size: {:.0}% (right-click resets)",
             catalog::menu_percent(cfg.client.menu_scale)
         ),
         Action::Numeric(
             "menu_scale",
-            [x + 33.0, scale_y, w - 103.0, 21.0],
+            [x + 33.0, scale_y, w - 121.0, 21.0],
             setting_kind("menu_scale").unwrap(),
         ),
         false,
@@ -2039,7 +2284,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
     button(
         game,
         batch,
-        [x + w - 67.0, scale_y, 22.0, 21.0],
+        [x + w - 85.0, scale_y, 22.0, 21.0],
         "+",
         Action::Step("menu_scale", 1.0),
         false,
@@ -2050,8 +2295,8 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
     button(
         game,
         batch,
-        [x + w - 42.0, scale_y, 34.0, 21.0],
-        "100%",
+        [x + w - 60.0, scale_y, 52.0, 21.0],
+        "Default",
         Action::ResetMenuScale,
         false,
         c,
@@ -2072,7 +2317,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
     button(
         game,
         batch,
-        [x + 8.0, y + h - 22.0, (w - 20.0) * 0.55 - 47.0, 18.0],
+        [x + 8.0, y + h - 22.0, (w - 20.0) * 0.55 - 106.0, 18.0],
         &format!("Menu: {}", key_label(&menukey)),
         Action::Bind("menu"),
         m.capture == Some("menu"),
@@ -2104,6 +2349,23 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
         ],
         "Advanced / Profiles",
         Action::Advanced,
+        false,
+        c,
+        None,
+        m,
+    );
+
+    button(
+        game,
+        batch,
+        [
+            x + 8.0 + (w - 20.0) * 0.55 - 103.0,
+            y + h - 22.0,
+            56.0,
+            18.0,
+        ],
+        "Default",
+        Action::DefaultBind("menu"),
         false,
         c,
         None,
@@ -2165,6 +2427,60 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
             popup[1],
             popup[0] + popup[2],
             popup[1] + popup[3],
+        );
+    }
+
+    if m.confirm_defaults {
+        m.record_controls = true;
+        m.hits.clear();
+        let pw = (w - 20.0).min(360.0);
+        let px = x + (w - pw) * 0.5;
+        let py = y + (h - 126.0) * 0.5;
+        fill(game, batch, [x, y, w, h], 0xb0101010);
+        fill(game, batch, [px, py, pw, 126.0], c.panel);
+        for (i, line) in [
+            "Restore all Rusty settings?",
+            "Features, shortcuts, menu and HUD reset.",
+            "Saved waypoints and profiles are kept.",
+        ]
+        .iter()
+        .enumerate()
+        {
+            text(
+                game,
+                batch,
+                &fit(game, line, pw - 20.0),
+                px + 10.0,
+                py + 12.0 + i as f32 * 17.0,
+                c.text,
+            );
+        }
+        button(
+            game,
+            batch,
+            [px + 10.0, py + 88.0, (pw - 26.0) * 0.5, 24.0],
+            "Cancel",
+            Action::CancelDefaults,
+            false,
+            c,
+            None,
+            m,
+        );
+        button(
+            game,
+            batch,
+            [
+                px + 16.0 + (pw - 26.0) * 0.5,
+                py + 88.0,
+                (pw - 26.0) * 0.5,
+                24.0,
+            ],
+            "Restore",
+            Action::ConfirmDefaults,
+            false,
+            c,
+            None,
+            m,
         );
     }
 
@@ -2238,7 +2554,18 @@ fn local_slider(
     let [x, y, w, _] = row;
     let kind = setting_kind(id).expect("registered local numeric control");
     let value = number(cfg, id);
-    text(g, b, label, x + 2.0, y + 2.0, c.text);
+    text(g, b, &fit(g, label, w - 62.0), x + 2.0, y + 2.0, c.text);
+    button(
+        g,
+        b,
+        [x + w - 56.0, y - 2.0, 56.0, 16.0],
+        "Default",
+        Action::DefaultSetting(id),
+        false,
+        c,
+        Some(clip),
+        m,
+    );
     let track = [x + 21.0, y + 17.0, (w - 44.0).max(12.0), 19.0];
     button(
         g,

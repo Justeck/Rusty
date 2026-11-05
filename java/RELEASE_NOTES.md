@@ -1,9 +1,9 @@
-# Rusty Java 1.3.0-beta.3
+# Rusty Java 1.3.0-beta.4
 
-**The former 70% menu size is now 100%, and is the new default.** The menu slider spans **50–300%**, with a new **100% reset**. Drag and release to apply the size; keyboard adjustments and the existing Apply size button also work. Large sizes fit the available window.
+**Enabled Mods** adds an optional alphabetic list of active Rusty tools, one name per row in the top-left. Move or resize it in HUD layout. It excludes its own name and reflects effective activation.
 
-Existing saved physical sizes are preserved. Menu size remains separate from Minecraft's GUI scale, HUD layouts and feature profiles. X-ray and Finder stay independent.
+Visible **Default** buttons restore individual settings and shortcuts. HUD layout adds **Default panel** and **Default layout**. **Restore defaults** in the menu footer opens a confirmation and restores all Rusty settings, shortcuts, the compact 100% menu size and HUD arrangements. Active tools stop; saved waypoint and profile files are kept. X-ray and Finder remain independent.
 
-Fabric and NeoForge for **Minecraft 26.3 / Java 25**. Install one matching loader jar. Fabric requires Loader 0.20.1+ and Fabric API 0.165.2+26.3; NeoForge targets 26.3.0.101. Restricted multiplayer tools continue to require explicit server opt-in. No fresh remote-server test is claimed for this menu patch.
+Fabric and NeoForge for **Minecraft 26.3 / Java 25**. Install one matching loader jar. Fabric needs Loader 0.20.1+ and Fabric API 0.165.2+26.3; NeoForge targets 26.3.0.101. Restricted multiplayer tools continue to require explicit server opt-in. No fresh remote-server acceptance is claimed for this update.
 
-[Validation and exact test scope](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md) · [Separate Horizon-native edition](https://github.com/Justeck/Rusty/releases/tag/v1.2.4).
+[Validation](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md) · [Separate Horizon-native edition](https://github.com/Justeck/Rusty/releases/tag/v1.2.5).

@@ -16,6 +16,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public final class RustyHud {
   public static final List<String> IDS =
       List.of(
+          "enabled_mods",
           "status_hud",
           "coordinates",
           "finder",
@@ -64,6 +65,8 @@ public final class RustyHud {
       return;
     }
     var next = new LinkedHashMap<String, List<String>>();
+    var activeNames = dev.justeck.rusty.core.Catalog.enabledNames(RustyClient::active);
+    next.put("enabled_mods", activeNames.isEmpty() ? List.of("None enabled") : activeNames);
     long count = RustyClient.config.enabled.stream().filter(RustyClient.POLICY::allows).count();
     next.put(
         "status_hud",

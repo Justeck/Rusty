@@ -600,6 +600,11 @@ fn entity_lines(game: &Game<'_>, cfg: &rusty::Config, camera: [f64; 3], g: &mut 
         }
     }
 }
+pub(super) fn enabled_module_names(cfg: &rusty::Config) -> Vec<&'static str> {
+    horizon_client_render::mesher::rusty_catalog::enabled_names(|id| {
+        super::rusty_clickgui::enabled_with_config(cfg, id)
+    })
+}
 pub(super) fn hud(game: &Game<'_>, batch: &mut HudBatch) {
     if !game.native_window() || !game.native_on(rusty::ID) || game.ui.hide_gui {
         return;
@@ -608,7 +613,7 @@ pub(super) fn hud(game: &Game<'_>, batch: &mut HudBatch) {
         return;
     };
     let cfg = rusty::config();
-    if !cfg.hud && !cfg.coords_hud {
+    if !cfg.hud && !cfg.coords_hud && !cfg.enabled_mods {
         return;
     }
     let s = stats();
@@ -725,6 +730,12 @@ pub(super) fn hud(game: &Game<'_>, batch: &mut HudBatch) {
         for row in active.chunks(3) {
             lines.push((row.join(" | "), 0xffdcc19b));
         }
+    }
+    if cfg.enabled_mods {
+        let mut rows: Vec<_> = enabled_module_names(&cfg).into_iter()
+            .map(|name| (name.to_owned(), 0xffeee7de)).collect();
+        if rows.is_empty() { rows.push(("None enabled".into(), 0xffeee7de)); }
+        super::rusty_hud_native::lines(game, batch, &cfg.client.hud_layout, "enabled_mods", &rows);
     }
     super::rusty_hud_native::lines(game, batch, &cfg.client.hud_layout, "status_hud", &lines);
     if cfg.coords_hud {

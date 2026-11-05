@@ -18,6 +18,7 @@ public final class Settings {
     double scale = bound(requested, MIN_MENU_SCALE, MAX_MENU_SCALE, DEFAULT_MENU_SCALE);
     return Math.max(.001, Math.min(scale, Math.min(width / 390, height / 250)));
   }
+
   public int scanRadius = 64;
   public boolean holdXray;
   public int schema = 1, maxTargets = 1024, scanBudget = 8192, minY = -64, maxY = 319;
@@ -49,6 +50,21 @@ public final class Settings {
     result.add("minecraft:nether_quartz_ore");
     result.add("minecraft:ancient_debris");
     return result;
+  }
+
+  /** Restore one public preference from a fresh default settings object. */
+  public boolean restoreField(String name) {
+    try {
+      var field = Settings.class.getField(name);
+      if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) return false;
+      field.set(this, field.get(new Settings()));
+      if (name.equals("minY")) maxY = Math.max(maxY, minY);
+      if (name.equals("maxY")) minY = Math.min(minY, maxY);
+      validate();
+      return true;
+    } catch (ReflectiveOperationException e) {
+      return false;
+    }
   }
 
   public void validate() {

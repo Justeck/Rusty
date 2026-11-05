@@ -5,7 +5,7 @@ use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::{Arc, RwLock};
 
 pub const ID: &str = "rusty";
-pub const VERSION: &str = "1.2.4";
+pub const VERSION: &str = "1.2.5";
 pub const TITLE: &str = "Rusty";
 pub const DEFAULT_KEY: &str = "key.keyboard.x";
 pub const MAX_PROFILE_BYTES: usize = 4 * 1024 * 1024;
@@ -94,6 +94,7 @@ pub struct Config {
     pub scan_interval: u32,
     pub max_targets: u32,
     pub hud: bool,
+    pub enabled_mods: bool,
     pub hud_counts: bool,
     pub fullbright: bool,
     pub no_fog: bool,
@@ -135,6 +136,7 @@ impl Default for Config {
             scan_interval: 5,
             max_targets: 1024,
             hud: true,
+            enabled_mods: false,
             hud_counts: false,
             fullbright: false,
             no_fog: false,
@@ -154,6 +156,22 @@ impl Default for Config {
     }
 }
 impl Config {
+    /// Restore one stored field without replacing unrelated preferences.
+    pub fn restore_default_path(&mut self, path: &str) -> Result<(), String> {
+        if !path.starts_with('/') || path.len() > 256 {
+            return Err("Unsupported default setting".into());
+        }
+        let defaults = serde_json::to_value(Self::default()).map_err(|e| e.to_string())?;
+        let replacement = defaults
+            .pointer(path)
+            .ok_or("Unknown default setting")?
+            .clone();
+        let mut current = serde_json::to_value(&*self).map_err(|e| e.to_string())?;
+        *current.pointer_mut(path).ok_or("Unknown setting")? = replacement;
+        let next: Self = serde_json::from_value(current).map_err(|e| e.to_string())?;
+        *self = next.validated()?;
+        Ok(())
+    }
     /// Visible area of each ordinary block face. The zero endpoint still has
     /// a thin textured edge, while the full endpoint uses native terrain.
     pub fn texture_visibility(&self) -> f32 {

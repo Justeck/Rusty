@@ -6,6 +6,14 @@ import java.util.Locale;
 public final class Catalog {
   private Catalog() {}
 
+  public static List<String> enabledNames(java.util.function.Predicate<String> active) {
+    return ALL.stream()
+        .filter(m -> !m.id().equals("enabled_mods") && active.test(m.id()))
+        .map(Module::name)
+        .sorted()
+        .toList();
+  }
+
   public record Module(String id, String name, String category, String description) {
     public boolean matches(String query) {
       return (name + " " + category + " " + description)
@@ -73,6 +81,12 @@ public final class Catalog {
               "Status HUD",
               "Interface",
               "Show active Rusty state and optional target counts."),
+          new Module(
+              "enabled_mods",
+              "Enabled Mods",
+              "Interface",
+              "List active Rusty features vertically in the top-left. Move or resize it in HUD"
+                  + " layout."),
           new Module(
               "compass",
               "Compass",

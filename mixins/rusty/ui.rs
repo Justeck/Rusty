@@ -20,7 +20,7 @@ const WHITE: u32 = 0xffeeeeee;
 const MUTED: u32 = 0xffaaaaaa;
 const ERROR: u32 = 0xffffa68d;
 
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum Tab {
     Overview,
     Xray,
@@ -41,8 +41,10 @@ impl Tab {
         }
     }
 }
-#[derive(Clone, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 enum Action {
+    Default(&'static str),
+    RestoreAll,
     Tab(Tab),
     Close,
     Apply,
@@ -134,6 +136,14 @@ impl Default for Menu {
     }
 }
 thread_local! { static MENU: RefCell<Menu> = RefCell::new(Menu::default()); }
+pub(super) fn snapshot() -> serde_json::Value {
+    MENU.with_borrow(|m| serde_json::json!({
+        "open":m.open,"confirm":m.confirm,"selected":m.selected,"status":m.status,"dirty":m.dirty,
+        "field_order":m.fields.iter().map(|f|f.key).collect::<Vec<_>>(),
+        "fields":m.fields.iter().map(|f|(f.key,f.edit.value.clone())).collect::<BTreeMap<_,_>>(),
+        "hits":m.hits.iter().take(256).map(|h|serde_json::json!({"rect":h.rect,"action":format!("{:?}",h.action)})).collect::<Vec<_>>()
+    }))
+}
 
 pub(super) fn is_open() -> bool {
     MENU.with(|m| m.borrow().open)
@@ -329,9 +339,27 @@ fn row_button(
     active: bool,
 ) {
     let yy = line(m, *y);
-    let rect = [m.viewport[0], yy, m.viewport[2], 18.0];
+    let has_default = matches!(&action, Action::Activation);
+    let rect = [
+        m.viewport[0],
+        yy,
+        m.viewport[2] - if has_default { 59.0 } else { 0.0 },
+        18.0,
+    ];
     if visible(m, yy, 18.0) {
         button(m, game, b, rect, label, action, active, false);
+        if has_default {
+            button(
+                m,
+                game,
+                b,
+                [m.viewport[0] + m.viewport[2] - 56.0, yy, 56.0, 18.0],
+                "Default",
+                Action::Default("activation"),
+                true,
+                false,
+            );
+        }
     }
     *y += 21.0;
 }
@@ -353,13 +381,23 @@ fn toggle(
             m,
             game,
             b,
-            [x, yy, w - 18.0, 18.0],
+            [x, yy, w - 77.0, 18.0],
             &format!("{}  {label}", if on { "ON" } else { "OFF" }),
             Action::Toggle(key),
             true,
             on,
         );
         help(m, game, b, x + w - 14.0, yy + 1.0, message);
+        button(
+            m,
+            game,
+            b,
+            [x + w - 73.0, yy, 56.0, 18.0],
+            "Default",
+            Action::Default(key),
+            true,
+            false,
+        );
     }
     *y += 21.0;
 }
@@ -405,12 +443,22 @@ fn field(
         text(
             game,
             b,
-            &fit(game, label, w - 22.0),
+            &fit(game, label, w - 98.0),
             x + 2.0,
             yy + 1.0,
             MUTED,
         );
         help(m, game, b, x + w - 14.0, yy - 2.0, message);
+        button(
+            m,
+            game,
+            b,
+            [x + w - 73.0, yy - 2.0, 56.0, 16.0],
+            "Default",
+            Action::Default(key),
+            true,
+            false,
+        );
         if key == "rule_color" {
             if let Ok(color) = u32::from_str_radix(
                 m.fields[i]
@@ -421,7 +469,7 @@ fn field(
                     .trim_start_matches("0x"),
                 16,
             ) {
-                fill(game, b, [x + w - 32.0, yy, 12.0, 8.0], color);
+                fill(game, b, [x + w - 90.0, yy, 12.0, 8.0], color);
             }
         }
         let focused = m.focus == Some(i);
@@ -517,8 +565,18 @@ fn number_slider(
     let [x, _, w, _] = m.viewport;
     let texture = key == "texture_visibility";
     if visible(m, yy, 34.0) {
-        text(g, b, &fit(g, label, w - 22.0), x + 2.0, yy + 1.0, MUTED);
+        text(g, b, &fit(g, label, w - 82.0), x + 2.0, yy + 1.0, MUTED);
         help(m, g, b, x + w - 14.0, yy - 2.0, message);
+        button(
+            m,
+            g,
+            b,
+            [x + w - 73.0, yy - 2.0, 56.0, 16.0],
+            "Default",
+            Action::Default(key),
+            true,
+            false,
+        );
         let track = [x + 22.0, w - 44.0];
         let rect = [track[0], yy + 12.0, track[1], 20.0];
         let keyboard_focus = matches!(&m.keyboard_action,
@@ -820,10 +878,7 @@ fn overview(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
         g,
         b,
         y,
-        &format!(
-            "Xray is {}",
-            if rusty::active() { "active" } else { "off" }
-        ),
+        &format!("Xray is {}", if rusty::active() { "active" } else { "off" }),
     );
     note(
         m,
@@ -980,6 +1035,17 @@ fn xray(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
     );
 }
 fn targets(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
+    if m.selected.is_none() {
+        row_button(
+            m,
+            g,
+            b,
+            y,
+            "Default target selection",
+            Action::Default("rules"),
+            true,
+        );
+    }
     if let Some(index) = m.selected {
         if index >= m.cfg.rules.len() {
             m.selected = None;
@@ -1226,6 +1292,16 @@ fn visuals(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
         g,
         b,
         y,
+        "Enabled Mods",
+        "enabled_mods",
+        c.enabled_mods,
+        "List active features vertically in the top-left; reposition it in the main menu HUD layout controls.",
+    );
+    toggle(
+        m,
+        g,
+        b,
+        y,
         "Block outlines",
         "outlines",
         c.block_outlines,
@@ -1417,6 +1493,19 @@ fn camera(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
     );
 }
 fn profiles(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
+    row_button(
+        m,
+        g,
+        b,
+        y,
+        if m.confirm == Some("all_defaults") {
+            "Confirm: restore all Rusty settings"
+        } else {
+            "Restore all Rusty settings to default"
+        },
+        Action::RestoreAll,
+        true,
+    );
     let reset = m.confirm == Some("reset");
     let clear = m.confirm == Some("clear");
     note(m, g, b, y, "Portable, versioned JSON settings.");
@@ -1475,9 +1564,9 @@ fn profiles(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
         b,
         y,
         if reset {
-            "Confirm: reset all settings?"
+            "Confirm: reset feature settings?"
         } else {
-            "Reset all settings to defaults"
+            "Reset feature settings (keep layout)"
         },
         Action::Reset,
         true,
@@ -1497,6 +1586,89 @@ fn profiles(m: &mut Menu, g: &Game<'_>, b: &mut HudBatch, y: &mut f32) {
     );
 }
 
+fn restore_field(m: &mut Menu, key: &'static str) -> Result<(), String> {
+    let defaults = Config::default();
+    if key == "rules" {
+        m.cfg.rules = defaults.rules.clone();
+        m.selected = None;
+        m.fields.clear();
+    } else if key == "texture_visibility" {
+        m.cfg
+            .set_texture_visibility(defaults.texture_visibility())?;
+    } else if key == "activation" {
+        m.cfg.activation = defaults.activation;
+    } else if key == "profile_name" {
+    } else if key.starts_with("rule_") {
+        let rule = m
+            .selected
+            .and_then(|i| m.cfg.rules.get_mut(i))
+            .ok_or("Select a target first")?;
+        let default = defaults
+            .rules
+            .iter()
+            .find(|r| r.id == rule.id)
+            .cloned()
+            .unwrap_or_else(|| rusty::BlockRule::new(&rule.id));
+        let field = key.trim_start_matches("rule_");
+        let original = serde_json::to_value(&*rule).map_err(|e| e.to_string())?;
+        let mut value = original;
+        let fresh = serde_json::to_value(default).map_err(|e| e.to_string())?;
+        *value.get_mut(field).ok_or("Unknown target setting")? = fresh
+            .get(field)
+            .ok_or("Unknown default target setting")?
+            .clone();
+        let mut next: rusty::BlockRule =
+            serde_json::from_value(value).map_err(|e| e.to_string())?;
+        if key == "rule_min_y" {
+            next.max_y = next.max_y.max(next.min_y);
+        }
+        if key == "rule_max_y" {
+            next.min_y = next.min_y.min(next.max_y);
+        }
+        *rule = next;
+    } else {
+        let field = match key {
+            "context" => "context_outlines",
+            "finder" => "finder_enabled",
+            "outlines" => "block_outlines",
+            "noclip" => "freecam_noclip",
+            "weather" => "clear_weather",
+            "no_hurt" => "no_hurt_camera",
+            other => other,
+        };
+        m.cfg.restore_default_path(&format!("/{field}"))?;
+    }
+    // Replace only the restored text field; unrelated edits stay in place.
+    let text = match key {
+        "profile_name" => Some("my-preset".to_string()),
+        "rule_id" | "rule_label" | "rule_color" | "rule_group" | "rule_states" => m
+            .selected
+            .and_then(|i| m.cfg.rules.get(i))
+            .map(|r| match key {
+                "rule_id" => r.id.clone(),
+                "rule_label" => r.label.clone(),
+                "rule_color" => format!("{:08X}", r.color),
+                "rule_group" => r.group.clone(),
+                _ => r
+                    .states
+                    .iter()
+                    .map(|(k, v)| format!("{k}={v}"))
+                    .collect::<Vec<_>>()
+                    .join(", "),
+            }),
+        _ => None,
+    };
+    if let Some(value) = text {
+        if let Some(f) = m.fields.iter_mut().find(|f| f.key == key) {
+            f.edit.value = value;
+        }
+    }
+    m.focus = None;
+    m.held_slider = None;
+    m.dirty = true;
+    m.status = "Setting restored; Apply to save".into();
+    Ok(())
+}
 fn flush(m: &mut Menu) -> Result<(), String> {
     for f in &m.fields {
         let v = f.edit.value.trim();
@@ -1598,6 +1770,7 @@ fn toggle_key(m: &mut Menu, key: &str) {
         "esp_mobs" => flip!(m.cfg.esp_mobs),
         "esp_items" => flip!(m.cfg.esp_items),
         "coords_hud" => flip!(m.cfg.coords_hud),
+        "enabled_mods" => flip!(m.cfg.enabled_mods),
         "noclip" => flip!(m.cfg.freecam_noclip),
         "fullbright" => flip!(m.cfg.fullbright),
         "no_fog" => flip!(m.cfg.no_fog),
@@ -1658,7 +1831,12 @@ fn action(m: &mut Menu, g: &mut Game<'_>, action: Action) -> Result<(), String> 
     }
     if !matches!(
         action,
-        Action::Import | Action::LoadFile | Action::Reset | Action::Clear
+        Action::Import
+            | Action::LoadFile
+            | Action::Reset
+            | Action::Clear
+            | Action::Default(_)
+            | Action::RestoreAll
     ) {
         flush(m)?;
     }
@@ -1666,6 +1844,21 @@ fn action(m: &mut Menu, g: &mut Game<'_>, action: Action) -> Result<(), String> 
     m.held_field = false;
     m.held_slider = None;
     match action {
+        Action::Default(key) => restore_field(m, key)?,
+        Action::RestoreAll => {
+            if m.confirm != Some("all_defaults") {
+                m.confirm = Some("all_defaults");
+                m.status="Click again to restore all settings and shortcuts. Saved waypoints and profiles are kept.".into();
+            } else {
+                let result = super::rusty_clickgui::restore_all(g);
+                m.cfg = (*rusty::config()).clone();
+                m.selected = None;
+                changed_page(m);
+                result?;
+                m.dirty = false;
+                m.status = "All settings restored".into();
+            }
+        }
         Action::Slider(key, track) => {
             let range = slider_range(key).ok_or("Unknown slider")?;
             set_slider(

@@ -70,6 +70,8 @@ pub enum Intent {
     Theme,
     Motion,
     ResetHud(&'static str),
+    DefaultSetting(&'static str),
+    RestoreDefaults,
     Bind(&'static str, String),
     Advanced,
     AddWaypoint,
@@ -92,6 +94,8 @@ impl Intent {
             | Self::Theme
             | Self::Motion
             | Self::ResetHud(..)
+            | Self::DefaultSetting(..)
+            | Self::RestoreDefaults
             | Self::Bind(..)
             | Self::Flush => true,
             Self::ToggleModule(id) => !matches!(*id, "xray" | "freecam" | "zoom" | "waypoint_walk"),
@@ -174,6 +178,11 @@ pub enum Action {
     Theme,
     Motion,
     ResetMenuScale,
+    DefaultSetting(&'static str),
+    DefaultBind(&'static str),
+    RestoreDefaults,
+    ConfirmDefaults,
+    CancelDefaults,
     Bool(&'static str),
     Choice,
     Numeric(&'static str, [f32; 4], SettingKind),
@@ -195,6 +204,7 @@ pub struct Hit {
 }
 
 pub struct Model {
+    pub confirm_defaults: bool,
     pub render_scale: f32,
     pub record_controls: bool,
     pub open: bool,
@@ -224,6 +234,7 @@ pub struct Model {
 impl Default for Model {
     fn default() -> Self {
         Self {
+            confirm_defaults: false,
             render_scale: 1.0,
             record_controls: true,
             open: false,
@@ -258,6 +269,7 @@ impl Model {
             && self.search_focus
             && self.capture.is_none()
             && self.help.is_none()
+            && !self.confirm_defaults
             && !text_shortcut(control, super_key, alt)
         {
             self.query.insert(&ch.to_string());
@@ -285,6 +297,7 @@ impl Model {
         true
     }
     pub fn deactivate(&mut self) {
+        self.confirm_defaults = false;
         self.open = false;
         self.close_requested = false;
         self.intents.clear();
@@ -362,6 +375,19 @@ pub fn opening_opacity(elapsed_ms: f32, reduced_motion: bool) -> f32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn reset_confirmation_blocks_background_typing_and_is_cleared_on_close() {
+        let mut ui = Model {
+            open: true,
+            search_focus: true,
+            confirm_defaults: true,
+            ..Default::default()
+        };
+        ui.character('x', false, false, false);
+        assert!(ui.query.value.is_empty());
+        ui.deactivate();
+        assert!(!ui.confirm_defaults);
+    }
     #[test]
     fn external_close_keeps_pending_settings_and_discards_gameplay_intents() {
         let mut ui = Model {

@@ -1,6 +1,6 @@
 # Usage and settings
 
-This guide describes Rusty **1.2.4**. The [module guide](MODULES.md) covers all 42 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
+This guide describes Rusty **1.2.5**. The [module guide](MODULES.md) covers all 42 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
 
 ## The live ClickGUI
 
@@ -104,10 +104,20 @@ The SDK represents absent container components and empty decoded lists identical
 
 Views and searches depend on data already delivered to the client. Rusty cannot bypass server anti-X-ray, recover blocks the server withheld, or replace missing world data. Server rules and enforcement remain applicable.
 
-The source registry contains **42 modules**. The [research matrix](research/README.md) contains **884 reference occurrences** with source/documentation/historical boundaries; they are comparison records, not implemented module counts or proof of reference parity. See the [backlog](research/BACKLOG.md) for remaining capability and test gates.
+The source registry contains **43 modules**. The [research matrix](research/README.md) contains **884 reference occurrences** with source/documentation/historical boundaries; they are comparison records, not implemented module counts or proof of reference parity. See the [backlog](research/BACKLOG.md) for remaining capability and test gates.
 
 ## Default HUD stacking
 
 Default overlays form left, center and right columns. Each column uses the visible panels' actual sizes, so expanded Target Info, Finder counts and container contents receive space. The right column reserves room above the default minimap. Columns fit within the screen when needed. Changing a panel’s position or size gives it an independent saved placement; Reset returns that panel to automatic default placement. Custom placements can intentionally overlap, so leave space for expanded content.
 
 Automatic spacing covers Rusty's default panels and default minimap. Chat, host notifications and other mods can still cover an overlay; use the individual HUD controls to arrange a layout around the information you normally keep visible.
+
+## Restore defaults
+
+Use **Default** beside a setting to restore only that value. Shortcuts have separate **Default** and **Clear** buttons. Each HUD panel has position/size defaults. The advanced target editor also restores individual colors, labels, states and bounds; **Default target selection** restores the usual ore list.
+
+Choose **Restore defaults** in the main menu header to reset all Rusty preferences, shortcuts, menu appearance/size, favorites/recent history and HUD arrangements. Confirm with **Restore**, or use **Cancel**/Escape to keep the current setup. The full reset stops active X-ray, Freecam and owned automation. Saved waypoint records and named preset files remain on disk.
+
+## Enabled Mods overlay
+
+Enable **Interface → Enabled Mods** to list active Rusty tools in separate rows, alphabetically. The list starts at the top-left and excludes its own name. It reflects runtime activation, including key-held tools. Its settings provide independent HUD X, Y and size controls. Other modules, X-ray and Finder do not enable this overlay automatically.

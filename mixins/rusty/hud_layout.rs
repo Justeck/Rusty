@@ -5,6 +5,7 @@ use std::collections::BTreeMap;
 pub const MIN_SCALE: f32 = 0.5;
 pub const MAX_SCALE: f32 = 2.0;
 pub const PANELS: &[&str] = &[
+    "enabled_mods",
     "status_hud",
     "coordinates",
     "finder",
@@ -135,6 +136,9 @@ impl HudLayout {
                 default_placement(panels[a].0)
                     .y
                     .total_cmp(&default_placement(panels[b].0).y)
+                    .then_with(|| {
+                        (panels[a].0 != "enabled_mods").cmp(&(panels[b].0 != "enabled_mods"))
+                    })
             });
             let entries: Vec<_> = indices.iter().map(|&i| panels[i]).collect();
             let bottom = if column == 1.0 {
@@ -237,6 +241,7 @@ impl HudLayout {
 }
 pub fn default_placement(id: &str) -> Placement {
     let (x, y) = match id {
+        "enabled_mods" => (0.0, 0.0),
         "status_hud" => (0.0, 0.0),
         "coordinates" => (0.0, 0.18),
         "finder" => (0.5, 0.02),
@@ -262,6 +267,14 @@ pub fn default_placement(id: &str) -> Placement {
 
 /// Stable setting IDs keep queued/dragged changes attached to the original panel.
 pub const CONTROLS: &[(&str, [&str; 3])] = &[
+    (
+        "enabled_mods",
+        [
+            "hud:enabled_mods:x",
+            "hud:enabled_mods:y",
+            "hud:enabled_mods:scale",
+        ],
+    ),
     (
         "status_hud",
         [

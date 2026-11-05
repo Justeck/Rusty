@@ -230,6 +230,31 @@ pub(super) fn toggle_freecam(game: &mut Game<'_>) {
     close_menu(game);
     super::rusty_camera::toggle(game);
 }
+pub(super) fn default_module(game: &mut Game<'_>, id: &str) {
+    match id {
+        "xray" => {
+            INPUT.with_borrow_mut(|a| a.cancel());
+            let was = rusty::active();
+            rusty::set_active(false);
+            if was {
+                refresh(game);
+            }
+        }
+        "freecam" => super::rusty_camera::exit(game),
+        "zoom" => ZOOM.set(false),
+        "waypoint_walk" => super::rusty_waypoint_walk::reset(game),
+        _ => {}
+    }
+}
+pub(super) fn default_runtime(game: &mut Game<'_>) {
+    for id in ["xray", "freecam", "zoom", "waypoint_walk"] {
+        default_module(game, id);
+    }
+    super::rusty_assist::reset(game);
+    super::rusty_inventory::reset();
+    super::rusty_automations::reset();
+    super::rusty_builder::reset();
+}
 pub(super) fn apply_config(game: &mut Game<'_>, cfg: Config) -> Result<(), String> {
     let cfg = cfg.validated()?;
     let previous = rusty::config();
@@ -618,10 +643,15 @@ pub(super) fn control(
         }
         // The stock control handler still clears its body keys/actions.
     }
+    if line.trim() == "rusty-editor-ui" {
+        return ControlFlow::Break(Ok(Some(super::rusty_ui::snapshot())));
+    }
     if line.trim() == "rusty-status" {
         let scan = super::rusty_visuals::stats();
         return ControlFlow::Break(Ok(Some(serde_json::json!({
             "xray":rusty::active(),
+            "enabled_mods":rusty::config().enabled_mods,
+            "active_modules":super::rusty_visuals::enabled_module_names(&rusty::config()),
             "freecam":horizon_client_render::mesher::rusty_freecam::active(),
             "camera":horizon_client_render::mesher::rusty_freecam::view(game.clock.camera_fraction() as f32),
             "fullbright":game.renderer.as_ref().is_some_and(|r|r.fullbright),
