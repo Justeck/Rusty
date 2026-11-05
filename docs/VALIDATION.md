@@ -13,6 +13,8 @@ Fresh checks passed: **142 Rust library + 18 native-tool tests**, **14 Python te
 The [exact receipt](evidence/menu-scale-1.2.4.json) identifies the tested source, binary, package and named checks. These fresh fixtures used isolated offline worlds. Older server/performance/endurance results below remain historical. The native build used the official launcher CLI; no fresh GUI Build/Play test is claimed for this patch. Existing running user games and personal saves were left untouched.
 
 
+The [published-release installation receipt](evidence/public-release-1.2.4.json) verifies the repository URL and fixed 1.2.4 URL through Horizon's official installer. The public native package is byte-identical to the tested package. A final Performance build exited 0 in **13.609 seconds**, reported **Up to date**, reused the accepted executable and left the sole `horizon` instance selected. The existing Rusty preference file remained byte-identical, including its physical menu scale. Both Modrinth runtime downloads match the tested/GitHub jars byte-for-byte; the project remains **Under review**. Existing running user games were left untouched and need a restart to load the patch.
+
 ## 1.2.3 independent X-ray and Finder
 
 X-ray now changes terrain only. Finder separately owns target boxes, tracer lines and target readouts. Saved line preferences remain intact; enabling or disabling X-ray does not change Finder. Original-texture terrain frames remain part of X-ray.
