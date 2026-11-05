@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "checked_utc": "2026-11-05T05:21:32.501240+00:00",
+  "official_repository": "https://github.com/horizon-rust/horizon",
+  "launcher_release": "https://github.com/horizon-rust/horizon/releases/tag/launcher%400.2.42",
+  "launcher_version": "0.2.42",
+  "launcher_published_utc": "2026-11-05T04:02:06Z",
+  "official_windows_archive_sha256": "add9bbd03e35335cf1750716c603cf2a5591959f56c689fb2ef4e608f01a73d3",
+  "installed_launcher_executable_sha256": "3125dd71a470c03b5785a464fa4b89a24ee3f15f95b43c1471375bed268db5c6",
+  "latest_public_game_release": "https://github.com/horizon-rust/horizon/releases/tag/nightly",
+  "latest_public_game_revision": "6475f62f3c834b7489e1816bf47f47ea5eb2b879",
+  "game_version": "26.3",
+  "native_api": 359,
+  "unreleased_main_not_substituted_for_public_game": true
+}

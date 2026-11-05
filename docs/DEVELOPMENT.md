@@ -37,6 +37,8 @@ python tools/game_multiplayer_smoke.py --binary /path/to/horizon-client --resour
 python tools/game_showcase_smoke.py --binary /path/to/horizon-client --resources /path/to/26.3 --output /path/to/new-showcase
 ```
 
+The performance and endurance observers additionally require `psutil==7.2.2`, the version used by the recorded Windows run: `python -m pip install psutil==7.2.2`. This is a development-only process-observation dependency; the native mod has no Python runtime dependency.
+
 Other `tools/game_*_smoke.py` fixtures cover inventory, ordinary assistance, automation, building, waypoint walking, awareness, HUD placement, chunk alignment, performance and endurance. Inspect each `--help`. Java-server tests require an official 26.3 server JAR and Java25; they use loopback and fresh fake-player data. Never point fixtures at an existing world or public server.
 
 Every fixture creates isolated offline paths and stops owned processes. Record source, package, staged inputs, compiler/profile and executable hashes. Freeze native source during acceptance. Review original images separately from scripted assertions. A request being sent is not proof that a server accepted it. Keep unknown/partial observations explicit.

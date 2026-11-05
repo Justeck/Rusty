@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "url": "https://github.com/Justeck/Rusty/releases/download/v1.2.0/rusty-1.2.0.hnmod",
+  "bytes": 188601,
+  "sha256": "7fb9ade0e05595fad6ddc019c0fdb0807a802f5667091df9eeb9a58ea908db0d",
+  "matches_tested_native_archive": true,
+  "native_payloads": 115,
+  "obsolete_identity_matches": 0
+}

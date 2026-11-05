@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "brand": "Rusty",
+  "scope": "Current tracked and non-ignored product files, including generated branding and fresh game media",
+  "case_insensitive_former_brand_filename_and_byte_matches": 0,
+  "native_archive_payloads": 115,
+  "accepted_native_archive_sha256": "7fb9ade0e05595fad6ddc019c0fdb0807a802f5667091df9eeb9a58ea908db0d",
+  "native_executable_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "required_original_author_notices_preserved": true
+}

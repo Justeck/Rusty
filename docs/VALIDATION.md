@@ -15,7 +15,9 @@ Fresh checks identify the actual Rusty executable and source inputs. No historic
 | Short performance observation | 3 disabled + 9 enabled samples; stationary aggregation-cache reuse passed |
 | Bounded stability | Ten-minute run completed; no panic/fatal marker observed; owned process stopped |
 | Launcher build and actual GUI Play | Performance build through the official CLI; launcher 0.2.42 showed green Up to date, then GUI Play → title → Rusty settings → clean Quit. No Build button was offered for the already-built mod set. |
-| GitHub source installation | Official source install succeeded; all 115 native payloads equal the verified package. Release-URL installation is checked after publication and recorded separately. |
+| Published release installation | Both repository and exact v1.2.0 release URLs installed successfully through launcher 0.2.42. All 115 payloads and archive bytes match the published/tested package. Supported cached Performance build exited 0; GUI Up to date → Play → title → clean Quit passed. |
+
+[Release installation receipt](evidence/release-installation.json) records both accepted inputs, exact immutable tag/commit/asset, unchanged preferences and the executable shared by all game checks. [Published package](evidence/published-package.json), [release/workflow identities](evidence/published-release-api.json) and [official version check](evidence/official-version-check.json) are separate receipts.
 
 ## Exact native identity
 

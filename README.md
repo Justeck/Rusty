@@ -20,7 +20,9 @@ In Horizon Launcher, select **Horizon → Mods → Add a Native Mod from GitHub*
 https://github.com/Justeck/Rusty
 ```
 
-Review the selected immutable source revision, enable Rusty, select **Build → Performance**, and wait for **Up to date** before **Play**. The supported base is Horizon **6475f62**, native API **359**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
+Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **6475f62**, native API **359**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
+
+The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.0`](https://github.com/Justeck/Rusty/releases/tag/v1.2.0). Both inputs are [installation-verified](docs/evidence/release-installation.json) on launcher 0.2.42.
 
 **Right Shift** opens Rusty. **Options → Mods → Rusty** remains the recovery path. See [Installation](docs/INSTALLATION.md), [Usage](docs/USAGE.md) and [Modules](docs/MODULES.md).
 

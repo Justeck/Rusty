@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "repository": "Justeck/Rusty",
+  "release_id": 434809526,
+  "tag": "v1.2.0",
+  "url": "https://github.com/Justeck/Rusty/releases/tag/v1.2.0",
+  "immutable": true,
+  "source_commit": "d07f85bf5fd72fa6a2d1733f20d64a4d79103fac",
+  "workflow_run": 41972521530,
+  "native_job": 127063801734,
+  "publish_job": 127065253164,
+  "assets": [
+    {
+      "id": 712171337,
+      "name": "rusty-1.2.0.hnmod",
+      "size": 188601,
+      "digest": "sha256:7fb9ade0e05595fad6ddc019c0fdb0807a802f5667091df9eeb9a58ea908db0d",
+      "url": "https://github.com/Justeck/Rusty/releases/download/v1.2.0/rusty-1.2.0.hnmod"
+    },
+    {
+      "id": 712171335,
+      "name": "SHA256SUMS",
+      "size": 84,
+      "digest": "sha256:603ef76f4d3a0e82671d3e235675a0ae6a5a1241cb485c061bc783da59cccdb0",
+      "url": "https://github.com/Justeck/Rusty/releases/download/v1.2.0/SHA256SUMS"
+    }
+  ]
+}
