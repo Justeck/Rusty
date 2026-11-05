@@ -441,7 +441,7 @@ public final class GameAcceptance {
         },
         () ->
             RustyClient.targets.size() <= RustyClient.config.maxTargets
-                && RustyOverlay.renderedGeometry <= 768
+                && RustyOverlay.renderedGeometry <= 896
                 && mc.getFps() > 0,
         600);
     add(
@@ -533,7 +533,7 @@ public final class GameAcceptance {
           listCaptureComplete = false;
           net.minecraft.client.Screenshot.grab(
               mc.gameDirectory,
-              "rusty-independent-tracers.png",
+              "rusty-independent-tracers-1.3.0-beta.5.png",
               mc.gameRenderer.mainRenderTarget(),
               1,
               message -> listCaptureComplete = true);
@@ -583,7 +583,7 @@ public final class GameAcceptance {
           listCaptureComplete = false;
           net.minecraft.client.Screenshot.grab(
               mc.gameDirectory,
-              "rusty-tracer-settings.png",
+              "rusty-tracer-settings-1.3.0-beta.5.png",
               mc.gameRenderer.mainRenderTarget(),
               1,
               message -> listCaptureComplete = true);

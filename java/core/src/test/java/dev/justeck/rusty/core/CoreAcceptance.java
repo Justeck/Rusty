@@ -12,6 +12,36 @@ public final class CoreAcceptance {
   }
 
   public static void main(String[] args) {
+    var tracerOnly = new OverlayBuffer<String>();
+    var tracersAndEsp = new OverlayBuffer<String>();
+    var saturated = new OverlayBuffer<String>();
+    for (int i = 0; i < 1000; i++) saturated.add("finder:" + i);
+    for (int i = 0; i < 400; i++) {
+      tracerOnly.addEntityTracer("endpoint:" + i);
+      tracersAndEsp.add("box:" + i);
+      tracersAndEsp.addEntityTracer("endpoint:" + i);
+      saturated.addEntityTracer("endpoint:" + i);
+    }
+    var endpoints = tracerOnly.snapshot().stream().filter(v -> v.startsWith("endpoint:")).toList();
+    check(
+        endpoints.equals(
+            tracersAndEsp.snapshot().stream().filter(v -> v.startsWith("endpoint:")).toList()),
+        "ESP saturation must not evict tracer endpoints");
+    check(
+        endpoints.equals(
+            saturated.snapshot().stream().filter(v -> v.startsWith("endpoint:")).toList()),
+        "Finder saturation must not evict tracer endpoints");
+    check(
+        endpoints.size() == 128
+            && endpoints.getFirst().equals("endpoint:0")
+            && endpoints.getLast().equals("endpoint:127"),
+        "entity tracers retain a stable independent 128-line cap");
+    check(
+        saturated.snapshot().size() == 896,
+        "combined geometry remains bounded at 768 main entries plus 128 entity tracers");
+    var savedSnapshot = tracerOnly.snapshot();
+    tracerOnly.add("later box");
+    check(savedSnapshot.size() == 128, "published geometry snapshots do not change after capture");
     check(
         new Settings().restoreField("tracerPlayers"), "tracers have an independent player setting");
     check(new Settings().restoreField("tracerMobs"), "tracers have an independent mob setting");

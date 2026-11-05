@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-from game_gui_smoke import AcceptanceFailure, Smoke
+from game_gui_smoke import AcceptanceFailure, Smoke, digest
 from game_feature_smoke import FeatureSmoke
 
 
@@ -13,6 +13,8 @@ class TracerSmoke(FeatureSmoke):
     def __init__(self, args):
         super().__init__(args)
         self.report.update(suite='native-independent-tracers',
+            script_sha256=digest(Path(__file__)),
+            feature_harness_sha256=digest(Path(__file__).with_name('game_feature_smoke.py')),
             claims='Actual menu clicks, saved target choices, received pig/item positive and negative controls, and captured gameplay.',
             not_exercised=['A second player, public servers, other graphics backends and unrelated modules are not exercised. Player selection is covered by the pure combination tests.',
                 'Screenshots require visual review; line counts alone do not establish visible geometry.'])
@@ -46,7 +48,14 @@ class TracerSmoke(FeatureSmoke):
                      'summon item 11.5 96 8.5 {NoGravity:1b,PickupDelay:32767s,Item:{id:"minecraft:diamond",count:1}}']:
             self.server(text)
         self.settle_fixture_body(8.5,95,3.5)
-        self.set_module('status_hud',['hud'],False)
+        # A brand-new home has no settings file until the first actual change.
+        self.key('key.keyboard.right.shift')
+        self.wait_for(self.ui, lambda s:s['open'] and bool(s['hits']), 'initial settings')
+        self.search('status hud'); self.click('Select("status_hud")')
+        self.click('Toggle("status_hud")')
+        self.wait_for(self.config, lambda c:not c['hud'], 'first saved settings')
+        self.key('key.keyboard.escape')
+        self.wait_for(self.ui, lambda s:not s['open'], 'closed initial settings')
         self.set_module('entity_tracers',['awareness','entity_tracers'],True)
         self.filters('entity_tracers',{'tracer_players':False,'tracer_mobs':False,'tracer_items':False})
         self.lines(0)
