@@ -34,7 +34,7 @@ https://github.com/Justeck/Rusty
 
 Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **6475f62**, native API **359**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
 
-The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.1`](https://github.com/Justeck/Rusty/releases/tag/v1.2.1). The official GitHub installer resolves each input to an immutable revision. [Validation](docs/VALIDATION.md) records installation and launcher checks.
+The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.1`](https://github.com/Justeck/Rusty/releases/tag/v1.2.1). Both inputs are [installation-verified](docs/evidence/public-release-1.2.1.json) through the official launcher and resolve to the immutable 1.2.1 release. [Validation](docs/VALIDATION.md) records the actual Build/Play checks.
 
 **Right Shift** opens Rusty. **Options → Mods → Rusty** remains the recovery path. See [Installation](docs/INSTALLATION.md), [Usage](docs/USAGE.md) and [Modules](docs/MODULES.md).
 
