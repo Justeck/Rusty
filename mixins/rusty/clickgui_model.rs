@@ -70,6 +70,7 @@ pub enum Intent {
     Theme,
     Motion,
     ResetHud(&'static str),
+    HudLayout(super::rusty_hud_layout::HudLayout),
     DefaultSetting(&'static str),
     RestoreDefaults,
     Bind(&'static str, String),
@@ -94,6 +95,7 @@ impl Intent {
             | Self::Theme
             | Self::Motion
             | Self::ResetHud(..)
+            | Self::HudLayout(..)
             | Self::DefaultSetting(..)
             | Self::RestoreDefaults
             | Self::Bind(..)
@@ -190,6 +192,7 @@ pub enum Action {
     Bind(&'static str),
     ClearBind(&'static str),
     ResetHud(&'static str),
+    EditHud,
     Advanced,
     AddWaypoint,
     BuildAnchor,

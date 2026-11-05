@@ -12,6 +12,22 @@ public final class CoreAcceptance {
   }
 
   public static void main(String[] args) {
+    for (int corner = 0; corner < 4; corner++) {
+      double sx = corner % 2 == 0 ? -1 : 1, sy = corner < 2 ? -1 : 1;
+      var result =
+          HudGesture.resize(new double[] {103, 63, 100, 20}, 1, corner, sx * 50, sy * 10, 800, 450);
+      check(Math.abs(result.scale() - 1.5) < .001, "corner handle preserves aspect ratio");
+      check(
+          Math.abs(result.x() + (corner % 2 == 0 ? 150 : 0) - (corner % 2 == 0 ? 203 : 103)) < .001,
+          "resize holds opposite horizontal anchor");
+      check(
+          Math.abs(result.y() + (corner < 2 ? 30 : 0) - (corner < 2 ? 83 : 63)) < .001,
+          "resize holds opposite vertical anchor");
+    }
+    var moved = HudGesture.move(new double[] {103, 63, 100, 20}, 100, 50, 800, 450);
+    check(moved.x() == 203 && moved.y() == 113, "drag preserves grab offset");
+    var clamped = HudGesture.move(new double[] {103, 63, 100, 20}, 9000, -9000, 800, 450);
+    check(clamped.x() == 700 && clamped.y() == 0, "drag remains inside viewport");
     var tracerOnly = new OverlayBuffer<String>();
     var tracersAndEsp = new OverlayBuffer<String>();
     var saturated = new OverlayBuffer<String>();

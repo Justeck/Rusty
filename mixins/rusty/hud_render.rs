@@ -1,6 +1,6 @@
 // Shared screen HUD renderer bridge. Copyright 2026 Justeck, Apache-2.0.
 // Lives below both horizon-client-lib and gameplay; no crate::game dependency.
-use super::rusty_hud_layout::{HudLayout, PANELS, Resolved};
+use super::rusty_hud_layout::{HudLayout, PANELS, PanelBounds, Resolved};
 use crate::hud::HudBatch;
 use std::cell::{Cell, RefCell};
 #[derive(Clone, Copy)]
@@ -17,10 +17,40 @@ thread_local! {
     static MINIMAP_TOP: Cell<Option<([f32; 2], f32)>> = const { Cell::new(None) };
     static ACTIVE: Cell<bool> = const { Cell::new(false) };
     static PANELS_DRAWN: RefCell<Vec<Panel>> = RefCell::new(Vec::with_capacity(PANELS.len()));
+    static PREVIEW: RefCell<Option<HudLayout>> = const { RefCell::new(None) };
+    static BOUNDS: RefCell<Vec<PanelBounds>> = RefCell::new(Vec::with_capacity(PANELS.len()));
+    static MAP_BOUNDS: Cell<Option<PanelBounds>> = const { Cell::new(None) };
+}
+pub fn preview(layout: Option<HudLayout>) {
+    PREVIEW.with_borrow_mut(|p| *p = layout);
+}
+pub fn bounds() -> Vec<PanelBounds> {
+    BOUNDS.with_borrow(Clone::clone)
+}
+fn record(id: &'static str, size: [f32; 2], r: Resolved) {
+    let panel = PanelBounds {
+        id,
+        rect: [
+            r.origin[0],
+            r.origin[1],
+            size[0] * r.scale,
+            size[1] * r.scale,
+        ],
+        size,
+        scale: r.scale,
+    };
+    if id == "minimap" {
+        MAP_BOUNDS.set(Some(panel));
+    }
+    BOUNDS.with_borrow_mut(|b| {
+        b.retain(|p| p.id != id);
+        b.push(panel);
+    });
 }
 pub fn minimap_owned(owned: bool) {
     MINIMAP_OWNED.set(owned);
     MINIMAP_TOP.set(None);
+    MAP_BOUNDS.set(None);
 }
 pub fn minimap_begin(batch: &HudBatch) {
     MINIMAP_START.set(MINIMAP_OWNED.get().then_some(batch.vertices.len()));
@@ -37,9 +67,17 @@ pub fn minimap_end(batch: &mut HudBatch) {
 }
 pub fn begin() {
     PANELS_DRAWN.with_borrow_mut(Vec::clear);
+    BOUNDS.with_borrow_mut(|b| {
+        b.clear();
+        if let Some(p) = MAP_BOUNDS.get() {
+            b.push(p);
+        }
+    });
     ACTIVE.set(true);
 }
 pub fn finish(batch: &mut HudBatch, layout: &HudLayout) {
+    let edit = PREVIEW.with_borrow(Clone::clone);
+    let layout = edit.as_ref().unwrap_or(layout);
     ACTIVE.set(false);
     PANELS_DRAWN.with_borrow_mut(|panels| {
         let sizes: Vec<_> = panels.iter().map(|p| (PANELS[p.id], p.size)).collect();
@@ -50,6 +88,9 @@ pub fn finish(batch: &mut HudBatch, layout: &HudLayout) {
             .map(|(_, top)| top);
         let resolved = layout.resolve_default_columns(viewport, &sizes, map_top);
         for (panel, resolved) in panels.iter().zip(resolved) {
+            if let Some(r) = resolved {
+                record(PANELS[panel.id], panel.size, r);
+            }
             if let Some(vertices) = batch.vertices.get_mut(panel.start..panel.end) {
                 for vertex in vertices {
                     vertex.pos =
@@ -66,6 +107,8 @@ fn apply(batch: &mut HudBatch, start: usize, source: [f32; 2], resolved: Resolve
     }
 }
 pub fn place(batch: &mut HudBatch, start: usize, layout: &HudLayout, id: &str) {
+    let edit = PREVIEW.with_borrow(Clone::clone);
+    let layout = edit.as_ref().unwrap_or(layout);
     let Some(vertices) = batch.vertices.get(start..) else {
         return;
     };
@@ -86,6 +129,7 @@ pub fn place(batch: &mut HudBatch, start: usize, layout: &HudLayout, id: &str) {
         return;
     };
     if id == "minimap" {
+        record("minimap", size, resolved);
         if !layout.0.contains_key(id) {
             MINIMAP_TOP.set(Some((viewport, resolved.origin[1])));
         }
@@ -112,6 +156,9 @@ pub fn place(batch: &mut HudBatch, start: usize, layout: &HudLayout, id: &str) {
         if queued {
             return;
         }
+    }
+    if let Some(&id) = PANELS.iter().find(|p| **p == id) {
+        record(id, size, resolved);
     }
     apply(batch, start, min, resolved);
 }

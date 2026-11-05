@@ -13,6 +13,8 @@ use horizon_client_render::mesher::{
 use std::{cell::RefCell, time::Instant};
 
 struct Menu {
+    hud_editor: Option<hud_layout::Editor>,
+    hud_viewport: [f32; 2],
     ui: Model,
     save: SaveState<Config>,
     last_save: Instant,
@@ -21,6 +23,8 @@ struct Menu {
 impl Default for Menu {
     fn default() -> Self {
         Self {
+            hud_editor: None,
+            hud_viewport: [0.0; 2],
             ui: Model::default(),
             save: SaveState::new(Config::default()),
             last_save: Instant::now(),
@@ -38,6 +42,10 @@ pub(super) fn snapshot() -> serde_json::Value {
     MENU.with_borrow(|m| {
         serde_json::json!({
             "open": m.ui.open,
+            "hud_editing":m.hud_editor.is_some(),
+            "hud_selected":m.hud_editor.as_ref().and_then(|e|e.selected),
+            "hud_draft":m.hud_editor.as_ref().map(|e|&e.draft),
+            "hud_panels":horizon_client_render::mesher::rusty_hud_render::bounds().iter().map(|p|serde_json::json!({"id":p.id,"rect":p.rect,"size":p.size,"scale":p.scale})).collect::<Vec<_>>(),
             "confirm_defaults":m.ui.confirm_defaults,
             "query": m.ui.query.value,
             "selected": m.ui.selected,
@@ -87,6 +95,8 @@ pub(super) fn open(game: &mut Game<'_>) {
     // Upload once per opening, never once per rendered frame.
     game.native_mod_image(64, 64, super::rusty_brand::RGBA);
     MENU.with_borrow_mut(|m| {
+        m.hud_editor = None;
+        horizon_client_render::mesher::rusty_hud_render::preview(None);
         let pending = m.save.dirty;
         m.ui = Model {
             open: true,
@@ -412,6 +422,9 @@ pub(super) fn frame(game: &mut Game<'_>) {
             return None;
         }
         if !external && !game.focused {
+            if let Some(e) = m.hud_editor.as_mut() {
+                e.release();
+            }
             m.ui.dragging = None;
             m.ui.capture = None;
             m.ui.intents.clear();
@@ -426,6 +439,8 @@ pub(super) fn frame(game: &mut Game<'_>) {
         }
         let closing = m.ui.close_requested || external;
         if external {
+            m.hud_editor = None;
+            horizon_client_render::mesher::rusty_hud_render::preview(None);
             m.ui.deactivate();
         }
         Some((intents, m.save.clone(), m.last_save, closing, external))
@@ -446,6 +461,12 @@ pub(super) fn frame(game: &mut Game<'_>) {
     let mut status = None;
     for intent in intents {
         let result = match intent {
+            Intent::HudLayout(layout) => {
+                cfg.client.hud_layout = layout;
+                dirty = true;
+                force = true;
+                Ok(())
+            }
             Intent::Numeric(id, value) => {
                 dirty = true;
                 set_number(&mut cfg, id, value)
@@ -759,6 +780,17 @@ fn act(m: &mut Menu, action: Action, at: [f32; 2], right: bool) {
     ui.search_focus = false;
     ui.keyboard_hit = None;
     match action {
+        Action::EditHud => {
+            m.hud_editor = Some(hud_layout::Editor::new(
+                m.save.value.client.hud_layout.clone(),
+            ));
+            ui.dragging = None;
+            ui.capture = None;
+            ui.help = None;
+            horizon_client_render::mesher::rusty_hud_render::preview(
+                m.hud_editor.as_ref().map(|e| e.draft.clone()),
+            );
+        }
         Action::DefaultSetting(id) => {
             ui.enqueue(Intent::DefaultSetting(id));
             ui.enqueue(Intent::Flush);
@@ -922,6 +954,37 @@ pub(super) fn mouse(game: &Game<'_>, at: [f32; 2], button: i32, pressed: bool) -
         if !m.ui.open {
             return false;
         }
+        if m.hud_editor.is_some() {
+            if button == 0 {
+                if !pressed {
+                    m.hud_editor.as_mut().unwrap().release();
+                } else if at[1] >= m.hud_viewport[1] - 27.0 {
+                    let w = m.hud_viewport[0];
+                    if at[0] >= w / 2.0 - 51.0 && at[0] < w / 2.0 + 49.0 {
+                        finish_hud_edit(m, true);
+                    } else if at[0] >= w / 2.0 + 54.0 && at[0] < w / 2.0 + 154.0 {
+                        finish_hud_edit(m, false);
+                    } else if at[0] >= w / 2.0 - 156.0 && at[0] < w / 2.0 - 56.0 {
+                        let e = m.hud_editor.as_mut().unwrap();
+                        if let Some(id) = e.selected {
+                            e.draft.reset(id);
+                        } else {
+                            e.draft.0.clear();
+                        }
+                        horizon_client_render::mesher::rusty_hud_render::preview(Some(
+                            e.draft.clone(),
+                        ));
+                    }
+                } else {
+                    m.hud_editor.as_mut().unwrap().press(
+                        at,
+                        m.hud_viewport,
+                        &horizon_client_render::mesher::rusty_hud_render::bounds(),
+                    );
+                }
+            }
+            return true;
+        }
         if !pressed {
             if m.ui.dragging.take().is_some() {
                 m.ui.enqueue(Intent::Flush);
@@ -981,6 +1044,11 @@ pub(super) fn drag(game: &Game<'_>, at: [f32; 2]) -> bool {
         return false;
     }
     MENU.with_borrow_mut(|m| {
+        if let Some(e) = m.hud_editor.as_mut() {
+            e.drag(at, m.hud_viewport);
+            horizon_client_render::mesher::rusty_hud_render::preview(Some(e.draft.clone()));
+            return m.ui.open;
+        }
         let at = at.map(|n| n / m.ui.render_scale);
         if let Some((id, rect, kind)) = m.ui.dragging
             && let Some(value) = numeric_value(kind, f64::from((at[0] - rect[0]) / rect[2]))
@@ -995,6 +1063,9 @@ pub(super) fn character(game: &Game<'_>, ch: char) -> bool {
         return false;
     }
     MENU.with_borrow_mut(|m| {
+        if m.hud_editor.is_some() {
+            return true;
+        }
         m.ui.character(
             ch,
             game.modifiers.control_key(),
@@ -1009,6 +1080,9 @@ pub(super) fn scroll(game: &Game<'_>, at: [f32; 2], amount: f32) -> bool {
         return false;
     }
     MENU.with_borrow_mut(|m| {
+        if m.hud_editor.is_some() {
+            return true;
+        }
         let at = at.map(|n| n / m.ui.render_scale);
         if amount.is_finite() && m.ui.help.is_none() && !m.ui.categories_open {
             if inside(at, m.ui.list_rect) {
@@ -1032,6 +1106,17 @@ pub(super) fn key(game: &Game<'_>, key: &str, pressed: bool, repeat: bool, modif
             return false;
         }
         if !pressed {
+            return true;
+        }
+        if m.hud_editor.is_some() {
+            if !repeat
+                && matches!(
+                    key,
+                    "key.keyboard.enter" | "key.keyboard.kp.enter" | "key.keyboard.escape"
+                )
+            {
+                finish_hud_edit(m, key != "key.keyboard.escape");
+            }
             return true;
         }
         let shift = modifiers & 1 != 0;
@@ -1399,11 +1484,111 @@ fn numeric_bounds(kind: SettingKind) -> Option<(f64, f64, f64)> {
     }
 }
 
+fn finish_hud_edit(m: &mut Menu, commit: bool) {
+    if let Some(e) = m.hud_editor.take()
+        && commit
+    {
+        m.ui.enqueue(Intent::HudLayout(e.draft));
+        m.ui.enqueue(Intent::Flush);
+    }
+    horizon_client_render::mesher::rusty_hud_render::preview(None);
+    m.ui.hits.clear();
+    m.ui.status = if commit {
+        "HUD layout confirmed"
+    } else {
+        "HUD edits cancelled"
+    }
+    .into();
+}
+fn draw_hud_editor(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
+    menu.ui.hits.clear();
+    menu.hud_viewport = [batch.width, batch.height];
+    let c = colors(menu.save.value.client.theme);
+    let selected = menu.hud_editor.as_ref().and_then(|e| e.selected);
+    let panels = horizon_client_render::mesher::rusty_hud_render::bounds();
+    for p in &panels {
+        let [x, y, w, h] = p.rect;
+        let color = if selected == Some(p.id) {
+            c.accent
+        } else {
+            c.muted
+        };
+        for r in [
+            [x, y, w, 1.0],
+            [x, y + h - 1.0, w, 1.0],
+            [x, y, 1.0, h],
+            [x + w - 1.0, y, 1.0, h],
+        ] {
+            fill(game, batch, r, color);
+        }
+        if selected == Some(p.id) {
+            for i in 0..4 {
+                let at = p.corner(i);
+                fill(game, batch, [at[0] - 3.0, at[1] - 3.0, 6.0, 6.0], c.border);
+                fill(game, batch, [at[0] - 2.0, at[1] - 2.0, 4.0, 4.0], c.accent);
+            }
+        }
+    }
+    let message = if panels.is_empty() {
+        "Enable a HUD feature, then edit its layout."
+    } else {
+        "Drag to move. Drag corners to resize. Enter saves; Esc cancels."
+    };
+    let tw = game.native_text_width(message);
+    fill(
+        game,
+        batch,
+        [
+            (batch.width - tw - 12.0) / 2.0,
+            batch.height - 46.0,
+            tw + 12.0,
+            14.0,
+        ],
+        c.panel,
+    );
+    text(
+        game,
+        batch,
+        message,
+        (batch.width - tw) / 2.0,
+        batch.height - 43.0,
+        c.text,
+    );
+    for (offset, label) in [
+        (
+            -156.0,
+            if selected.is_some() {
+                "Default panel"
+            } else {
+                "Default layout"
+            },
+        ),
+        (-51.0, "Done (Enter)"),
+        (54.0, "Cancel (Esc)"),
+    ] {
+        let x = batch.width / 2.0 + offset;
+        let y = batch.height - 27.0;
+        fill(game, batch, [x, y, 100.0, 21.0], c.border);
+        fill(game, batch, [x + 1.0, y + 1.0, 98.0, 19.0], c.panel);
+        text(
+            game,
+            batch,
+            label,
+            x + (100.0 - game.native_text_width(label)) / 2.0,
+            y + 6.0,
+            c.text,
+        );
+    }
+}
 pub(super) fn draw(game: &Game<'_>, batch: &mut HudBatch) {
     if !owns(game) {
         return;
     }
     MENU.with_borrow_mut(|menu| {
+        if menu.hud_editor.is_some() {
+            draw_hud_editor(game, batch, menu);
+            return;
+        }
         let transform = MenuTransform::new(
             [batch.width, batch.height],
             menu.save.value.client.menu_scale,
@@ -1489,6 +1674,19 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
         y + 12.0,
         c.muted,
     );
+    if w >= 500.0 {
+        button(
+            game,
+            batch,
+            [x + 120.0, y + 5.0, 92.0, 21.0],
+            "Edit HUD",
+            Action::EditHud,
+            false,
+            c,
+            None,
+            m,
+        );
+    }
 
     button(
         game,
@@ -1853,7 +2051,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
 
         let hud_controls = hud_layout::CONTROLS.iter().find(|(id, _)| *id == module.id);
         let total = 98.0
-            + if hud_controls.is_some() { 185.0 } else { 0.0 }
+            + if hud_controls.is_some() { 79.0 } else { 0.0 }
             + module
                 .settings
                 .iter()
@@ -2202,30 +2400,28 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
             }
         }
 
-        if let Some((panel, ids)) = hud_controls {
+        if let Some((panel, _)) = hud_controls {
             text(
                 game,
                 batch,
-                "Screen HUD position and size",
+                "Move and resize on screen",
                 sx,
                 yy + 3.0,
                 c.accent,
             );
             yy += 20.0;
-            for (axis, id) in ids.iter().enumerate() {
-                local_slider(
-                    game,
-                    batch,
-                    m,
-                    &cfg,
-                    *id,
-                    ["HUD X (%)", "HUD Y (%)", "HUD size"][axis],
-                    [sx, yy, sw, 46.0],
-                    r,
-                    c,
-                );
-                yy += 46.0;
-            }
+            button(
+                game,
+                batch,
+                [sx, yy, sw, 21.0],
+                "Edit HUD - drag and resize",
+                Action::EditHud,
+                false,
+                c,
+                Some(r),
+                m,
+            );
+            yy += 26.0;
             button(
                 game,
                 batch,
@@ -2543,67 +2739,4 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
             c.text,
         );
     }
-}
-
-#[allow(clippy::too_many_arguments)]
-fn local_slider(
-    g: &Game<'_>,
-    b: &mut HudBatch,
-    m: &mut Model,
-    cfg: &Config,
-    id: &'static str,
-    label: &str,
-    row: [f32; 4],
-    clip: [f32; 4],
-    c: Colors,
-) {
-    let [x, y, w, _] = row;
-    let kind = setting_kind(id).expect("registered local numeric control");
-    let value = number(cfg, id);
-    text(g, b, &fit(g, label, w - 62.0), x + 2.0, y + 2.0, c.text);
-    button(
-        g,
-        b,
-        [x + w - 56.0, y - 2.0, 56.0, 16.0],
-        "Default",
-        Action::DefaultSetting(id),
-        false,
-        c,
-        Some(clip),
-        m,
-    );
-    let track = [x + 21.0, y + 17.0, (w - 44.0).max(12.0), 19.0];
-    button(
-        g,
-        b,
-        [x, y + 17.0, 18.0, 19.0],
-        "-",
-        Action::Step(id, -1.0),
-        false,
-        c,
-        Some(clip),
-        m,
-    );
-    button(
-        g,
-        b,
-        track,
-        &format!("{value:.2}"),
-        Action::Numeric(id, track, kind),
-        m.dragging.is_some_and(|(v, _, _)| v == id),
-        c,
-        Some(clip),
-        m,
-    );
-    button(
-        g,
-        b,
-        [x + w - 18.0, y + 17.0, 18.0, 19.0],
-        "+",
-        Action::Step(id, 1.0),
-        false,
-        c,
-        Some(clip),
-        m,
-    );
 }

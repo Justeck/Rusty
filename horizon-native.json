@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "id": "rusty",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "game": "26.3",
   "horizon": "38609b7b1f261b530261ead7855d41e3a850e310",
   "mixins": "e8cd0aa38cffef49cb2e088ef716baa107148c02"

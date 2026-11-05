@@ -324,14 +324,7 @@ public final class GameAcceptance {
         RustyNavigation::saveMarker,
         () -> RustyNavigation.selected() != null,
         5);
-    add(
-        "HUD editor exposes 19 independent panels with footer clearance",
-        () -> mc.gui.setScreen(new HudEditor()),
-        () ->
-            RustyHud.bounds.size() == RustyHud.IDS.size()
-                && RustyHud.bounds.values().stream()
-                    .allMatch(r -> r[1] + r[3] <= mc.getWindow().getGuiScaledHeight() - 60),
-        10);
+    addHudEditorChecks();
     add(
         "Overlay positions and cleared shortcuts persist to actual local JSON",
         () -> {
@@ -478,6 +471,125 @@ public final class GameAcceptance {
         200);
   }
 
+  private static net.minecraft.client.input.MouseButtonEvent hudMouse(double x, double y) {
+    return new net.minecraft.client.input.MouseButtonEvent(
+        x, y, new net.minecraft.client.input.MouseButtonInfo(0, 0));
+  }
+
+  private static void addHudEditorChecks() {
+    var mc = Minecraft.getInstance();
+    String[] prior = {""}, before = {""};
+    int[][] rect = {null};
+    add(
+        "Visual HUD editor shows only enabled panels without modifying feature states",
+        () -> {
+          prior[0] = RustyClient.GSON.toJson(RustyClient.config);
+          RustyClient.config.enabled.clear();
+          RustyClient.set("coordinates", true);
+          before[0] = RustyClient.GSON.toJson(RustyClient.config);
+          mc.gui.setScreen(new HudEditor());
+        },
+        () ->
+            RustyHud.bounds.size() == 1
+                && RustyHud.bounds.containsKey("coordinates")
+                && before[0].equals(RustyClient.GSON.toJson(RustyClient.config)),
+        10);
+    add(
+        "HUD dragging follows the grab point and remains an unsaved draft",
+        () -> {
+          rect[0] = RustyHud.bounds.get("coordinates").clone();
+          var r = rect[0];
+          var e = (HudEditor) mc.gui.screen();
+          double x = r[0] + r[2] / 2.0, y = r[1] + r[3] / 2.0;
+          e.mouseClicked(hudMouse(x, y), false);
+          e.mouseDragged(hudMouse(x + 70, y + 40), 70, 40);
+          e.mouseReleased(hudMouse(x + 70, y + 40));
+        },
+        () -> {
+          var r = RustyHud.bounds.get("coordinates");
+          return r[0] == rect[0][0] + 70
+              && r[1] == rect[0][1] + 40
+              && before[0].equals(RustyClient.GSON.toJson(RustyClient.config));
+        },
+        10);
+    add(
+        "HUD corner handle enlarges the overlay while holding its opposite corner",
+        () -> {
+          rect[0] = RustyHud.bounds.get("coordinates").clone();
+          var r = rect[0];
+          var e = (HudEditor) mc.gui.screen();
+          double x = r[0] + r[2], y = r[1] + r[3];
+          e.mouseClicked(hudMouse(x, y), false);
+          e.mouseDragged(hudMouse(x + r[2] * .3, y + r[3] * .3), r[2] * .3, r[3] * .3);
+          e.mouseReleased(hudMouse(x + r[2] * .3, y + r[3] * .3));
+        },
+        () -> {
+          var r = RustyHud.bounds.get("coordinates");
+          return r[0] == rect[0][0]
+              && r[1] == rect[0][1]
+              && Math.abs((double) r[2] / rect[0][2] - 1.3) < .03
+              && before[0].equals(RustyClient.GSON.toJson(RustyClient.config));
+        },
+        10);
+    boolean[] hudCaptured = {false};
+    add(
+        "Visual HUD editor framebuffer capture",
+        () -> {
+          net.minecraft.client.Screenshot.grab(
+              mc.gameDirectory,
+              "rusty-visual-hud-editor.png",
+              mc.gameRenderer.mainRenderTarget(),
+              1,
+              message -> hudCaptured[0] = true);
+        },
+        () -> hudCaptured[0],
+        20);
+    add(
+        "Enter confirms visual HUD changes and returns to the Rusty menu",
+        () -> {
+          ((HudEditor) mc.gui.screen())
+              .keyPressed(new net.minecraft.client.input.KeyEvent(257, 0, 0));
+        },
+        () ->
+            mc.gui.screen() instanceof RustyScreen
+                && Math.abs(RustyClient.config.overlayScales.getOrDefault("coordinates", 0.0) - 1.3)
+                    < .01
+                && RustyClient.config.overlays.containsKey("coordinates"),
+        10);
+    add(
+        "Escape discards subsequent HUD changes and returns to the mod menu",
+        () -> {
+          before[0] = RustyClient.GSON.toJson(RustyClient.config);
+          mc.gui.setScreen(new HudEditor());
+        },
+        () -> mc.gui.screen() instanceof HudEditor,
+        5);
+    add(
+        "Cancelled HUD draft never changes persisted preferences",
+        () -> {
+          var r = RustyHud.bounds.get("coordinates");
+          var e = (HudEditor) mc.gui.screen();
+          double x = r[0] + r[2] / 2.0, y = r[1] + r[3] / 2.0;
+          e.mouseClicked(hudMouse(x, y), false);
+          e.mouseDragged(hudMouse(x + 30, y + 20), 30, 20);
+          e.mouseReleased(hudMouse(x + 30, y + 20));
+          e.keyPressed(new net.minecraft.client.input.KeyEvent(256, 0, 0));
+        },
+        () ->
+            mc.gui.screen() instanceof RustyScreen
+                && before[0].equals(RustyClient.GSON.toJson(RustyClient.config)),
+        5);
+    add(
+        "HUD editor fixture restores its own previous settings",
+        () -> {
+          RustyClient.config = RustyClient.GSON.fromJson(prior[0], Settings.class);
+          RustyClient.save();
+          mc.gui.setScreen(null);
+        },
+        () -> mc.gui.screen() == null,
+        5);
+  }
+
   private static void addTracerChecks() {
     var mc = Minecraft.getInstance();
     String[] previous = {""};
@@ -535,7 +647,7 @@ public final class GameAcceptance {
           listCaptureComplete = false;
           net.minecraft.client.Screenshot.grab(
               mc.gameDirectory,
-              "rusty-independent-tracers-1.3.0-beta.5.png",
+              "rusty-independent-tracers-1.3.0-beta.6.png",
               mc.gameRenderer.mainRenderTarget(),
               1,
               message -> listCaptureComplete = true);
@@ -585,7 +697,7 @@ public final class GameAcceptance {
           listCaptureComplete = false;
           net.minecraft.client.Screenshot.grab(
               mc.gameDirectory,
-              "rusty-tracer-settings-1.3.0-beta.5.png",
+              "rusty-tracer-settings-1.3.0-beta.6.png",
               mc.gameRenderer.mainRenderTarget(),
               1,
               message -> listCaptureComplete = true);

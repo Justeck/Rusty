@@ -131,7 +131,7 @@ public final class RustyScreen extends Screen {
           if ((page + 1) * rows < filtered.size()) page++;
           updateList();
         });
-    button("HUD layout", left + 78, h - 36, 85, b -> minecraft.gui.setScreen(new HudEditor(this)));
+    button("Edit HUD", left + 78, h - 36, 85, b -> minecraft.gui.setScreen(new HudEditor(this)));
     button(
         "Restore defaults",
         left + panel - 218,

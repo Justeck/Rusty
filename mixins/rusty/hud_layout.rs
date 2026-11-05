@@ -84,6 +84,154 @@ pub struct Resolved {
     pub origin: [f32; 2],
     pub scale: f32,
 }
+
+/// Actual rendered bounds, in HUD pixels rather than menu-scaled coordinates.
+#[derive(Clone, Copy, Debug)]
+pub struct PanelBounds {
+    pub id: &'static str,
+    pub rect: [f32; 4],
+    pub size: [f32; 2],
+    pub scale: f32,
+}
+impl PanelBounds {
+    pub fn corner(self, index: usize) -> [f32; 2] {
+        [
+            self.rect[0] + if index % 2 == 1 { self.rect[2] } else { 0.0 },
+            self.rect[1] + if index >= 2 { self.rect[3] } else { 0.0 },
+        ]
+    }
+    pub fn handle(self, at: [f32; 2]) -> Option<usize> {
+        (0..4).find(|&i| {
+            self.corner(i)
+                .iter()
+                .zip(at)
+                .all(|(a, b)| (*a - b).abs() <= 4.0)
+        })
+    }
+    pub fn contains(self, at: [f32; 2]) -> bool {
+        at[0] >= self.rect[0]
+            && at[1] >= self.rect[1]
+            && at[0] <= self.rect[0] + self.rect[2]
+            && at[1] <= self.rect[1] + self.rect[3]
+    }
+}
+#[derive(Clone, Copy, Debug)]
+struct Gesture {
+    panel: PanelBounds,
+    at: [f32; 2],
+    viewport: [f32; 2],
+    corner: Option<usize>,
+}
+#[derive(Clone, Debug)]
+pub struct Editor {
+    pub draft: HudLayout,
+    pub selected: Option<&'static str>,
+    gesture: Option<Gesture>,
+}
+impl Editor {
+    pub fn new(layout: HudLayout) -> Self {
+        Self {
+            draft: layout,
+            selected: None,
+            gesture: None,
+        }
+    }
+    pub fn release(&mut self) {
+        self.gesture = None;
+    }
+    pub fn press(&mut self, at: [f32; 2], viewport: [f32; 2], panels: &[PanelBounds]) -> bool {
+        self.release();
+        if !at.iter().chain(viewport.iter()).all(|n| n.is_finite()) {
+            return false;
+        }
+        let chosen = panels
+            .iter()
+            .rev()
+            .find(|p| self.selected == Some(p.id) && p.handle(at).is_some())
+            .or_else(|| {
+                panels
+                    .iter()
+                    .rev()
+                    .find(|p| p.contains(at) || p.handle(at).is_some())
+            });
+        let Some(&panel) = chosen else {
+            self.selected = None;
+            return false;
+        };
+        self.selected = Some(panel.id);
+        self.gesture = Some(Gesture {
+            panel,
+            at,
+            viewport,
+            corner: panel.handle(at),
+        });
+        true
+    }
+    pub fn drag(&mut self, at: [f32; 2], viewport: [f32; 2]) {
+        let Some(g) = self.gesture else {
+            return;
+        };
+        if viewport != g.viewport {
+            self.release();
+            return;
+        }
+        if !at.iter().all(|n| n.is_finite()) {
+            return;
+        }
+        let p = g.panel;
+        let mut origin = [p.rect[0] + at[0] - g.at[0], p.rect[1] + at[1] - g.at[1]];
+        let mut scale = p.scale;
+        if let Some(c) = g.corner {
+            let sign = [
+                if c % 2 == 0 { -1.0 } else { 1.0 },
+                if c < 2 { -1.0 } else { 1.0 },
+            ];
+            let delta = [(at[0] - g.at[0]) * sign[0], (at[1] - g.at[1]) * sign[1]];
+            scale = (p.scale
+                + (delta[0] * p.size[0] + delta[1] * p.size[1])
+                    / (p.size[0] * p.size[0] + p.size[1] * p.size[1]))
+                .clamp(MIN_SCALE, MAX_SCALE);
+            let anchor = p.corner(3 - c);
+            origin = [
+                anchor[0] - if c % 2 == 0 { p.size[0] * scale } else { 0.0 },
+                anchor[1] - if c < 2 { p.size[1] * scale } else { 0.0 },
+            ];
+        }
+        let placement = placement_at(viewport, p.size, origin, scale);
+        if let Some(placement) = placement {
+            let _ = self.draft.set(p.id, placement);
+        }
+    }
+}
+pub fn placement_at(
+    viewport: [f32; 2],
+    size: [f32; 2],
+    origin: [f32; 2],
+    scale: f32,
+) -> Option<Placement> {
+    let scale = scale.clamp(MIN_SCALE, MAX_SCALE);
+    let resolved = Placement {
+        scale,
+        ..Default::default()
+    }
+    .resolve(viewport, size)?;
+    let margin = resolved.origin;
+    let fraction = |a: usize| {
+        let room = viewport[a] - margin[a] * 2.0 - size[a] * resolved.scale;
+        if room > 0.0 {
+            ((origin[a] - margin[a]) / room).clamp(0.0, 1.0)
+        } else {
+            0.0
+        }
+    };
+    let p = Placement {
+        x: fraction(0),
+        y: fraction(1),
+        scale,
+    };
+    p.validate().ok()?;
+    Some(p)
+}
 impl Resolved {
     pub fn point(self, point: [f32; 2], source: [f32; 2]) -> [f32; 2] {
         [
@@ -401,6 +549,89 @@ pub fn control(id: &str) -> Option<(&'static str, usize)> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    fn panel() -> PanelBounds {
+        PanelBounds {
+            id: "fps_hud",
+            rect: [103.0, 63.0, 100.0, 20.0],
+            size: [100.0, 20.0],
+            scale: 1.0,
+        }
+    }
+    #[test]
+    fn visual_drag_keeps_grab_offset_and_clamps_to_screen() {
+        let mut e = Editor::new(HudLayout::default());
+        assert!(e.press([120.0, 72.0], [800.0, 450.0], &[panel()]));
+        e.drag([220.0, 122.0], [800.0, 450.0]);
+        let r = e
+            .draft
+            .get("fps_hud")
+            .resolve([800.0, 450.0], panel().size)
+            .unwrap();
+        assert_eq!(r.origin, [203.0, 113.0]);
+        e.drag([9000.0, -200.0], [800.0, 450.0]);
+        let r = e
+            .draft
+            .get("fps_hud")
+            .resolve([800.0, 450.0], panel().size)
+            .unwrap();
+        assert_eq!(r.origin, [697.0, 3.0]);
+        assert!(HudLayout::default().0.is_empty());
+    }
+    #[test]
+    fn visual_resize_anchors_each_opposite_corner_and_preserves_aspect() {
+        for corner in 0..4 {
+            let mut e = Editor::new(HudLayout::default());
+            let p = panel();
+            let at = p.corner(corner);
+            assert!(e.press(at, [800.0, 450.0], &[p]));
+            let sign = [
+                if corner % 2 == 0 { -1.0 } else { 1.0 },
+                if corner < 2 { -1.0 } else { 1.0 },
+            ];
+            e.drag(
+                [at[0] + sign[0] * 50.0, at[1] + sign[1] * 10.0],
+                [800.0, 450.0],
+            );
+            let r = e
+                .draft
+                .get("fps_hud")
+                .resolve([800.0, 450.0], p.size)
+                .unwrap();
+            assert!((r.scale - 1.5).abs() < 0.001);
+            let anchor = p.corner(3 - corner);
+            assert!(
+                (r.origin[0]
+                    + if corner % 2 == 0 {
+                        100.0 * r.scale
+                    } else {
+                        0.0
+                    }
+                    - anchor[0])
+                    .abs()
+                    < 0.001
+            );
+            assert!(
+                (r.origin[1] + if corner < 2 { 20.0 * r.scale } else { 0.0 } - anchor[1]).abs()
+                    < 0.001
+            );
+        }
+    }
+    #[test]
+    fn visual_editor_ignores_invalid_inputs_and_cancels_stale_viewport_gestures() {
+        let mut e = Editor::new(HudLayout::default());
+        assert!(!e.press([f32::NAN, 0.0], [800.0, 450.0], &[panel()]));
+        assert!(e.press([150.0, 72.0], [800.0, 450.0], &[panel()]));
+        e.drag([400.0, 300.0], [400.0, 300.0]);
+        assert!(e.draft.0.is_empty());
+        assert!(e.press(panel().corner(3), [800.0, 450.0], &[panel()]));
+        e.drag([9000.0, 9000.0], [800.0, 450.0]);
+        assert_eq!(e.draft.get("fps_hud").scale, MAX_SCALE);
+        e.release();
+        let before = e.draft.clone();
+        e.drag([0.0, 0.0], [800.0, 450.0]);
+        assert_eq!(e.draft, before);
+    }
 
     #[test]
     fn lone_default_panel_moves_up_before_reducing_readable_size() {

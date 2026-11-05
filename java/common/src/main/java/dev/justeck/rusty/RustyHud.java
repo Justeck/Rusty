@@ -227,24 +227,26 @@ public final class RustyHud {
   public static void draw(GuiGraphicsExtractor g, boolean editor) {
     var mc = Minecraft.getInstance();
     if (!editor && (mc.player == null || mc.gui.hud.isHidden())) return;
+    var screen = mc.gui.screen();
+    var positions =
+        editor && screen instanceof HudEditor e ? e.positions : RustyClient.config.overlays;
+    var scales =
+        editor && screen instanceof HudEditor e ? e.scales : RustyClient.config.overlayScales;
     bounds.clear();
     var measures = new ArrayList<HudLayout.Panel>();
     var extraScales = new HashMap<String, Double>();
     for (String id : IDS) {
-      if (!editor && !RustyClient.active(id)) continue;
+      if (!RustyClient.active(id)) continue;
       var lines = panels.getOrDefault(id, List.of(id.replace('_', ' ')));
-      double extra = RustyClient.config.overlayScales.getOrDefault(id, 1.0);
+      double extra = scales.getOrDefault(id, 1.0);
       int iw = lines.stream().mapToInt(mc.font::width).max().orElse(80) + 12,
           ih = lines.size() * 12 + 8;
       if (id.equals("minimap")) iw = ih = RustyClient.config.mapSize;
       extra = Math.min(extra, Math.max(.5, (g.guiHeight() - 44) * 2.0 / ih));
       extraScales.put(id, extra);
-      measures.add(
-          new HudLayout.Panel(id, (int) Math.ceil(iw * extra), (int) Math.ceil(ih * extra)));
+      measures.add(new HudLayout.Panel(id, iw, ih));
     }
-    var layout =
-        HudLayout.fit(
-            measures, g.guiWidth(), g.guiHeight() - (editor ? 24 : 0), RustyClient.config.hudScale);
+    var layout = HudLayout.fit(measures, g.guiWidth(), g.guiHeight(), RustyClient.config.hudScale);
     if (!layout.fits()) {
       g.text(mc.font, "Rusty: reduce HUD size or enable fewer panels.", 4, 4, 0xffd6b990);
       return;
@@ -254,9 +256,12 @@ public final class RustyHud {
       if (rect == null) continue;
       List<String> lines = panels.getOrDefault(id, List.of(id.replace('_', ' ')));
       double s = layout.scale() * extraScales.get(id);
-      int bw = rect.width(), bh = rect.height(), x = rect.x(), y = rect.y();
+      int bw = Math.min(g.guiWidth(), (int) Math.ceil(rect.width() * extraScales.get(id))),
+          bh = Math.min(g.guiHeight(), (int) Math.ceil(rect.height() * extraScales.get(id))),
+          x = rect.x(),
+          y = rect.y();
       if (id.equals("minimap")) s = Math.min(s, (double) bw / RustyClient.config.mapSize);
-      double[] custom = RustyClient.config.overlays.get(id);
+      double[] custom = positions.get(id);
       if (custom != null) {
         x = (int) (custom[0] * g.guiWidth());
         y = (int) (custom[1] * g.guiHeight());

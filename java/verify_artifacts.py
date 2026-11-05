@@ -1,7 +1,7 @@
 from pathlib import Path
 import zipfile,json,hashlib
 b=Path(__file__).resolve().parent
-version='1.3.0-beta.5'
+version='1.3.0-beta.6'
 rows=[]
 for loader in ['fabric','neoforge']:
  for suffix in ['', '-sources']:
