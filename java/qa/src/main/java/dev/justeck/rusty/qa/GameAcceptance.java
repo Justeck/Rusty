@@ -351,6 +351,7 @@ public final class GameAcceptance {
           }
         },
         5);
+    addTracerChecks();
     add(
         "All module adapters tolerate received world and live rendering",
         () -> {
@@ -475,6 +476,130 @@ public final class GameAcceptance {
                 message -> menuCaptureComplete = true),
         () -> menuCaptureComplete,
         200);
+  }
+
+  private static void addTracerChecks() {
+    var mc = Minecraft.getInstance();
+    String[] previous = {""};
+    add(
+        "Empty entity-tracer selection renders no geometry",
+        () -> {
+          previous[0] = RustyClient.GSON.toJson(RustyClient.config);
+          var cfg = RustyClient.config;
+          cfg.enabled.clear();
+          cfg.espPlayers = false;
+          cfg.espMobs = true;
+          cfg.espItems = false;
+          cfg.tracerPlayers = false;
+          cfg.tracerMobs = false;
+          cfg.tracerItems = false;
+          RustyClient.set("entity_tracers", true);
+          command("kill @e[type=!player]");
+          command("summon pig -3 100 5 {NoAI:1b,NoGravity:1b,Tags:[\"rusty_tracer_qa\"]}");
+          command(
+              "summon item 3 101 5"
+                  + " {NoGravity:1b,PickupDelay:32767s,Tags:[\"rusty_tracer_qa\"],Item:{id:\"minecraft:diamond\",count:1}}");
+        },
+        () -> RustyOverlay.renderedGeometry == 0,
+        30);
+    add(
+        "Mobs-only entity tracers render a received pig",
+        () -> {
+          RustyClient.config.tracerMobs = true;
+          RustyClient.save();
+        },
+        () -> RustyOverlay.renderedGeometry == 1,
+        20);
+    add(
+        "Mobs-only ESP adds a box without changing its tracer",
+        () -> RustyClient.set("entity_esp", true),
+        () -> RustyOverlay.renderedGeometry == 2,
+        20);
+    add(
+        "Item tracers coexist with independent mob ESP",
+        () -> {
+          RustyClient.config.tracerMobs = false;
+          RustyClient.config.tracerItems = true;
+          RustyClient.save();
+        },
+        () ->
+            RustyOverlay.renderedGeometry == 2
+                && RustyClient.config.espMobs
+                && !RustyClient.config.espItems,
+        20);
+    add(
+        "Different ESP and tracer targets framebuffer capture",
+        () -> {
+          listCaptureComplete = false;
+          net.minecraft.client.Screenshot.grab(
+              mc.gameDirectory,
+              "rusty-independent-tracers.png",
+              mc.gameRenderer.mainRenderTarget(),
+              1,
+              message -> listCaptureComplete = true);
+        },
+        () -> listCaptureComplete,
+        20);
+    add(
+        "Changing ESP targets does not remove an item tracer",
+        () -> {
+          RustyClient.config.espMobs = false;
+          RustyClient.save();
+        },
+        () -> RustyOverlay.renderedGeometry == 1 && RustyClient.config.tracerItems,
+        20);
+    add(
+        "Disabling tracers clears geometry while ESP remains enabled",
+        () -> RustyClient.set("entity_tracers", false),
+        () -> RustyOverlay.renderedGeometry == 0 && RustyClient.active("entity_esp"),
+        20);
+    add(
+        "Actual tracer menu exposes independent target buttons",
+        () -> {
+          mc.gui.setScreen(new RustyScreen());
+          var search =
+              mc.gui.screen().children().stream()
+                  .filter(c -> c instanceof net.minecraft.client.gui.components.EditBox)
+                  .map(c -> (net.minecraft.client.gui.components.EditBox) c)
+                  .findFirst()
+                  .orElseThrow();
+          search.setValue("Entity Tracers");
+          press("Entity Tracers");
+          press("Mobs: OFF");
+        },
+        () -> RustyClient.config.tracerMobs && !RustyClient.config.espMobs,
+        10);
+    add(
+        "Actual tracer Default button preserves independent ESP choices",
+        () -> defaultBeside("Mobs:"),
+        () ->
+            !RustyClient.config.tracerMobs
+                && !RustyClient.config.espMobs
+                && RustyClient.config.tracerItems,
+        10);
+    add(
+        "Tracer menu framebuffer capture",
+        () -> {
+          listCaptureComplete = false;
+          net.minecraft.client.Screenshot.grab(
+              mc.gameDirectory,
+              "rusty-tracer-settings.png",
+              mc.gameRenderer.mainRenderTarget(),
+              1,
+              message -> listCaptureComplete = true);
+        },
+        () -> listCaptureComplete,
+        20);
+    add(
+        "Tracer fixture restores its prior settings",
+        () -> {
+          mc.gui.setScreen(null);
+          command("kill @e[tag=rusty_tracer_qa]");
+          RustyClient.config = RustyClient.GSON.fromJson(previous[0], Settings.class);
+          RustyClient.save();
+        },
+        () -> !RustyClient.active("entity_tracers"),
+        10);
   }
 
   private static void press(String label) {

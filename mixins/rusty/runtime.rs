@@ -273,17 +273,20 @@ impl Config {
         if text.len() > MAX_PROFILE_BYTES {
             return Err("Profile exceeds the 4 MiB size limit".into());
         }
-        let mut value: serde_json::Value = serde_json::from_str(text).map_err(|e| e.to_string())?;
+        let mut config: Self = serde_json::from_str(text).map_err(|e| e.to_string())?;
+        let value: serde_json::Value = serde_json::from_str(text).map_err(|e| e.to_string())?;
         // Old native tracers covered all players and mobs, independently of ESP.
         // Migrate only an existing awareness object; fresh settings select players.
-        if let Some(awareness) = value.get_mut("awareness").and_then(|a| a.as_object_mut()) {
-            awareness.entry("tracer_players").or_insert(true.into());
-            awareness.entry("tracer_mobs").or_insert(true.into());
-            awareness.entry("tracer_items").or_insert(false.into());
+        if let Some(awareness) = value.get("awareness").and_then(|a| a.as_object()) {
+            if !awareness.contains_key("tracer_players") {
+                config.awareness.tracer_players = true;
+            }
+            if !awareness.contains_key("tracer_mobs") {
+                config.awareness.tracer_mobs = true;
+            }
+            // Missing item selection already defaults to false.
         }
-        serde_json::from_value::<Self>(value)
-            .map_err(|e| e.to_string())?
-            .validated()
+        config.validated()
     }
     pub fn read_json(reader: impl std::io::Read) -> Result<Self, String> {
         use std::io::Read;
@@ -610,6 +613,13 @@ impl Activation {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn tracer_migration_keeps_duplicate_profile_fields_rejected() {
+        assert!(
+            Config::from_json(r#"{"awareness":{"tracer_items":true,"tracer_items":false}}"#)
+                .is_err()
+        );
+    }
     #[test]
     fn entity_tracer_targets_are_independent_saved_preferences() {
         let text = r#"{"schema":1,"esp_players":false,"esp_mobs":true,"esp_items":false,"awareness":{"entity_tracers":true,"tracer_players":true,"tracer_mobs":false,"tracer_items":true}}"#;
