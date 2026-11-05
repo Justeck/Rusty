@@ -1,4 +1,6 @@
-<!-- Private preparation only. Do not publish: Modrinth rules 6/6.2 prohibit primarily AI-produced projects and AI-generated project-page artwork. -->
+<!-- Submitted for manual review with explicit AI disclosures; not confirmed approved. No generated project-page artwork uploaded. -->
+
+**AI disclosure:** Rusty was developed predominantly with an AI coding assistant. The in-game interface includes AI-generated copper branding, and this description was drafted with AI assistance. No generated project-page images are submitted. This is disclosed for Modrinth’s manual review, including its restrictions on primarily AI-produced projects.
 
 # Keep your bearings.
 

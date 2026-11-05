@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "checked_utc": "2026-11-05T12:07:19.120604+00:00",
+  "project": "https://modrinth.com/mod/rusty-toolkit",
+  "moderation": "https://modrinth.com/mod/rusty-toolkit/moderation",
+  "status": "Under review",
+  "submission_confirmation": "Your project has been submitted for review!",
+  "owner": "justincaruso04",
+  "versions": [
+    {
+      "loader": "fabric",
+      "number": "1.3.0-beta.1+fabric",
+      "id": "Pfl0FTWq",
+      "game": "26.3",
+      "java": 25,
+      "dependency": "Fabric API 0.165.2+26.3 required",
+      "sha256": "fb3352f656be58d48ce625dfb1c51e5621c1c73fb5c842584a5147a0d4ef082c"
+    },
+    {
+      "loader": "neoforge",
+      "number": "1.3.0-beta.1+neoforge",
+      "id": "1TaIs3sp",
+      "game": "26.3",
+      "java": 25,
+      "loader_target": "26.3.0.101",
+      "sha256": "f76f07b8e891cb4e3accb40bcf1da7a140a725ab4ac04d5edcbd73fb0eabeb19"
+    }
+  ],
+  "release_type": "beta",
+  "environment": "Client required, server optional for restricted-tool permissions",
+  "license": "Apache-2.0",
+  "category": "Utility",
+  "ai_disclosure": {
+    "enabled": true,
+    "types": [
+      "code",
+      "assets",
+      "text"
+    ],
+    "predominantly_ai_code_explicit": true,
+    "description_disclosure": true
+  },
+  "generated_page_artwork_uploaded": false,
+  "public_approval_confirmed": false,
+  "unauthenticated_public_api_lookup": "404 while under review",
+  "horizon_native": "GitHub-only separate native package; no Horizon loader category on Modrinth",
+  "scope": "Submission for manual moderation at the user explicit request despite known AI eligibility restrictions. No claim of approval or public availability."
+}
