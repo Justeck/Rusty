@@ -1,7 +1,7 @@
 # Rusty, Apache-2.0; native Freecam component MIT.
 [mod]
 id = "rusty"
-version = "1.2.0"
+version = "1.2.1"
 priority = 100
 [compatibility]
 horizon_revision = "6475f62f3c834b7489e1816bf47f47ea5eb2b879"
@@ -19,6 +19,12 @@ file = "crates/horizon-client-render/src/mesher.rs"
 name = "rusty_freecam"
 source = "freecam.rs"
 visibility = "pub"
+
+[[module]]
+id = "brand"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_brand"
+source = "brand.rs"
 
 [[module]]
 id = "control"

@@ -16,6 +16,7 @@ import net.minecraft.world.phys.Vec3;
  * servers.
  */
 public final class GameAcceptance {
+  private static volatile boolean menuCaptureComplete;
   private static final String MODE = System.getProperty("rusty.qa", "");
   private static final List<Map<String, Object>> checks = new ArrayList<>();
   private static int ticks, stage, wait;
@@ -395,6 +396,17 @@ public final class GameAcceptance {
         () -> mc.gui.setScreen(new RustyScreen()),
         () -> mc.gui.screen() instanceof RustyScreen,
         30);
+    add(
+        "Final menu framebuffer capture completes",
+        () ->
+            net.minecraft.client.Screenshot.grab(
+                mc.gameDirectory,
+                "rusty-menu-branding.png",
+                mc.gameRenderer.mainRenderTarget(),
+                1,
+                message -> menuCaptureComplete = true),
+        () -> menuCaptureComplete,
+        200);
   }
 
   private static boolean hudFits() {

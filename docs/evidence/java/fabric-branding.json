@@ -1,0 +1,833 @@
+{
+  "mode": "singleplayer",
+  "edition": "fabric",
+  "finished": true,
+  "passed": true,
+  "time": "2026-11-05T10:02:32.896985400Z",
+  "checks": [
+    {
+      "name": "Permission payload rejects invalid versions, masks and lengths",
+      "passed": true
+    },
+    {
+      "name": "Fixture setup is received from owned integrated server",
+      "passed": true
+    },
+    {
+      "name": "Singleplayer capabilities are granted locally",
+      "passed": true
+    },
+    {
+      "name": "Minecraft module screen constructs its real widgets",
+      "passed": true
+    },
+    {
+      "name": "Menu closes and normal gameplay resumes",
+      "passed": true
+    },
+    {
+      "name": "Xray finds exposed and buried authoritative received ores",
+      "passed": true
+    },
+    {
+      "name": "Received block removal invalidates the target cache",
+      "passed": true
+    },
+    {
+      "name": "Received block restoration is discovered again",
+      "passed": true
+    },
+    {
+      "name": "Maximum texture context restores ordinary terrain rendering",
+      "passed": true
+    },
+    {
+      "name": "Minimum texture context keeps thin original-texture edges",
+      "passed": true
+    },
+    {
+      "name": "Default texture coverage and custom received block selection",
+      "passed": true
+    },
+    {
+      "name": "Toggle off restores view without changing world blocks",
+      "passed": true
+    },
+    {
+      "name": "Detached camera input moves the view and preserves body position",
+      "passed": true
+    },
+    {
+      "name": "Settled rendered camera follows detached view without body rotation",
+      "passed": true
+    },
+    {
+      "name": "Freecam disables cleanly",
+      "passed": true
+    },
+    {
+      "name": "Ordinary inventory fixture arrives without modifying personal saves",
+      "passed": true
+    },
+    {
+      "name": "Auto Tool replaces a fast ineligible golden pickaxe with a harvest-correct tool",
+      "passed": true
+    },
+    {
+      "name": "Manual hotbar choice retains ownership until mining is released",
+      "passed": true
+    },
+    {
+      "name": "Automatic eating consumes ordinary food on the integrated server",
+      "passed": true
+    },
+    {
+      "name": "Eating restores the previous slot after consuming one item",
+      "passed": true
+    },
+    {
+      "name": "Auto Totem fills only an empty offhand through the server",
+      "passed": true
+    },
+    {
+      "name": "Auto Totem preserves an occupied shield offhand",
+      "passed": true
+    },
+    {
+      "name": "Armor Assist fills an empty armor slot using an ordinary inventory action",
+      "passed": true
+    },
+    {
+      "name": "Refill observes a real baseline stack",
+      "passed": true
+    },
+    {
+      "name": "Refill moves an exact matching stack after observed depletion",
+      "passed": true
+    },
+    {
+      "name": "Identical authoritative correction is not blindly retried",
+      "passed": true
+    },
+    {
+      "name": "Explicit refill rearm retains its observed depletion candidate",
+      "passed": true
+    },
+    {
+      "name": "Trigger fixture is an owned non-player living entity",
+      "passed": true
+    },
+    {
+      "name": "Trigger uses an ordinary full-cooldown reachable attack",
+      "passed": true
+    },
+    {
+      "name": "Automatic actions stop when the Minecraft menu opens",
+      "passed": true
+    },
+    {
+      "name": "Action fixtures leave normal controls usable",
+      "passed": true
+    },
+    {
+      "name": "Waypoint saves in current stable world/dimension scope",
+      "passed": true
+    },
+    {
+      "name": "HUD editor exposes 18 independent panels with footer clearance",
+      "passed": true
+    },
+    {
+      "name": "Overlay positions and cleared shortcuts persist to actual local JSON",
+      "passed": true
+    },
+    {
+      "name": "All module adapters tolerate received world and live rendering",
+      "passed": true
+    },
+    {
+      "name": "Remote chunk loading removes targets from the former area",
+      "passed": true
+    },
+    {
+      "name": "Returning to received chunks discovers the original ores again",
+      "passed": true
+    },
+    {
+      "name": "Dimension change resets scanner and scoped markers",
+      "passed": true
+    },
+    {
+      "name": "Returning dimension restores permission and target lifecycle",
+      "passed": true
+    },
+    {
+      "name": "Profiles round-trip without acquiring multiplayer permission",
+      "passed": true
+    },
+    {
+      "name": "Cleared menu binding retains Minecraft Options recovery",
+      "passed": true
+    },
+    {
+      "name": "Thirty-second bounded rendering observation completes",
+      "passed": true
+    },
+    {
+      "name": "Clean default controls remain ready for visual review",
+      "passed": true
+    },
+    {
+      "name": "Final actual menu remains usable after module exercise",
+      "passed": true
+    },
+    {
+      "name": "Final menu framebuffer capture completes",
+      "passed": true
+    }
+  ],
+  "stage": 45,
+  "ticks": 1882,
+  "body_position": [
+    0.5,
+    100.0,
+    0.5
+  ],
+  "detached_controller": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "rendered_camera": [
+    0.5,
+    101.61999988555908,
+    0.5
+  ],
+  "framed_quads_emitted": 622215,
+  "rendered_overlay_geometry": 0,
+  "performance_samples": [
+    {
+      "tick": 120,
+      "overlay_primitives": 0,
+      "fps": 3,
+      "targets": 0,
+      "heap_used_bytes": 513013312
+    },
+    {
+      "tick": 140,
+      "overlay_primitives": 0,
+      "fps": 10,
+      "targets": 0,
+      "heap_used_bytes": 596124376
+    },
+    {
+      "tick": 160,
+      "overlay_primitives": 0,
+      "fps": 3,
+      "targets": 0,
+      "heap_used_bytes": 450235624
+    },
+    {
+      "tick": 180,
+      "overlay_primitives": 8,
+      "fps": 3,
+      "targets": 4,
+      "heap_used_bytes": 715283208
+    },
+    {
+      "tick": 200,
+      "overlay_primitives": 6,
+      "fps": 13,
+      "targets": 3,
+      "heap_used_bytes": 411352688
+    },
+    {
+      "tick": 220,
+      "overlay_primitives": 8,
+      "fps": 35,
+      "targets": 4,
+      "heap_used_bytes": 748277808
+    },
+    {
+      "tick": 240,
+      "overlay_primitives": 32,
+      "fps": 40,
+      "targets": 16,
+      "heap_used_bytes": 570079304
+    },
+    {
+      "tick": 260,
+      "overlay_primitives": 32,
+      "fps": 49,
+      "targets": 16,
+      "heap_used_bytes": 464528216
+    },
+    {
+      "tick": 280,
+      "overlay_primitives": 0,
+      "fps": 50,
+      "targets": 0,
+      "heap_used_bytes": 565191512
+    },
+    {
+      "tick": 300,
+      "overlay_primitives": 0,
+      "fps": 59,
+      "targets": 0,
+      "heap_used_bytes": 590036744
+    },
+    {
+      "tick": 320,
+      "overlay_primitives": 0,
+      "fps": 59,
+      "targets": 0,
+      "heap_used_bytes": 630794344
+    },
+    {
+      "tick": 340,
+      "overlay_primitives": 0,
+      "fps": 51,
+      "targets": 0,
+      "heap_used_bytes": 657466200
+    },
+    {
+      "tick": 360,
+      "overlay_primitives": 0,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 684271720
+    },
+    {
+      "tick": 380,
+      "overlay_primitives": 0,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 705700696
+    },
+    {
+      "tick": 400,
+      "overlay_primitives": 0,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 724575064
+    },
+    {
+      "tick": 420,
+      "overlay_primitives": 0,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 745546584
+    },
+    {
+      "tick": 440,
+      "overlay_primitives": 0,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 765012112
+    },
+    {
+      "tick": 460,
+      "overlay_primitives": 0,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 387190104
+    },
+    {
+      "tick": 480,
+      "overlay_primitives": 0,
+      "fps": 59,
+      "targets": 0,
+      "heap_used_bytes": 407750320
+    },
+    {
+      "tick": 500,
+      "overlay_primitives": 0,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 435424600
+    },
+    {
+      "tick": 520,
+      "overlay_primitives": 0,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 464784728
+    },
+    {
+      "tick": 540,
+      "overlay_primitives": 174,
+      "fps": 60,
+      "targets": 5,
+      "heap_used_bytes": 522456408
+    },
+    {
+      "tick": 560,
+      "overlay_primitives": 174,
+      "fps": 59,
+      "targets": 5,
+      "heap_used_bytes": 567545176
+    },
+    {
+      "tick": 580,
+      "overlay_primitives": 174,
+      "fps": 60,
+      "targets": 5,
+      "heap_used_bytes": 613682520
+    },
+    {
+      "tick": 600,
+      "overlay_primitives": 174,
+      "fps": 60,
+      "targets": 5,
+      "heap_used_bytes": 660868440
+    },
+    {
+      "tick": 620,
+      "overlay_primitives": 174,
+      "fps": 60,
+      "targets": 5,
+      "heap_used_bytes": 707005784
+    },
+    {
+      "tick": 640,
+      "overlay_primitives": 115,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 429327080
+    },
+    {
+      "tick": 660,
+      "overlay_primitives": 124,
+      "fps": 51,
+      "targets": 0,
+      "heap_used_bytes": 562219416
+    },
+    {
+      "tick": 680,
+      "overlay_primitives": 142,
+      "fps": 50,
+      "targets": 0,
+      "heap_used_bytes": 467297032
+    },
+    {
+      "tick": 700,
+      "overlay_primitives": 162,
+      "fps": 50,
+      "targets": 0,
+      "heap_used_bytes": 778780112
+    },
+    {
+      "tick": 720,
+      "overlay_primitives": 182,
+      "fps": 60,
+      "targets": 0,
+      "heap_used_bytes": 701056840
+    },
+    {
+      "tick": 740,
+      "overlay_primitives": 250,
+      "fps": 59,
+      "targets": 5,
+      "heap_used_bytes": 763278744
+    },
+    {
+      "tick": 760,
+      "overlay_primitives": 250,
+      "fps": 45,
+      "targets": 5,
+      "heap_used_bytes": 721954632
+    },
+    {
+      "tick": 780,
+      "overlay_primitives": 250,
+      "fps": 59,
+      "targets": 5,
+      "heap_used_bytes": 769918792
+    },
+    {
+      "tick": 800,
+      "overlay_primitives": 250,
+      "fps": 60,
+      "targets": 5,
+      "heap_used_bytes": 490092888
+    },
+    {
+      "tick": 820,
+      "overlay_primitives": 250,
+      "fps": 58,
+      "targets": 5,
+      "heap_used_bytes": 519888608
+    },
+    {
+      "tick": 840,
+      "overlay_primitives": 72,
+      "fps": 16,
+      "targets": 0,
+      "heap_used_bytes": 778566808
+    },
+    {
+      "tick": 860,
+      "overlay_primitives": 81,
+      "fps": 16,
+      "targets": 0,
+      "heap_used_bytes": 683325616
+    },
+    {
+      "tick": 880,
+      "overlay_primitives": 133,
+      "fps": 25,
+      "targets": 0,
+      "heap_used_bytes": 722589248
+    },
+    {
+      "tick": 900,
+      "overlay_primitives": 133,
+      "fps": 29,
+      "targets": 0,
+      "heap_used_bytes": 590167344
+    },
+    {
+      "tick": 920,
+      "overlay_primitives": 133,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 660578736
+    },
+    {
+      "tick": 940,
+      "overlay_primitives": 174,
+      "fps": 29,
+      "targets": 5,
+      "heap_used_bytes": 722950408
+    },
+    {
+      "tick": 960,
+      "overlay_primitives": 174,
+      "fps": 27,
+      "targets": 5,
+      "heap_used_bytes": 608715008
+    },
+    {
+      "tick": 980,
+      "overlay_primitives": 174,
+      "fps": 29,
+      "targets": 5,
+      "heap_used_bytes": 836911744
+    },
+    {
+      "tick": 1000,
+      "overlay_primitives": 174,
+      "fps": 30,
+      "targets": 5,
+      "heap_used_bytes": 905711104
+    },
+    {
+      "tick": 1020,
+      "overlay_primitives": 174,
+      "fps": 30,
+      "targets": 5,
+      "heap_used_bytes": 677642496
+    },
+    {
+      "tick": 1040,
+      "overlay_primitives": 174,
+      "fps": 30,
+      "targets": 5,
+      "heap_used_bytes": 797180160
+    },
+    {
+      "tick": 1060,
+      "overlay_primitives": 14,
+      "fps": 25,
+      "targets": 7,
+      "heap_used_bytes": 929783800
+    },
+    {
+      "tick": 1080,
+      "overlay_primitives": 14,
+      "fps": 17,
+      "targets": 7,
+      "heap_used_bytes": 943899128
+    },
+    {
+      "tick": 1100,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 958213408
+    },
+    {
+      "tick": 1120,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 538973712
+    },
+    {
+      "tick": 1140,
+      "overlay_primitives": 14,
+      "fps": 29,
+      "targets": 7,
+      "heap_used_bytes": 553653776
+    },
+    {
+      "tick": 1160,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 567285264
+    },
+    {
+      "tick": 1180,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 583657168
+    },
+    {
+      "tick": 1200,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 597272104
+    },
+    {
+      "tick": 1220,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 611325456
+    },
+    {
+      "tick": 1240,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 626005520
+    },
+    {
+      "tick": 1260,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 640259288
+    },
+    {
+      "tick": 1280,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 654317072
+    },
+    {
+      "tick": 1300,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 669412280
+    },
+    {
+      "tick": 1320,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 684299480
+    },
+    {
+      "tick": 1340,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 697308688
+    },
+    {
+      "tick": 1360,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 711988752
+    },
+    {
+      "tick": 1380,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 726242520
+    },
+    {
+      "tick": 1400,
+      "overlay_primitives": 14,
+      "fps": 29,
+      "targets": 7,
+      "heap_used_bytes": 740300304
+    },
+    {
+      "tick": 1420,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 754980368
+    },
+    {
+      "tick": 1440,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 768611856
+    },
+    {
+      "tick": 1460,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 782247760
+    },
+    {
+      "tick": 1480,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 797550152
+    },
+    {
+      "tick": 1500,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 812230216
+    },
+    {
+      "tick": 1520,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 825234960
+    },
+    {
+      "tick": 1540,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 839919456
+    },
+    {
+      "tick": 1560,
+      "overlay_primitives": 14,
+      "fps": 29,
+      "targets": 7,
+      "heap_used_bytes": 854168792
+    },
+    {
+      "tick": 1580,
+      "overlay_primitives": 14,
+      "fps": 29,
+      "targets": 7,
+      "heap_used_bytes": 868226576
+    },
+    {
+      "tick": 1600,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 881439952
+    },
+    {
+      "tick": 1620,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 896111832
+    },
+    {
+      "tick": 1640,
+      "overlay_primitives": 14,
+      "fps": 30,
+      "targets": 7,
+      "heap_used_bytes": 910791896
+    },
+    {
+      "tick": 1660,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 944772624
+    },
+    {
+      "tick": 1680,
+      "overlay_primitives": 0,
+      "fps": 27,
+      "targets": 0,
+      "heap_used_bytes": 531699648
+    },
+    {
+      "tick": 1700,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 546379712
+    },
+    {
+      "tick": 1720,
+      "overlay_primitives": 0,
+      "fps": 20,
+      "targets": 0,
+      "heap_used_bytes": 562108352
+    },
+    {
+      "tick": 1740,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 578760608
+    },
+    {
+      "tick": 1760,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 593454304
+    },
+    {
+      "tick": 1780,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 609294272
+    },
+    {
+      "tick": 1800,
+      "overlay_primitives": 0,
+      "fps": 29,
+      "targets": 0,
+      "heap_used_bytes": 625022912
+    },
+    {
+      "tick": 1820,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 641675168
+    },
+    {
+      "tick": 1840,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 657528768
+    },
+    {
+      "tick": 1860,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 672208832
+    },
+    {
+      "tick": 1880,
+      "overlay_primitives": 0,
+      "fps": 30,
+      "targets": 0,
+      "heap_used_bytes": 687937472
+    }
+  ]
+}

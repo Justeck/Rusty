@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "version": "1.2.1",
+  "scope": "Branding-only native patch; previous full 1.2 functional acceptance remains separately identified.",
+  "package_sha256": "57422b29739233a6e911a1f2ec834b60425970838076b7b6d8593c9c4dbf3db6",
+  "binary_sha256": "d88b62e742322f5ff2cf8cbe63ae8d43fad32c0fa85995045fd676a454a72688",
+  "horizon": "6475f62f3c834b7489e1816bf47f47ea5eb2b879",
+  "api": 359,
+  "game": "26.3",
+  "launcher": "0.2.42",
+  "native_version": "native-6475f62-fe330eeed81e",
+  "gui_build_pressed": true,
+  "gui_trust_build_pressed": true,
+  "build_profile": "performance",
+  "gui_build_result": "Up to date",
+  "gui_build_elapsed_seconds": 879,
+  "rust_tests": 141,
+  "packaging_tests": 18,
+  "python_tests": 13,
+  "strict_lint_passed": true,
+  "native_ui_checks": [
+    {
+      "name": "Fresh isolated offline world ready",
+      "passed": true,
+      "account_loaded": false,
+      "minimum_loaded_chunks": 9
+    },
+    {
+      "name": "Enabled membership follows actual hotkey activation and native toggle deactivation",
+      "passed": true
+    },
+    {
+      "name": "ClearBind saves unbound state, old key stops, captured new key routes, default restores",
+      "passed": true
+    },
+    {
+      "name": "Cleared menu recovers through actual /rusty menu chat and accepts a working new key",
+      "passed": true
+    },
+    {
+      "name": "Menu scale endpoint saves and real scaled target routes",
+      "passed": true,
+      "requested": 0.5,
+      "effective": 0.5
+    },
+    {
+      "name": "Menu scale endpoint saves and real scaled target routes",
+      "passed": true,
+      "requested": 2.0,
+      "effective": 1.875
+    },
+    {
+      "name": "All three palette controls persist and produce captured native frames",
+      "passed": true
+    },
+    {
+      "name": "All18 HUD panels independently save X/Y/size and reset through actual native controls",
+      "passed": true,
+      "panels": 18
+    },
+    {
+      "name": "Native named-preset import applies feature settings and preserves menu size, palette and HUD layout",
+      "passed": true,
+      "preserved_fields": [
+        "hud_layout",
+        "menu_scale",
+        "theme"
+      ]
+    },
+    {
+      "name": "New owned process reloads saved layout, menu size, palette and bindings",
+      "passed": true,
+      "client_preferences_sha256": "7afd91af94435b463ed0550e09686d6a8919111787e3090335c660e2c98734ce",
+      "instance_scope": "suite-created QA home only"
+    }
+  ],
+  "native_ui_passed": true,
+  "badge_visual_review": "Standalone copper R visible in the actual installed-binary menu at multiple menu sizes.",
+  "image_upload": "64x64 RGBA, once per menu opening, using official API355 atlas image slot.",
+  "fixture_scope": "New disposable offline home; no personal world or public server used.",
+  "fixture_note": "A preliminary bare-target run lacked launcher native-mods.json and therefore the host did not allocate its mod-image atlas slot. Follow-up used the official installed folder and verified the badge.",
+  "java_follow_up": {
+    "fabric_checks": 45,
+    "neoforge_checks": 45,
+    "menu_capture": "Direct Minecraft Screenshot API framebuffer captures, unretouched."
+  },
+  "limitations": [
+    "Full native functional/server/performance suites belong to 1.2.0; this patch reruns native UI controls and launcher integration.",
+    "No arbitrary public-server compatibility or exhaustive per-module Java certification.",
+    "Modrinth publication blocked by its generative AI content rules; private draft only."
+  ],
+  "gui_play_pressed": true,
+  "normal_title_screen_observed": true,
+  "sole_horizon_instance": true
+}

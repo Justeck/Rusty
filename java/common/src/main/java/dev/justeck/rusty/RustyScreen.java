@@ -10,6 +10,7 @@ import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.*;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 
 /** Uses the game's widgets, text input and keyboard focus instead of an external GUI toolkit. */
 public final class RustyScreen extends Screen {
@@ -628,8 +629,17 @@ public final class RustyScreen extends Screen {
     int bg = RustyClient.config.theme.equals("Copper") ? 0xf02e241b : 0xf0242424;
     g.fill(left, 12, left + panel, h - 12, bg);
     g.outline(left, 12, panel, h - 24, 0xff8c8172);
-    g.text(font, "RUSTY", left + 12, 24, 0xffdda167);
-    g.text(font, "Keep your bearings.", left + 82, 25, 0xffbab4a9);
+    g.blit(
+        Identifier.fromNamespaceAndPath("rusty", "icon.png"),
+        left + 10,
+        17,
+        left + 38,
+        45,
+        0,
+        1,
+        0,
+        1);
+    g.text(font, "Keep your bearings.", left + 48, 25, 0xffbab4a9);
     var selectedModule =
         Catalog.ALL.stream().filter(m -> m.id().equals(selected)).findFirst().orElseThrow();
     g.text(font, selectedModule.name(), right, top + 5, 0xffeeeeee);

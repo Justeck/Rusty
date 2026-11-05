@@ -1,3 +1,5 @@
+<!-- Private preparation only. Do not publish: Modrinth rules 6/6.2 prohibit primarily AI-produced projects and AI-generated project-page artwork. -->
+
 # Keep your bearings.
 
 Rusty brings textured world views, local navigation, movable information panels and optional player assistance together in Minecraft's own style. Choose the tools you need without a large dashboard covering the game.
@@ -40,7 +42,7 @@ Choose **one** loader version for Minecraft 26.3:
 
 Put the matching Rusty jar into that Java installation's `mods` directory. Do not install both loader builds together. [Full guide](https://github.com/Justeck/Rusty/blob/main/java/README.md).
 
-**Using Horizon?** Its native Rust package is a separate edition hosted on [GitHub](https://github.com/Justeck/Rusty/releases/tag/v1.2.0). These Java jars are not Horizon-native mods; Modrinth currently has no Horizon loader category.
+**Using Horizon?** Its native Rust package is a separate edition hosted on [GitHub](https://github.com/Justeck/Rusty/releases/tag/v1.2.1). These Java jars are not Horizon-native mods; Modrinth currently has no Horizon loader category.
 
 ## Evidence and limits
 

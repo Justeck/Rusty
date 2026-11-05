@@ -18,7 +18,7 @@
     },
     {
       "file": "rusty-wordmark.png",
-      "sha256": "038a0a197fe6ea73b5db577ac5b1022e72e9eb93bdac5dfd6e89bd443af86ae8",
+      "sha256": "f9bd5c605480fc63cb04e606d976a9b4a3d04c8edd50a58d07d25617652e45bf",
       "width": 2172,
       "height": 724,
       "generated_with": "Built-in image generation",
@@ -26,27 +26,29 @@
     },
     {
       "file": "rusty-cover.png",
-      "sha256": "2ed9135f0befdb3ac99a5957de9c46ebefc177c4d3af3b0641bf2092188462e9",
+      "sha256": "ef2b2471268faba3318c298c9814a98010fd2deac5ed498c56ec0bacaadf0bfe",
       "generated_with": "Built-in image generation",
       "image_altered": false,
       "purpose": "Original 2:1 social-preview cover",
       "text": [
-        "RUSTY",
-        "Native tools for Horizon",
-        "42 tools. Built in Rust."
-      ]
+        "[R badge]USTY",
+        "Horizon · Fabric · NeoForge",
+        "42 tools. One familiar interface."
+      ],
+      "width": 1774,
+      "height": 887
     },
     {
       "file": "rusty-cover.jpg",
-      "sha256": "c405a302f71aa5949a492026b7d7ad2aa3631ef6f507088f3d8fcd92a25d64ae",
+      "sha256": "d05d1134c9bd322ee37acf10c8b14b49a36e7b7f5899155cb6fe94341e34635d",
       "width": 1774,
       "height": 887,
       "source": "rusty-cover.png",
       "processing": "JPEG encoding only for the GitHub social-preview upload limit; no cropping, resizing or content edits",
-      "bytes": 274345
+      "bytes": 165411
     }
   ],
-  "design": "Original copper voxel R badge and matching squared wordmark. Distinct from the official Rust mark and Minecraft logo.",
+  "design": "Original copper voxel R badge is the first letter in the integrated [R badge]USTY wordmark. Menu headers and icons use the badge alone. Distinct from official Rust and Minecraft logos.",
   "transparency_requested": {
     "rusty-mark.png": true,
     "rusty-wordmark.png": true,

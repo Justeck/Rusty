@@ -13,7 +13,7 @@ The versioned package is `rusty-1.2.0.hnmod`, accompanied by `SHA256SUMS`. A nat
 
 The repository URL follows the latest public release when available; Horizon resolves it to an immutable revision before installation. A fixed commit/release URL also works. Review an offered update's source and host pin before replacing a working installation. Do not combine native mods built for incompatible Horizon revisions.
 
-For the fixed 1.2.0 release, paste `https://github.com/Justeck/Rusty/releases/tag/v1.2.0`. Both this release URL and the repository URL were accepted by the official launcher installer and resolved to the same immutable commit and native asset. The installed release was then built/verified and opened through the launcher Play button. [Installation evidence](evidence/release-installation.json).
+For the fixed 1.2.0 release, paste `https://github.com/Justeck/Rusty/releases/tag/v1.2.1`. Both this release URL and the repository URL were accepted by the official launcher installer and resolved to the same immutable commit and native asset. The installed release was then built/verified and opened through the launcher Play button. [Installation evidence](evidence/release-installation.json).
 
 ## Compatibility
 

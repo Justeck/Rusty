@@ -1,5 +1,13 @@
 # Changelog
 
+## Rusty 1.2.1
+
+- Integrated wordmark: the copper badge is the R in Rusty, followed only by USTY.
+- Standalone badge in the native and Java menu headers, with clear spacing.
+- Native menu uploads one small image when opening, avoiding per-frame texture uploads.
+- Updated repository cover and artwork provenance.
+
+
 ## Rusty 1.2.0
 
 - Unified native Rust toolkit with 42 actual modules and a Minecraft-style interface.

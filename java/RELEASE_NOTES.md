@@ -1,6 +1,6 @@
 # Rusty Java 1.3.0-beta.1
 
-Fabric and NeoForge counterparts for **Minecraft 26.3 / Java 25**. Horizon's native Rust 1.2.0 package remains the separate stable release.
+Fabric and NeoForge counterparts for **Minecraft 26.3 / Java 25**. Horizon's native Rust 1.2.1 package remains the separate stable release.
 
 - 42 configurable tools, Minecraft widgets, search/Enabled/Favorites/Recent, contextual help and recoverable menu access.
 - Original block-texture context with adjustable retained area, typical/custom block targets, bounded received-chunk scanning, outlines and pointers.

@@ -39,3 +39,13 @@ Owned server tests are separate from a player's public server. No personal world
 UI 50% demonstrates contained compact layout; 200% keeps the outer menu/fixed controls inside the frame while detail content scrolls. Independent HUD placements are tested and visually reviewed in their recorded fixtures; not every possible user arrangement is validated. Screenshot tours are presentation media rather than continuous gameplay.
 
 [Installation](INSTALLATION.md) · [Development](DEVELOPMENT.md) · [Performance](PERFORMANCE.md)
+
+## 1.2.1 branding patch
+
+The copper badge is now the R in the integrated Rusty wordmark; native and Java menu headers use the badge alone. [Patch evidence](evidence/branding-1.2.1.json) records the separate scope.
+
+Fresh native checks: 141 Rust + 18 packaging tests, 13 Python tooling tests and strict lint passed. The launcher’s actual **Build** and trust-build buttons were pressed in Performance mode; it finished in **14 minutes 39 seconds**, selected `native-6475f62-fe330eeed81e` and showed **Up to date**. The installed executable passed **10 UI checks**, including clear/rebind, menu size endpoints, three palettes, all 18 HUD controls, profile preservation and restart persistence. The standalone badge was visually inspected in original frames.
+
+Horizon allocates its native image atlas slot only when `native-mods.json` beside the executable lists native mods. A preliminary bare-target fixture omitted that metadata and showed no badge; the integration run therefore uses the launcher-installed executable and its metadata. No production-source workaround is needed.
+
+Both Java loaders passed **45 fresh checks** with the R-only menu header and direct framebuffer captures. Full native functional, server and performance results above remain explicitly the earlier 1.2.0 acceptance, rather than being relabelled as new exhaustive tests.

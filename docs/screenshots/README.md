@@ -23,3 +23,5 @@ The authored mine and interface fixtures are separate disposable worlds. Menu si
 ![Ten-second still-image tour](../media/rusty-1.2-ui-tour.gif)
 
 [MP4 version](../media/rusty-1.2-ui-tour.mp4). Five actual screenshots, two seconds each, resized and encoded using FFmpeg. Duration and frame count are checked. This is a timed still-image tour, not continuous gameplay or a performance demonstration. The original PNGs remain byte-identical to their captured files.
+
+`rusty-1.2.1-classic.png` is an unretouched capture of the actual launcher-installed 1.2.1 binary in a disposable offline UI fixture. It shows the standalone copper R menu badge; the preceding 1.2 gallery remains historical evidence.

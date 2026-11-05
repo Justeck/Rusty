@@ -15,3 +15,6 @@
 
 # Evidence hashes identify captured receipt bytes; preserve their line endings.
 docs/evidence/*.json -text whitespace=cr-at-eol
+
+# Rasterized branding data is generated, not handwritten runtime logic.
+mixins/rusty/brand.rs linguist-generated=true

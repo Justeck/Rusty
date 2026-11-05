@@ -65,3 +65,9 @@ Sanitized [game receipts](evidence/java) include actual check names, times, coun
 Final source uses full-width fitting and an editor footer reserve. NeoForge11 and Fabric16 each passed 44 game checks on that implementation; separate Fabric14/NeoForge09 TCP tests cover the unchanged permission transport. Build10 verified all four packages. The installable runtime files match their compiled loader/core output and exclude the QA harness. Exact final SHA256 values are in the linked checksums.
 
 Additional manual controls are recorded in [the UI receipt](evidence/java/manual-controls.json). GitHub branch checks independently compile the same source; the public release is produced by the checked workflow. NeoForge version bounds apply on both client and server; a fresh dedicated-server boot with the final metadata also reached ready. The installed [native package and sole Horizon instance](evidence/java/native-installation-preserved.json) remain unchanged.
+
+## Branding patch follow-up
+
+The integrated [R badge]USTY wordmark and standalone menu badge use original generated artwork, with provenance in the brand guide. Fresh Fabric and NeoForge game runs after the menu-header change each passed 45 checks, including the framebuffer capture. The final menu image is captured directly from Minecraft’s framebuffer by the separate QA mod; this capture does not alter runtime jars.
+
+Modrinth refused the generated logo upload. Its current content rules prohibit generated project-page images and publicly publishing projects primarily produced by generative AI. The project remains a private draft; GitHub is the distribution source. No image-detection workaround or public Modrinth listing is claimed.

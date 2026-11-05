@@ -82,6 +82,8 @@ pub(super) fn open(game: &mut Game<'_>) {
     if !game.native_mod_screen_open(rusty::ID) {
         return;
     }
+    // Upload once per opening, never once per rendered frame.
+    game.native_mod_image(64, 64, super::rusty_brand::RGBA);
     MENU.with_borrow_mut(|m| {
         let pending = m.save.dirty;
         m.ui = Model {
@@ -1334,13 +1336,18 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
     }
 
     fill(game, batch, [x, y, w, 2.0], c.accent);
-    text(game, batch, "Rusty", x + 10.0, y + 11.0, c.text);
+    game.native_sprite(
+        batch,
+        horizon_client::hud::MOD_IMAGE_SPRITE,
+        [0.0, 0.0, 64.0, 64.0],
+        [x + 8.0, y + 4.0, 24.0, 24.0],
+    );
     text(
         game,
         batch,
         &format!("{} MODULES", catalog::MODULES.len()),
-        x + 59.0,
-        y + 11.0,
+        x + 41.0,
+        y + 12.0,
         c.muted,
     );
 

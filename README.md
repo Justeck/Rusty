@@ -8,7 +8,7 @@
 
 **Tested in the game:** 124 core checks, 10 interface checks, 3 HUD-column checks, owned Java and native multiplayer fixtures, short performance measurements and a ten-minute stability run. The official launcher Build/Play path is checked separately. [Validation](docs/VALIDATION.md) records exact identities, scope and limits.
 
-<p align="center"><img src="docs/screenshots/rusty-1.2-classic.png" width="960" alt="Rusty native Minecraft-style module browser"></p>
+<p align="center"><img src="docs/screenshots/rusty-1.2.1-classic.png" width="960" alt="Rusty native Minecraft-style module browser"></p>
 
 <p align="center"><a href="https://github.com/Justeck/Rusty/releases/latest">Download</a> · <a href="docs/INSTALLATION.md">Installation</a> · <a href="docs/MODULES.md">Modules</a> · <a href="docs/screenshots/README.md">Screenshots</a> · <a href="docs/VALIDATION.md">Validation</a></p>
 
@@ -16,11 +16,13 @@
 
 | Edition | Game/runtime | Installation |
 |---|---|---|
-| **Horizon native 1.2.0** | Horizon 6475f62 · API 359 · Minecraft 26.3 · Rust | Native GitHub input below |
+| **Horizon native 1.2.1** | Horizon 6475f62 · API 359 · Minecraft 26.3 · Rust | Native GitHub input below |
 | **Fabric 1.3.0-beta.1** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
 | **NeoForge 1.3.0-beta.1** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
 
 The Java counterparts share Minecraft-style controls and a 42-module catalog, with edition-specific behavior and validation. Their restricted multiplayer tools require authoritative server opt-in; ordinary information tools work on unmodified servers. [Permissions and differences](java/README.md#multiplayer-permissions) · [Java validation](docs/JAVA_VALIDATION.md). The stable native release remains the GitHub `latest` so Horizon's installer keeps resolving its native package.
+
+Distribution is through GitHub. Modrinth publication is blocked by its current generative-AI content rules; no public Modrinth release is claimed.
 
 ## Install
 
@@ -32,7 +34,7 @@ https://github.com/Justeck/Rusty
 
 Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **6475f62**, native API **359**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
 
-The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.0`](https://github.com/Justeck/Rusty/releases/tag/v1.2.0). Both inputs are [installation-verified](docs/evidence/release-installation.json) on launcher 0.2.42.
+The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.1`](https://github.com/Justeck/Rusty/releases/tag/v1.2.1). The official GitHub installer resolves each input to an immutable revision. [Validation](docs/VALIDATION.md) records installation and launcher checks.
 
 **Right Shift** opens Rusty. **Options → Mods → Rusty** remains the recovery path. See [Installation](docs/INSTALLATION.md), [Usage](docs/USAGE.md) and [Modules](docs/MODULES.md).
 
@@ -78,4 +80,4 @@ Runtime and optional native packaging tools are Rust. Python is development-only
 
 Rusty is **Apache-2.0**, with applicable **MIT** component notices. The native X-ray foundation includes work by **1_st_Cat / RealCat1st**; the camera includes MIT code by **umbx-dot**; Horizon is by **Ludovic Marie and contributors**. Preserve [LICENSE](LICENSE), [NOTICE](NOTICE), [THIRD-PARTY.md](THIRD-PARTY.md), [LEGAL.md](LEGAL.md) and component notices.
 
-The copper R and RUSTY wordmark are original project branding, distinct from the official Rust mark. The graphite/copper artwork set includes a transparent emblem, wordmark and repository cover; see the [brand guide](docs/assets/BRAND.md). [Artwork provenance](docs/assets/branding.json) records the generated originals. Game resources, accounts and player worlds are not distributed.
+The integrated copper [R badge]USTY wordmark are original project branding, distinct from the official Rust mark. The graphite/copper artwork set includes a transparent emblem, wordmark and repository cover; see the [brand guide](docs/assets/BRAND.md). [Artwork provenance](docs/assets/branding.json) records the generated originals. Game resources, accounts and player worlds are not distributed.
