@@ -1,10 +1,10 @@
 # Rusty, Apache-2.0; native Freecam component MIT.
 [mod]
 id = "rusty"
-version = "1.2.1"
+version = "1.2.2"
 priority = 100
 [compatibility]
-horizon_revision = "6475f62f3c834b7489e1816bf47f47ea5eb2b879"
+horizon_revision = "38609b7b1f261b530261ead7855d41e3a850e310"
 
 [[module]]
 id = "runtime"

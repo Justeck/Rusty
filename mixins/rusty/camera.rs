@@ -32,7 +32,11 @@ fn read_settings() -> freecam::Settings {
 }
 
 fn quiet_body(game: &mut Game<'_>) {
-    game.keys.retain(|key| !MOVES.contains(key));
+    // HeldKeys tracks each input device in current Horizon releases. Remove
+    // only movement/actions; leave unrelated held mappings and their owners.
+    for key in MOVES {
+        game.keys.remove(&key);
+    }
     // Reset both the held buttons and toggle state so accessibility toggles
     // cannot re-enable attack/use after a menu closes.
     game.toggles = Default::default();
@@ -99,7 +103,9 @@ pub(super) fn exit(game: &mut Game<'_>) {
             .filter_map(Result::ok)
             .filter(|key| MOVES.contains(key))
             .collect();
-        game.keys.extend(held);
+        for key in held {
+            game.keys.insert(key);
+        }
     }
 }
 
