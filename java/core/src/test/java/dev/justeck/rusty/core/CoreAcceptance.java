@@ -52,6 +52,17 @@ public final class CoreAcceptance {
         "a key held through connection change is not a new toggle press");
 
     var cfg = new Settings();
+    check(cfg.menuScale == .7, "100 percent menu default is the former 70 percent physical size");
+    for (double[] pair : new double[][] {{.35, 50}, {.7, 100}, {2.1, 300}})
+      check(Math.abs(Settings.menuPercent(pair[0]) - pair[1]) < 1e-9, "percent uses compact baseline");
+    check(Settings.fittedMenuScale(1920, 1080, .35) == .35, "new minimum is not clamped to old minimum");
+    check(Settings.fittedMenuScale(320, 200, 2.1) <= .8, "large request fits a small window");
+    for (double scale : new double[] {.35, .5, .7, 1, 2, 2.1}) {
+      var savedMenu = new Settings();
+      savedMenu.menuScale = scale;
+      savedMenu.validate();
+      check(savedMenu.menuScale == scale, "menu bounds include old physical sizes and new zoom endpoints");
+    }
     check(cfg.textureVisibility == 25 && !cfg.holdXray, "readable texture default and toggle");
     check(
         cfg.targets.contains("minecraft:deepslate_diamond_ore")
@@ -62,7 +73,7 @@ public final class CoreAcceptance {
     cfg.textureVisibility = -8;
     cfg.validate();
     check(
-        cfg.menuScale == 1 && cfg.scanRadius == 128 && cfg.textureVisibility == 0,
+        cfg.menuScale == .7 && cfg.scanRadius == 128 && cfg.textureVisibility == 0,
         "corrupt numeric settings bounded");
     cfg.scanBudget = 1024;
     cfg.validate();

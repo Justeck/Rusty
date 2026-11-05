@@ -3,6 +3,7 @@ package dev.justeck.rusty;
 import com.mojang.blaze3d.platform.InputConstants;
 import dev.justeck.rusty.core.Catalog;
 import dev.justeck.rusty.core.SessionPolicy;
+import dev.justeck.rusty.core.Settings;
 import java.util.*;
 import java.util.function.*;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -49,8 +50,7 @@ public final class RustyScreen extends Screen {
 
   @Override
   protected void init() {
-    scale = Math.min(RustyClient.config.menuScale, Math.min(width / 390.0, height / 250.0));
-    scale = Math.max(.5, scale);
+    scale = Settings.fittedMenuScale(width, height, RustyClient.config.menuScale);
     w = (int) (width / scale);
     h = (int) (height / scale);
     panel = Math.min(800, w - 24);
@@ -489,13 +489,21 @@ public final class RustyScreen extends Screen {
               ys));
     options.add(() ->
         slider(
-            "Menu size",
-            .5,
-            2,
-            RustyClient.config.menuScale,
-            v -> RustyClient.config.menuScale = v,
+            "Menu size (%)",
+            50,
+            300,
+            Settings.menuPercent(RustyClient.config.menuScale),
+            v -> RustyClient.config.menuScale = v / 100 * Settings.DEFAULT_MENU_SCALE,
             x,
             ys));
+    options.add(() -> {
+      button("Menu size: reset to 100%", x, ys[0], bw, b -> {
+        RustyClient.config.menuScale = Settings.DEFAULT_MENU_SCALE;
+        RustyClient.changed();
+        rebuildWidgets();
+      });
+      ys[0] += 26;
+    });
     options.add(() ->
         slider(
             "HUD size",
@@ -700,7 +708,9 @@ public final class RustyScreen extends Screen {
       onClose();
       return true;
     }
-    return super.keyPressed(event);
+    boolean handled = super.keyPressed(event);
+    refreshMenuScale();
+    return handled;
   }
 
   private MouseButtonEvent scaled(MouseButtonEvent e) {
@@ -718,7 +728,15 @@ public final class RustyScreen extends Screen {
 
   @Override
   public boolean mouseReleased(MouseButtonEvent e) {
-    return super.mouseReleased(scaled(e));
+    boolean handled = super.mouseReleased(scaled(e));
+    // Apply after the drag ends, keeping the slider under the pointer while dragging.
+    refreshMenuScale();
+    return handled;
+  }
+
+  private void refreshMenuScale() {
+    if (Math.abs(scale - Settings.fittedMenuScale(width, height, RustyClient.config.menuScale)) > 1e-6)
+      rebuildWidgets();
   }
 
   @Override

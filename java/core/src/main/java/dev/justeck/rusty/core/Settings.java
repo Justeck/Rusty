@@ -6,7 +6,18 @@ import java.util.Map;
 import java.util.Set;
 
 public final class Settings {
-  public double textureVisibility = 25, menuScale = 1;
+  // Saved physical sizes are unchanged; the compact baseline is displayed as 100%.
+  public static final double DEFAULT_MENU_SCALE = .7, MIN_MENU_SCALE = .35, MAX_MENU_SCALE = 2.1;
+  public double textureVisibility = 25, menuScale = DEFAULT_MENU_SCALE;
+
+  public static double menuPercent(double scale) {
+    return scale / DEFAULT_MENU_SCALE * 100;
+  }
+
+  public static double fittedMenuScale(double width, double height, double requested) {
+    double scale = bound(requested, MIN_MENU_SCALE, MAX_MENU_SCALE, DEFAULT_MENU_SCALE);
+    return Math.max(.001, Math.min(scale, Math.min(width / 390, height / 250)));
+  }
   public int scanRadius = 64;
   public boolean holdXray;
   public int schema = 1, maxTargets = 1024, scanBudget = 8192, minY = -64, maxY = 319;
@@ -41,7 +52,7 @@ public final class Settings {
   }
 
   public void validate() {
-    menuScale = bound(menuScale, .5, 2, 1);
+    menuScale = bound(menuScale, MIN_MENU_SCALE, MAX_MENU_SCALE, DEFAULT_MENU_SCALE);
     hudScale = bound(hudScale, .5, 2, 1);
     textureVisibility = bound(textureVisibility, 0, 100, 25);
     zoomFactor = bound(zoomFactor, 1.5, 12, 4);

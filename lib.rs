@@ -290,8 +290,8 @@ mod minecraft_ui_tests {
     #[test]
     fn menu_scale_migrates_and_rejects_invalid_settings() {
         let value = serde_json::to_value(ClientPreferences::default()).unwrap();
-        assert_eq!(value["menu_scale"], 1.0);
-        for scale in [0.0, 0.49, 2.01, 100.0] {
+        assert!((value["menu_scale"].as_f64().unwrap() - 0.7).abs() < 0.0001);
+        for scale in [0.0, 0.34, 2.11, 100.0] {
             assert!(
                 serde_json::from_value::<ClientPreferences>(
                     serde_json::json!({"menu_scale":scale})

@@ -195,10 +195,11 @@ class Ui12Smoke(FeatureSmoke):
 
     def scales_and_palettes(self):
         self.phase = "menu endpoints, rendered hit alignment and three palettes"
-        for value, fraction in [(.5, 0), (2.0, 1)]:
+        for value, percent, fraction in [(.35, 50, 0), (2.1, 300, 1)]:
             self.slider("menu_scale", fraction, lambda c, v=value: abs(c["client"]["menu_scale"] - v) < .001, "saved menu scale endpoint")
             state = self.wait_for(self.ui, lambda s: abs(s["menu_scale"] - value) < .001, "native scale snapshot")
             self.require(0 < state["effective_menu_scale"] <= value + .001, "Invalid fitted menu scale")
+            self.require(abs(state['menu_percent']-percent)<.001, 'Menu percentage does not use compact baseline')
             viewport = self.command("ui")["gui_size"]
             for hit in state["hits"]:
                 x, y, w, h = hit["rect"]
@@ -209,10 +210,11 @@ class Ui12Smoke(FeatureSmoke):
             self.wait_for(self.config, lambda c: c["fullbright"] != before, "scaled pointer hits intended toggle")
             self.click('Toggle("fullbright")', pane="detail")
             self.wait_for(self.config, lambda c: c["fullbright"] == before, "scaled toggle restored")
-            self.capture("04-menu-scale-" + str(int(value*100)), "Requested menu size endpoint; widgets, text and pointer targets align and remain reachable")
-            self.passed("Menu scale endpoint saves and real scaled target routes", requested=value, effective=state["effective_menu_scale"])
+            self.capture("04-menu-scale-" + str(percent), "Requested menu size endpoint; widgets, text and pointer targets align and remain reachable")
+            self.passed("Menu scale endpoint saves and real scaled target routes", requested=value, percent=percent, effective=state["effective_menu_scale"])
         self.click("ResetMenuScale")
-        self.wait_for(self.config, lambda c: c["client"]["menu_scale"] == 1, "100 percent reset")
+        self.wait_for(self.config, lambda c: abs(c["client"]["menu_scale"]-.7)<.001, "compact 100 percent reset")
+        self.wait_for(self.ui, lambda s: abs(s["menu_percent"]-100)<.001 and abs(s['effective_menu_scale']-.7)<.001, 'rendered compact reset')
         for theme in ["Classic", "Graphite", "Copper"]:
             for _ in range(3):
                 if self.ui()["theme"] == theme: break
@@ -327,6 +329,9 @@ class Ui12Smoke(FeatureSmoke):
         self.launch(); self.deadline=time.monotonic()+self.args.budget
         self.command("options-set guiScale 2")
         self.open_browser(); self.select("fullbright")
+        initial=self.ui()
+        self.require(abs(initial['menu_percent']-100)<.001 and abs(initial['effective_menu_scale']-.7)<.001, 'New menu default must render at former 70 percent size and display 100 percent')
+        self.passed('Fresh menu default is compact 100 percent with former 70 percent physical scale')
         self.wait_for(self.config,lambda c:"hud_layout" in c["client"],"persisted1.2 configuration")
         inventory=canonical_digest(self.command("inventory"))
         self.capture("00-classic-initial", "Minecraft-style native module browser with size control, clear binding and Enabled collection")

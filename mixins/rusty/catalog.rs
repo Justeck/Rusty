@@ -6,6 +6,14 @@ use std::fmt;
 pub const MAX_QUERY_CHARS: usize = 128;
 pub const MAX_FAVORITES: usize = 128;
 pub const MAX_RECENT: usize = 16;
+// Persist physical scales so existing layouts keep their exact size. UI percentages
+// are relative to the compact baseline: former 70% is now 100%.
+pub const DEFAULT_MENU_SCALE: f32 = 0.7;
+pub const MIN_MENU_SCALE: f32 = 0.35;
+pub const MAX_MENU_SCALE: f32 = 2.1;
+pub fn menu_percent(scale: f32) -> f32 {
+    scale / DEFAULT_MENU_SCALE * 100.0
+}
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -30,7 +38,7 @@ impl Default for ClientPreferences {
     fn default() -> Self {
         Self {
             theme: Theme::Classic,
-            menu_scale: 1.0,
+            menu_scale: DEFAULT_MENU_SCALE,
             hud_layout: Default::default(),
             reduced_motion: false,
             favorites: Vec::new(),
@@ -40,8 +48,10 @@ impl Default for ClientPreferences {
 }
 impl ClientPreferences {
     pub fn validate(&self) -> Result<(), String> {
-        if !self.menu_scale.is_finite() || !(0.5..=2.0).contains(&self.menu_scale) {
-            return Err("Menu size must be 50-200%".into());
+        if !self.menu_scale.is_finite()
+            || !(MIN_MENU_SCALE..=MAX_MENU_SCALE).contains(&self.menu_scale)
+        {
+            return Err("Menu size must be 50-300%".into());
         }
         self.hud_layout.validate()?;
         validate_ids(&self.favorites, MAX_FAVORITES, "favorites")?;
@@ -152,7 +162,7 @@ impl<'de> Deserialize<'de> for ClientPreferences {
             fn default() -> Self {
                 Self {
                     theme: Theme::Classic,
-                    menu_scale: 1.0,
+                    menu_scale: DEFAULT_MENU_SCALE,
                     hud_layout: Default::default(),
                     reduced_motion: false,
                     favorites: Vec::new(),
@@ -1338,6 +1348,26 @@ fn candidate(
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn compact_menu_default_and_existing_physical_sizes_are_preserved() {
+        assert_eq!(ClientPreferences::default().menu_scale, 0.7);
+        for (scale, percent) in [(0.35, 50.0), (0.7, 100.0), (2.1, 300.0)] {
+            assert!((menu_percent(scale) - percent).abs() < 0.001);
+        }
+        let missing: ClientPreferences = serde_json::from_str("{}").unwrap();
+        assert_eq!(missing.menu_scale, 0.7);
+        for scale in [0.35, 0.5, 0.7, 1.0, 2.0, 2.1] {
+            let saved = serde_json::json!({"menu_scale": scale});
+            let p: ClientPreferences = serde_json::from_value(saved).unwrap();
+            assert_eq!(p.menu_scale, scale);
+            assert_eq!(
+                serde_json::from_str::<ClientPreferences>(&serde_json::to_string(&p).unwrap())
+                    .unwrap()
+                    .menu_scale,
+                scale
+            );
+        }
+    }
     use super::*;
 
     fn ids(hits: Vec<SearchHit>) -> Vec<&'static str> {

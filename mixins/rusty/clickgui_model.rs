@@ -653,6 +653,8 @@ mod minecraft_geometry_tests {
     }
     #[test]
     fn menu_scale_fits_small_windows_and_recovers_after_resize() {
+        assert_eq!(MenuTransform::new([1920.0, 1080.0], 0.35).scale, 0.35);
+        assert_eq!(MenuTransform::new([1920.0, 1080.0], 2.1).scale, 2.1);
         for viewport in [[120.0, 80.0], [320.0, 240.0], [1920.0, 1080.0]] {
             let t = MenuTransform::new(viewport, 2.0);
             assert!(t.scale.is_finite() && t.scale > 0.0);
@@ -697,9 +699,9 @@ impl MenuTransform {
     pub fn new(viewport: [f32; 2], requested: f32) -> Self {
         let viewport = viewport.map(|n| if n.is_finite() { n.max(1.0) } else { 1.0 });
         let requested = if requested.is_finite() {
-            requested.clamp(0.5, 2.0)
+            requested.clamp(catalog::MIN_MENU_SCALE, catalog::MAX_MENU_SCALE)
         } else {
-            1.0
+            catalog::DEFAULT_MENU_SCALE
         };
         // Even small windows retain access to reset, close, bindings and filters.
         let scale = requested

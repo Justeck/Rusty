@@ -127,6 +127,21 @@ public final class GameAcceptance {
     RustyClient.config.bindings.put("zoom", com.mojang.blaze3d.platform.InputConstants.KEY_C);
     RustyClient.save();
     addCodecChecks();
+    for (double physical : new double[] {.35, .7, 2.1}) {
+      add("Menu " + Math.round(Settings.menuPercent(physical)) + "% fits actual widgets at compact baseline",
+          () -> {
+            RustyClient.config.menuScale = physical;
+            mc.gui.setScreen(new RustyScreen());
+          },
+          () -> menuFits(physical), 10);
+    }
+    add("Menu default restores compact 100% before gameplay checks",
+        () -> {
+          RustyClient.config.menuScale = new Settings().menuScale;
+          RustyClient.save();
+          mc.gui.setScreen(null);
+        },
+        () -> RustyClient.config.menuScale == .7 && mc.gui.screen() == null, 5);
     add(
         "Fixture setup is received from owned integrated server",
         () -> {
@@ -439,6 +454,27 @@ public final class GameAcceptance {
                 message -> menuCaptureComplete = true),
         () -> menuCaptureComplete,
         200);
+  }
+
+  private static boolean menuFits(double requested) {
+    var mc = Minecraft.getInstance();
+    if (!(mc.gui.screen() instanceof RustyScreen screen)) return false;
+    try {
+      // Inspect the actual rendered screen transform, not just its shared math helper.
+      var field = RustyScreen.class.getDeclaredField("scale");
+      field.setAccessible(true);
+      double scale = field.getDouble(screen);
+      int width = mc.getWindow().getGuiScaledWidth(), height = mc.getWindow().getGuiScaledHeight();
+      if (Math.abs(scale - Settings.fittedMenuScale(width, height, requested)) > 1e-6) return false;
+      return screen.children().stream()
+          .filter(c -> c instanceof net.minecraft.client.gui.components.AbstractWidget)
+          .map(c -> (net.minecraft.client.gui.components.AbstractWidget)c)
+          .allMatch(w -> w.getX()*scale >= -1 && w.getY()*scale >= -1
+              && (w.getX()+w.getWidth())*scale <= width+1
+              && (w.getY()+w.getHeight())*scale <= height+1);
+    } catch (ReflectiveOperationException e) {
+      return false;
+    }
   }
 
   private static boolean hudFits() {

@@ -61,6 +61,7 @@ pub(super) fn snapshot() -> serde_json::Value {
             "status":m.ui.status,
             "local_values":hud_layout::CONTROLS.iter().find(|(id,_)|*id==m.ui.selected).map(|(_,ids)|ids.iter().map(|id|(id.to_string(),serde_json::json!(number(&m.save.value,id)))).collect::<serde_json::Map<String,serde_json::Value>>()).unwrap_or_default(),
             "menu_scale":m.save.value.client.menu_scale,
+            "menu_percent":catalog::menu_percent(m.save.value.client.menu_scale),
             "effective_menu_scale":m.ui.render_scale,
             "hud_layout":m.save.value.client.hud_layout,
             "list_rect":m.ui.list_rect.map(|v|v*m.ui.render_scale),
@@ -275,10 +276,10 @@ fn number(c: &Config, id: &str) -> f64 {
 fn setting_kind(id: &str) -> Option<SettingKind> {
     if id == "menu_scale" {
         return Some(SettingKind::Decimal {
-            min: 0.5,
-            max: 2.0,
-            step: 0.05,
-            default: 1.0,
+            min: 0.35,
+            max: 2.1,
+            step: 0.035,
+            default: 0.7,
         });
     }
     if let Some((panel, axis)) = hud_layout::control(id) {
@@ -736,7 +737,7 @@ fn act(m: &mut Menu, action: Action, at: [f32; 2], right: bool) {
         }
         Action::ResetMenuScale => {
             ui.dragging = None;
-            ui.enqueue(Intent::Numeric("menu_scale", 1.0));
+            ui.enqueue(Intent::Numeric("menu_scale", catalog::DEFAULT_MENU_SCALE as f64));
             ui.enqueue(Intent::Flush);
         }
         Action::ResetHud(id) => {
@@ -2023,7 +2024,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
         [x + 33.0, scale_y, w - 103.0, 21.0],
         &format!(
             "Menu size: {:.0}% (right-click resets)",
-            cfg.client.menu_scale * 100.0
+            catalog::menu_percent(cfg.client.menu_scale)
         ),
         Action::Numeric(
             "menu_scale",
