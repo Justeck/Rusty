@@ -72,6 +72,7 @@ jobs:
           mkdir -p verified-downloads
           gh release download "$tag" --dir verified-downloads
           (cd verified-downloads && sha256sum --check ../release/SHA256SUMS)
-          if [ ! -f release-state.json ] || [ "$(jq -r .isDraft release-state.json)" = true ]; then
-            gh release edit "$tag" --draft=false --prerelease --latest=false
+          if [ "$(gh release view "$tag" --json isDraft --jq .isDraft)" = true ]; then
+            gh release edit "$tag" --target "$GITHUB_SHA" --draft=false --prerelease --latest=false
           fi
+
