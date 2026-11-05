@@ -1,5 +1,14 @@
 # Rusty validation
 
+## 1.2.5 public release and installation verification
+
+The immutable [native 1.2.5](https://github.com/Justeck/Rusty/releases/tag/v1.2.5) and [Java 1.3.0-beta.4](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.4) releases resolve to accepted source `0e15af28f59dc4c84f564aa5510aa78beaa79448`. Both gated release workflows succeeded. Native remains GitHub latest.
+
+The official launcher accepted both the fixed release URL and the repository URL, installing the exact public `rusty-1.2.5.hnmod`. All 115 source payloads match the built installation, and the root manifest is semantically equal. The supported Performance build then reported **Up to date (no build needed)**, retaining `native-38609b7-2bbd64b7ea25` and executable SHA-256 `596e84c91e8a43996b19a018ec20568677776a5f72334f35c93eb64adde48090`. The cache check completed in 6.848 seconds; **Horizon is the sole instance**. Both existing preference files were preserved byte-for-byte across the public reinstall/cache check. The running user game was left untouched, so its next launch loads the update.
+
+Modrinth received separate Fabric and NeoForge beta.4 versions, two reviewed original gameplay/menu images and a saved description update. Downloads from both Modrinth version pages were checked against GitHub release bytes; CI product classes equal the locally game-tested classes. The project still displays **Under review**. This is upload/download acceptance, not manual-review approval. [Exact delivery receipt](evidence/defaults-list-publication-1.2.5.json).
+
+
 ## 1.2.5 defaults and Enabled Mods list
 
 Added **Enabled Mods**, an independent, opt-in Interface feature: active Rusty tools appear alphabetically in top-left rows, excluding the list itself. Its nineteenth HUD panel supports independent placement and size. **Default** controls restore individual preferences, shortcuts and target fields. **Restore defaults** asks for confirmation and restores all Rusty settings, including keys, appearance, compact 100% menu size, favorites/recent and HUD layout; it stops active runtime tools and keeps saved waypoint/profile files.
