@@ -1,6 +1,6 @@
 # Usage and settings
 
-This guide describes Rusty **1.2.3**. The [module guide](MODULES.md) covers all 42 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
+This guide describes Rusty **1.2.4**. The [module guide](MODULES.md) covers all 42 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
 
 ## The live ClickGUI
 
@@ -14,7 +14,7 @@ Press **Right Shift** in the world. Rusty uses Horizon's native mod-owned screen
 - Cycle **Classic**, **Graphite** and **Copper**. Set **Motion: Low** to remove the **120 ms** opening fade; **Motion: Full** restores it.
 - Select a binding, then press a key or mouse button. **Escape** leaves it unchanged. The bottom **Menu** control rebinds Right Shift itself.
 - Use **Clear** beside a binding to leave it unbound. Right-click its binding control to restore the default. The native **Options → Mods → Rusty** screen remains available, and `/rusty menu` recovers an unbound menu.
-- Adjust **Menu size** independently from Minecraft's GUI scale: 50–200%, with step buttons and a 100% reset. Small windows fit the requested size to the available area.
+- Adjust **Menu size** independently from Minecraft's GUI scale: 50–300%, with step buttons and a 100% reset. **100% is now the former 70% physical size**, and is the new default. Existing saved physical sizes stay unchanged and display their equivalent new percentage. Small windows fit the requested size to the available area.
 - Screen HUD modules expose **HUD X (%)**, **HUD Y (%)** and **HUD size** controls, plus a per-panel reset. Position is a percentage of the space remaining after the panel fits. HUD size is independent from menu size; world-space indicators remain anchored to their targets.
 
 Favorites, recent selections, menu size and HUD placement persist locally and survive feature-profile imports; recent items are capped at **16**. **Horizon Options → Mods → Keys** remains the binding fallback. Check for conflicts there when a shortcut behaves unexpectedly.

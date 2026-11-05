@@ -1,0 +1,665 @@
+{
+  "schema": 1,
+  "native_version": "1.2.4",
+  "java_version": "1.3.0-beta.3",
+  "tested_source_commit": "1c9ed69c4dbb30c802f609a4bf8405c2559dcdb9",
+  "behavior": {
+    "default_percent": 100,
+    "former_percent_at_default": 70,
+    "range_percent": [
+      50,
+      300
+    ],
+    "saved_physical_sizes_preserved": true,
+    "hud_scale_changed": false
+  },
+  "native": {
+    "selected_build": "native-38609b7-e07ca05ff764",
+    "binary_sha256": "57077237e5406d16bc95e423684a598b2a7cb821506ccd14d2f530f71f0b302c",
+    "metadata": {
+      "base": "nightly-2026-11-05-38609b7",
+      "horizon": "38609b7b1f261b530261ead7855d41e3a850e310",
+      "base_horizon": "38609b7b1f261b530261ead7855d41e3a850e310",
+      "pinned_by": [],
+      "on_base": true,
+      "horizon_mixins": "e8cd0aa38cffef49cb2e088ef716baa107148c02",
+      "hooks": null,
+      "rust": "1.99.1",
+      "profile": "performance",
+      "target": "client",
+      "mods": [
+        {
+          "id": "rusty",
+          "version": "1.2.4",
+          "sha256": "60e7f06b0d0902a46c65ad0b198e3702be547957eaa102017651ca9eef6c3dad"
+        }
+      ]
+    },
+    "suites": {
+      "ui": {
+        "count": 11,
+        "raw_sha256": "6ce67f68f4abcdc7830d07b08933c15309715f46c1b99d11b00175aa42154728",
+        "checks": [
+          {
+            "name": "Fresh isolated offline world ready",
+            "passed": true,
+            "account_loaded": false,
+            "minimum_loaded_chunks": 9
+          },
+          {
+            "name": "Fresh menu default is compact 100 percent with former 70 percent physical scale",
+            "passed": true
+          },
+          {
+            "name": "Enabled membership follows actual hotkey activation and native toggle deactivation",
+            "passed": true
+          },
+          {
+            "name": "ClearBind saves unbound state, old key stops, captured new key routes, default restores",
+            "passed": true
+          },
+          {
+            "name": "Cleared menu recovers through actual /rusty menu chat and accepts a working new key",
+            "passed": true
+          },
+          {
+            "name": "Menu scale endpoint saves and real scaled target routes",
+            "passed": true,
+            "requested": 0.35,
+            "percent": 50,
+            "effective": 0.3499999940395355
+          },
+          {
+            "name": "Menu scale endpoint saves and real scaled target routes",
+            "passed": true,
+            "requested": 2.1,
+            "percent": 300,
+            "effective": 1.875
+          },
+          {
+            "name": "All three palette controls persist and produce captured native frames",
+            "passed": true
+          },
+          {
+            "name": "All18 HUD panels independently save X/Y/size and reset through actual native controls",
+            "passed": true,
+            "panels": 18
+          },
+          {
+            "name": "Native named-preset import applies feature settings and preserves menu size, palette and HUD layout",
+            "passed": true,
+            "preserved_fields": [
+              "hud_layout",
+              "menu_scale",
+              "theme"
+            ]
+          },
+          {
+            "name": "New owned process reloads saved layout, menu size, palette and bindings",
+            "passed": true,
+            "client_preferences_sha256": "32952cb32a71c5ee3554ba0887129b7f82823d81c19fa00ec0aeb1d7bb1e2e24",
+            "instance_scope": "suite-created QA home only"
+          }
+        ]
+      },
+      "isolation": {
+        "count": 5,
+        "raw_sha256": "6ba5e3511b4f1e4fb694daa4e5e226e0046a98b59c963eeb43ba9ee41a1f92f5",
+        "checks": [
+          {
+            "name": "Fresh isolated offline world ready",
+            "passed": true,
+            "account_loaded": false,
+            "minimum_loaded_chunks": 9
+          },
+          {
+            "name": "X-ray alone renders identically with saved block lines/boxes on or off",
+            "passed": true,
+            "pixel_difference": {
+              "region_xyxy": [
+                525,
+                354,
+                975,
+                573
+              ],
+              "changed_fraction": 0.0,
+              "mean_absolute_channel_difference": 0.007725350921697954,
+              "channel_tolerance": 12
+            }
+          },
+          {
+            "name": "Finder explicitly enables visible tracer rendering while X-ray remains on",
+            "passed": true,
+            "pixel_difference": {
+              "region_xyxy": [
+                525,
+                354,
+                975,
+                573
+              ],
+              "changed_fraction": 0.00919330289193303,
+              "mean_absolute_channel_difference": 0.5247759174699814,
+              "channel_tolerance": 12
+            }
+          },
+          {
+            "name": "Finder keeps working with ordinary terrain after X-ray is switched off",
+            "passed": true,
+            "pixel_difference": {
+              "region_xyxy": [
+                525,
+                354,
+                975,
+                573
+              ],
+              "changed_fraction": 0.00919330289193303,
+              "mean_absolute_channel_difference": 0.885679012345679,
+              "channel_tolerance": 12
+            }
+          },
+          {
+            "name": "Independent hotkey toggles preserve line preferences and received block data",
+            "passed": true,
+            "pixel_difference": {
+              "region_xyxy": [
+                525,
+                354,
+                975,
+                573
+              ],
+              "changed_fraction": 0.0,
+              "mean_absolute_channel_difference": 0.0,
+              "channel_tolerance": 12
+            }
+          }
+        ]
+      }
+    }
+  },
+  "native_build": {
+    "exit_code": 0,
+    "seconds": 1273.445
+  },
+  "native_package": {
+    "name": "rusty-1.2.4.hnmod",
+    "sha256": "7b7325a2e3c4d41597bb4d4fa5ebd5382c1934464f6160a9ef6ea5a3764a50c0"
+  },
+  "java": {
+    "fabric": {
+      "raw_sha256": "87931d75ec74928d3e55122aff806f8067ff1f058c9db0ae8b4c5f10061d0e57",
+      "mode": "singleplayer",
+      "checks": [
+        {
+          "name": "Permission payload rejects invalid versions, masks and lengths",
+          "passed": true
+        },
+        {
+          "name": "Menu 50% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu 100% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu 300% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu default restores compact 100% before gameplay checks",
+          "passed": true
+        },
+        {
+          "name": "Fixture setup is received from owned integrated server",
+          "passed": true
+        },
+        {
+          "name": "Singleplayer capabilities are granted locally",
+          "passed": true
+        },
+        {
+          "name": "Minecraft module screen constructs its real widgets",
+          "passed": true
+        },
+        {
+          "name": "Menu closes and normal gameplay resumes",
+          "passed": true
+        },
+        {
+          "name": "Xray finds exposed and buried authoritative received ores",
+          "passed": true
+        },
+        {
+          "name": "Xray alone does not render saved Finder lines or boxes",
+          "passed": true
+        },
+        {
+          "name": "Finder explicitly enables target geometry alongside Xray",
+          "passed": true
+        },
+        {
+          "name": "Disabling Xray preserves independently enabled Finder geometry",
+          "passed": true
+        },
+        {
+          "name": "Disabling Finder restores Xray-only rendering without changing line preferences",
+          "passed": true
+        },
+        {
+          "name": "Received block removal invalidates the target cache",
+          "passed": true
+        },
+        {
+          "name": "Received block restoration is discovered again",
+          "passed": true
+        },
+        {
+          "name": "Maximum texture context restores ordinary terrain rendering",
+          "passed": true
+        },
+        {
+          "name": "Minimum texture context keeps thin original-texture edges",
+          "passed": true
+        },
+        {
+          "name": "Default texture coverage and custom received block selection",
+          "passed": true
+        },
+        {
+          "name": "Toggle off restores view without changing world blocks",
+          "passed": true
+        },
+        {
+          "name": "Detached camera input moves the view and preserves body position",
+          "passed": true
+        },
+        {
+          "name": "Settled rendered camera follows detached view without body rotation",
+          "passed": true
+        },
+        {
+          "name": "Freecam disables cleanly",
+          "passed": true
+        },
+        {
+          "name": "Ordinary inventory fixture arrives without modifying personal saves",
+          "passed": true
+        },
+        {
+          "name": "Auto Tool replaces a fast ineligible golden pickaxe with a harvest-correct tool",
+          "passed": true
+        },
+        {
+          "name": "Manual hotbar choice retains ownership until mining is released",
+          "passed": true
+        },
+        {
+          "name": "Automatic eating consumes ordinary food on the integrated server",
+          "passed": true
+        },
+        {
+          "name": "Eating restores the previous slot after consuming one item",
+          "passed": true
+        },
+        {
+          "name": "Auto Totem fills only an empty offhand through the server",
+          "passed": true
+        },
+        {
+          "name": "Auto Totem preserves an occupied shield offhand",
+          "passed": true
+        },
+        {
+          "name": "Armor Assist fills an empty armor slot using an ordinary inventory action",
+          "passed": true
+        },
+        {
+          "name": "Refill observes a real baseline stack",
+          "passed": true
+        },
+        {
+          "name": "Refill moves an exact matching stack after observed depletion",
+          "passed": true
+        },
+        {
+          "name": "Identical authoritative correction is not blindly retried",
+          "passed": true
+        },
+        {
+          "name": "Explicit refill rearm retains its observed depletion candidate",
+          "passed": true
+        },
+        {
+          "name": "Trigger fixture is an owned non-player living entity",
+          "passed": true
+        },
+        {
+          "name": "Trigger uses an ordinary full-cooldown reachable attack",
+          "passed": true
+        },
+        {
+          "name": "Automatic actions stop when the Minecraft menu opens",
+          "passed": true
+        },
+        {
+          "name": "Action fixtures leave normal controls usable",
+          "passed": true
+        },
+        {
+          "name": "Waypoint saves in current stable world/dimension scope",
+          "passed": true
+        },
+        {
+          "name": "HUD editor exposes 18 independent panels with footer clearance",
+          "passed": true
+        },
+        {
+          "name": "Overlay positions and cleared shortcuts persist to actual local JSON",
+          "passed": true
+        },
+        {
+          "name": "All module adapters tolerate received world and live rendering",
+          "passed": true
+        },
+        {
+          "name": "Remote chunk loading removes targets from the former area",
+          "passed": true
+        },
+        {
+          "name": "Returning to received chunks discovers the original ores again",
+          "passed": true
+        },
+        {
+          "name": "Dimension change resets scanner and scoped markers",
+          "passed": true
+        },
+        {
+          "name": "Returning dimension restores permission and target lifecycle",
+          "passed": true
+        },
+        {
+          "name": "Profiles round-trip without acquiring multiplayer permission",
+          "passed": true
+        },
+        {
+          "name": "Cleared menu binding retains Minecraft Options recovery",
+          "passed": true
+        },
+        {
+          "name": "Thirty-second bounded rendering observation completes",
+          "passed": true
+        },
+        {
+          "name": "Clean default controls remain ready for visual review",
+          "passed": true
+        },
+        {
+          "name": "Final actual menu remains usable after module exercise",
+          "passed": true
+        },
+        {
+          "name": "Final menu framebuffer capture completes",
+          "passed": true
+        }
+      ]
+    },
+    "neoforge": {
+      "raw_sha256": "48b71a9793fced1ee01cec4c5d2648343ebf4065075f2050fa172c19d4e1d0e8",
+      "mode": "singleplayer",
+      "checks": [
+        {
+          "passed": true,
+          "name": "Permission payload rejects invalid versions, masks and lengths"
+        },
+        {
+          "passed": true,
+          "name": "Menu 50% fits actual widgets at compact baseline"
+        },
+        {
+          "passed": true,
+          "name": "Menu 100% fits actual widgets at compact baseline"
+        },
+        {
+          "passed": true,
+          "name": "Menu 300% fits actual widgets at compact baseline"
+        },
+        {
+          "passed": true,
+          "name": "Menu default restores compact 100% before gameplay checks"
+        },
+        {
+          "passed": true,
+          "name": "Fixture setup is received from owned integrated server"
+        },
+        {
+          "passed": true,
+          "name": "Singleplayer capabilities are granted locally"
+        },
+        {
+          "passed": true,
+          "name": "Minecraft module screen constructs its real widgets"
+        },
+        {
+          "passed": true,
+          "name": "Menu closes and normal gameplay resumes"
+        },
+        {
+          "passed": true,
+          "name": "Xray finds exposed and buried authoritative received ores"
+        },
+        {
+          "passed": true,
+          "name": "Xray alone does not render saved Finder lines or boxes"
+        },
+        {
+          "passed": true,
+          "name": "Finder explicitly enables target geometry alongside Xray"
+        },
+        {
+          "passed": true,
+          "name": "Disabling Xray preserves independently enabled Finder geometry"
+        },
+        {
+          "passed": true,
+          "name": "Disabling Finder restores Xray-only rendering without changing line preferences"
+        },
+        {
+          "passed": true,
+          "name": "Received block removal invalidates the target cache"
+        },
+        {
+          "passed": true,
+          "name": "Received block restoration is discovered again"
+        },
+        {
+          "passed": true,
+          "name": "Maximum texture context restores ordinary terrain rendering"
+        },
+        {
+          "passed": true,
+          "name": "Minimum texture context keeps thin original-texture edges"
+        },
+        {
+          "passed": true,
+          "name": "Default texture coverage and custom received block selection"
+        },
+        {
+          "passed": true,
+          "name": "Toggle off restores view without changing world blocks"
+        },
+        {
+          "passed": true,
+          "name": "Detached camera input moves the view and preserves body position"
+        },
+        {
+          "passed": true,
+          "name": "Settled rendered camera follows detached view without body rotation"
+        },
+        {
+          "passed": true,
+          "name": "Freecam disables cleanly"
+        },
+        {
+          "passed": true,
+          "name": "Ordinary inventory fixture arrives without modifying personal saves"
+        },
+        {
+          "passed": true,
+          "name": "Auto Tool replaces a fast ineligible golden pickaxe with a harvest-correct tool"
+        },
+        {
+          "passed": true,
+          "name": "Manual hotbar choice retains ownership until mining is released"
+        },
+        {
+          "passed": true,
+          "name": "Automatic eating consumes ordinary food on the integrated server"
+        },
+        {
+          "passed": true,
+          "name": "Eating restores the previous slot after consuming one item"
+        },
+        {
+          "passed": true,
+          "name": "Auto Totem fills only an empty offhand through the server"
+        },
+        {
+          "passed": true,
+          "name": "Auto Totem preserves an occupied shield offhand"
+        },
+        {
+          "passed": true,
+          "name": "Armor Assist fills an empty armor slot using an ordinary inventory action"
+        },
+        {
+          "passed": true,
+          "name": "Refill observes a real baseline stack"
+        },
+        {
+          "passed": true,
+          "name": "Refill moves an exact matching stack after observed depletion"
+        },
+        {
+          "passed": true,
+          "name": "Identical authoritative correction is not blindly retried"
+        },
+        {
+          "passed": true,
+          "name": "Explicit refill rearm retains its observed depletion candidate"
+        },
+        {
+          "passed": true,
+          "name": "Trigger fixture is an owned non-player living entity"
+        },
+        {
+          "passed": true,
+          "name": "Trigger uses an ordinary full-cooldown reachable attack"
+        },
+        {
+          "passed": true,
+          "name": "Automatic actions stop when the Minecraft menu opens"
+        },
+        {
+          "passed": true,
+          "name": "Action fixtures leave normal controls usable"
+        },
+        {
+          "passed": true,
+          "name": "Waypoint saves in current stable world/dimension scope"
+        },
+        {
+          "passed": true,
+          "name": "HUD editor exposes 18 independent panels with footer clearance"
+        },
+        {
+          "passed": true,
+          "name": "Overlay positions and cleared shortcuts persist to actual local JSON"
+        },
+        {
+          "passed": true,
+          "name": "All module adapters tolerate received world and live rendering"
+        },
+        {
+          "passed": true,
+          "name": "Remote chunk loading removes targets from the former area"
+        },
+        {
+          "passed": true,
+          "name": "Returning to received chunks discovers the original ores again"
+        },
+        {
+          "passed": true,
+          "name": "Dimension change resets scanner and scoped markers"
+        },
+        {
+          "passed": true,
+          "name": "Returning dimension restores permission and target lifecycle"
+        },
+        {
+          "passed": true,
+          "name": "Profiles round-trip without acquiring multiplayer permission"
+        },
+        {
+          "passed": true,
+          "name": "Cleared menu binding retains Minecraft Options recovery"
+        },
+        {
+          "passed": true,
+          "name": "Thirty-second bounded rendering observation completes"
+        },
+        {
+          "passed": true,
+          "name": "Clean default controls remain ready for visual review"
+        },
+        {
+          "passed": true,
+          "name": "Final actual menu remains usable after module exercise"
+        },
+        {
+          "passed": true,
+          "name": "Final menu framebuffer capture completes"
+        }
+      ]
+    }
+  },
+  "java_packages": {
+    "verified_packages": [
+      {
+        "file": "rusty-fabric-1.3.0-beta.3.jar",
+        "bytes": 1710388,
+        "sha256": "40140b8b1f50733333dd8e8b61c93f6f314f9c6967a922e60eae13c1be5dc3f3"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.3-sources.jar",
+        "bytes": 1627241,
+        "sha256": "b273783e7a237f0b532a77b6b1fe0c68e7e2d396615d40ddba39032726859115"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.3.jar",
+        "bytes": 1704749,
+        "sha256": "f46a8921868f454be8c7a5df9082dcac3e30ffa728d100719ee5663f655a7761"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.3-sources.jar",
+        "bytes": 1625790,
+        "sha256": "5a144ff33721ff5c63ee5b80a22a79fa75bc57ff301b14f505a83f45cb1a32b4"
+      }
+    ]
+  },
+  "pure_checks": {
+    "rust_library": 142,
+    "native_tools": 18,
+    "python": 14,
+    "java_core_assertions": 621,
+    "format_and_strict_clippy": "passed"
+  },
+  "limits": [
+    "Fresh native checks use isolated offline worlds through the launcher-installed executable; Java checks use supported development-toolchain clients.",
+    "No fresh remote-server, endurance, arbitrary modpack or alternate graphics backend acceptance is claimed for this menu patch.",
+    "The official native build used the launcher CLI; no fresh GUI Build/Play claim is made. Existing running user games were left untouched."
+  ],
+  "reviewed_original_images": {
+    "docs/screenshots/rusty-1.2.4-compact-menu.png": "f4304c7c06097ba30d4dc05c11ddd3fa0da2da193db7fad0c06cba9423aa59f7",
+    "docs/screenshots/java/rusty-java-compact-menu.png": "39407add9cc8c68b834341a67f5b375ca227183226d39c111b744d3756a9e331"
+  }
+}

@@ -1,5 +1,18 @@
 # Rusty validation
 
+## 1.2.4 compact menu baseline
+
+The former 70% physical menu size is now the **100% default/reset**. Displayed scaling spans **50–300%** (stored physical scales 0.35–2.1). Stored values stay in their original physical units, preserving every previously supported saved size without a lossy schema migration. HUD size and feature-profile preservation remain independent. Java adds a 100% reset and applies changes after slider release or keyboard adjustment; the existing Apply size button remains available.
+
+![Original native capture of the new compact 100% menu, filtered to Fullbright](screenshots/rusty-1.2.4-compact-menu.png)
+
+The official Horizon launcher **Performance** build completed on **38609b7 / native API 409 / Minecraft 26.3**, using its supported Rust **1.99.1** toolchain. It selected `native-38609b7-e07ca05ff764`; executable SHA-256 is `57077237e5406d16bc95e423684a598b2a7cb821506ccd14d2f530f71f0b302c`.
+
+Fresh checks passed: **142 Rust library + 18 native-tool tests**, **14 Python tests**, formatting, strict Clippy, structural packaging, **11 actual native interface checks** and **5 rendered X-ray/Finder regression checks**. The interface suite checks the fresh compact default, both new endpoints, actual hit alignment, reset, all 18 HUD controls, profile preservation and process-restart persistence. Original default/50%/300% menu frames were inspected. The matching Java beta passed **621 shared assertions** and **53 game checks per loader**, including actual screen-transform/widget bounds at all three menu sizes.
+
+The [exact receipt](evidence/menu-scale-1.2.4.json) identifies the tested source, binary, package and named checks. These fresh fixtures used isolated offline worlds. Older server/performance/endurance results below remain historical. The native build used the official launcher CLI; no fresh GUI Build/Play test is claimed for this patch. Existing running user games and personal saves were left untouched.
+
+
 ## 1.2.3 independent X-ray and Finder
 
 X-ray now changes terrain only. Finder separately owns target boxes, tracer lines and target readouts. Saved line preferences remain intact; enabling or disabling X-ray does not change Finder. Original-texture terrain frames remain part of X-ray.

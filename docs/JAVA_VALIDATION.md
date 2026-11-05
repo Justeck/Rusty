@@ -1,4 +1,12 @@
-# Java edition validation — 1.3.0-beta.2
+# Java edition validation — 1.3.0-beta.3
+
+The former 70% menu size is now the **100% default**, with a **50–300%** slider and a **100% reset**. Saved physical sizes stay unchanged. Both keyboard adjustments and slider release apply the fitted scale; the existing Apply size button is retained. HUD controls remain independent.
+
+Fresh builds, package inspection and QA compilation passed. **621 shared behavioral assertions** cover the new baseline, bounds, legacy-size preservation and viewport fitting in addition to the existing suite. **Fabric and NeoForge each passed 53 actual game checks** through their supported development toolchains in disposable offline worlds. New checks inspect the actual screen transform and widget bounds at 50%, 100% and 300%, then restore the default before the existing X-ray/Finder and gameplay regressions. [Exact patch evidence](evidence/menu-scale-1.2.4.json).
+
+No fresh remote-server, published-jar personal-launcher, endurance or arbitrary-modpack test is claimed. Earlier receipts below retain their own version and scope. Restricted multiplayer tools continue to require explicit server opt-in.
+
+# 1.3.0-beta.2 acceptance (historical)
 
 X-ray terrain rendering and Finder target geometry are now independent. Line/box controls live under Finder, and X-ray toggles preserve Finder and saved preferences.
 

@@ -2,18 +2,20 @@
 
 Keep your bearings: textured world views, navigation, movable HUDs and ordinary player assistance in a familiar Minecraft interface.
 
-**Java edition 1.3.0-beta.2 · Minecraft 26.3 · Java 25.** These jars run in Java Edition through Fabric or NeoForge. Horizon uses the separate native Rust package; never put a Java jar into Horizon's native mod installer.
+**Java edition 1.3.0-beta.3 · Minecraft 26.3 · Java 25.** These jars run in Java Edition through Fabric or NeoForge. Horizon uses the separate native Rust package; never put a Java jar into Horizon's native mod installer.
+
+The menu now defaults to **100% at the former 70% physical size**. Its **50–300%** slider and 100% reset scale only the menu; saved physical sizes and HUD placement remain intact. Drag the slider and release to apply, use keyboard arrows, or use **Apply size**.
 
 ## Install
 
-[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.2).
+[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.3).
 
 Choose exactly one loader:
 
 | Edition | Required environment | Download |
 |---|---|---|
-| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.2.jar` |
-| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.2.jar` |
+| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.3.jar` |
+| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.3.jar` |
 
 Install the matching jar in that Java installation's `mods` folder. Fabric also needs Fabric API. Do not install both Rusty loader jars together. Java 25 is required. Earlier game versions, snapshots, shader replacements and third-party rendering mods are not validated.
 

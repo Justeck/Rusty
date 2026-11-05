@@ -1,5 +1,12 @@
 # Changelog
 
+## Rusty 1.2.4
+
+- Made the former 70% menu size the new 100% default and reset point.
+- Added scaling from 50% through 300% around the compact baseline, preserving all previously supported saved physical sizes.
+- Kept window-fit protection, pointer transforms, HUD scaling and profile preferences independent.
+- Java 1.3.0-beta.3 uses the same percentage baseline, adds a 100% reset and applies size changes after slider release or keyboard adjustment.
+
 ## Rusty 1.2.3
 
 - X-Ray changes terrain without implicitly drawing Finder target lines, boxes or target readouts.

@@ -4,7 +4,7 @@
 
 Textured world views, local navigation, movable HUDs and optional player assistance—built around Minecraft's own buttons, sliders and controls. Turn on what you need, keep the world in view, and make the layout your own.
 
-**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.2**
+**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.3**
 
 [Installation guide](https://github.com/Justeck/Rusty/blob/main/java/README.md) · [Source code](https://github.com/Justeck/Rusty) · [Report an issue](https://github.com/Justeck/Rusty/issues) · [Validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
@@ -28,9 +28,13 @@ Typical ores are preselected. Add any registered block ID to your selection. Fin
 
 Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog, browse **Enabled**, **Favorites**, **Recent** or categories, and click **?** for a short explanation. Rebind a shortcut, clear it completely, or choose Hold mode for X-ray.
 
-Menu size is independent of the HUD. Drag any of **18 panels**, scroll over a panel to resize it, or reset the layout. Profiles preserve your local settings, shortcuts, favorites and arrangements.
+**The former 70% menu size is now the 100% default.** Scale from **50% to 300%**, or reset to **100%**. Saved physical sizes are preserved. Menu size is independent of the HUD. Drag any of **18 panels**, scroll over a panel to resize it, or reset the layout. Profiles preserve your local settings, shortcuts, favorites and arrangements.
 
-![Rusty's Minecraft-style HUD layout editor with movable information panels](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.2/docs/screenshots/java/rusty-java-hud-editor.png)
+![Rusty Java compact menu at the new 100% default](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.3/docs/screenshots/java/rusty-java-compact-menu.png)
+
+*Original Fabric 26.3 capture of the new compact 100% default, with the 50–300% menu slider and 100% reset.*
+
+![Rusty's Minecraft-style HUD layout editor with movable information panels](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.3/docs/screenshots/java/rusty-java-hud-editor.png)
 
 *Actual NeoForge 26.3 HUD editor. Every panel is previewed for placement; only Status HUD starts enabled in normal play.*
 
@@ -77,12 +81,12 @@ Menu size is independent of the HUD. Drag any of **18 panels**, scroll over a pa
 
 | Loader | Requirements | Rusty file |
 |---|---|---|
-| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.2.jar` |
-| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.2.jar` |
+| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.3.jar` |
+| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.3.jar` |
 
 Install **one Rusty loader jar**, not both. Use the **Versions** tab for downloads. Earlier game versions and snapshots are not supported by this beta.
 
-**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.2.3 release](https://github.com/Justeck/Rusty/releases/tag/v1.2.3), targeting **Horizon Nightly 38609b7 · native API 409 · Minecraft 26.3**. This patch separates X-ray terrain from Finder target lines, boxes and readouts. The official Windows Performance build and **5 fresh independence + 9 feature + 10 interface checks** passed. [Native installation and validation](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md#123-independent-x-ray-and-finder). These Java jars do not go into Horizon's native mod installer.
+**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.2.4 release](https://github.com/Justeck/Rusty/releases/tag/v1.2.4), targeting **Horizon Nightly 38609b7 · native API 409 · Minecraft 26.3**. The former 70% menu size is now the 100% default, with **50–300%** scaling and saved-size preservation. The official Windows Performance build, **11 fresh interface checks** and **5 X-ray/Finder rendering regressions** passed. [Native installation and validation](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md#124-compact-menu-baseline). These Java jars do not go into Horizon's native mod installer.
 
 ## Multiplayer: permission is explicit
 
@@ -94,7 +98,7 @@ Rusty does not defeat server anti-X-ray, recover deliberately withheld blocks, b
 
 ## Tested, with clear limits
 
-This beta passed fresh builds, **609 shared behavioral assertions** and **49 actual disposable-world game checks per loader**, including four new X-ray/Finder rendering checks. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this patch. These are separate kinds of evidence: the 42-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
+This beta passed fresh builds, **621 shared behavioral assertions** and **53 actual disposable-world game checks per loader**, including actual menu transforms and widget bounds at 50%, 100% and 300%, plus the existing X-ray/Finder rendering regressions. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this patch. These are separate kinds of evidence: the 42-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
 - **Rendering:** shaders, rendering replacements and arbitrary modpacks are unverified. Textured frames add geometry and can reduce FPS; terrain rebuilds are asynchronous.
 - **World information:** the minimap shows received surface colors. Projectile paths do not predict entities, random spread or future movement. Light Risk samples floor light rather than proving spawn safety.
@@ -103,6 +107,6 @@ This beta passed fresh builds, **609 shared behavioral assertions** and **49 act
 
 ## Development & licensing
 
-**AI disclosure:** code was predominantly produced with an AI coding assistant and iteratively tested. The in-game copper branding is AI-generated; page text is AI-assisted. No generative-AI service runs in-game. The project is submitted for Modrinth's manual review, including its restrictions on primarily AI-produced projects. Only genuine, unretouched game captures are used as project-page images; the generated icon was rejected and is not included.
+**AI disclosure:** code was predominantly produced with an AI coding assistant and iteratively tested. The in-game copper branding is AI-generated; page text is AI-assisted. No generative-AI service runs in-game. The project is submitted for Modrinth's manual review, including its restrictions on primarily AI-produced projects. Gameplay screenshots are original, unretouched game captures; copper branding is AI-generated and disclosed.
 
 **Apache-2.0**, with applicable notices and attribution. No Minecraft game files or third-party mod binaries are bundled. [License](https://github.com/Justeck/Rusty/blob/main/LICENSE) · [Third-party notices](https://github.com/Justeck/Rusty/blob/main/THIRD-PARTY.md)
