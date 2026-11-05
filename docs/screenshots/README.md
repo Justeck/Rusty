@@ -1,5 +1,22 @@
 # Rusty in the game
 
+**53 original screenshots, grouped by edition.** Open a gallery below, then click any image for its full-resolution file. Game captures are separate from generated brand artwork and from automated test assertions.
+
+| Edition | Collection |
+|---|---|
+| **Horizon native** | 10 original captures below: menus, textured terrain, HUD placement, lighting and profiles |
+| **Fabric / NeoForge** | [39-scene Java tour](java/tour/README.md), plus [4 original loader acceptance captures](java/README.md) |
+
+## Java edition: the expanded tour
+
+[![Textured terrain with Finder](java/tour/rusty-gallery-03-texture-default-25.png)](java/tour/README.md)
+
+The new tour covers **terrain and block selection**, **world tools**, **lighting comparisons**, and **interface/settings**. It shows real Fabric 1.3.0-beta.1 on Minecraft 26.3; Fabric and NeoForge share this UI. [Explore all 39 scenes →](java/tour/README.md) · [Original-file manifest](java/tour/manifest.json).
+
+The courtyard and dark chamber are owned test fixtures. Features are enabled for illustration; only Status HUD starts enabled by default. Restricted Java tools require server permission in multiplayer. The tour is presentation evidence, not a replacement for [Java validation](../JAVA_VALIDATION.md).
+
+## Horizon native: original captures
+
 These are fresh, unedited native game captures. The accepted executable, original capture names, dimensions and exact file hashes are recorded in [media provenance](../evidence/media.json). Generated brand artwork lives separately in [assets](../assets/branding.json). No game photograph is generated, retouched or relabeled from a previous product.
 
 | Ordinary mine | Textured X-ray |

@@ -1,5 +1,9 @@
 # Original Java-edition captures
 
+**New: [browse the 39-scene Java screenshot tour](tour/README.md).** It covers texture minimum/default/60%/maximum, ore and custom-block filters, Finder, outlines, navigation, minimap, equipment, trajectory/build previews, Freecam, Fullbright restoration, Enabled/Favorites/search, keybind clearing, contextual help, profiles, themes and menu/HUD sizing. [Exact original PNG identities](tour/manifest.json).
+
+The four acceptance captures below remain unchanged. The expanded tour is a separate visual showcase of the same released Java product, not 39 new functional acceptance tests.
+
 These are direct Minecraft framebuffer screenshots from owned, disposable 26.3 test worlds. They are not mockups and have not been retouched. The menu is shared between Fabric and NeoForge; gallery filenames identify the captured loader. Native Horizon screenshots are in the parent gallery and are labelled separately.
 
 - `rusty-neoforge-menu.png`: NeoForge 1.3.0-beta.1, fresh 45-check follow-up with the standalone R badge, 1280×720. Captured by Minecraft’s own Screenshot API through the separate QA fixture.

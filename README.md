@@ -51,6 +51,22 @@ The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.
 
 A **ten-second still-image tour** of the real native interface and renderer. [MP4](docs/media/rusty-1.2-ui-tour.mp4) · [Original captures and provenance](docs/screenshots/README.md). This is presentation media, not continuous gameplay or a frame-rate recording.
 
+## See Rusty in use
+
+**53 original game captures**, with separate Horizon and Java galleries. The new Java tour contains 39 scenes: texture coverage from minimum to 100%, ore/custom-block filters, Finder, outlines, navigation, Freecam, lighting restoration, HUD placement and the full menu workflow. Each image has a caption and an original-file hash.
+
+| Textured view — Java edition | Compact Minecraft-style controls — Java edition |
+|---|---|
+| [![25% retained original textures](docs/screenshots/java/tour/rusty-gallery-03-texture-default-25.png)](docs/screenshots/java/tour/README.md#terrain-and-block-selection) | [![Compact tool browser](docs/screenshots/java/tour/rusty-gallery-36-compact-menu.png)](docs/screenshots/java/tour/README.md#interface-and-settings) |
+
+| Detached camera — Java edition | Independent HUD layout — Java edition |
+|---|---|
+| [![Camera above the owned test courtyard](docs/screenshots/java/tour/rusty-gallery-18-detached-camera.png)](docs/screenshots/java/tour/README.md#world-tools) | [![All 18 panels in the layout editor](docs/screenshots/java/tour/rusty-gallery-30-hud-layout-editor.png)](docs/screenshots/java/tour/README.md#interface-and-settings) |
+
+[**Browse the full screenshot collection →**](docs/screenshots/README.md) · [**39-scene Java tour →**](docs/screenshots/java/tour/README.md) · [**Modrinth gallery →**](https://modrinth.com/mod/rusty-toolkit/gallery)
+
+The Java tour uses an authored, disposable singleplayer fixture. Restricted Java tools need explicit server opt-in in multiplayer. A screenshot illustrates an interface or view; it is not a new functional-test claim. Modrinth remains under review, and its gallery excludes generated artwork.
+
 ## Choose your tools
 
 | Area | Modules |
