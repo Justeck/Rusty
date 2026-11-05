@@ -1,0 +1,12 @@
+Rusty — Horizon Client Toolkit
+Copyright 2026 Justeck. Distributed under Apache-2.0, with applicable MIT component notices.
+
+The native X-ray foundation is derived from X To Xray by 1_st_Cat / RealCat1st, Apache-2.0.
+Original source: https://github.com/RealCat1st/XToXrayRust
+Modifications by Justeck: native multiplayer snapshot rendering, configuration, textured terrain context, block search, UI, input, visual tools and lifecycle handling.
+
+The native camera component includes MIT code copyright 2026 umbx-dot.
+The full notice is retained in mixins/rusty/LICENSE-Camera.rs; source provenance appears in THIRD-PARTY.md.
+
+Horizon is MIT software copyright Ludovic Marie and contributors.
+The full notice is retained in mixins/rusty/LICENSE-Horizon.rs.

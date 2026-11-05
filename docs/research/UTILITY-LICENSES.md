@@ -1,0 +1,24 @@
+# Utility reference licenses and review scope
+
+> Dated reference-mechanism research and design context. Current executable acceptance is recorded only in [Rusty validation](../VALIDATION.md).
+
+Findings frozen 2026-11-03. This is an authored research summary of the checked primary files, not a grant to reuse code or assets. No third-party source/license bodies are bundled here. The core-client licensing context is in [OPEN-CLIENTS.md](OPEN-CLIENTS.md) and [DOCUMENTED-CLIENTS.md](DOCUMENTED-CLIENTS.md).
+
+| Reference | Frozen commit | Checked license | Review depth and useful specification ideas |
+|---|---|---|---|
+| Inventory Profiles Next, archived GitHub source | `a0b16d955128421a6c6f07ef3238d974ebd58785` | [AGPL-3.0](https://github.com/blackd/Inventory-Profiles/blob/a0b16d955128421a6c6f07ef3238d974ebd58785/LICENSE) | Selected locked-slot and refill source paths inspected. Use as a behavioral specification reference for protected slots, eligible replacements and cancellation. Current Codeberg source head was not acquired; this is historical evidence. |
+| ShulkerBoxTooltip | `68e7f8e280f13f59a18a95f378b4f57b606db5fa` | [MIT](https://github.com/MisterPeModder/ShulkerBoxTooltip/blob/68e7f8e280f13f59a18a95f378b4f57b606db5fa/LICENSE) | Generic container, shulker and ender-chest providers inspected. Distinguish item-embedded contents, unavailable loot data, received cache and optional server synchronization. Native implementation still requires supported item-component access. |
+| LightOverlay | `1eb139be02aeefbe6c116c4cd32b0e3417a28443` | [Apache-2.0](https://github.com/shedaniel/LightOverlay/blob/1eb139be02aeefbe6c116c4cd32b0e3417a28443/LICENSE) | Renderer cache/range/frustum path inspected. Background update/invalidation policy was not fully reviewed; no speed claim. Useful for bounded light/risk presentation. |
+| Item Scroller | `a0384231358af8b5b76b562dd85bd3de427aa09f` | [LGPL-3.0](https://github.com/maruohon/itemscroller/blob/a0384231358af8b5b76b562dd85bd3de427aa09f/LICENSE.txt) | README/metadata review. Wheel-over-slot transfers are an interaction idea; action implementation and server correctness were not traced. |
+| MiniHUD | `f3d17d5e24d14379b8e83a0f36848d940246004b` | [LGPL-3.0](https://github.com/maruohon/minihud/blob/f3d17d5e24d14379b8e83a0f36848d940246004b/LICENSE.txt) | README/renderer-inventory review. Compact information widgets, grids, boundaries and light diagnostics; remote clients may not possess required world data for every overlay. |
+| Sodium | `6b2732bcf044e906b0f505c1ab37324869060fe2` | [PolyForm Shield 1.0.0](https://github.com/CaffeineMC/sodium/blob/6b2732bcf044e906b0f505c1ab37324869060fe2/LICENSE.md) | License/source-available reference only. No Sodium algorithm was traced and no performance claim is borrowed. Do not assume current source has a permissive or historical license. |
+| Impact ClientAPI, archived | `9d52943cd85b650a2782d99fadd3a2e0df8fef24` | [Apache-2.0](https://github.com/ImpactDevelopment/ClientAPI/blob/9d52943cd85b650a2782d99fadd3a2e0df8fef24/LICENSE) | Selected module metadata/key event source inspected. This does not establish the current proprietary Impact implementation. |
+| RusherHack example-plugin | `986db6c411a4f2312672cbd3e8f790050c83d38f` | [All rights reserved](https://github.com/RusherDevelopment/example-plugin/blob/986db6c411a4f2312672cbd3e8f790050c83d38f/LICENSE) | Selected example module source observed for API shape; public template visibility is not a permissive license. Independently design Rust metadata/settings/event behavior; do not copy template code or art. |
+
+The full open-client review also checked [Wurst GPL-3.0](https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/LICENSE.txt) and [Meteor GPL-3.0](https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/LICENSE). Source study does not turn their implementations into Apache-licensed Rusty components. No GPL/AGPL implementation was adopted by this documentation task.
+
+Additional metadata probes included Orderly and MasaGadget, but no implementation recommendation or complete component license audit is asserted for them here. A GitHub license classifier is discovery metadata; the actual LICENSE and any file-specific notices govern a proposed adoption.
+
+A protected-slot implementation needs an explicit policy. The inspected historical IPN keeper includes a no-free-unlocked-slot branch that can discard an item. Rusty should initially constrain user-requested organization without silently adopting automatic dropping. Inventory mutation, pickup rearrangement and discard behavior would each require its own visible setting, validation and controlled fixture.
+
+References can inform independent native designs. Permission to copy a compatible source file, when present, does not establish that its Java/Fabric integration, dependencies, assets or server assumptions are suitable for Horizon.

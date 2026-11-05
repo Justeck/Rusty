@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a reproducible Rusty problem.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "Remove account details, tokens, private server addresses, coordinates, and personal paths from attachments. Report security vulnerabilities through SECURITY.md."
+  - type: input
+    id: version
+    attributes:
+      label: Rusty version and source revision
+      placeholder: "1.2.0, source revision shown by your launcher"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Minecraft version, Horizon revision, enabled native mods, and relevant resource packs or shaders.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include relevant settings and a small local-world reproduction if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or screenshots
+      description: Attach only relevant, privacy-screened evidence.

@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "review_date": "2026-11-05",
+  "status": "research and original Rust design; no new runtime modules integrated by this document",
+  "projects": [
+    {
+      "repo": "squeek502/AppleSkin",
+      "branch": "1.16-forge",
+      "sha": "959e79b38d61c44f04e3113f1d18d957dc29b21f",
+      "license": "Unlicense",
+      "archived": false,
+      "description": "Food-related HUD improvements for Minecraft (AppleCore without the core)",
+      "checked_license_text": "Unlicense",
+      "sources": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "cf1ab25da0349f84a3fdd40032f0ce99db813b8b",
+          "url": "https://raw.githubusercontent.com/squeek502/AppleSkin/959e79b38d61c44f04e3113f1d18d957dc29b21f/LICENSE",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "76c1261451e267ffbd9c91619a866d5f0ffe3aa2",
+          "url": "https://raw.githubusercontent.com/squeek502/AppleSkin/959e79b38d61c44f04e3113f1d18d957dc29b21f/README.md",
+          "scope": "documented feature/architecture contract"
+        },
+        {
+          "path": "java/squeek/appleskin/helpers/FoodHelper.java",
+          "git_blob_sha": "28a56c18b7d54f6e7715438c7ccfeba8555c4408",
+          "url": "https://raw.githubusercontent.com/squeek502/AppleSkin/959e79b38d61c44f04e3113f1d18d957dc29b21f/java/squeek/appleskin/helpers/FoodHelper.java",
+          "scope": "selected implementation sections; transitive helpers and reference runtime not accepted"
+        }
+      ]
+    },
+    {
+      "repo": "Snownee/Jade",
+      "branch": "26.3-fabric",
+      "sha": "b93f559006f24b6c01135c41af5a175d7e313d12",
+      "license": "NOASSERTION",
+      "archived": false,
+      "description": "Minecraft mod that shows what you are looking at. (Hwyla fork)",
+      "checked_license_text": "CC-BY-NC-SA-4.0",
+      "sources": [
+        {
+          "path": "LICENSE.md",
+          "git_blob_sha": "887c3ab7f26ee3e02d1f47b9e0634a69abbfec79",
+          "url": "https://raw.githubusercontent.com/Snownee/Jade/b93f559006f24b6c01135c41af5a175d7e313d12/LICENSE.md",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "32bfb066ad416cd05846799ed18088ce5d20e783",
+          "url": "https://raw.githubusercontent.com/Snownee/Jade/b93f559006f24b6c01135c41af5a175d7e313d12/README.md",
+          "scope": "documented feature/architecture contract"
+        },
+        {
+          "path": "src/main/java/snownee/jade/addon/vanilla/CropProgressProvider.java",
+          "git_blob_sha": "97afb557ec8b5028cc15f2be53f81534412b5beb",
+          "url": "https://raw.githubusercontent.com/Snownee/Jade/b93f559006f24b6c01135c41af5a175d7e313d12/src/main/java/snownee/jade/addon/vanilla/CropProgressProvider.java",
+          "scope": "selected implementation sections; transitive helpers and reference runtime not accepted"
+        },
+        {
+          "path": "src/main/java/snownee/jade/api/IServerDataProvider.java",
+          "git_blob_sha": "8cecdf1e5c43e8df857952d3dae6417acddd9360",
+          "url": "https://raw.githubusercontent.com/Snownee/Jade/b93f559006f24b6c01135c41af5a175d7e313d12/src/main/java/snownee/jade/api/IServerDataProvider.java",
+          "scope": "selected implementation sections; transitive helpers and reference runtime not accepted"
+        }
+      ]
+    },
+    {
+      "repo": "emilyploszaj/emi",
+      "branch": "1.21",
+      "sha": "aa88611211e445bf35c4f7ff4db317a19308b811",
+      "license": "MIT",
+      "archived": false,
+      "description": "A featureful and accessible item and recipe viewer",
+      "checked_license_text": "MIT",
+      "sources": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "61ebf791c83fd2208f9201c363687ac9a0f9fa34",
+          "url": "https://raw.githubusercontent.com/emilyploszaj/emi/aa88611211e445bf35c4f7ff4db317a19308b811/LICENSE",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "2d0e78dbcbda580e2d008ee891249aeefd8e3de0",
+          "url": "https://raw.githubusercontent.com/emilyploszaj/emi/aa88611211e445bf35c4f7ff4db317a19308b811/README.md",
+          "scope": "documented feature/architecture contract"
+        },
+        {
+          "path": "xplat/src/main/java/dev/emi/emi/bom/TreeCost.java",
+          "git_blob_sha": "be0c901785c03e826f3a743642575a71b25d9807",
+          "url": "https://raw.githubusercontent.com/emilyploszaj/emi/aa88611211e445bf35c4f7ff4db317a19308b811/xplat/src/main/java/dev/emi/emi/bom/TreeCost.java",
+          "scope": "selected implementation sections; transitive helpers and reference runtime not accepted"
+        },
+        {
+          "path": "xplat/src/main/java/dev/emi/emi/registry/EmiStackList.java",
+          "git_blob_sha": "3fc60c5e8e3ff2b6bc6fa486dafe74d48f79f16b",
+          "url": "https://raw.githubusercontent.com/emilyploszaj/emi/aa88611211e445bf35c4f7ff4db317a19308b811/xplat/src/main/java/dev/emi/emi/registry/EmiStackList.java",
+          "scope": "selected implementation sections; transitive helpers and reference runtime not accepted"
+        }
+      ]
+    },
+    {
+      "repo": "YaLTeR/MouseTweaks",
+      "branch": "master",
+      "sha": "e8ecd08ed94192f6f19d3cbb630707c8670a4d66",
+      "license": "BSD-3-Clause",
+      "archived": false,
+      "description": "A Minecraft mod that enhances inventory management.",
+      "checked_license_text": "BSD-3-Clause",
+      "sources": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "a5eadb903ea2df9fd5f10ba198d65f8e9bc49e23",
+          "url": "https://raw.githubusercontent.com/YaLTeR/MouseTweaks/e8ecd08ed94192f6f19d3cbb630707c8670a4d66/LICENSE",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "a1c247036adec5fa51385aa291a8b891baa224e2",
+          "url": "https://raw.githubusercontent.com/YaLTeR/MouseTweaks/e8ecd08ed94192f6f19d3cbb630707c8670a4d66/README.md",
+          "scope": "documented feature/architecture contract"
+        },
+        {
+          "path": "src/main/java/yalter/mousetweaks/Main.java",
+          "git_blob_sha": "a31c17bcddbd4ac39d51acc3d7587d2675d769bb",
+          "url": "https://raw.githubusercontent.com/YaLTeR/MouseTweaks/e8ecd08ed94192f6f19d3cbb630707c8670a4d66/src/main/java/yalter/mousetweaks/Main.java",
+          "scope": "selected implementation sections; transitive helpers and reference runtime not accepted"
+        }
+      ]
+    },
+    {
+      "repo": "tr7zw/EntityCulling",
+      "branch": "main",
+      "sha": "177739fe4ca10d128e55def70eb18e0d1cb6e693",
+      "license": "NOASSERTION",
+      "archived": false,
+      "description": "Using async path-tracing to hide Tiles/Entities that are not visible",
+      "checked_license_text": "tr7zw Protective License (noncommercial restriction)",
+      "sources": [
+        {
+          "path": "LICENSE-EntityCulling",
+          "git_blob_sha": "59f4dab694fb96c33db543c3e5894f8b0ec99fec",
+          "url": "https://raw.githubusercontent.com/tr7zw/EntityCulling/177739fe4ca10d128e55def70eb18e0d1cb6e693/LICENSE-EntityCulling",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "6b0758bbe59f679e9840edb2449e96df23b2b12d",
+          "url": "https://raw.githubusercontent.com/tr7zw/EntityCulling/177739fe4ca10d128e55def70eb18e0d1cb6e693/README.md",
+          "scope": "documented feature/architecture contract"
+        }
+      ]
+    },
+    {
+      "repo": "RaphiMC/ImmediatelyFast",
+      "branch": "26.3",
+      "sha": "2d8d8bf527c90cf72130626482e474a936b9018e",
+      "license": "LGPL-3.0",
+      "archived": false,
+      "description": "Speed up immediate mode rendering in Minecraft",
+      "checked_license_text": "LGPL-3.0 (selected file says or later)",
+      "sources": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "153d416dc8d2d60076698ec3cbfce34d91436a03",
+          "url": "https://raw.githubusercontent.com/RaphiMC/ImmediatelyFast/2d8d8bf527c90cf72130626482e474a936b9018e/LICENSE",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "464d1c32ba1487f511c6e3bb6660871e36497b42",
+          "url": "https://raw.githubusercontent.com/RaphiMC/ImmediatelyFast/2d8d8bf527c90cf72130626482e474a936b9018e/README.md",
+          "scope": "documented feature/architecture contract"
+        },
+        {
+          "path": "common/src/main/java/net/raphimc/immediatelyfast/feature/sign_text_buffering/SignTextCache.java",
+          "git_blob_sha": "8d994f8eaaf59bb95527e65f39394551e03b5440",
+          "url": "https://raw.githubusercontent.com/RaphiMC/ImmediatelyFast/2d8d8bf527c90cf72130626482e474a936b9018e/common/src/main/java/net/raphimc/immediatelyfast/feature/sign_text_buffering/SignTextCache.java",
+          "scope": "selected implementation sections; transitive helpers and reference runtime not accepted"
+        }
+      ]
+    },
+    {
+      "repo": "malte0811/FerriteCore",
+      "branch": "26.1",
+      "sha": "0cef1f2add1f1329aa6e690e8e292acd625c5c6d",
+      "license": "MIT",
+      "archived": false,
+      "description": null,
+      "checked_license_text": "MIT",
+      "sources": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "bde7fc3cdb90c343323b9a1405850d10d5e1d34b",
+          "url": "https://raw.githubusercontent.com/malte0811/FerriteCore/0cef1f2add1f1329aa6e690e8e292acd625c5c6d/LICENSE",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "b582587aa38defd8eea1c1c0c57ef640fb03b4dc",
+          "url": "https://raw.githubusercontent.com/malte0811/FerriteCore/0cef1f2add1f1329aa6e690e8e292acd625c5c6d/README.md",
+          "scope": "documented feature/architecture contract"
+        },
+        {
+          "path": "summary.md",
+          "git_blob_sha": "4dc6d9dce73e1d7567a4f22a3a5f72626d6f64bb",
+          "url": "https://raw.githubusercontent.com/malte0811/FerriteCore/0cef1f2add1f1329aa6e690e8e292acd625c5c6d/summary.md",
+          "scope": "selected memory architecture explanation"
+        }
+      ]
+    },
+    {
+      "repo": "CaffeineMC/lithium",
+      "branch": "develop",
+      "sha": "77f296d85c29851bc3ac31abea96838a4ff7be18",
+      "license": "LGPL-3.0",
+      "archived": false,
+      "description": "A Minecraft mod designed to improve the general performance of the game, without compromising functionality or mod compatibility",
+      "checked_license_text": "LGPL-3.0",
+      "sources": [
+        {
+          "path": "LICENSE.md",
+          "git_blob_sha": "0a041280bd00a9d068f503b8ee7ce35214bd24a1",
+          "url": "https://raw.githubusercontent.com/CaffeineMC/lithium/77f296d85c29851bc3ac31abea96838a4ff7be18/LICENSE.md",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "c8fb99db8ecc3eca71abaf3c79021d5586e4467a",
+          "url": "https://raw.githubusercontent.com/CaffeineMC/lithium/77f296d85c29851bc3ac31abea96838a4ff7be18/README.md",
+          "scope": "documented feature/architecture contract"
+        }
+      ]
+    },
+    {
+      "repo": "cabaletta/baritone",
+      "branch": "1.21.4",
+      "sha": "1b8e87cac675d72d8094e2bea1ec7207cdbc971b",
+      "license": "LGPL-3.0",
+      "archived": false,
+      "description": "google maps for block game",
+      "checked_license_text": "LGPL-3.0; additional license material is present and was not adopted",
+      "sources": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "153d416dc8d2d60076698ec3cbfce34d91436a03",
+          "url": "https://raw.githubusercontent.com/cabaletta/baritone/1b8e87cac675d72d8094e2bea1ec7207cdbc971b/LICENSE",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "6354fd17d34052212c5fcf44e630ef62359daaf4",
+          "url": "https://raw.githubusercontent.com/cabaletta/baritone/1b8e87cac675d72d8094e2bea1ec7207cdbc971b/README.md",
+          "scope": "documented feature/architecture contract"
+        }
+      ]
+    },
+    {
+      "repo": "CaffeineMC/sodium",
+      "branch": "dev",
+      "sha": "6b2732bcf044e906b0f505c1ab37324869060fe2",
+      "license": "NOASSERTION",
+      "archived": false,
+      "description": "A high-performance rendering engine replacement for Minecraft, which greatly improves frame rates and reduces micro-stutter",
+      "checked_license_text": "PolyForm Shield 1.0.0",
+      "sources": [
+        {
+          "path": "LICENSE.md",
+          "git_blob_sha": "3f09b052c0f43515fb760d742a901fe715ce235e",
+          "url": "https://raw.githubusercontent.com/CaffeineMC/sodium/6b2732bcf044e906b0f505c1ab37324869060fe2/LICENSE.md",
+          "scope": "license text identified"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "ab9929ea6a5ff00b49b68c2d5125f6a918a8c8bd",
+          "url": "https://raw.githubusercontent.com/CaffeineMC/sodium/6b2732bcf044e906b0f505c1ab37324869060fe2/README.md",
+          "scope": "documented feature/architecture contract"
+        }
+      ]
+    }
+  ],
+  "excluded_probes": [
+    "Current maruohon/litematica, maruohon/minihud and cominixo/BetterF3 default-head probes did not complete; no new current-source claim is made. Earlier frozen research retains its own provenance."
+  ],
+  "limits": [
+    "Default source branches are research identities, not proof of latest supported releases or Minecraft 26.3 compatibility.",
+    "Reference clients/mods were not run or benchmarked.",
+    "No reference implementation or art is redistributed or relicensed by this report."
+  ]
+}

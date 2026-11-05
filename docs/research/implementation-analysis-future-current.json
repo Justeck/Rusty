@@ -1,0 +1,2015 @@
+{
+  "schema_version": 1,
+  "source_url": "https://futureclient.net/",
+  "observed_date": "2026-11-04",
+  "scope": "All seven current public module panels inspected, supplemental to frozen 884 baseline. Proprietary code/settings/runtime remain unavailable.",
+  "counts": {
+    "current_public_modules": 141,
+    "by_category": {
+      "Combat": 22,
+      "Exploits": 17,
+      "Movement": 26,
+      "Render": 26,
+      "World": 14,
+      "Miscellaneous": 28,
+      "Other": 8
+    },
+    "current_names_without_any_exact_normalized_baseline_occurrence": 61
+  },
+  "analysis": "implementation-analysis-future.md",
+  "records": [
+    {
+      "name": "AntiBots",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Track disclosed identity/profile/entity consistency with uncertainty and a user override. Test a real player with delayed profile data and a server NPC sharing normal metadata; no missing field proves bot status.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AntiBots"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Aura",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded eligible-target ranking, actual native reach/LOS/cooldown and owned normal rotation/attack. Test friend target crossing a wall, weapon swap, active food use and invalidated target just before dispatch.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/Aura"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoArmor",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Component-aware equipment suitability/protection with one ordinary acknowledged equip transaction. Test curse-bound armor, glider preference, full cursor, custom wearable slot and incoming inventory update.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoArmor"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoBowRelease",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Release a currently owned normal bow use after configured simulation charge, with ammo/component validation. Test charge below minimum, manual release, hand change, menu opening and server-cancelled use.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoBowRelease"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoCrystal",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native damage/exposure preview plus normal placement/attack queue under self/friend thresholds. Test partially occluded explosion, occupied support, no crystal, immunity state unknown and delayed placement acknowledgment.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoCrystal"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoLog",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary leave action from explicit received-health/threat policy with session identity and debounce. Test transient local damage prediction, unknown health, absorption option and reconnect before delayed leave.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoLog"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoPot",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Full potion-effect policy, self-impact prediction and normal rotation/use/slot lease. Test harmful mixed effects, poor landing geometry, manually changed slot and refused cooldown.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoPot"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoSoup",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Treat stew as food under ordinary mechanics; a server plugin healing capability is separate configuration. Test full hunger/low health on normal server, bowls, soup depletion and manual use.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoSoup"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoTotem",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Serialized ordinary offhand equip with cursor/menu/session preconditions and availability feedback. Test last totem outside hotbar, offhand food ownership, delayed update and death before completion.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoTotem"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoTrap",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded target-relative shell proposals, exact collision/support/material checks and one normal acknowledged placement. Test moving target, protected friend, partial block, no reachable face and rejected placement.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoTrap"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoXP",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary experience-bottle use at current view, bounded stock/rate and mending policy if enabled. Test player moves under low ceiling, last bottle, manual scroll, item cooldown and armor not eligible for repair.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/AutoXP"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "BowAim",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native read-only projectile simulation plus bounded target interception/rotation. Test moving shooter, water, low bow charge, blocked arc and target that changes direction.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/BowAim"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Criticals",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Normal critical-eligibility HUD and optional grounded jump timing; accepted damage decides result. Test riding, climbing, levitation, attack recharge and server correction.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/Criticals"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FeetTrap",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Explicit foot-shell placement preview with material/escape policy and native explosion estimate. Test incomplete wall, fluid/partial cell, friend overlap and self collision; no universal blast-safety claim.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/FeetTrap"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "HoleFill",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded received hole classification and reachable ordinary fill actions, with target/friend/own-hole exclusions. Test double hole, missing neighboring chunk, water, trapdoor and entity entering before placement.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/HoleFill"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "KeepSprint",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary sprint intent after attack, respecting hunger/use/ability state; distinguish intent from preserving momentum. Test native attack slowdown, food, collision and received sprint state.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/KeepSprint"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoHitDelay",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Crosshair attack scheduling should use actual native cooldown and miss policy without extra synthetic dispatch. Test rapid miss-to-hit, menu open, held button and target beyond true bounds.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/NoHitDelay"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Replenish",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Component-aware slot role memory and normal inventory transfer after count threshold/depletion. Test main-hand totem consumption, selected source protected, incompatible components and cursor occupied.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/Replenish"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "SelfFill",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "A self-cell placement preview must respect native entity collision and mark unsupported placements. Test block intersects actual body, permission denial, partial shapes and unreceived target.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/SelfFill"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "SelfTrap",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Reachable shell executor with headroom/escape and material count preview. Test player posture change, ceiling, another feature moving player and cancelled support placement.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/SelfTrap"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "SprintReset",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Optional normal sprint release/repress after confirmed ordinary hit, with input lease and no promised knockback. Test missed attack, active shield, physical sprint held and hit acknowledgment delayed.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/SprintReset"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ThrowPot",
+      "category": "Combat",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "User-invoked bounded one/two-potion sequence selected from actual health/effects and ordinary use. Test first potion heals enough, second unavailable, target surface changes and manual cancel between uses.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module/ThrowPot"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AntiHunger",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Food planning and ordinary movement-efficiency information; retain authoritative hunger/saturation changes. Test sprint/swim/attack costs and full hunger with low saturation; no damage immunity or server cost suppression claim.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ChorusControl",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Show bounded possible chorus landing space and current use status; normal fruit consumption retains actual server teleport. Test unknown destination chunks, unsafe landing, manual cancel and no deterministic destination promise.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ClickTP",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Click selects an ordinary waypoint-walk target; actual teleport requires a native permissioned action. Test far/unloaded target, border, wrong dimension and nonoperator.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ColorSigns",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local sign-format preview and ordinary editor action within actual accepted formatting rules. Test server strips color, waxed sign, front/back and text-length boundary.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Disabler",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "No portable native equivalent for breaking another server's simulation checks. Offer correction/protocol diagnostics using disclosed state. Test software remains unknown when no authoritative version marker exists.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ExtendedFirework",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary rocket scheduling with actual active-boost lifetime and stock/cooldown; no forged lifetime extension. Test expired rocket, damaged glider, duplicate use and remote boost updates.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/ExtendedFirework"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FastProjectile",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native center-line launch/damage estimate and ordinary charge timing under actual projectile mechanics. Test speed cap, shooter movement, collision and accepted damage rather than asserting increased motion.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FastUse",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native item use cadence and consumption/charge distinctions; historical protocol behavior is not a host feature. Test bow/food/shield/throwable separately with real cooldown and component duration.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NewChunks",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Method-specific received-data classifier with confidence, session scope and first-seen-age alternative clearly named. Test old chunk loaded first, misleading palette/fluid data and cross-dimension reuse.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoMineAnimation",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local mining animation customization can preserve ordinary action/state synchronization. Test actual mining progress remains visible in diagnostics and third-party visibility is not presumed.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Orebfuscator",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Search only disclosed received block facts and label uncertain observations. Test obfuscated/fake ore data, unknown chunk and later authoritative replacement; no claim to reconstruct server-withheld ore.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "PacketFly",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary authorized flight/glide/navigation alternatives with actual ability checks. Test repeated corrections stop task, changed ability and mount state; do not transplant movement-status spoofing.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/PacketFly"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Phase",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Read-only camera inspection or ordinary safe route around obstruction. Test real player collision remains intact, no valid route and unknown neighboring cell.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Phase"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "PingSpoof",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Show actual measured round-trip jitter/latency and sample age; local test simulations stay separate from live state. Test clock discontinuity, no recent samples and delayed response identity.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/PingSpoof"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "PortalGodMode",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Portal transition status and ordinary danger warning, preserving actual damage mechanics. Test failed portal, incoming damage and dimension swap invalidating pending actions.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Reach",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Render true native reach/hitbox debug and target eligibility; never enlarge accepted action range by visual setting. Test preview intersects enlarged box but real ray misses and block/entity competition.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Reach"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Swing",
+      "category": "Exploits",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local swing visibility/animation policy with normal host networking semantics. Test offhand/main-hand, cancelled interaction, arm animation disabled and actual hit still recorded.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AntiLevitation",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Render comfort/effect timer plus ordinary lateral movement and ceiling-risk warning. Test effect expiry, gravity change and levitation server update; visual override must not remove authoritative status.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoWalk",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Owned ordinary movement request with manual input/menu/session cancellation and optional route. Test held back key, obstacle, edge, lag pause and no replay after long frame.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/AutoWalk"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "BoatFly",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary boat navigation and telemetry; flight only when game grants an applicable mechanic. Test mount owner, dismount, collision, water boundary and accepted vehicle position.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/BoatFly"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ElytraFly",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary takeoff/pitch/rocket controller with actual glider/durability/clearance and correction stop. Test water, levitation, no rocket, unknown corridor and manual camera control.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/ElytraFly"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "EntityControl",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Route actual steering/jump input only through a controllable native mount and required equipment. Test untamed/no-saddle custom capability, passenger slot and vehicle unload.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/EntityControl"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "EntitySpeed",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Measure actual accepted mount speed and use native ordinary sprint/boost capability. Test speed potion/custom attribute, turn friction and correction; no arbitrary accepted multiplier promise.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FakeLag",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local motion-history/latency visualization with clear observed versus estimated positions. Test reconnect, stale snapshots, entity teleport and no misleading remote visibility claim.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/FakeLag"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FastAccel",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary movement responsiveness and acceleration HUD can expose actual physics. Test diagonal input, ice, grounded/air transition and effect modifiers; do not silently edit host friction.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FastFall",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native swept landing preview and safe ordinary descent controls. Test stairs, hole edge, fluid and accepted fall damage; altered gravity remains separate.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FastSwim",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary swim/sprint/pose intent under native abilities and water physics. Test surface transition, dolphin-style effect, flowing water and low ceiling.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Flight",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Respect received creative/spectator/native flight flags with safe input cleanup. Test flight revoked midair, reconnect and changed fly speed.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Flight"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "HighJump",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native jump-strength/effect preview with ordinary grounded request. Test jump boost, custom gravity, ceiling and no granted height increase.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "IceSpeed",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Terrain route cost and actual friction telemetry; optional local test overrides need separate scope. Test mixed ice/ordinary boundary, fluid above ice and restored fact revision.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Jesus",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Normal swim/boat route as practical liquid travel, preserving actual collision. Test source/flowing fluid, waterlogged block and no phantom solid support.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "LongJump",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded normal jump-range/landing simulation and ordinary sprint-jump timing. Test narrow platform, inherited motion, ceiling and unknown landing.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoFall",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary reachable clutch proposal and fall-risk preview, with acknowledged landing before collecting water. Test evaporating water, late use, partial landing and no valid support.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NoFall"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoJumpDelay",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Grounded jump-request scheduler respects native cooldown and real input state. Test hold beneath low ceiling, landing tick, effect changes and manual release.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NoJumpDelay"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoSlow",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Separate ordinary use/terrain controls from authoritative movement factors. Test food/shield/bow, web/water, custom components and server slowdown.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NoSlow"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Parkour",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Next-footprint edge detection plus grounded normal jump and headroom check. Test diagonal ledge, sneak, fence/slab and no safe landing.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Speed",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Accepted velocity HUD and normal sprint/jump controller; no source-specific spoofed speed mode credited. Test potion, collision, low TPS and native correction.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Speed"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Sprint",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary sprint state lease with hunger/use/direction eligibility and manual override. Test physical sprint through disable, backward motion and shield use.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Sprint"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Step",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Use native granted step attributes or ordinary jump/navigation to a raised cell. Test stair/fence/full block, low ceiling and fluid transition.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "TickShift",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bound task deadlines without replaying deferred action bursts; diagnose simulation lag separately from render lag. Test long pause and task cancellation before resumed tick.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "TridentFly",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary riptide eligibility, weather/fluid checks and native launch preview. Test no water/rain, enchantment absent, durability and glider transition.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/TridentFly"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Velocity",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Received impulse vector/knockback HUD and ordinary motion response. Test explosion/melee ordering, fluid interaction and correction; suppression is not assumed authorized physics.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Velocity"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Yaw",
+      "category": "Movement",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Nearest-cardinal normal view controller with angular wrap, sensitivity and rotation ownership. Test exactly halfway, \u00b1180, active bow and manual override.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "BetterChat",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Structured message history with timestamp/dedup/filter options, sender identity and bounded bytes. Test same text/different sender, resize wrapping, invalid regex and preserved signed metadata.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "BlockHighlight",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Exact native selection shape and targeted storage marker from current ray. Test stairs/fence, fluid, player inside shape and empty/unknown target.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Blockhighlight"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "BreadCrumbs",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Camera-relative bounded position ring and teleport/session strip breaks. Test far negative coordinates, reconnect same dimension, long stationary period and cap.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Breadcrumbs"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ESP",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Shared received-entity snapshot, interpolated real bounds and category/relation policy. Test near plane, sleeping/custom pose, unknown health and dense cap.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ExtraTab",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Received player list extensions with layout/cache budgets and explicit unknown metadata. Test long Unicode name, resize, simultaneous join/leave and missing game mode.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/ExtraTab"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FOVModifier",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Finite local FOV override with input/camera ownership and restoration to latest setting. Test zoom/sprint overlap, very small window and disable mid-animation.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Freecam",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Independent local camera, normal body simulation and owned movement/look inputs. Test body damage, world leave, physical keys held and camera/body coordinate HUD distinction.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Freecam"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Fullbright",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Original render-only brightness policy preserving actual world light and incoming effects. Test Xray overlap, night vision, reload and latest-state restoration.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Fullbright"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "InventoryInfo",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Component-aware shulker/book preview and bounded recursive contents/tooltip layout. Test unknown contents, nested large component payload, custom enchantment and search persistence.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/InventoryInfo"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NameProtect",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local display alias layer retaining true identity in internal relations/actions. Test self/friend/other names, substring collision, chat copy/export and no network identity change claim.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NameProtect"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Nametags",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Stable projected received health/items/relation data with distance/culling budget. Test unknown values, item glint/name, overlapping players and first/third-person view.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Nametags"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoBob",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local camera/hand bob amplitude control, preserving movement simulation and accessibility ownership. Test sprint/landing, user preference change while active and disable.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoRender",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Per-effect/local class render policy with bounded disabled cost and alternate critical state indicators. Test fog/particles/entity layers independently and correct pipeline restore.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NoRender"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoRotate",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Optional local camera smoothing independent of actual received action/body orientation. Test correction during use, vehicle and another rotation owner.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NoRotate"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoWeather",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Visual rain/thunder policy retaining authoritative latest weather. Test incoming storm transition, dimension change and disable restoration.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NoWeather"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "OldPotions",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Original legacy-inspired palette/glint option keyed by actual effects/components, no reference assets. Test custom potion, mixed effects, resource reload and color accessibility.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/OldPotions"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Search",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Incremental received-block index with per-frame work/result cap and stale-job rejection. Test filter changed midscan, block replacement, unknown neighbor and limit indicator.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Search"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Shader",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Original bounded postprocess/material pass, clearly distinguishing outline/glow/fill capabilities. Test resize, alpha/depth, resource loss and disabled GPU allocation.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Shader"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Skeleton",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Received model-pose bone segments transformed by actual animation/camera matrices. Test crouch/swim/glide, custom model missing bones and far-coordinate precision.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Skeleton"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Skybox",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Original local sky material/time/color settings with real weather available separately. Test no-sky dimension, resource reload and restored rendering state.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/SkyBox"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "SmallShield",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local offhand transform override retaining actual shield use/bounds. Test main-hand/offhand, blocking pose, map and animation interruption.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Tracers",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Camera-correct clipped lines to shared received target positions and finite primitive cap. Test directly behind/inside camera, unknown relation and screen resize.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Trajectories",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native read-only shadow projectile tick and actual collision/fluid queries with global segment/target budget. Test charge, source movement, water, unknown corridor and first-segment collision.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Trajectories"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ViewClip",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local third-person distance/collision controls with finite clamps and perspective restore. Test inside wall, near plane, scroll ownership and freecam overlap.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ViewModel",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Original copied first-person matrices per hand, finite rotation/translation/scale and cleanup. Test bow/map/food, zero/negative scale and resource reload.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/ViewModel"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Waypoints",
+      "category": "Render",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "World/server/dimension-scoped durable positions, actual distance labels and ordinary selected-target walking. Test dimension mismatch, body/freecam origin, duplicate name and import validation.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AirPlace",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Preview whether actual native placement supports a target; ordinary executor requires accepted support/face rules. Test unsupported air cell, custom placement item and server rejection.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/AirPlace"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AntiInteract",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "User-configured ordinary block/entity interaction filter using exact IDs and hand policy. Test sneaking, offhand, use-item fallback and excluded container versus adjacent block.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoMine",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Target-state mining planner with actual tool/LOS/reach and serial normal break acknowledgment. Test replaced block, custom hardness, player movement and active food.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/AutoMine"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoTunnel",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded oriented tunnel cross-section plan plus native navigation/mining under explicit region/material rules. Test liquid opening, gravity block, protected ore, unknown frontier and user cancellation.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Avoid",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Shape-aware normal route/movement hazard cost with explicit categories and unknown handling. Test cactus side, magma top, berry/turtle-egg state and pressure plate.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Avoid"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "FastPlace",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Normal repeated placement input under actual item cooldown and acknowledgment; preview capability separate. Test bucket versus block versus food and duplicate event dispatch.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/FastPlace"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Fucker",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Explicit selected-block removal queue with ordinary mining rules, independent from broader Nuker volume. Test valuable lookalike, allied/protected objective and unreachable block.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "GhostHand",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Received occluded target preview plus true native permitted action check. Test foreground entity/container, wall and beyond-reach object; don't synthesize hidden target.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "MultiTask",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Shared action arbitration permits only native-compatible attack/use combinations. Test shield/food/mining, offhand/mainhand conflict and a manual action winning.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoGlitchBlocks",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Track predicted versus acknowledged block revisions and expose pending/rejected state without local credit. Test reordered/late updates, dimension swap and rejected break/placement.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NoGlitchBlocks"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Nuker",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded shape/filter scan and normal one-block mining queue with tool lease. Test unbreakable, unknown, protected block, target cap and user target change.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Scaffold",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Supported below-player placement with actual collision/reach/material policy and acknowledged progress. Test diagonal edge, container support, falling block and no item.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Scaffold"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Speedmine",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native break-time estimate and tool optimization within actual mechanics. Test underwater/airborne penalties, haste/fatigue, wrong tool and rejected instant rebreak.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/SpeedMine"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Wallhack",
+      "category": "World",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Original received-block transparency filter with correct render passes and bounded revisioned rebuild. Test fluids/translucency, exposure neighbors, filter changed mid-rebuild and restore.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Announcer",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local event summary and prepared message preview; network announcements require explicit configured send automation. Test repeated event dedup, coordinate privacy, rate limit and disconnect cancellation.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Announcer"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AntiAFK",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Optional normal movement/look/swing activity under shared ownership and safe location checks. Test edge, busy hand, manual input and server idle policy; no guaranteed exemption.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AntiAim",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local cosmetic avatar orientation separate from actual camera/body/action targeting. Test use/attack alignment, vehicle and perspective.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AntiBookBan",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded decoder diagnostics/recovery rather than unlimited payload allocation; show possible unsynchronized inventory. Test compressed expansion, depth/entry budget and successful reconnect/resync.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AntiSpam",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded compiled regex/message filter with per-pattern validation and retained message identity. Test adjacent invalid regexes, costly expression, emoji and system messages.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AntiVanish",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Last-observed player-list/entity events with timestamp and uncertain cause. Test chunk unload, hidden server data and renamed identity; never infer undisclosed coordinates.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/AntiVanish"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoAccept",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Parse only explicit supported teleport-request format from verified friend identity, with expiry and user-configured ordinary command. Test spoofed displayed text, stale request, renamed friend and disabled automation.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoEat",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Component-safe food eligibility and hunger/health policy, normal use lease and finish-current-bite. Test harmful/valuable food, full hunger/low health, manual slot override and modified stack midbite.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/AutoEat"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoFish",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Owner bobber state machine, received bite signal and bounded cast/reel/recast deadlines. Test unrelated splash, no rod, hook unloaded, full inventory and remote latency.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoMount",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Eligible received mount ranking, ordinary interaction and cooldown/owner checks. Test unsteerable mount, passenger occupied, friend vehicle, target unload and failed interact.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/AutoMount"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoReconnect",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Normal connection retry with monotonic countdown/backoff, exact saved endpoint and cancel. Test intentional leave, account handoff, address change and failed login.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/AutoReconnect"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "AutoRespawn",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary delayed respawn with session/death generation and death mark capture. Test duplicate death event, user cancels, world leave and changed dimension.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "BeaconSelector",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Effect requirement reference plus ordinary valid beacon editor; extra button choices do not grant an illegal effect. Test level/payment/server rejection and changed menu.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ChestAura",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary reachable-container discovery/open/transfer requires explicit region/permission and exact menu ownership. Test blocked chest, another screen, inventory full, duplicate open and private contents not received.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ChestStealer",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Open-container normal transfer queue with filter, cursor precondition and one acknowledged move. Test merchant/crafting output, replaced menu, full destination and user click during delay.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Heaven",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Local death-camera effect can be original and purely visual; actual dead player state remains unchanged. Test respawn interrupts animation, world leave and perspective restore.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "InvCleaner",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Preview configurable junk/dominated equipment before ordinary drop queue with protected slots/components. Test enchanted/custom-named item, cursor, manual slot change and full replacement policy.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "MiddleClick",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Current true ray target chooses local friend or explicitly configured normal action, debounced and screen-aware. Test mob/item/no target, offhand use and GUI middle click.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/MiddleClick"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoSoundLag",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Coalesce/rate-limit selected local audio events and bound active voices. Test exploit-like burst, looping sound, important cue exclusion and disable.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoteBot",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Bounded decoded-song timeline and local preview first; ordinary reachable-block playback is a separate action mode. Test missing note/instrument, empty file, lagged tune and pause/resume.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "NoteTuner",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native note-state target with modulo pitch-cycle count, ordinary use and received-state recheck. Test block edited by another player, delayed update, unreachable block and bounded retries.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/NoteTuner"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "SkinBlink",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Layer-mask animation with independent user layer ownership and bounded interval. Test cape absent, layer preference changed while active and reduced motion.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Sneak",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary sneak intent with physical-key ownership, actual body state and edge behavior. Test manual sneak through disable, riding, food and focus.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Sneak"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "SongStealer",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Record only received note events with bounded timestamp/instrument track and explicit local save. Test unrelated sounds, unavailable instrument metadata, event burst and session switch.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Spammer",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "A prepared user-invoked message queue can split Unicode safely with strict rate/cancel; sending requires explicit configured automation. Test stale split continuation, command prefix, disconnect and emoji boundary.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Spammer"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Timer",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Keep actual native simulation rate authoritative; local UI timing/diagnostics remain separate. Test long frame, low TPS, pause/resume and no accumulated action burst.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "UnfocusedFPS",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native focus-aware frame cap with immediate focus restoration and minimum background responsiveness. Test minimized/focused transitions, overlay focus, uncapped setting and no background busy loop.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "XCarry",
+      "category": "Miscellaneous",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Ordinary safe inventory layout/crafting preview, preserving server close semantics and carried stack. Test close menu with cursor, rejected transaction and world leave; no extra server storage promise.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/XCarry"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Capes",
+      "category": "Other",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Original local cosmetic assets or explicitly supported identity service, distinct from others' received cosmetics. Test missing cape, cache/resource reload and no unauthorized identity/network claim.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Capes"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Chat",
+      "category": "Other",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native ordinary chat UI/send with explicit recipient/context and bounded history; any external client network is a separate integration. Test offline service, Unicode, rate limit and unsent draft preservation.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "ClickGui",
+      "category": "Other",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Native typed searchable settings, binding capture, scale and focus ownership with original layout. Test tiny window, text input versus hotkey, hold release inside menu and profile reload.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/ClickGUI"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Colors",
+      "category": "Other",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Central validated palette/tokens, retained alpha and accessible contrast with deterministic theme revision. Test RGB/HSV/hex round-trip, alpha zero, invalid input and active animation.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Colors"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Font",
+      "category": "Other",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Original/bundled permitted font stack, bounded glyph atlas and Unicode fallback. Test emoji/CJK, missing font, high DPI and cache invalidation.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "HUD",
+      "category": "Other",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Independent typed observation providers, layout persistence, units and unknown status; bounded text/geometry budgets. Test resolution change, absent world/player, long strings and refresh interval.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/HUD"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Rotations",
+      "category": "Other",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "One shared ordinary rotation arbiter with target/session/priority/expiry, sensitivity-correct output and manual-input cancellation. Test concurrent bow/build/food request, wrap, pitch clamp and world leave.",
+      "baseline_record_ids_exact_normalized_name": [
+        "Future/module_or_named_subsystem/Rotations"
+      ],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    },
+    {
+      "name": "Baritone",
+      "category": "Other",
+      "source_url": "https://futureclient.net/",
+      "observed_date": "2026-11-04",
+      "evidence": "Official public category selected in in-app browser; description read.",
+      "review_depth": "documentation-only",
+      "settings_boundary": "Complete current settings and internal algorithm unavailable.",
+      "independent_design_and_test": "Reuse Horizon's bounded ordinary path tasks with partial/failure reporting; no claim to implement an external mod. Test unreachable goal, unknown corridor, stale task ID, dynamic obstacle and manual cancel.",
+      "baseline_record_ids_exact_normalized_name": [],
+      "native_delivery": "Consult current module registry/validation; a proposal is not implementation.",
+      "reference_runtime_tested": false
+    }
+  ]
+}

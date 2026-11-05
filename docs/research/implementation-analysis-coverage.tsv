@@ -1,0 +1,885 @@
+record_id	review_depth	exact_name_group	behavior_analysis	settings_count	source_url
+wurst/module/AimAssist	focused-body-reviewed	feature/aimassist	implementation-analysis-wurst-combat.md	6	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AimAssistHack.java
+wurst/module/AirPlace	focused-body-reviewed	feature/airplace	implementation-analysis-wurst-building.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AirPlaceHack.java
+wurst/module/AnchorAura	focused-body-reviewed	feature/anchoraura	implementation-analysis-wurst-combat.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AnchorAuraHack.java
+wurst/module/AntiAFK	focused-body-reviewed	feature/antiafk	implementation-analysis-wurst-utilities.md	6	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiAfkHack.java
+wurst/module/AntiBlind	focused-body-reviewed	feature/antiblind	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiBlindHack.java
+wurst/module/AntiCactus	focused-body-reviewed	feature/anticactus	implementation-analysis-wurst-movement.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiCactusHack.java
+wurst/module/AntiEntityPush	focused-body-reviewed	feature/antientitypush	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiEntityPushHack.java
+wurst/module/AntiHunger	focused-body-reviewed	feature/antihunger	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiHungerHack.java
+wurst/module/AntiKnockback	focused-body-reviewed	feature/antiknockback	implementation-analysis-wurst-movement.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiKnockbackHack.java
+wurst/module/AntiSpam	focused-body-reviewed	feature/antispam	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiSpamHack.java
+wurst/module/AntiWaterPush	focused-body-reviewed	feature/antiwaterpush	implementation-analysis-wurst-movement.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiWaterPushHack.java
+wurst/module/AntiWobble	focused-body-reviewed	feature/antiwobble	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AntiWobbleHack.java
+wurst/module/ArrowDMG	focused-body-reviewed	feature/arrowdmg	implementation-analysis-wurst-combat.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ArrowDmgHack.java
+wurst/module/AttributeSwap	focused-body-reviewed	feature/attributeswap	implementation-analysis-wurst-combat.md	8	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AttributeSwapHack.java
+wurst/module/AutoArmor	focused-body-reviewed	feature/autoarmor	implementation-analysis-wurst-automation.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoArmorHack.java
+wurst/module/AutoBuild	focused-body-reviewed	feature/autobuild	implementation-analysis-wurst-automation.md	6	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoBuildHack.java
+wurst/module/AutoComplete	focused-body-reviewed	feature/autocomplete	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoCompleteHack.java
+wurst/module/AutoDrop	focused-body-reviewed	feature/autodrop	implementation-analysis-wurst-utilities.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoDropHack.java
+wurst/module/AutoEat	focused-body-reviewed	feature/autoeat	implementation-analysis-wurst-automation.md	9	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoEatHack.java
+wurst/module/AutoFarm	focused-body-reviewed	feature/autofarm	implementation-analysis-wurst-automation.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoFarmHack.java
+wurst/module/AutoFish	focused-body-reviewed	feature/autofish	implementation-analysis-wurst-automation.md	5	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoFishHack.java
+wurst/module/AutoLeave	focused-body-reviewed	feature/autoleave	implementation-analysis-wurst-utilities.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoLeaveHack.java
+wurst/module/AutoLibrarian	focused-body-reviewed	feature/autolibrarian	implementation-analysis-wurst-automation.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoLibrarianHack.java
+wurst/module/AutoMine	focused-body-reviewed	feature/automine	implementation-analysis-wurst-automation.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoMineHack.java
+wurst/module/AutoPotion	focused-body-reviewed	feature/autopotion	implementation-analysis-wurst-automation.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoPotionHack.java
+wurst/module/AutoReconnect	focused-body-reviewed	feature/autoreconnect	implementation-analysis-wurst-utilities.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoReconnectHack.java
+wurst/module/AutoRespawn	focused-body-reviewed	feature/autorespawn	implementation-analysis-wurst-utilities.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoRespawnHack.java
+wurst/module/AutoSign	focused-body-reviewed	feature/autosign	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoSignHack.java
+wurst/module/AutoSoup	focused-body-reviewed	feature/autosoup	implementation-analysis-wurst-automation.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoSoupHack.java
+wurst/module/AutoSprint	focused-body-reviewed	feature/autosprint	implementation-analysis-wurst-movement.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoSprintHack.java
+wurst/module/AutoSteal	focused-body-reviewed	feature/autosteal	implementation-analysis-wurst-automation.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoStealHack.java
+wurst/module/AutoSwim	focused-body-reviewed	feature/autoswim	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoSwimHack.java
+wurst/module/AutoSwitch	focused-body-reviewed	feature/autoswitch	implementation-analysis-wurst-automation.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoSwitchHack.java
+wurst/module/AutoSword	focused-body-reviewed	feature/autosword	implementation-analysis-wurst-automation.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoSwordHack.java
+wurst/module/AutoTool	body-reviewed	feature/autotool	implementation-analysis.md#autotool-and-durability-protection	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoToolHack.java
+wurst/module/AutoTotem	focused-body-reviewed	feature/autototem	implementation-analysis-wurst-automation.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoTotemHack.java
+wurst/module/AutoWalk	focused-body-reviewed	feature/autowalk	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/AutoWalkHack.java
+wurst/module/BarrierESP	focused-body-reviewed	feature/barrieresp	implementation-analysis-wurst-rendering.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/BarrierEspHack.java
+wurst/module/BaseFinder	focused-body-reviewed	feature/basefinder	implementation-analysis-wurst-rendering.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/BaseFinderHack.java
+wurst/module/Blink	focused-body-reviewed	feature/blink	implementation-analysis-wurst-movement.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/BlinkHack.java
+wurst/module/BoatFly	focused-body-reviewed	feature/boatfly	implementation-analysis-wurst-movement.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/BoatFlyHack.java
+wurst/module/BonemealAura	focused-body-reviewed	feature/bonemealaura	implementation-analysis-wurst-automation.md	12	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/BonemealAuraHack.java
+wurst/module/BowAimbot	focused-body-reviewed	feature/bowaimbot	implementation-analysis-wurst-combat.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/BowAimbotHack.java
+wurst/module/BuildRandom	focused-body-reviewed	feature/buildrandom	implementation-analysis-wurst-building.md	8	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/BuildRandomHack.java
+wurst/module/BunnyHop	focused-body-reviewed	feature/bunnyhop	implementation-analysis-wurst-movement.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/BunnyHopHack.java
+wurst/module/CameraDistance	focused-body-reviewed	feature/cameradistance	implementation-analysis-wurst-rendering.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/CameraDistanceHack.java
+wurst/module/CameraNoClip	focused-body-reviewed	feature/cameranoclip	implementation-analysis-wurst-rendering.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/CameraNoClipHack.java
+wurst/module/CaveFinder	focused-body-reviewed	feature/cavefinder	implementation-analysis-wurst-rendering.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/CaveFinderHack.java
+wurst/module/ChatTranslator	focused-body-reviewed	feature/chattranslator	implementation-analysis-wurst-utilities.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ChatTranslatorHack.java
+wurst/module/ChestESP	focused-body-reviewed	feature/chestesp	implementation-analysis-wurst-rendering.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ChestEspHack.java
+wurst/module/ClickAura	focused-body-reviewed	feature/clickaura	implementation-analysis-wurst-combat.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ClickAuraHack.java
+wurst/module/ClickGUI	focused-body-reviewed	feature/clickgui	implementation-analysis-wurst-utilities.md	7	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ClickGuiHack.java
+wurst/module/CrashChest	focused-body-reviewed	feature/crashchest	implementation-analysis-wurst-building.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/CrashChestHack.java
+wurst/module/CreativeFlight	focused-body-reviewed	feature/creativeflight	implementation-analysis-wurst-movement.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/CreativeFlightHack.java
+wurst/module/Criticals	focused-body-reviewed	feature/criticals	implementation-analysis-wurst-combat.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/CriticalsHack.java
+wurst/module/CrystalAura	focused-body-reviewed	feature/crystalaura	implementation-analysis-wurst-combat.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/CrystalAuraHack.java
+wurst/module/Derp	focused-body-reviewed	feature/derp	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/DerpHack.java
+wurst/module/Dolphin	focused-body-reviewed	feature/dolphin	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/DolphinHack.java
+wurst/module/Excavator	focused-body-reviewed	feature/excavator	implementation-analysis-wurst-building.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ExcavatorHack.java
+wurst/module/ExtraElytra	focused-body-reviewed	feature/extraelytra	implementation-analysis-wurst-movement.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ExtraElytraHack.java
+wurst/module/FancyChat	focused-body-reviewed	feature/fancychat	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FancyChatHack.java
+wurst/module/FastBreak	focused-body-reviewed	feature/fastbreak	implementation-analysis-wurst-building.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FastBreakHack.java
+wurst/module/FastLadder	focused-body-reviewed	feature/fastladder	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FastLadderHack.java
+wurst/module/FastPlace	focused-body-reviewed	feature/fastplace	implementation-analysis-wurst-building.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FastPlaceHack.java
+wurst/module/FeedAura	focused-body-reviewed	feature/feedaura	implementation-analysis-wurst-automation.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FeedAuraHack.java
+wurst/module/FightBot	focused-body-reviewed	feature/fightbot	implementation-analysis-wurst-combat.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FightBotHack.java
+wurst/module/Fish	focused-body-reviewed	feature/fish	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FishHack.java
+wurst/module/Flight	focused-body-reviewed	feature/flight	implementation-analysis-wurst-movement.md	8	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FlightHack.java
+wurst/module/Follow	focused-body-reviewed	feature/follow	implementation-analysis-wurst-combat.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FollowHack.java
+wurst/module/ForceOP	focused-body-reviewed	feature/forceop	implementation-analysis-wurst-building.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ForceOpHack.java
+wurst/module/Freecam	focused-body-reviewed	feature/freecam	implementation-analysis-wurst-movement.md	9	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FreecamHack.java
+wurst/module/Fullbright	focused-body-reviewed	feature/fullbright	implementation-analysis-wurst-rendering.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/FullbrightHack.java
+wurst/module/Glide	focused-body-reviewed	feature/glide	implementation-analysis-wurst-movement.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/GlideHack.java
+wurst/module/HandNoClip	focused-body-reviewed	feature/handnoclip	implementation-analysis-wurst-utilities.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/HandNoClipHack.java
+wurst/module/HeadRoll	focused-body-reviewed	feature/headroll	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/HeadRollHack.java
+wurst/module/HealthTags	focused-body-reviewed	feature/healthtags	implementation-analysis-wurst-rendering.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/HealthTagsHack.java
+wurst/module/HighJump	focused-body-reviewed	feature/highjump	implementation-analysis-wurst-movement.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/HighJumpHack.java
+wurst/module/InfiniChat	focused-body-reviewed	feature/infinichat	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/InfiniChatHack.java
+wurst/module/InstaBuild	focused-body-reviewed	feature/instabuild	implementation-analysis-wurst-building.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/InstaBuildHack.java
+wurst/module/InstantBunker	focused-body-reviewed	feature/instantbunker	implementation-analysis-wurst-building.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/InstantBunkerHack.java
+wurst/module/InvWalk	focused-body-reviewed	feature/invwalk	implementation-analysis-wurst-movement.md	5	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/InvWalkHack.java
+wurst/module/ItemESP	focused-body-reviewed	feature/itemesp	implementation-analysis-wurst-rendering.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ItemEspHack.java
+wurst/module/ItemGenerator	focused-body-reviewed	feature/itemgenerator	implementation-analysis-wurst-building.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ItemGeneratorHack.java
+wurst/module/Jesus	focused-body-reviewed	feature/jesus	implementation-analysis-wurst-movement.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/JesusHack.java
+wurst/module/Jetpack	focused-body-reviewed	feature/jetpack	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/JetpackHack.java
+wurst/module/Kaboom	focused-body-reviewed	feature/kaboom	implementation-analysis-wurst-building.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/KaboomHack.java
+wurst/module/Killaura	focused-body-reviewed	feature/killaura	implementation-analysis-wurst-combat.md	6	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/KillauraHack.java
+wurst/module/KillauraLegit	focused-body-reviewed	feature/killauralegit	implementation-analysis-wurst-combat.md	6	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/KillauraLegitHack.java
+wurst/module/KillPotion	focused-body-reviewed	feature/killpotion	implementation-analysis-wurst-combat.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/KillPotionHack.java
+wurst/module/Liquids	focused-body-reviewed	feature/liquids	implementation-analysis-wurst-building.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/LiquidsHack.java
+wurst/module/LSD	focused-body-reviewed	feature/lsd	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/LsdHack.java
+wurst/module/MaceDMG	focused-body-reviewed	feature/macedmg	implementation-analysis-wurst-combat.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/MaceDmgHack.java
+wurst/module/MassTPA	focused-body-reviewed	feature/masstpa	implementation-analysis-wurst-utilities.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/MassTpaHack.java
+wurst/module/MileyCyrus	focused-body-reviewed	feature/mileycyrus	implementation-analysis-wurst-utilities.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/MileyCyrusHack.java
+wurst/module/MobESP	focused-body-reviewed	feature/mobesp	implementation-analysis-wurst-rendering.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/MobEspHack.java
+wurst/module/MobSpawnESP	focused-body-reviewed	feature/mobspawnesp	implementation-analysis-wurst-rendering.md	5	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/MobSpawnEspHack.java
+wurst/module/MultiAura	focused-body-reviewed	feature/multiaura	implementation-analysis-wurst-combat.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/MultiAuraHack.java
+wurst/module/NameProtect	focused-body-reviewed	feature/nameprotect	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NameProtectHack.java
+wurst/module/NameTags	focused-body-reviewed	feature/nametags	implementation-analysis-wurst-rendering.md	5	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NameTagsHack.java
+wurst/module/Navigator	focused-body-reviewed	feature/navigator	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NavigatorHack.java
+wurst/module/NewChunks	focused-body-reviewed	feature/newchunks	implementation-analysis-wurst-rendering.md	8	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NewChunksHack.java
+wurst/module/NoBackground	focused-body-reviewed	feature/nobackground	implementation-analysis-wurst-utilities.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoBackgroundHack.java
+wurst/module/NoClip	focused-body-reviewed	feature/noclip	implementation-analysis-wurst-movement.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoClipHack.java
+wurst/module/NoFall	focused-body-reviewed	feature/nofall	implementation-analysis-wurst-movement.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoFallHack.java
+wurst/module/NoFireOverlay	focused-body-reviewed	feature/nofireoverlay	implementation-analysis-wurst-utilities.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoFireOverlayHack.java
+wurst/module/NoFog	focused-body-reviewed	feature/nofog	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoFogHack.java
+wurst/module/NoHurtcam	focused-body-reviewed	feature/nohurtcam	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoHurtcamHack.java
+wurst/module/NoLevitation	focused-body-reviewed	feature/nolevitation	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoLevitationHack.java
+wurst/module/NoOverlay	focused-body-reviewed	feature/nooverlay	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoOverlayHack.java
+wurst/module/NoPumpkin	focused-body-reviewed	feature/nopumpkin	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoPumpkinHack.java
+wurst/module/NoShieldOverlay	focused-body-reviewed	feature/noshieldoverlay	implementation-analysis-wurst-utilities.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoShieldOverlayHack.java
+wurst/module/NoSlowdown	focused-body-reviewed	feature/noslowdown	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoSlowdownHack.java
+wurst/module/NoVignette	focused-body-reviewed	feature/novignette	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoVignetteHack.java
+wurst/module/NoWeather	focused-body-reviewed	feature/noweather	implementation-analysis-wurst-utilities.md	5	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoWeatherHack.java
+wurst/module/NoWeb	focused-body-reviewed	feature/noweb	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NoWebHack.java
+wurst/module/Nuker	focused-body-reviewed	feature/nuker	implementation-analysis-wurst-building.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NukerHack.java
+wurst/module/NukerLegit	focused-body-reviewed	feature/nukerlegit	implementation-analysis-wurst-building.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/NukerLegitHack.java
+wurst/module/OpenWaterESP	focused-body-reviewed	feature/openwateresp	implementation-analysis-wurst-rendering.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/OpenWaterEspHack.java
+wurst/module/Overlay	focused-body-reviewed	feature/overlay	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/OverlayHack.java
+wurst/module/Panic	focused-body-reviewed	feature/panic	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/PanicHack.java
+wurst/module/Parkour	focused-body-reviewed	feature/parkour	implementation-analysis-wurst-movement.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ParkourHack.java
+wurst/module/PlayerESP	focused-body-reviewed	feature/playeresp	implementation-analysis-wurst-rendering.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/PlayerEspHack.java
+wurst/module/PortalESP	focused-body-reviewed	feature/portalesp	implementation-analysis-wurst-rendering.md	9	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/PortalEspHack.java
+wurst/module/PortalGUI	focused-body-reviewed	feature/portalgui	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/PortalGuiHack.java
+wurst/module/ProphuntESP	focused-body-reviewed	feature/prophuntesp	implementation-analysis-wurst-rendering.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ProphuntEspHack.java
+wurst/module/Protect	focused-body-reviewed	feature/protect	implementation-analysis-wurst-combat.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ProtectHack.java
+wurst/module/Radar	focused-body-reviewed	feature/radar	implementation-analysis-wurst-rendering.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/RadarHack.java
+wurst/module/RainbowUI	focused-body-reviewed	feature/rainbowui	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/RainbowUiHack.java
+wurst/module/Reach	focused-body-reviewed	feature/reach	implementation-analysis-wurst-utilities.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ReachHack.java
+wurst/module/RemoteView	focused-body-reviewed	feature/remoteview	implementation-analysis-wurst-rendering.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/RemoteViewHack.java
+wurst/module/Restock	focused-body-reviewed	feature/restock	implementation-analysis-wurst-automation.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/RestockHack.java
+wurst/module/SafeWalk	body-reviewed	feature/safewalk	implementation-analysis.md#safewalk-edge-sneaking-and-parkour	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/SafeWalkHack.java
+wurst/module/ScaffoldWalk	focused-body-reviewed	feature/scaffoldwalk	implementation-analysis-wurst-building.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ScaffoldWalkHack.java
+wurst/module/Search	focused-body-reviewed	feature/search	implementation-analysis-wurst-rendering.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/SearchHack.java
+wurst/module/SkinDerp	focused-body-reviewed	feature/skinderp	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/SkinDerpHack.java
+wurst/module/Sneak	focused-body-reviewed	feature/sneak	implementation-analysis-wurst-movement.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/SneakHack.java
+wurst/module/SnowShoe	focused-body-reviewed	feature/snowshoe	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/SnowShoeHack.java
+wurst/module/SpeedHack	focused-body-reviewed	feature/speedhack	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/SpeedHackHack.java
+wurst/module/SpeedNuker	focused-body-reviewed	feature/speednuker	implementation-analysis-wurst-building.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/SpeedNukerHack.java
+wurst/module/Spider	focused-body-reviewed	feature/spider	implementation-analysis-wurst-movement.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/SpiderHack.java
+wurst/module/Step	focused-body-reviewed	feature/step	implementation-analysis-wurst-movement.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/StepHack.java
+wurst/module/TemplateTool	focused-body-reviewed	feature/templatetool	implementation-analysis-wurst-building.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TemplateToolHack.java
+wurst/module/Throw	focused-body-reviewed	feature/throw	implementation-analysis-wurst-combat.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/ThrowHack.java
+wurst/module/Tillaura	focused-body-reviewed	feature/tillaura	implementation-analysis-wurst-automation.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TillauraHack.java
+wurst/module/Timer	focused-body-reviewed	feature/timer	implementation-analysis-wurst-movement.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TimerHack.java
+wurst/module/Tired	focused-body-reviewed	feature/tired	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TiredHack.java
+wurst/module/TooManyHax	focused-body-reviewed	feature/toomanyhax	implementation-analysis-wurst-utilities.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TooManyHaxHack.java
+wurst/module/TP-Aura	focused-body-reviewed	feature/tpaura	implementation-analysis-wurst-combat.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TpAuraHack.java
+wurst/module/Trajectories	focused-body-reviewed	feature/trajectories	implementation-analysis-wurst-rendering.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TrajectoriesHack.java
+wurst/module/TreeBot	focused-body-reviewed	feature/treebot	implementation-analysis-wurst-automation.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TreeBotHack.java
+wurst/module/TriggerBot	body-reviewed	feature/triggerbot	implementation-analysis.md#triggerbot-aura-and-targeting	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TriggerBotHack.java
+wurst/module/TrollPotion	focused-body-reviewed	feature/trollpotion	implementation-analysis-wurst-building.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TrollPotionHack.java
+wurst/module/TrueSight	focused-body-reviewed	feature/truesight	implementation-analysis-wurst-rendering.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TrueSightHack.java
+wurst/module/Tunneller	focused-body-reviewed	feature/tunneller	implementation-analysis-wurst-building.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/TunnellerHack.java
+wurst/module/VeinMiner	focused-body-reviewed	feature/veinminer	implementation-analysis-wurst-building.md	5	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/VeinMinerHack.java
+wurst/module/X-Ray	focused-body-reviewed	feature/xray	implementation-analysis-wurst-rendering.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/hacks/XRayHack.java
+wurst/command/addalt	focused-body-reviewed	command/addalt	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/AddAltCmd.java
+wurst/command/annoy	focused-body-reviewed	command/annoy	implementation-analysis-wurst-commands.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/AnnoyCmd.java
+wurst/command/author	focused-body-reviewed	command/author	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/AuthorCmd.java
+wurst/command/bind	focused-body-reviewed	command/bind	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/BindCmd.java
+wurst/command/binds	focused-body-reviewed	command/binds	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/BindsCmd.java
+wurst/command/blink	focused-body-reviewed	command/blink	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/BlinkCmd.java
+wurst/command/blocklist	focused-body-reviewed	command/blocklist	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/BlockListCmd.java
+wurst/command/clear	focused-body-reviewed	command/clear	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/ClearCmd.java
+wurst/command/copyitem	focused-body-reviewed	command/copyitem	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/CopyItemCmd.java
+wurst/command/damage	focused-body-reviewed	command/damage	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/DamageCmd.java
+wurst/command/dig	focused-body-reviewed	command/dig	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/DigCmd.java
+wurst/command/drop	focused-body-reviewed	command/drop	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/DropCmd.java
+wurst/command/enabledhax	focused-body-reviewed	command/enabledhax	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/EnabledHaxCmd.java
+wurst/command/enchant	focused-body-reviewed	command/enchant	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/EnchantCmd.java
+wurst/command/excavate	focused-body-reviewed	command/excavate	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/ExcavateCmd.java
+wurst/command/features	focused-body-reviewed	command/features	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/FeaturesCmd.java
+wurst/command/follow	focused-body-reviewed	command/follow	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/FollowCmd.java
+wurst/command/friends	focused-body-reviewed	command/friends	implementation-analysis-wurst-commands.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/FriendsCmd.java
+wurst/command/getpos	focused-body-reviewed	command/getpos	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/GetPosCmd.java
+wurst/command/give	focused-body-reviewed	command/give	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/GiveCmd.java
+wurst/command/gm	focused-body-reviewed	command/gm	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/GmCmd.java
+wurst/command/goto	focused-body-reviewed	command/goto	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/GoToCmd.java
+wurst/command/help	focused-body-reviewed	command/help	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/HelpCmd.java
+wurst/command/invsee	focused-body-reviewed	command/invsee	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/InvseeCmd.java
+wurst/command/ip	focused-body-reviewed	command/ip	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/IpCmd.java
+wurst/command/itemlist	focused-body-reviewed	command/itemlist	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/ItemListCmd.java
+wurst/command/jump	focused-body-reviewed	command/jump	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/JumpCmd.java
+wurst/command/leave	focused-body-reviewed	command/leave	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/LeaveCmd.java
+wurst/command/modify	focused-body-reviewed	command/modify	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/ModifyCmd.java
+wurst/command/path	focused-body-reviewed	command/path	implementation-analysis-wurst-commands.md	2	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/PathCmd.java
+wurst/command/potion	focused-body-reviewed	command/potion	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/PotionCmd.java
+wurst/command/protect	focused-body-reviewed	command/protect	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/ProtectCmd.java
+wurst/command/rename	focused-body-reviewed	command/rename	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/RenameCmd.java
+wurst/command/repair	focused-body-reviewed	command/repair	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/RepairCmd.java
+wurst/command/rv	focused-body-reviewed	command/rv	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/RvCmd.java
+wurst/command/say	focused-body-reviewed	command/say	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/SayCmd.java
+wurst/command/setblock	focused-body-reviewed	command/setblock	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/SetBlockCmd.java
+wurst/command/setcheckbox	focused-body-reviewed	command/setcheckbox	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/SetCheckboxCmd.java
+wurst/command/setcolor	focused-body-reviewed	command/setcolor	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/SetColorCmd.java
+wurst/command/setmode	focused-body-reviewed	command/setmode	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/SetModeCmd.java
+wurst/command/setslider	focused-body-reviewed	command/setslider	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/SetSliderCmd.java
+wurst/command/settings	focused-body-reviewed	command/settings	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/SettingsCmd.java
+wurst/command/sv	focused-body-reviewed	command/sv	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/SvCmd.java
+wurst/command/taco	focused-body-reviewed	command/taco	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/TacoCmd.java
+wurst/command/t	focused-body-reviewed	command/t	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/TCmd.java
+wurst/command/toomanyhax	focused-body-reviewed	command/toomanyhax	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/TooManyHaxCmd.java
+wurst/command/tp	focused-body-reviewed	command/tp	implementation-analysis-wurst-commands.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/TpCmd.java
+wurst/command/unbind	focused-body-reviewed	command/unbind	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/UnbindCmd.java
+wurst/command/vclip	focused-body-reviewed	command/vclip	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/VClipCmd.java
+wurst/command/viewcomp	focused-body-reviewed	command/viewcomp	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/ViewCompCmd.java
+wurst/command/viewnbt	focused-body-reviewed	command/viewnbt	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/ViewNbtCmd.java
+wurst/command/xray	focused-body-reviewed	command/xray	implementation-analysis-wurst-commands.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/commands/XrayCmd.java
+wurst/other_feature/Changelog	focused-body-reviewed	feature/changelog	implementation-analysis-wurst-platform.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/ChangelogOtf.java
+wurst/other_feature/CleanUp	focused-body-reviewed	feature/cleanup	implementation-analysis-wurst-platform.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/CleanUpOtf.java
+wurst/other_feature/DisableWurst	focused-body-reviewed	feature/disablewurst	implementation-analysis-wurst-platform.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/DisableOtf.java
+wurst/other_feature/HackList	focused-body-reviewed	feature/hacklist	implementation-analysis-wurst-platform.md	6	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/HackListOtf.java
+wurst/other_feature/Keybinds	focused-body-reviewed	feature/keybinds	implementation-analysis-wurst-platform.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/KeybindManagerOtf.java
+wurst/other_feature/LastServer	focused-body-reviewed	feature/lastserver	implementation-analysis-wurst-platform.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/LastServerOtf.java
+wurst/other_feature/NoChatReports	focused-body-reviewed	feature/nochatreports	implementation-analysis-wurst-platform.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/NoChatReportsOtf.java
+wurst/other_feature/NoTelemetry	focused-body-reviewed	feature/notelemetry	implementation-analysis-wurst-platform.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/NoTelemetryOtf.java
+wurst/other_feature/Reconnect	focused-body-reviewed	feature/reconnect	implementation-analysis-wurst-platform.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/ReconnectOtf.java
+wurst/other_feature/ServerFinder	focused-body-reviewed	feature/serverfinder	implementation-analysis-wurst-platform.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/ServerFinderOtf.java
+wurst/other_feature/TabGUI	focused-body-reviewed	feature/tabgui	implementation-analysis-wurst-platform.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/TabGuiOtf.java
+wurst/other_feature/Translations	focused-body-reviewed	feature/translations	implementation-analysis-wurst-platform.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/TranslationsOtf.java
+wurst/other_feature/VanillaSpoof	focused-body-reviewed	feature/vanillaspoof	implementation-analysis-wurst-platform.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/VanillaSpoofOtf.java
+wurst/other_feature/WikiDataExport	focused-body-reviewed	feature/wikidataexport	implementation-analysis-wurst-platform.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/WikiDataExportOtf.java
+wurst/other_feature/WurstCapes	focused-body-reviewed	feature/wurstcapes	implementation-analysis-wurst-platform.md	0	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/WurstCapesOtf.java
+wurst/other_feature/WurstLogo	focused-body-reviewed	feature/wurstlogo	implementation-analysis-wurst-platform.md	3	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/WurstLogoOtf.java
+wurst/other_feature/WurstOptions	focused-body-reviewed	feature/wurstoptions	implementation-analysis-wurst-platform.md	1	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/WurstOptionsOtf.java
+wurst/other_feature/Zoom	focused-body-reviewed	feature/zoom	implementation-analysis-wurst-platform.md	4	https://github.com/Wurst-Imperium/Wurst7/blob/4e4a957e87ffd79d120835fb47fa9c139006abb8/src/main/java/net/wurstclient/other_features/ZoomOtf.java
+meteor/module/anchor-aura	focused-body-reviewed	feature/anchoraura	implementation-analysis-combat.md	24	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AnchorAura.java
+meteor/module/anti-anchor	focused-body-reviewed	feature/antianchor	implementation-analysis-combat.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AntiAnchor.java
+meteor/module/anti-anvil	focused-body-reviewed	feature/antianvil	implementation-analysis-combat.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AntiAnvil.java
+meteor/module/anti-bed	focused-body-reviewed	feature/antibed	implementation-analysis-combat.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AntiBed.java
+meteor/module/arrow-dodge	focused-body-reviewed	feature/arrowdodge	implementation-analysis-combat.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/ArrowDodge.java
+meteor/module/attribute-swap	focused-body-reviewed	feature/attributeswap	implementation-analysis-combat.md	34	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AttributeSwap.java
+meteor/module/auto-anvil	focused-body-reviewed	feature/autoanvil	implementation-analysis-combat.md	8	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoAnvil.java
+meteor/module/auto-armor	focused-body-reviewed	feature/autoarmor	implementation-analysis-combat.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoArmor.java
+meteor/module/auto-city	focused-body-reviewed	feature/autocity	implementation-analysis-combat.md	12	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoCity.java
+meteor/module/auto-exp	focused-body-reviewed	feature/autoexp	implementation-analysis-combat.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoEXP.java
+meteor/module/auto-log	focused-body-reviewed	feature/autolog	implementation-analysis-combat.md	13	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoLog.java
+meteor/module/auto-totem	body-reviewed	feature/autototem	implementation-analysis-combat.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoTotem.java
+meteor/module/auto-trap	focused-body-reviewed	feature/autotrap	implementation-analysis-combat.md	17	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoTrap.java
+meteor/module/auto-weapon	focused-body-reviewed	feature/autoweapon	implementation-analysis-combat.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoWeapon.java
+meteor/module/auto-web	focused-body-reviewed	feature/autoweb	implementation-analysis-combat.md	12	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/AutoWeb.java
+meteor/module/bed-aura	focused-body-reviewed	feature/bedaura	implementation-analysis-combat.md	18	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/BedAura.java
+meteor/module/bow-aimbot	focused-body-reviewed	feature/bowaimbot	implementation-analysis-combat.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/BowAimbot.java
+meteor/module/bow-spam	focused-body-reviewed	feature/bowspam	implementation-analysis-combat.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/BowSpam.java
+meteor/module/burrow	focused-body-reviewed	feature/burrow	implementation-analysis-combat.md	9	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/Burrow.java
+meteor/module/criticals	focused-body-reviewed	feature/criticals	implementation-analysis-combat.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/Criticals.java
+meteor/module/crystal-aura	focused-body-reviewed	feature/crystalaura	implementation-analysis-combat.md	57	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/CrystalAura.java
+meteor/module/hitboxes	focused-body-reviewed	feature/hitboxes	implementation-analysis-combat.md	12	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/Hitboxes.java
+meteor/module/hole-filler	focused-body-reviewed	feature/holefiller	implementation-analysis-combat.md	23	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/HoleFiller.java
+meteor/module/kill-aura	focused-body-reviewed	feature/killaura	implementation-analysis-combat.md	26	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/KillAura.java
+meteor/module/offhand	focused-body-reviewed	feature/offhand	implementation-analysis-combat.md	12	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/Offhand.java
+meteor/module/quiver	focused-body-reviewed	feature/quiver	implementation-analysis-combat.md	8	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/Quiver.java
+meteor/module/self-anvil	focused-body-reviewed	feature/selfanvil	implementation-analysis-combat.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/SelfAnvil.java
+meteor/module/self-trap	focused-body-reviewed	feature/selftrap	implementation-analysis-combat.md	11	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/SelfTrap.java
+meteor/module/self-web	focused-body-reviewed	feature/selfweb	implementation-analysis-combat.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/SelfWeb.java
+meteor/module/surround	focused-body-reviewed	feature/surround	implementation-analysis-combat.md	25	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/combat/Surround.java
+meteor/module/anti-packet-kick	focused-body-reviewed	feature/antipacketkick	implementation-analysis-utilities.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/AntiPacketKick.java
+meteor/module/auto-reconnect	focused-body-reviewed	feature/autoreconnect	implementation-analysis-utilities.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/AutoReconnect.java
+meteor/module/better-beacons	focused-body-reviewed	feature/betterbeacons	implementation-analysis-utilities.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/BetterBeacons.java
+meteor/module/better-chat	focused-body-reviewed	feature/betterchat	implementation-analysis-utilities.md	23	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/BetterChat.java
+meteor/module/book-bot	focused-body-reviewed	feature/bookbot	implementation-analysis-utilities.md	10	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/BookBot.java
+meteor/module/discord-presence	focused-body-reviewed	feature/discordpresence	implementation-analysis-utilities.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/DiscordPresence.java
+meteor/module/inventory-tweaks	focused-body-reviewed	feature/inventorytweaks	implementation-analysis-utilities.md	28	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/InventoryTweaks.java
+meteor/module/message-aura	focused-body-reviewed	feature/messageaura	implementation-analysis-utilities.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/MessageAura.java
+meteor/module/notebot	focused-body-reviewed	feature/notebot	implementation-analysis-meteor-commands.md	23	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/Notebot.java
+meteor/module/notifier	focused-body-reviewed	feature/notifier	implementation-analysis-utilities.md	18	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/Notifier.java
+meteor/module/packet-canceller	focused-body-reviewed	feature/packetcanceller	implementation-analysis-utilities.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/PacketCanceller.java
+meteor/module/packet-logger	focused-body-reviewed	feature/packetlogger	implementation-analysis-utilities.md	11	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/PacketLogger.java
+meteor/module/server-spoof	focused-body-reviewed	feature/serverspoof	implementation-analysis-utilities.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/ServerSpoof.java
+meteor/module/sound-blocker	focused-body-reviewed	feature/soundblocker	implementation-analysis-utilities.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/SoundBlocker.java
+meteor/module/spam	focused-body-reviewed	feature/spam	implementation-analysis-utilities.md	11	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/Spam.java
+meteor/module/swarm	focused-body-reviewed	feature/swarm	implementation-analysis-meteor-commands.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/misc/swarm/Swarm.java
+meteor/module/air-jump	focused-body-reviewed	feature/airjump	implementation-analysis-movement.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/AirJump.java
+meteor/module/anchor	focused-body-reviewed	feature/anchor	implementation-analysis-movement.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Anchor.java
+meteor/module/anti-void	focused-body-reviewed	feature/antivoid	implementation-analysis-movement.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/AntiVoid.java
+meteor/module/auto-jump	focused-body-reviewed	feature/autojump	implementation-analysis-movement.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/AutoJump.java
+meteor/module/auto-walk	focused-body-reviewed	feature/autowalk	implementation-analysis-movement.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/AutoWalk.java
+meteor/module/auto-wasp	focused-body-reviewed	feature/autowasp	implementation-analysis-movement.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/AutoWasp.java
+meteor/module/blink	focused-body-reviewed	feature/blink	implementation-analysis-movement.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Blink.java
+meteor/module/click-tp	focused-body-reviewed	feature/clicktp	implementation-analysis-movement.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/ClickTP.java
+meteor/module/elytra-boost	focused-body-reviewed	feature/elytraboost	implementation-analysis-movement.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/ElytraBoost.java
+meteor/module/elytra-fly	focused-body-reviewed	feature/elytrafly	implementation-analysis-movement.md	36	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/elytrafly/ElytraFly.java
+meteor/module/entity-control	focused-body-reviewed	feature/entitycontrol	implementation-analysis-movement.md	14	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/EntityControl.java
+meteor/module/fast-climb	focused-body-reviewed	feature/fastclimb	implementation-analysis-movement.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/FastClimb.java
+meteor/module/flight	focused-body-reviewed	feature/flight	implementation-analysis-movement.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Flight.java
+meteor/module/gui-move	focused-body-reviewed	feature/guimove	implementation-analysis-movement.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/GUIMove.java
+meteor/module/high-jump	focused-body-reviewed	feature/highjump	implementation-analysis-movement.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/HighJump.java
+meteor/module/jesus	focused-body-reviewed	feature/jesus	implementation-analysis-movement.md	13	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Jesus.java
+meteor/module/long-jump	focused-body-reviewed	feature/longjump	implementation-analysis-movement.md	10	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/LongJump.java
+meteor/module/no-fall	body-reviewed	feature/nofall	implementation-analysis-movement.md	8	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/NoFall.java
+meteor/module/no-slow	focused-body-reviewed	feature/noslow	implementation-analysis-movement.md	12	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/NoSlow.java
+meteor/module/parkour	body-reviewed	feature/parkour	implementation-analysis-movement.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Parkour.java
+meteor/module/reverse-step	focused-body-reviewed	feature/reversestep	implementation-analysis-movement.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/ReverseStep.java
+meteor/module/safe-walk	body-reviewed	feature/safewalk	implementation-analysis-movement.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/SafeWalk.java
+meteor/module/scaffold	body-reviewed	feature/scaffold	implementation-analysis-movement.md	18	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Scaffold.java
+meteor/module/slippy	focused-body-reviewed	feature/slippy	implementation-analysis-movement.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Slippy.java
+meteor/module/sneak	focused-body-reviewed	feature/sneak	implementation-analysis-movement.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Sneak.java
+meteor/module/speed	focused-body-reviewed	feature/speed	implementation-analysis-movement.md	8	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/speed/Speed.java
+meteor/module/spider	focused-body-reviewed	feature/spider	implementation-analysis-movement.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Spider.java
+meteor/module/sprint	focused-body-reviewed	feature/sprint	implementation-analysis-movement.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Sprint.java
+meteor/module/step	body-reviewed	feature/step	implementation-analysis-movement.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Step.java
+meteor/module/trident-boost	focused-body-reviewed	feature/tridentboost	implementation-analysis-movement.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/TridentBoost.java
+meteor/module/velocity	focused-body-reviewed	feature/velocity	implementation-analysis-movement.md	14	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/movement/Velocity.java
+meteor/module/air-place	focused-body-reviewed	feature/airplace	implementation-analysis-automation.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AirPlace.java
+meteor/module/anti-afk	focused-body-reviewed	feature/antiafk	implementation-analysis-automation.md	13	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AntiAFK.java
+meteor/module/anti-hunger	focused-body-reviewed	feature/antihunger	implementation-analysis-automation.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AntiHunger.java
+meteor/module/auto-clicker	focused-body-reviewed	feature/autoclicker	implementation-analysis-automation.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AutoClicker.java
+meteor/module/auto-eat	body-reviewed	feature/autoeat	implementation-analysis-automation.md	8	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AutoEat.java
+meteor/module/auto-fish	body-reviewed	feature/autofish	implementation-analysis-automation.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AutoFish.java
+meteor/module/auto-gap	focused-body-reviewed	feature/autogap	implementation-analysis-automation.md	11	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AutoGap.java
+meteor/module/auto-mend	focused-body-reviewed	feature/automend	implementation-analysis-automation.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AutoMend.java
+meteor/module/auto-replenish	body-reviewed	feature/autoreplenish	implementation-analysis-automation.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AutoReplenish.java
+meteor/module/auto-respawn	focused-body-reviewed	feature/autorespawn	implementation-analysis-automation.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AutoRespawn.java
+meteor/module/auto-tool	body-reviewed	feature/autotool	implementation-analysis-automation.md	10	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/AutoTool.java
+meteor/module/break-delay	focused-body-reviewed	feature/breakdelay	implementation-analysis-automation.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/BreakDelay.java
+meteor/module/chest-swap	focused-body-reviewed	feature/chestswap	implementation-analysis-automation.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/ChestSwap.java
+meteor/module/exp-thrower	focused-body-reviewed	feature/expthrower	implementation-analysis-automation.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/EXPThrower.java
+meteor/module/fake-player	focused-body-reviewed	feature/fakeplayer	implementation-analysis-meteor-commands.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/FakePlayer.java
+meteor/module/fast-use	focused-body-reviewed	feature/fastuse	implementation-analysis-automation.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/FastUse.java
+meteor/module/ghost-hand	focused-body-reviewed	feature/ghosthand	implementation-analysis-automation.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/GhostHand.java
+meteor/module/instant-rebreak	focused-body-reviewed	feature/instantrebreak	implementation-analysis-automation.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/InstantRebreak.java
+meteor/module/liquid-interact	focused-body-reviewed	feature/liquidinteract	implementation-analysis-automation.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/LiquidInteract.java
+meteor/module/middle-click-extra	focused-body-reviewed	feature/middleclickextra	implementation-analysis-automation.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/MiddleClickExtra.java
+meteor/module/multitask	focused-body-reviewed	feature/multitask	implementation-analysis-automation.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/Multitask.java
+meteor/module/name-protect	focused-body-reviewed	feature/nameprotect	implementation-analysis-automation.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/NameProtect.java
+meteor/module/no-interact	focused-body-reviewed	feature/nointeract	implementation-analysis-automation.md	13	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/NoInteract.java
+meteor/module/no-mining-trace	focused-body-reviewed	feature/nominingtrace	implementation-analysis-automation.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/NoMiningTrace.java
+meteor/module/no-rotate	focused-body-reviewed	feature/norotate	implementation-analysis-automation.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/NoRotate.java
+meteor/module/no-status-effects	focused-body-reviewed	feature/nostatuseffects	implementation-analysis-automation.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/NoStatusEffects.java
+meteor/module/portals	focused-body-reviewed	feature/portals	implementation-analysis-automation.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/Portals.java
+meteor/module/potion-saver	focused-body-reviewed	feature/potionsaver	implementation-analysis-automation.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/PotionSaver.java
+meteor/module/reach	focused-body-reviewed	feature/reach	implementation-analysis-automation.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/Reach.java
+meteor/module/rotation	focused-body-reviewed	feature/rotation	implementation-analysis-meteor-commands.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/Rotation.java
+meteor/module/speed-mine	focused-body-reviewed	feature/speedmine	implementation-analysis-automation.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/player/SpeedMine.java
+meteor/module/better-tab	focused-body-reviewed	feature/bettertab	implementation-analysis-rendering.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/BetterTab.java
+meteor/module/better-tooltips	focused-body-reviewed	feature/bettertooltips	implementation-analysis-rendering.md	20	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/BetterTooltips.java
+meteor/module/block-esp	focused-body-reviewed	feature/blockesp	implementation-analysis-rendering.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/blockesp/BlockESP.java
+meteor/module/block-selection	focused-body-reviewed	feature/blockselection	implementation-analysis-rendering.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/BlockSelection.java
+meteor/module/blur	focused-body-reviewed	feature/blur	implementation-analysis-rendering.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Blur.java
+meteor/module/boss-stack	focused-body-reviewed	feature/bossstack	implementation-analysis-rendering.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/BossStack.java
+meteor/module/breadcrumbs	focused-body-reviewed	feature/breadcrumbs	implementation-analysis-rendering.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Breadcrumbs.java
+meteor/module/break-indicators	focused-body-reviewed	feature/breakindicators	implementation-analysis-rendering.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/BreakIndicators.java
+meteor/module/camera-tweaks	focused-body-reviewed	feature/cameratweaks	implementation-analysis-rendering.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/CameraTweaks.java
+meteor/module/chams	focused-body-reviewed	feature/chams	implementation-analysis-rendering.md	18	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Chams.java
+meteor/module/city-esp	focused-body-reviewed	feature/cityesp	implementation-analysis-rendering.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/CityESP.java
+meteor/module/entity-owner	focused-body-reviewed	feature/entityowner	implementation-analysis-rendering.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/EntityOwner.java
+meteor/module/esp	focused-body-reviewed	feature/esp	implementation-analysis-rendering.md	21	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/ESP.java
+meteor/module/freecam	focused-body-reviewed	feature/freecam	implementation-analysis-rendering.md	12	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Freecam.java
+meteor/module/free-look	focused-body-reviewed	feature/freelook	implementation-analysis-rendering.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/FreeLook.java
+meteor/module/fullbright	focused-body-reviewed	feature/fullbright	implementation-analysis-rendering.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Fullbright.java
+meteor/module/hand-view	focused-body-reviewed	feature/handview	implementation-analysis-rendering.md	18	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/HandView.java
+meteor/module/hole-esp	focused-body-reviewed	feature/holeesp	implementation-analysis-rendering.md	16	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/HoleESP.java
+meteor/module/item-highlight	focused-body-reviewed	feature/itemhighlight	implementation-analysis-rendering.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/ItemHighlight.java
+meteor/module/item-physics	focused-body-reviewed	feature/itemphysics	implementation-analysis-rendering.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/ItemPhysics.java
+meteor/module/light-overlay	body-reviewed	feature/lightoverlay	implementation-analysis-rendering.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/LightOverlay.java
+meteor/module/logout-spots	focused-body-reviewed	feature/logoutspots	implementation-analysis-rendering.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/LogoutSpots.java
+meteor/module/marker	focused-body-reviewed	feature/marker	implementation-analysis-rendering.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/marker/Marker.java
+meteor/module/nametags	focused-body-reviewed	feature/nametags	implementation-analysis-rendering.md	29	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Nametags.java
+meteor/module/no-render	focused-body-reviewed	feature/norender	implementation-analysis-rendering.md	48	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/NoRender.java
+meteor/module/pop-chams	focused-body-reviewed	feature/popchams	implementation-analysis-rendering.md	8	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/PopChams.java
+meteor/module/storage-esp	focused-body-reviewed	feature/storageesp	implementation-analysis-rendering.md	16	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/StorageESP.java
+meteor/module/time-changer	focused-body-reviewed	feature/timechanger	implementation-analysis-rendering.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/TimeChanger.java
+meteor/module/tracers	focused-body-reviewed	feature/tracers	implementation-analysis-rendering.md	20	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Tracers.java
+meteor/module/trail	focused-body-reviewed	feature/trail	implementation-analysis-rendering.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Trail.java
+meteor/module/trajectories	focused-body-reviewed	feature/trajectories	implementation-analysis-rendering.md	14	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Trajectories.java
+meteor/module/tunnel-esp	focused-body-reviewed	feature/tunnelesp	implementation-analysis-rendering.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/TunnelESP.java
+meteor/module/void-esp	focused-body-reviewed	feature/voidesp	implementation-analysis-rendering.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/VoidESP.java
+meteor/module/wall-hack	focused-body-reviewed	feature/wallhack	implementation-analysis-rendering.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/WallHack.java
+meteor/module/waypoints	focused-body-reviewed	feature/waypoints	implementation-analysis-rendering.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/WaypointsModule.java
+meteor/module/weather-changer	focused-body-reviewed	feature/weatherchanger	implementation-analysis-rendering.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/WeatherChanger.java
+meteor/module/xray	focused-body-reviewed	feature/xray	implementation-analysis-rendering.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Xray.java
+meteor/module/zoom	focused-body-reviewed	feature/zoom	implementation-analysis-rendering.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/render/Zoom.java
+meteor/module/ambience	focused-body-reviewed	feature/ambience	implementation-analysis-automation.md	19	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/Ambience.java
+meteor/module/auto-breed	focused-body-reviewed	feature/autobreed	implementation-analysis-automation.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/AutoBreed.java
+meteor/module/auto-brewer	focused-body-reviewed	feature/autobrewer	implementation-analysis-automation.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/AutoBrewer.java
+meteor/module/auto-mount	focused-body-reviewed	feature/automount	implementation-analysis-automation.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/AutoMount.java
+meteor/module/auto-nametag	focused-body-reviewed	feature/autonametag	implementation-analysis-automation.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/AutoNametag.java
+meteor/module/auto-shearer	focused-body-reviewed	feature/autoshearer	implementation-analysis-automation.md	3	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/AutoShearer.java
+meteor/module/auto-sign	focused-body-reviewed	feature/autosign	implementation-analysis-automation.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/AutoSign.java
+meteor/module/auto-smelter	focused-body-reviewed	feature/autosmelter	implementation-analysis-automation.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/AutoSmelter.java
+meteor/module/build-height	focused-body-reviewed	feature/buildheight	implementation-analysis-automation.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/BuildHeight.java
+meteor/module/collisions	focused-body-reviewed	feature/collisions	implementation-analysis-automation.md	4	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/Collisions.java
+meteor/module/echest-farmer	focused-body-reviewed	feature/echestfarmer	implementation-analysis-automation.md	8	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/EChestFarmer.java
+meteor/module/enderman-look	focused-body-reviewed	feature/endermanlook	implementation-analysis-automation.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/EndermanLook.java
+meteor/module/excavator	focused-body-reviewed	feature/excavator	implementation-analysis-automation.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/Excavator.java
+meteor/module/flamethrower	focused-body-reviewed	feature/flamethrower	implementation-analysis-automation.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/Flamethrower.java
+meteor/module/highway-builder	focused-body-reviewed	feature/highwaybuilder	implementation-analysis-automation.md	40	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/HighwayBuilder.java
+meteor/module/infinity-miner	focused-body-reviewed	feature/infinityminer	implementation-analysis-automation.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/InfinityMiner.java
+meteor/module/liquid-filler	focused-body-reviewed	feature/liquidfiller	implementation-analysis-automation.md	11	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/LiquidFiller.java
+meteor/module/no-ghost-blocks	focused-body-reviewed	feature/noghostblocks	implementation-analysis-automation.md	2	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/NoGhostBlocks.java
+meteor/module/nuker	focused-body-reviewed	feature/nuker	implementation-analysis-automation.md	30	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/Nuker.java
+meteor/module/packet-mine	focused-body-reviewed	feature/packetmine	implementation-analysis-automation.md	11	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/PacketMine.java
+meteor/module/spawn-proofer	focused-body-reviewed	feature/spawnproofer	implementation-analysis-automation.md	8	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/SpawnProofer.java
+meteor/module/stash-finder	focused-body-reviewed	feature/stashfinder	implementation-analysis-automation.md	13	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/StashFinder.java
+meteor/module/timer	focused-body-reviewed	feature/timer	implementation-analysis-automation.md	1	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/Timer.java
+meteor/module/vein-miner	focused-body-reviewed	feature/veinminer	implementation-analysis-automation.md	10	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/modules/world/VeinMiner.java
+meteor/command/bind	focused-body-reviewed	command/bind	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/BindCommand.java
+meteor/command/binds	focused-body-reviewed	command/binds	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/BindsCommand.java
+meteor/command/commands	focused-body-reviewed	command/commands	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/CommandsCommand.java
+meteor/command/damage	focused-body-reviewed	command/damage	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/DamageCommand.java
+meteor/command/disconnect	focused-body-reviewed	command/disconnect	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/DisconnectCommand.java
+meteor/command/dismount	focused-body-reviewed	command/dismount	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/DismountCommand.java
+meteor/command/drop	focused-body-reviewed	command/drop	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/DropCommand.java
+meteor/command/enchant	focused-body-reviewed	command/enchant	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/EnchantCommand.java
+meteor/command/ender-chest	focused-body-reviewed	command/enderchest	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/EnderChestCommand.java
+meteor/command/fake-player	focused-body-reviewed	command/fakeplayer	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/FakePlayerCommand.java
+meteor/command/fov	focused-body-reviewed	command/fov	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/FovCommand.java
+meteor/command/friends	focused-body-reviewed	command/friends	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/FriendsCommand.java
+meteor/command/gamemode	focused-body-reviewed	command/gamemode	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/GamemodeCommand.java
+meteor/command/give	focused-body-reviewed	command/give	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/GiveCommand.java
+meteor/command/hclip	focused-body-reviewed	command/hclip	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/HClipCommand.java
+meteor/command/help	focused-body-reviewed	command/help	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/HelpCommand.java
+meteor/command/input	focused-body-reviewed	command/input	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/InputCommand.java
+meteor/command/inventory	focused-body-reviewed	command/inventory	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/InventoryCommand.java
+meteor/command/locate	focused-body-reviewed	command/locate	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/LocateCommand.java
+meteor/command/macro	focused-body-reviewed	command/macro	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/MacroCommand.java
+meteor/command/modules	focused-body-reviewed	command/modules	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/ModulesCommand.java
+meteor/command/name-history	focused-body-reviewed	command/namehistory	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/NameHistoryCommand.java
+meteor/command/nbt	focused-body-reviewed	command/nbt	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/NbtCommand.java
+meteor/command/notebot	focused-body-reviewed	command/notebot	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/NotebotCommand.java
+meteor/command/peek	focused-body-reviewed	command/peek	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/PeekCommand.java
+meteor/command/profiles	focused-body-reviewed	command/profiles	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/ProfilesCommand.java
+meteor/command/reload	focused-body-reviewed	command/reload	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/ReloadCommand.java
+meteor/command/reset	focused-body-reviewed	command/reset	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/ResetCommand.java
+meteor/command/rotation	focused-body-reviewed	command/rotation	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/RotationCommand.java
+meteor/command/save-map	focused-body-reviewed	command/savemap	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/SaveMapCommand.java
+meteor/command/say	focused-body-reviewed	command/say	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/SayCommand.java
+meteor/command/server	focused-body-reviewed	command/server	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/ServerCommand.java
+meteor/command/settings	focused-body-reviewed	command/settings	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/SettingCommand.java
+meteor/command/spectate	focused-body-reviewed	command/spectate	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/SpectateCommand.java
+meteor/command/swarm	focused-body-reviewed	command/swarm	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/SwarmCommand.java
+meteor/command/toggle	focused-body-reviewed	command/toggle	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/ToggleCommand.java
+meteor/command/vclip	focused-body-reviewed	command/vclip	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/VClipCommand.java
+meteor/command/wasp	focused-body-reviewed	command/wasp	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/WaspCommand.java
+meteor/command/waypoint	focused-body-reviewed	command/waypoint	implementation-analysis-meteor-commands.md	0	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/commands/commands/WaypointCommand.java
+meteor/hud/active-modules	focused-body-reviewed	hud/activemodules	implementation-analysis-meteor-hud.md	19	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/ActiveModulesHud.java
+meteor/hud/armor	focused-body-reviewed	hud/armor	implementation-analysis-meteor-hud.md	10	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/ArmorHud.java
+meteor/hud/combat	focused-body-reviewed	hud/combat	implementation-analysis-meteor-hud.md	18	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/CombatHud.java
+meteor/hud/compass	focused-body-reviewed	hud/compass	implementation-analysis-meteor-hud.md	9	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/CompassHud.java
+meteor/hud/hole	focused-body-reviewed	hud/hole	implementation-analysis-meteor-hud.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/HoleHud.java
+meteor/hud/inventory	focused-body-reviewed	hud/inventory	implementation-analysis-meteor-hud.md	5	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/InventoryHud.java
+meteor/hud/item	focused-body-reviewed	hud/item	implementation-analysis-meteor-hud.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/ItemHud.java
+meteor/hud/keyboard	focused-body-reviewed	hud/keyboard	implementation-analysis-meteor-hud.md	24	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/keyboard/KeyboardHud.java
+meteor/hud/lag-notifier	focused-body-reviewed	hud/lagnotifier	implementation-analysis-meteor-hud.md	9	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/LagNotifierHud.java
+meteor/hud/map	focused-body-reviewed	hud/map	implementation-analysis-meteor-hud.md	6	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/MapHud.java
+meteor/hud/module-infos	focused-body-reviewed	hud/moduleinfos	implementation-analysis-meteor-hud.md	7	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/ModuleInfosHud.java
+meteor/hud/player-model	focused-body-reviewed	hud/playermodel	implementation-analysis-meteor-hud.md	9	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/PlayerModelHud.java
+meteor/hud/player-radar	focused-body-reviewed	hud/playerradar	implementation-analysis-meteor-hud.md	12	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/PlayerRadarHud.java
+meteor/hud/potion-timers	focused-body-reviewed	hud/potiontimers	implementation-analysis-meteor-hud.md	15	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/PotionTimersHud.java
+meteor/hud/text	focused-body-reviewed	hud/text	implementation-analysis-meteor-hud.md	10	https://github.com/MeteorDevelopment/meteor-client/blob/e3a2e77967629d216e127b5ceecf71fb15f9d2e5/src/main/java/meteordevelopment/meteorclient/systems/hud/elements/TextHud.java
+Impact/module/Anti AFK	documentation-only	feature/antiafk		6	https://impactclient.net/features
+Impact/module/Auto Eat	documentation-only	feature/autoeat		4	https://impactclient.net/features
+Impact/module/Auto Eject	documentation-only	feature/autoeject		4	https://impactclient.net/features
+Impact/module/Auto Farm	documentation-only	feature/autofarm		0	https://impactclient.net/features
+Impact/module/Auto Fish	documentation-only	feature/autofish		5	https://impactclient.net/features
+Impact/module/Auto Mine	documentation-only	feature/automine		5	https://impactclient.net/features
+Impact/module/Auto Tool	documentation-only	feature/autotool		0	https://impactclient.net/features
+Impact/module/Blink	documentation-only	feature/blink		2	https://impactclient.net/features
+Impact/module/Chest Stealer	documentation-only	feature/cheststealer		5	https://impactclient.net/features
+Impact/module/Fast Interact	documentation-only	feature/fastinteract		6	https://impactclient.net/features
+Impact/module/Freecam	documentation-only	feature/freecam		4	https://impactclient.net/features
+Impact/module/Inventory	documentation-only	feature/inventory		9	https://impactclient.net/features
+Impact/module/Item Saver	documentation-only	feature/itemsaver		1	https://impactclient.net/features
+Impact/module/Liquid Interact	documentation-only	feature/liquidinteract		0	https://impactclient.net/features
+Impact/module/No Fall	documentation-only	feature/nofall		0	https://impactclient.net/features
+Impact/module/No Rotate	documentation-only	feature/norotate		0	https://impactclient.net/features
+Impact/module/Respawn	documentation-only	feature/respawn		5	https://impactclient.net/features
+Impact/module/Scaffold	documentation-only	feature/scaffold		8	https://impactclient.net/features
+Impact/module/Skin Blinker	documentation-only	feature/skinblinker		9	https://impactclient.net/features
+Impact/module/Sneak	documentation-only	feature/sneak		1	https://impactclient.net/features
+Impact/module/Air Jump	documentation-only	feature/airjump		0	https://impactclient.net/features
+Impact/module/Anti Hazard	documentation-only	feature/antihazard		4	https://impactclient.net/features
+Impact/module/Auto Jump	documentation-only	feature/autojump		0	https://impactclient.net/features
+Impact/module/Auto Walk	documentation-only	feature/autowalk		0	https://impactclient.net/features
+Impact/module/Baritone	documentation-only	feature/baritone		28	https://impactclient.net/features
+Impact/module/BoatFly	documentation-only	feature/boatfly		3	https://impactclient.net/features
+Impact/module/Click TP	documentation-only	feature/clicktp		0	https://impactclient.net/features
+Impact/module/Elytra+	documentation-only	feature/elytra		2	https://impactclient.net/features
+Impact/module/Fast Fall	documentation-only	feature/fastfall		0	https://impactclient.net/features
+Impact/module/Flight	documentation-only	feature/flight		1	https://impactclient.net/features
+Impact/module/High Jump	documentation-only	feature/highjump		1	https://impactclient.net/features
+Impact/module/Jesus	documentation-only	feature/jesus		0	https://impactclient.net/features
+Impact/module/Levitation Control	documentation-only	feature/levitationcontrol		4	https://impactclient.net/features
+Impact/module/Long Jump	documentation-only	feature/longjump		0	https://impactclient.net/features
+Impact/module/No Push	documentation-only	feature/nopush		0	https://impactclient.net/features
+Impact/module/No Slow	documentation-only	feature/noslow		5	https://impactclient.net/features
+Impact/module/Parkour	documentation-only	feature/parkour		0	https://impactclient.net/features
+Impact/module/Riding	documentation-only	feature/riding		7	https://impactclient.net/features
+Impact/module/Safe Walk	documentation-only	feature/safewalk		0	https://impactclient.net/features
+Impact/module/Speed	documentation-only	feature/speed		0	https://impactclient.net/features
+Impact/module/Spider	documentation-only	feature/spider		0	https://impactclient.net/features
+Impact/module/Sprint	documentation-only	feature/sprint		2	https://impactclient.net/features
+Impact/module/Step	documentation-only	feature/step		0	https://impactclient.net/features
+Impact/module/Terrain	documentation-only	feature/terrain		3	https://impactclient.net/features
+Impact/module/Velocity	documentation-only	feature/velocity		9	https://impactclient.net/features
+Impact/module/Yaw	documentation-only	feature/yaw		2	https://impactclient.net/features
+Impact/module/Anti Blind	documentation-only	feature/antiblind		0	https://impactclient.net/features
+Impact/module/Anti Overlay	documentation-only	feature/antioverlay		9	https://impactclient.net/features
+Impact/module/Breadcrumbs	documentation-only	feature/breadcrumbs		6	https://impactclient.net/features
+Impact/module/Camera Clip	documentation-only	feature/cameraclip		0	https://impactclient.net/features
+Impact/module/Chams	documentation-only	feature/chams		4	https://impactclient.net/features
+Impact/module/ClickGui	documentation-only	feature/clickgui		9	https://impactclient.net/features
+Impact/module/Crosshair+	documentation-only	feature/crosshair		7	https://impactclient.net/features
+Impact/module/Enchant Color	documentation-only	feature/enchantcolor		3	https://impactclient.net/features
+Impact/module/ESP	documentation-only	feature/esp		15	https://impactclient.net/features
+Impact/module/HUD	documentation-only	feature/hud		37	https://impactclient.net/features
+Impact/module/Light	documentation-only	feature/light		5	https://impactclient.net/features
+Impact/module/Main Menu	documentation-only	feature/mainmenu		5	https://impactclient.net/features
+Impact/module/Nametags	documentation-only	feature/nametags		22	https://impactclient.net/features
+Impact/module/No Render	documentation-only	feature/norender		1	https://impactclient.net/features
+Impact/module/Radar	documentation-only	feature/radar		12	https://impactclient.net/features
+Impact/module/Search	documentation-only	feature/search		8	https://impactclient.net/features
+Impact/module/Storage ESP	documentation-only	feature/storageesp		27	https://impactclient.net/features
+Impact/module/Tracers	documentation-only	feature/tracers		35	https://impactclient.net/features
+Impact/module/Trajectories	documentation-only	feature/trajectories		4	https://impactclient.net/features
+Impact/module/Wireframe	documentation-only	feature/wireframe		1	https://impactclient.net/features
+Impact/module/XRay	documentation-only	feature/xray		0	https://impactclient.net/features
+Impact/module/Aimbot	documentation-only	feature/aimbot		11	https://impactclient.net/features
+Impact/module/Anti Bot	documentation-only	feature/antibot		1	https://impactclient.net/features
+Impact/module/Auto Armor	documentation-only	feature/autoarmor		5	https://impactclient.net/features
+Impact/module/Auto Clicker	documentation-only	feature/autoclicker		16	https://impactclient.net/features
+Impact/module/Auto Totem	documentation-only	feature/autototem		2	https://impactclient.net/features
+Impact/module/Auto Weapon	documentation-only	feature/autoweapon		0	https://impactclient.net/features
+Impact/module/Bow Aimbot	documentation-only	feature/bowaimbot		8	https://impactclient.net/features
+Impact/module/Criticals	documentation-only	feature/criticals		1	https://impactclient.net/features
+Impact/module/Crystal Aura	documentation-only	feature/crystalaura		9	https://impactclient.net/features
+Impact/module/HitBox	documentation-only	feature/hitbox		7	https://impactclient.net/features
+Impact/module/Hunt	documentation-only	feature/hunt		7	https://impactclient.net/features
+Impact/module/Kill Aura	documentation-only	feature/killaura		24	https://impactclient.net/features
+Impact/module/Pot	documentation-only	feature/pot		2	https://impactclient.net/features
+Impact/module/SmoothAim	documentation-only	feature/smoothaim		15	https://impactclient.net/features
+Impact/module/Soup	documentation-only	feature/soup		3	https://impactclient.net/features
+Impact/module/Animations	documentation-only	feature/animations		4	https://impactclient.net/features
+Impact/module/Anti Aim	documentation-only	feature/antiaim		2	https://impactclient.net/features
+Impact/module/Anti Desync	documentation-only	feature/antidesync		0	https://impactclient.net/features
+Impact/module/Anti Sound Lag	documentation-only	feature/antisoundlag		0	https://impactclient.net/features
+Impact/module/Anti Vanish	documentation-only	feature/antivanish		0	https://impactclient.net/features
+Impact/module/Auto Cheat	documentation-only	feature/autocheat		0	https://impactclient.net/features
+Impact/module/Auto Disconnect	documentation-only	feature/autodisconnect		1	https://impactclient.net/features
+Impact/module/Auto Reconnect	documentation-only	feature/autoreconnect		1	https://impactclient.net/features
+Impact/module/Discord RPC	documentation-only	feature/discordrpc		0	https://impactclient.net/features
+Impact/module/Fancy Chat	documentation-only	feature/fancychat		1	https://impactclient.net/features
+Impact/module/Log Position	documentation-only	feature/logposition		2	https://impactclient.net/features
+Impact/module/Middle Click Friend	documentation-only	feature/middleclickfriend		0	https://impactclient.net/features
+Impact/module/No SRP	documentation-only	feature/nosrp		0	https://impactclient.net/features
+Impact/module/Self Destruct	documentation-only	feature/selfdestruct		0	https://impactclient.net/features
+Impact/module/Signs	documentation-only	feature/signs		1	https://impactclient.net/features
+Impact/module/Unpack	documentation-only	feature/unpack		0	https://impactclient.net/features
+Impact/module/Anti Fire	documentation-only	feature/antifire		0	https://impactclient.net/features
+Impact/module/Anti Hunger	documentation-only	feature/antihunger		0	https://impactclient.net/features
+Impact/module/Franky	documentation-only	feature/franky		1	https://impactclient.net/features
+Impact/module/GhostHand	documentation-only	feature/ghosthand		0	https://impactclient.net/features
+Impact/module/Ignite	documentation-only	feature/ignite		10	https://impactclient.net/features
+Impact/module/Lag	documentation-only	feature/lag		0	https://impactclient.net/features
+Impact/module/New Chunks	documentation-only	feature/newchunks		3	https://impactclient.net/features
+Impact/module/Portals	documentation-only	feature/portals		2	https://impactclient.net/features
+Impact/module/Build	documentation-only	feature/build		2	https://impactclient.net/features
+Impact/module/Nuker	documentation-only	feature/nuker		8	https://impactclient.net/features
+Impact/module/Timer	documentation-only	feature/timer		1	https://impactclient.net/features
+Impact/module/Weather	documentation-only	feature/weather		2	https://impactclient.net/features
+Impact/module/Breaker	documentation-only	feature/breaker		3	https://impactclient.net/features
+Impact/module/CopsAndCrims	documentation-only	feature/copsandcrims		11	https://impactclient.net/features
+Impact/module/Minestrike	documentation-only	feature/minestrike		16	https://impactclient.net/features
+Impact/module/Murder	documentation-only	feature/murder		1	https://impactclient.net/features
+Impact/module/PropHunt	documentation-only	feature/prophunt		1	https://impactclient.net/features
+Impact/module/QuakeCraft	documentation-only	feature/quakecraft		0	https://impactclient.net/features
+Impact/module/SneakyAssassins	documentation-only	feature/sneakyassassins		1	https://impactclient.net/features
+RusherHack/module/AirPlace	documentation-only	feature/airplace		0	https://rusherhack.org/features/modules/AirPlace.html
+RusherHack/module/Anchor	documentation-only	feature/anchor		0	https://rusherhack.org/features/modules/Anchor.html
+RusherHack/module/Announcer	documentation-only	feature/announcer		0	https://rusherhack.org/features/modules/Announcer.html
+RusherHack/module/AntiAFK	documentation-only	feature/antiafk		0	https://rusherhack.org/features/modules/AntiAFK.html
+RusherHack/module/AntiAim	documentation-only	feature/antiaim		0	https://rusherhack.org/features/modules/AntiAim.html
+RusherHack/module/AntiHunger	documentation-only	feature/antihunger		0	https://rusherhack.org/features/modules/AntiHunger.html
+RusherHack/module/AntiLevitation	documentation-only	feature/antilevitation		0	https://rusherhack.org/features/modules/AntiLevitation.html
+RusherHack/module/AntiPacket	documentation-only	feature/antipacket		0	https://rusherhack.org/features/modules/AntiPacket.html
+RusherHack/module/AntiQuit	documentation-only	feature/antiquit		0	https://rusherhack.org/features/modules/AntiQuit.html
+RusherHack/module/AntiSpam	documentation-only	feature/antispam		0	https://rusherhack.org/features/modules/AntiSpam.html
+RusherHack/module/ArmorAlert	documentation-only	feature/armoralert		0	https://rusherhack.org/features/modules/ArmorAlert.html
+RusherHack/module/Aura	documentation-only	feature/aura		0	https://rusherhack.org/features/modules/Aura.html
+RusherHack/module/AutoAccept	documentation-only	feature/autoaccept		0	https://rusherhack.org/features/modules/AutoAccept.html
+RusherHack/module/AutoArmor	documentation-only	feature/autoarmor		0	https://rusherhack.org/features/modules/AutoArmor.html
+RusherHack/module/AutoCrystal	documentation-only	feature/autocrystal		0	https://rusherhack.org/features/modules/AutoCrystal.html
+RusherHack/module/AutoDisconnect	documentation-only	feature/autodisconnect		0	https://rusherhack.org/features/modules/AutoDisconnect.html
+RusherHack/module/AutoEXP	documentation-only	feature/autoexp		0	https://rusherhack.org/features/modules/AutoEXP.html
+RusherHack/module/AutoEat	documentation-only	feature/autoeat		0	https://rusherhack.org/features/modules/AutoEat.html
+RusherHack/module/AutoFish	documentation-only	feature/autofish		0	https://rusherhack.org/features/modules/AutoFish.html
+RusherHack/module/AutoHole	documentation-only	feature/autohole		0	https://rusherhack.org/features/modules/AutoHole.html
+RusherHack/module/AutoMine	documentation-only	feature/automine		0	https://rusherhack.org/features/modules/AutoMine.html
+RusherHack/module/AutoMount	documentation-only	feature/automount		0	https://rusherhack.org/features/modules/AutoMount.html
+RusherHack/module/AutoNametag	documentation-only	feature/autonametag		0	https://rusherhack.org/features/modules/AutoNametag.html
+RusherHack/module/AutoReconnect	documentation-only	feature/autoreconnect		0	https://rusherhack.org/features/modules/AutoReconnect.html
+RusherHack/module/AutoReply	documentation-only	feature/autoreply		0	https://rusherhack.org/features/modules/AutoReply.html
+RusherHack/module/AutoRespawn	documentation-only	feature/autorespawn		0	https://rusherhack.org/features/modules/AutoRespawn.html
+RusherHack/module/AutoShear	documentation-only	feature/autoshear		0	https://rusherhack.org/features/modules/AutoShear.html
+RusherHack/module/AutoSorter	documentation-only	feature/autosorter		0	https://rusherhack.org/features/modules/AutoSorter.html
+RusherHack/module/AutoSurround	documentation-only	feature/autosurround		0	https://rusherhack.org/features/modules/AutoSurround.html
+RusherHack/module/AutoTool	documentation-only	feature/autotool		0	https://rusherhack.org/features/modules/AutoTool.html
+RusherHack/module/AutoTotem	documentation-only	feature/autototem		0	https://rusherhack.org/features/modules/AutoTotem.html
+RusherHack/module/AutoTrader	documentation-only	feature/autotrader		0	https://rusherhack.org/features/modules/AutoTrader.html
+RusherHack/module/AutoTrap	documentation-only	feature/autotrap		0	https://rusherhack.org/features/modules/AutoTrap.html
+RusherHack/module/AutoTunnel	documentation-only	feature/autotunnel		0	https://rusherhack.org/features/modules/AutoTunnel.html
+RusherHack/module/AutoWalk	documentation-only	feature/autowalk		0	https://rusherhack.org/features/modules/AutoWalk.html
+RusherHack/module/AutoWeb	documentation-only	feature/autoweb		0	https://rusherhack.org/features/modules/AutoWeb.html
+RusherHack/module/AutoWither	documentation-only	feature/autowither		0	https://rusherhack.org/features/modules/AutoWither.html
+RusherHack/module/Avoid	documentation-only	feature/avoid		0	https://rusherhack.org/features/modules/Avoid.html
+RusherHack/module/Background	documentation-only	feature/background		0	https://rusherhack.org/features/modules/Background.html
+RusherHack/module/Baritone	documentation-only	feature/baritone		0	https://rusherhack.org/features/modules/Baritone.html
+RusherHack/module/BaseFinder	documentation-only	feature/basefinder		0	https://rusherhack.org/features/modules/BaseFinder.html
+RusherHack/module/Blink	documentation-only	feature/blink		0	https://rusherhack.org/features/modules/Blink.html
+RusherHack/module/BlockOutline	documentation-only	feature/blockoutline		0	https://rusherhack.org/features/modules/BlockOutline.html
+RusherHack/module/BlockTweaks	documentation-only	feature/blocktweaks		0	https://rusherhack.org/features/modules/BlockTweaks.html
+RusherHack/module/BoatFly	documentation-only	feature/boatfly		0	https://rusherhack.org/features/modules/BoatFly.html
+RusherHack/module/Borders	documentation-only	feature/borders		0	https://rusherhack.org/features/modules/Borders.html
+RusherHack/module/BossStack	documentation-only	feature/bossstack		0	https://rusherhack.org/features/modules/BossStack.html
+RusherHack/module/BowAimbot	documentation-only	feature/bowaimbot		0	https://rusherhack.org/features/modules/BowAimbot.html
+RusherHack/module/BowSpam	documentation-only	feature/bowspam		0	https://rusherhack.org/features/modules/BowSpam.html
+RusherHack/module/BreadCrumbs	documentation-only	feature/breadcrumbs		0	https://rusherhack.org/features/modules/BreadCrumbs.html
+RusherHack/module/BreakESP	documentation-only	feature/breakesp		0	https://rusherhack.org/features/modules/BreakESP.html
+RusherHack/module/Capes	documentation-only	feature/capes		0	https://rusherhack.org/features/modules/Capes.html
+RusherHack/module/Chams	documentation-only	feature/chams		0	https://rusherhack.org/features/modules/Chams.html
+RusherHack/module/ChatAppend	documentation-only	feature/chatappend		0	https://rusherhack.org/features/modules/ChatAppend.html
+RusherHack/module/ChatColors	documentation-only	feature/chatcolors		0	https://rusherhack.org/features/modules/ChatColors.html
+RusherHack/module/ChorusControl	documentation-only	feature/choruscontrol		0	https://rusherhack.org/features/modules/ChorusControl.html
+RusherHack/module/ClickGUI	documentation-only	feature/clickgui		0	https://rusherhack.org/features/modules/ClickGUI.html
+RusherHack/module/ClientSideTime	documentation-only	feature/clientsidetime		0	https://rusherhack.org/features/modules/ClientSideTime.html
+RusherHack/module/Colors	documentation-only	feature/colors		0	https://rusherhack.org/features/modules/Colors.html
+RusherHack/module/Config	documentation-only	feature/config		0	https://rusherhack.org/features/modules/Config.html
+RusherHack/module/Criticals	documentation-only	feature/criticals		0	https://rusherhack.org/features/modules/Criticals.html
+RusherHack/module/Crosshair	documentation-only	feature/crosshair		0	https://rusherhack.org/features/modules/Crosshair.html
+RusherHack/module/CustomFont	documentation-only	feature/customfont		0	https://rusherhack.org/features/modules/CustomFont.html
+RusherHack/module/Debug	documentation-only	feature/debug		0	https://rusherhack.org/features/modules/Debug.html
+RusherHack/module/ESP	documentation-only	feature/esp		0	https://rusherhack.org/features/modules/ESP.html
+RusherHack/module/ElytraFly	documentation-only	feature/elytrafly		0	https://rusherhack.org/features/modules/ElytraFly.html
+RusherHack/module/ElytraTweaks	documentation-only	feature/elytratweaks		0	https://rusherhack.org/features/modules/ElytraTweaks.html
+RusherHack/module/Entities	documentation-only	feature/entities		0	https://rusherhack.org/features/modules/Entities.html
+RusherHack/module/EntityControl	documentation-only	feature/entitycontrol		0	https://rusherhack.org/features/modules/EntityControl.html
+RusherHack/module/EntitySpeed	documentation-only	feature/entityspeed		0	https://rusherhack.org/features/modules/EntitySpeed.html
+RusherHack/module/Environment	documentation-only	feature/environment		0	https://rusherhack.org/features/modules/Environment.html
+RusherHack/module/ExtraChat	documentation-only	feature/extrachat		0	https://rusherhack.org/features/modules/ExtraChat.html
+RusherHack/module/ExtraChest	documentation-only	feature/extrachest		0	https://rusherhack.org/features/modules/ExtraChest.html
+RusherHack/module/ExtraCraft	documentation-only	feature/extracraft		0	https://rusherhack.org/features/modules/ExtraCraft.html
+RusherHack/module/ExtraScreenshot	documentation-only	feature/extrascreenshot		0	https://rusherhack.org/features/modules/ExtraScreenshot.html
+RusherHack/module/ExtraSign	documentation-only	feature/extrasign		0	https://rusherhack.org/features/modules/ExtraSign.html
+RusherHack/module/ExtraTab	documentation-only	feature/extratab		0	https://rusherhack.org/features/modules/ExtraTab.html
+RusherHack/module/ExtraTooltips	documentation-only	feature/extratooltips		0	https://rusherhack.org/features/modules/ExtraTooltips.html
+RusherHack/module/FancyChat	documentation-only	feature/fancychat		0	https://rusherhack.org/features/modules/FancyChat.html
+RusherHack/module/FastBreak	documentation-only	feature/fastbreak		0	https://rusherhack.org/features/modules/FastBreak.html
+RusherHack/module/FastPlace	documentation-only	feature/fastplace		0	https://rusherhack.org/features/modules/FastPlace.html
+RusherHack/module/FastUse	documentation-only	feature/fastuse		0	https://rusherhack.org/features/modules/FastUse.html
+RusherHack/module/Flight	documentation-only	feature/flight		0	https://rusherhack.org/features/modules/Flight.html
+RusherHack/module/ForcePlace	documentation-only	feature/forceplace		0	https://rusherhack.org/features/modules/ForcePlace.html
+RusherHack/module/FreeLook	documentation-only	feature/freelook		0	https://rusherhack.org/features/modules/FreeLook.html
+RusherHack/module/Freecam	documentation-only	feature/freecam		0	https://rusherhack.org/features/modules/Freecam.html
+RusherHack/module/FullBright	documentation-only	feature/fullbright		0	https://rusherhack.org/features/modules/FullBright.html
+RusherHack/module/Gamemode	documentation-only	feature/gamemode		0	https://rusherhack.org/features/modules/Gamemode.html
+RusherHack/module/GhostHand	documentation-only	feature/ghosthand		0	https://rusherhack.org/features/modules/GhostHand.html
+RusherHack/module/GreenText	documentation-only	feature/greentext		0	https://rusherhack.org/features/modules/GreenText.html
+RusherHack/module/Greeter	documentation-only	feature/greeter		0	https://rusherhack.org/features/modules/Greeter.html
+RusherHack/module/HUD	documentation-only	feature/hud		0	https://rusherhack.org/features/modules/HUD.html
+RusherHack/module/HitboxIgnore	documentation-only	feature/hitboxignore		0	https://rusherhack.org/features/modules/HitboxIgnore.html
+RusherHack/module/Hitmarkers	documentation-only	feature/hitmarkers		0	https://rusherhack.org/features/modules/Hitmarkers.html
+RusherHack/module/HoleESP	documentation-only	feature/holeesp		0	https://rusherhack.org/features/modules/HoleESP.html
+RusherHack/module/HoleFiller	documentation-only	feature/holefiller		0	https://rusherhack.org/features/modules/HoleFiller.html
+RusherHack/module/HotbarReplenish	documentation-only	feature/hotbarreplenish		0	https://rusherhack.org/features/modules/HotbarReplenish.html
+RusherHack/module/IceSpeed	documentation-only	feature/icespeed		0	https://rusherhack.org/features/modules/IceSpeed.html
+RusherHack/module/Ignite	documentation-only	feature/ignite		0	https://rusherhack.org/features/modules/Ignite.html
+RusherHack/module/InventoryCleaner	documentation-only	feature/inventorycleaner		0	https://rusherhack.org/features/modules/InventoryCleaner.html
+RusherHack/module/InventoryMove	documentation-only	feature/inventorymove		0	https://rusherhack.org/features/modules/InventoryMove.html
+RusherHack/module/Jesus	documentation-only	feature/jesus		0	https://rusherhack.org/features/modules/Jesus.html
+RusherHack/module/LagDetector	documentation-only	feature/lagdetector		0	https://rusherhack.org/features/modules/LagDetector.html
+RusherHack/module/LagReducer	documentation-only	feature/lagreducer		0	https://rusherhack.org/features/modules/LagReducer.html
+RusherHack/module/Language	documentation-only	feature/language		0	https://rusherhack.org/features/modules/Language.html
+RusherHack/module/LiquidInteract	documentation-only	feature/liquidinteract		0	https://rusherhack.org/features/modules/LiquidInteract.html
+RusherHack/module/LogoutSpots	documentation-only	feature/logoutspots		0	https://rusherhack.org/features/modules/LogoutSpots.html
+RusherHack/module/MainMenu	documentation-only	feature/mainmenu		0	https://rusherhack.org/features/modules/MainMenu.html
+RusherHack/module/MiddleClick	documentation-only	feature/middleclick		0	https://rusherhack.org/features/modules/MiddleClick.html
+RusherHack/module/MobOwner	documentation-only	feature/mobowner		0	https://rusherhack.org/features/modules/MobOwner.html
+RusherHack/module/MultiTask	documentation-only	feature/multitask		0	https://rusherhack.org/features/modules/MultiTask.html
+RusherHack/module/Nametags	documentation-only	feature/nametags		0	https://rusherhack.org/features/modules/Nametags.html
+RusherHack/module/NewChunks	documentation-only	feature/newchunks		0	https://rusherhack.org/features/modules/NewChunks.html
+RusherHack/module/NoFall	documentation-only	feature/nofall		0	https://rusherhack.org/features/modules/NoFall.html
+RusherHack/module/NoForceRotate	documentation-only	feature/noforcerotate		0	https://rusherhack.org/features/modules/NoForceRotate.html
+RusherHack/module/NoGlitchBlocks	documentation-only	feature/noglitchblocks		0	https://rusherhack.org/features/modules/NoGlitchBlocks.html
+RusherHack/module/NoJumpDelay	documentation-only	feature/nojumpdelay		0	https://rusherhack.org/features/modules/NoJumpDelay.html
+RusherHack/module/NoMineAnimation	documentation-only	feature/nomineanimation		0	https://rusherhack.org/features/modules/NoMineAnimation.html
+RusherHack/module/NoRender	documentation-only	feature/norender		0	https://rusherhack.org/features/modules/NoRender.html
+RusherHack/module/NoSlow	documentation-only	feature/noslow		0	https://rusherhack.org/features/modules/NoSlow.html
+RusherHack/module/Notifier	documentation-only	feature/notifier		0	https://rusherhack.org/features/modules/Notifier.html
+RusherHack/module/Nuker	documentation-only	feature/nuker		0	https://rusherhack.org/features/modules/Nuker.html
+RusherHack/module/PacketLogger	documentation-only	feature/packetlogger		0	https://rusherhack.org/features/modules/PacketLogger.html
+RusherHack/module/Parkour	documentation-only	feature/parkour		0	https://rusherhack.org/features/modules/Parkour.html
+RusherHack/module/Phase	documentation-only	feature/phase		0	https://rusherhack.org/features/modules/Phase.html
+RusherHack/module/PingSpoof	documentation-only	feature/pingspoof		0	https://rusherhack.org/features/modules/PingSpoof.html
+RusherHack/module/PortalGodMode	documentation-only	feature/portalgodmode		0	https://rusherhack.org/features/modules/PortalGodMode.html
+RusherHack/module/PortalGui	documentation-only	feature/portalgui		0	https://rusherhack.org/features/modules/PortalGui.html
+RusherHack/module/PvpInfo	documentation-only	feature/pvpinfo		0	https://rusherhack.org/features/modules/PvpInfo.html
+RusherHack/module/Quiver	documentation-only	feature/quiver		0	https://rusherhack.org/features/modules/Quiver.html
+RusherHack/module/RainbowEnchant	documentation-only	feature/rainbowenchant		0	https://rusherhack.org/features/modules/RainbowEnchant.html
+RusherHack/module/RangeCircle	documentation-only	feature/rangecircle		0	https://rusherhack.org/features/modules/RangeCircle.html
+RusherHack/module/Reach	documentation-only	feature/reach		0	https://rusherhack.org/features/modules/Reach.html
+RusherHack/module/RichPresence	documentation-only	feature/richpresence		0	https://rusherhack.org/features/modules/RichPresence.html
+RusherHack/module/RotationLock	documentation-only	feature/rotationlock		0	https://rusherhack.org/features/modules/RotationLock.html
+RusherHack/module/Rotations	documentation-only	feature/rotations		0	https://rusherhack.org/features/modules/Rotations.html
+RusherHack/module/RusherCrypt	documentation-only	feature/rushercrypt		0	https://rusherhack.org/features/modules/RusherCrypt.html
+RusherHack/module/Safewalk	documentation-only	feature/safewalk		0	https://rusherhack.org/features/modules/Safewalk.html
+RusherHack/module/Scaffold	documentation-only	feature/scaffold		0	https://rusherhack.org/features/modules/Scaffold.html
+RusherHack/module/Search	documentation-only	feature/search		0	https://rusherhack.org/features/modules/Search.html
+RusherHack/module/SelfBlock	documentation-only	feature/selfblock		0	https://rusherhack.org/features/modules/SelfBlock.html
+RusherHack/module/SkinBlink	documentation-only	feature/skinblink		0	https://rusherhack.org/features/modules/SkinBlink.html
+RusherHack/module/SourceRemover	documentation-only	feature/sourceremover		0	https://rusherhack.org/features/modules/SourceRemover.html
+RusherHack/module/Spammer	documentation-only	feature/spammer		0	https://rusherhack.org/features/modules/Spammer.html
+RusherHack/module/Speed	documentation-only	feature/speed		0	https://rusherhack.org/features/modules/Speed.html
+RusherHack/module/Sprint	documentation-only	feature/sprint		0	https://rusherhack.org/features/modules/Sprint.html
+RusherHack/module/Step	documentation-only	feature/step		0	https://rusherhack.org/features/modules/Step.html
+RusherHack/module/Swing	documentation-only	feature/swing		0	https://rusherhack.org/features/modules/Swing.html
+RusherHack/module/Theme	documentation-only	feature/theme		0	https://rusherhack.org/features/modules/Theme.html
+RusherHack/module/TickShift	documentation-only	feature/tickshift		0	https://rusherhack.org/features/modules/TickShift.html
+RusherHack/module/Timer	documentation-only	feature/timer		0	https://rusherhack.org/features/modules/Timer.html
+RusherHack/module/Timestamps	documentation-only	feature/timestamps		0	https://rusherhack.org/features/modules/Timestamps.html
+RusherHack/module/Tracers	documentation-only	feature/tracers		0	https://rusherhack.org/features/modules/Tracers.html
+RusherHack/module/Trajectories	documentation-only	feature/trajectories		0	https://rusherhack.org/features/modules/Trajectories.html
+RusherHack/module/Translate	documentation-only	feature/translate		0	https://rusherhack.org/features/modules/Translate.html
+RusherHack/module/TridentTweaks	documentation-only	feature/tridenttweaks		0	https://rusherhack.org/features/modules/TridentTweaks.html
+RusherHack/module/TriggerBot	documentation-only	feature/triggerbot		0	https://rusherhack.org/features/modules/TriggerBot.html
+RusherHack/module/Velocity	documentation-only	feature/velocity		0	https://rusherhack.org/features/modules/Velocity.html
+RusherHack/module/ViewClip	documentation-only	feature/viewclip		0	https://rusherhack.org/features/modules/ViewClip.html
+RusherHack/module/ViewModel	documentation-only	feature/viewmodel		0	https://rusherhack.org/features/modules/ViewModel.html
+RusherHack/module/WaterSpeed	documentation-only	feature/waterspeed		0	https://rusherhack.org/features/modules/WaterSpeed.html
+RusherHack/module/Waypoints	documentation-only	feature/waypoints		0	https://rusherhack.org/features/modules/Waypoints.html
+RusherHack/module/Windows	documentation-only	feature/windows		0	https://rusherhack.org/features/modules/Windows.html
+RusherHack/module/XCarry	documentation-only	feature/xcarry		0	https://rusherhack.org/features/modules/XCarry.html
+RusherHack/module/Xray	documentation-only	feature/xray		0	https://rusherhack.org/features/modules/Xray.html
+RusherHack/module/Zoom	documentation-only	feature/zoom		0	https://rusherhack.org/features/modules/Zoom.html
+RusherHack/command/baritone	documentation-only	command/baritone		0	https://rusherhack.org/features/commands/baritone.html
+RusherHack/command/bind	documentation-only	command/bind		0	https://rusherhack.org/features/commands/bind.html
+RusherHack/command/breed	documentation-only	command/breed		0	https://rusherhack.org/features/commands/breed.html
+RusherHack/command/clear	documentation-only	command/clear		0	https://rusherhack.org/features/commands/clear.html
+RusherHack/command/connect	documentation-only	command/connect		0	https://rusherhack.org/features/commands/connect.html
+RusherHack/command/coords	documentation-only	command/coords		0	https://rusherhack.org/features/commands/coords.html
+RusherHack/command/credits	documentation-only	command/credits		0	https://rusherhack.org/features/commands/credits.html
+RusherHack/command/deathcoords	documentation-only	command/deathcoords		0	https://rusherhack.org/features/commands/deathcoords.html
+RusherHack/command/disconnect	documentation-only	command/disconnect		0	https://rusherhack.org/features/commands/disconnect.html
+RusherHack/command/drawn	documentation-only	command/drawn		0	https://rusherhack.org/features/commands/drawn.html
+RusherHack/command/enemy	documentation-only	command/enemy		0	https://rusherhack.org/features/commands/enemy.html
+RusherHack/command/fakeplayer	documentation-only	command/fakeplayer		0	https://rusherhack.org/features/commands/fakeplayer.html
+RusherHack/command/findstronghold	documentation-only	command/findstronghold		0	https://rusherhack.org/features/commands/findstronghold.html
+RusherHack/command/friend	documentation-only	command/friend		0	https://rusherhack.org/features/commands/friend.html
+RusherHack/command/hclip	documentation-only	command/hclip		0	https://rusherhack.org/features/commands/hclip.html
+RusherHack/command/help	documentation-only	command/help		0	https://rusherhack.org/features/commands/help.html
+RusherHack/command/macro	documentation-only	command/macro		0	https://rusherhack.org/features/commands/macro.html
+RusherHack/command/modules	documentation-only	command/modules		0	https://rusherhack.org/features/commands/modules.html
+RusherHack/command/namemc	documentation-only	command/namemc		0	https://rusherhack.org/features/commands/namemc.html
+RusherHack/command/notify	documentation-only	command/notify		0	https://rusherhack.org/features/commands/notify.html
+RusherHack/command/openfolder	documentation-only	command/openfolder		0	https://rusherhack.org/features/commands/openfolder.html
+RusherHack/command/panic	documentation-only	command/panic		0	https://rusherhack.org/features/commands/panic.html
+RusherHack/command/peek	documentation-only	command/peek		0	https://rusherhack.org/features/commands/peek.html
+RusherHack/command/pitch	documentation-only	command/pitch		0	https://rusherhack.org/features/commands/pitch.html
+RusherHack/command/plugin	documentation-only	command/plugin		0	https://rusherhack.org/features/commands/plugin.html
+RusherHack/command/prefix	documentation-only	command/prefix		0	https://rusherhack.org/features/commands/prefix.html
+RusherHack/command/reload	documentation-only	command/reload		0	https://rusherhack.org/features/commands/reload.html
+RusherHack/command/reset	documentation-only	command/reset		0	https://rusherhack.org/features/commands/reset.html
+RusherHack/command/send	documentation-only	command/send		0	https://rusherhack.org/features/commands/send.html
+RusherHack/command/shutdown	documentation-only	command/shutdown		0	https://rusherhack.org/features/commands/shutdown.html
+RusherHack/command/test	documentation-only	command/test		0	https://rusherhack.org/features/commands/test.html
+RusherHack/command/toggle	documentation-only	command/toggle		0	https://rusherhack.org/features/commands/toggle.html
+RusherHack/command/travel	documentation-only	command/travel		0	https://rusherhack.org/features/commands/travel.html
+RusherHack/command/vclip	documentation-only	command/vclip		0	https://rusherhack.org/features/commands/vclip.html
+RusherHack/command/yaw	documentation-only	command/yaw		0	https://rusherhack.org/features/commands/yaw.html
+RusherHack/hud_element/Name	documentation-only	hud/name		0	https://rusherhack.org/features/hud/Name.html
+RusherHack/hud_element/Profile	documentation-only	hud/profile		0	https://rusherhack.org/features/hud/Profile.html
+RusherHack/hud_element/Keystrokes	documentation-only	hud/keystrokes		0	https://rusherhack.org/features/hud/Keystrokes.html
+RusherHack/hud_element/Biome	documentation-only	hud/biome		0	https://rusherhack.org/features/hud/Biome.html
+RusherHack/hud_element/PlayerCount	documentation-only	hud/playercount		0	https://rusherhack.org/features/hud/PlayerCount.html
+RusherHack/hud_element/ServerBrand	documentation-only	hud/serverbrand		0	https://rusherhack.org/features/hud/ServerBrand.html
+RusherHack/hud_element/Weather	documentation-only	hud/weather		0	https://rusherhack.org/features/hud/Weather.html
+RusherHack/hud_element/DubCounter	documentation-only	hud/dubcounter		0	https://rusherhack.org/features/hud/DubCounter.html
+RusherHack/hud_element/BindList	documentation-only	hud/bindlist		0	https://rusherhack.org/features/hud/BindList.html
+RusherHack/hud_element/Armor	documentation-only	hud/armor		0	https://rusherhack.org/features/hud/Armor.html
+RusherHack/hud_element/IP	documentation-only	hud/ip		0	https://rusherhack.org/features/hud/IP.html
+RusherHack/hud_element/Memory	documentation-only	hud/memory		0	https://rusherhack.org/features/hud/Memory.html
+RusherHack/hud_element/MacroList	documentation-only	hud/macrolist		0	https://rusherhack.org/features/hud/MacroList.html
+RusherHack/hud_element/Hunger	documentation-only	hud/hunger		0	https://rusherhack.org/features/hud/Hunger.html
+RusherHack/hud_element/FeatureList	documentation-only	hud/featurelist		0	https://rusherhack.org/features/hud/FeatureList.html
+RusherHack/hud_element/Logo	documentation-only	hud/logo		0	https://rusherhack.org/features/hud/Logo.html
+RusherHack/hud_element/CrystalCounter	documentation-only	hud/crystalcounter		0	https://rusherhack.org/features/hud/CrystalCounter.html
+RusherHack/hud_element/Queue	documentation-only	hud/queue		0	https://rusherhack.org/features/hud/Queue.html
+RusherHack/hud_element/Watermark	documentation-only	hud/watermark		0	https://rusherhack.org/features/hud/Watermark.html
+RusherHack/hud_element/FPS	documentation-only	hud/fps		0	https://rusherhack.org/features/hud/FPS.html
+RusherHack/hud_element/TPS	documentation-only	hud/tps		0	https://rusherhack.org/features/hud/TPS.html
+RusherHack/hud_element/Ping	documentation-only	hud/ping		0	https://rusherhack.org/features/hud/Ping.html
+RusherHack/hud_element/Time	documentation-only	hud/time		0	https://rusherhack.org/features/hud/Time.html
+RusherHack/hud_element/Position	documentation-only	hud/position		0	https://rusherhack.org/features/hud/Position.html
+RusherHack/hud_element/Direction	documentation-only	hud/direction		0	https://rusherhack.org/features/hud/Direction.html
+RusherHack/hud_element/Durability	documentation-only	hud/durability		0	https://rusherhack.org/features/hud/Durability.html
+RusherHack/hud_element/Inventory	documentation-only	hud/inventory		0	https://rusherhack.org/features/hud/Inventory.html
+RusherHack/hud_element/OnlineTime	documentation-only	hud/onlinetime		0	https://rusherhack.org/features/hud/OnlineTime.html
+RusherHack/hud_element/PlayerView	documentation-only	hud/playerview		0	https://rusherhack.org/features/hud/PlayerView.html
+RusherHack/hud_element/EntityList	documentation-only	hud/entitylist		0	https://rusherhack.org/features/hud/EntityList.html
+RusherHack/hud_element/PotionEffects	documentation-only	hud/potioneffects		0	https://rusherhack.org/features/hud/PotionEffects.html
+RusherHack/hud_element/Speed	documentation-only	hud/speed		0	https://rusherhack.org/features/hud/Speed.html
+Future/module/AntiBots	documentation-only	feature/antibots		0	https://futureclient.net/
+Future/module/Aura	documentation-only	feature/aura		0	https://futureclient.net/
+Future/module/AutoArmor	documentation-only	feature/autoarmor		0	https://futureclient.net/
+Future/module/AutoBowRelease	documentation-only	feature/autobowrelease		0	https://futureclient.net/
+Future/module/AutoCrystal	documentation-only	feature/autocrystal		0	https://futureclient.net/
+Future/module/AutoLog	documentation-only	feature/autolog		0	https://futureclient.net/
+Future/module/AutoPot	documentation-only	feature/autopot		0	https://futureclient.net/
+Future/module/AutoSoup	documentation-only	feature/autosoup		0	https://futureclient.net/
+Future/module/AutoTotem	documentation-only	feature/autototem		0	https://futureclient.net/
+Future/module/AutoTrap	documentation-only	feature/autotrap		0	https://futureclient.net/
+Future/module/AutoXP	documentation-only	feature/autoxp		0	https://futureclient.net/
+Future/module/BowAim	documentation-only	feature/bowaim		0	https://futureclient.net/
+Future/module/Criticals	documentation-only	feature/criticals		0	https://futureclient.net/
+Future/module/FeetTrap	documentation-only	feature/feettrap		0	https://futureclient.net/
+Future/module/HoleFill	documentation-only	feature/holefill		0	https://futureclient.net/
+Future/module/KeepSprint	documentation-only	feature/keepsprint		0	https://futureclient.net/
+Future/module/NoHitDelay	documentation-only	feature/nohitdelay		0	https://futureclient.net/
+Future/module/Replenish	documentation-only	feature/replenish		0	https://futureclient.net/
+Future/module/SelfFill	documentation-only	feature/selffill		0	https://futureclient.net/
+Future/module/SelfTrap	documentation-only	feature/selftrap		0	https://futureclient.net/
+Future/module/SprintReset	documentation-only	feature/sprintreset		0	https://futureclient.net/
+Future/module/ThrowPot	documentation-only	feature/throwpot		0	https://futureclient.net/
+Future/module_or_named_subsystem/Shader	documentation-only	feature/shader		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Search	documentation-only	feature/search		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Nametags	documentation-only	feature/nametags		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/ExtraTab	documentation-only	feature/extratab		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NoRender	documentation-only	feature/norender		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Fullbright	documentation-only	feature/fullbright		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/SkyBox	documentation-only	feature/skybox		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Breadcrumbs	documentation-only	feature/breadcrumbs		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Trajectories	documentation-only	feature/trajectories		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Skeleton	documentation-only	feature/skeleton		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/OldPotions	documentation-only	feature/oldpotions		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Blockhighlight	documentation-only	feature/blockhighlight		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/ViewModel	documentation-only	feature/viewmodel		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Freecam	documentation-only	feature/freecam		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Capes	documentation-only	feature/capes		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NoWeather	documentation-only	feature/noweather		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/ElytraFly	documentation-only	feature/elytrafly		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NoSlow	documentation-only	feature/noslow		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/AutoWalk	documentation-only	feature/autowalk		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/EntityControl	documentation-only	feature/entitycontrol		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NoFall	documentation-only	feature/nofall		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Speed	documentation-only	feature/speed		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NoJumpDelay	documentation-only	feature/nojumpdelay		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Sneak	documentation-only	feature/sneak		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/TridentFly	documentation-only	feature/tridentfly		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Reach	documentation-only	feature/reach		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/BoatFly	documentation-only	feature/boatfly		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Sprint	documentation-only	feature/sprint		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Flight	documentation-only	feature/flight		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/PacketFly	documentation-only	feature/packetfly		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NoRotate	documentation-only	feature/norotate		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/AutoMount	documentation-only	feature/automount		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/AutoMine	documentation-only	feature/automine		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/AutoEat	documentation-only	feature/autoeat		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NoteTuner	documentation-only	feature/notetuner		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/AutoReconnect	documentation-only	feature/autoreconnect		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Scaffold	documentation-only	feature/scaffold		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/FastPlace	documentation-only	feature/fastplace		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/AirPlace	documentation-only	feature/airplace		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/SpeedMine	documentation-only	feature/speedmine		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/ClickGUI	documentation-only	feature/clickgui		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/HUD	documentation-only	feature/hud		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/InventoryInfo	documentation-only	feature/inventoryinfo		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Colors	documentation-only	feature/colors		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NameProtect	documentation-only	feature/nameprotect		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Rotations	documentation-only	feature/rotations		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/MiddleClick	documentation-only	feature/middleclick		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Announcer	documentation-only	feature/announcer		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Avoid	documentation-only	feature/avoid		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/NoGlitchBlocks	documentation-only	feature/noglitchblocks		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/AntiVanish	documentation-only	feature/antivanish		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Spammer	documentation-only	feature/spammer		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/FakePlayer	documentation-only	feature/fakeplayer		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/XCarry	documentation-only	feature/xcarry		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Velocity	documentation-only	feature/velocity		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/PingSpoof	documentation-only	feature/pingspoof		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/Phase	documentation-only	feature/phase		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/ExtendedFirework	documentation-only	feature/extendedfirework		0	https://futureclient.net/#changelog
+Future/module_or_named_subsystem/FakeLag	documentation-only	feature/fakelag		0	https://futureclient.net/#changelog
+Future/removed_module/Seeker	documentation-only	feature/seeker		0	https://futureclient.net/#changelog
+Future/removed_module/SmoothAim	documentation-only	feature/smoothaim		0	https://futureclient.net/#changelog
+Future/removed_module/Trigger	documentation-only	feature/trigger		0	https://futureclient.net/#changelog

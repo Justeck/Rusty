@@ -1,0 +1,89 @@
+name: Native mod checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            .
+            target/stage
+      - run: sudo apt-get update && sudo apt-get install -y libasound2-dev libudev-dev
+      - run: cargo fmt --check && cargo test --locked --features native-tools && cargo clippy --locked --all-targets --features native-tools -- -D warnings
+      - run: cargo run --locked --features native-tools --bin rusty-native -- check
+      - run: python -m unittest discover -s tools -p 'test_*.py'
+      - run: python tools/native.py check
+        env:
+          RUSTFLAGS: '-D warnings'
+      - run: python tools/native.py verify-package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: horizon-native-mod
+          path: dist/*
+
+  publish:
+    name: Publish immutable native release
+    needs: native
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: horizon-native-mod
+          path: dist
+      - name: Publish a new manifest version after checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          version=$(python -c 'import json; print(json.load(open("horizon-native.json"))["version"])')
+          tag="v$version"
+          package="dist/rusty-$version.hnmod"
+          test -f "$package"
+          test -f dist/SHA256SUMS
+          test -f RELEASE_NOTES.md
+          (cd dist && sha256sum --check SHA256SUMS)
+          if gh release view "$tag" --json isDraft > existing-release.json 2>/dev/null; then
+            if [ "$(jq -r .isDraft existing-release.json)" = false ]; then
+              echo "Published $tag already exists; preserving its tag and assets."
+              exit 0
+            fi
+          fi
+          # A release's targetCommitish is not proof of the tag's actual commit.
+          # Verify existing lightweight/annotated tags without moving them.
+          if gh api "repos/$GH_REPO/git/ref/tags/$tag" > tag-object.json 2>/dev/null; then
+            tag_sha=$(jq -r .object.sha tag-object.json)
+            tag_type=$(jq -r .object.type tag-object.json)
+            while [ "$tag_type" = tag ]; do
+              gh api "repos/$GH_REPO/git/tags/$tag_sha" > tag-object.json
+              tag_sha=$(jq -r .object.sha tag-object.json)
+              tag_type=$(jq -r .object.type tag-object.json)
+            done
+            test "$tag_type" = commit
+            test "$tag_sha" = "$GITHUB_SHA"
+          else
+            gh api --method POST "repos/$GH_REPO/git/refs" -f "ref=refs/tags/$tag" -f "sha=$GITHUB_SHA"
+          fi
+          if gh release view "$tag" --json isDraft > existing-release.json 2>/dev/null; then
+            test "$(jq -r .isDraft existing-release.json)" = true
+            gh release upload "$tag" "$package" dist/SHA256SUMS --clobber
+          else
+            gh release create "$tag" "$package" dist/SHA256SUMS --verify-tag --target "$GITHUB_SHA" --title "Rusty $version" --notes-file RELEASE_NOTES.md --draft
+          fi
+          gh release edit "$tag" --draft=false --latest

@@ -1,0 +1,999 @@
+# Rusty, Apache-2.0; native Freecam component MIT.
+[mod]
+id = "rusty"
+version = "1.2.0"
+priority = 100
+[compatibility]
+horizon_revision = "6475f62f3c834b7489e1816bf47f47ea5eb2b879"
+
+[[module]]
+id = "runtime"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty"
+source = "runtime.rs"
+visibility = "pub"
+
+[[module]]
+id = "camera-runtime"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty_freecam"
+source = "freecam.rs"
+visibility = "pub"
+
+[[module]]
+id = "control"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_control"
+source = "control.rs"
+visibility = "pub"
+
+[[module]]
+id = "ui"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_ui"
+source = "ui.rs"
+visibility = "pub"
+
+[[module]]
+id = "ui-controls"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_ui_controls"
+source = "ui_controls.rs"
+visibility = "pub"
+
+[[module]]
+id = "visuals"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_visuals"
+source = "visuals.rs"
+visibility = "pub"
+
+[[module]]
+id = "camera-glue"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_camera"
+source = "camera.rs"
+visibility = "pub"
+
+[[module]]
+id = "stream"
+file = "crates/horizon-client-render/src/streaming.rs"
+name = "rusty_stream"
+source = "stream.rs"
+visibility = "pub"
+
+[[module]]
+id = "native-tests"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty_native_tests"
+source = "native_tests.rs"
+
+[[injection]]
+id = "tables"
+kind = "HEAD"
+target = "horizon_client_render::mesher::MeshTables::new"
+helper = "tables.rs"
+bindings = [
+  { name = "facts", ty = "&BlockFacts", value = "facts" },
+  { name = "assets", ty = "&Assets", value = "assets" },
+]
+
+[[injection]]
+id = "filter"
+kind = "RETURN"
+target = "horizon_client_render::mesher::Padded::fill"
+helper = "filter.rs"
+bindings = [
+  { name = "value", ty = "()", value = "$value" },
+  { name = "pad", ty = "&mut Padded", value = "&mut *self" },
+  { name = "region", ty = "&[[Option<&Chunk>;3];3]", value = "region" },
+  { name = "sy", ty = "i32", value = "sy" },
+]
+
+[[injection]]
+id = "key"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_key"
+helper = "key.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "key", ty = "&str", value = "key" },
+  { name = "pressed", ty = "bool", value = "pressed" },
+]
+
+[[injection]]
+id = "frame"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_frame"
+helper = "frame.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "tick"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_tick"
+helper = "tick.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "sprint-before-movement"
+kind = "HEAD"
+target = "horizon_client::game::Game<'_>::tick"
+helper = "sprint.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "reset"
+kind = "HEAD"
+target = "horizon_client::game::Game<'_>::clear_entities"
+helper = "reset.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "dimension-reset"
+kind = "HEAD"
+target = "horizon_client::game::remote::Game<'_>::enter_remote_dimension"
+helper = "dimension-reset.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "far"
+kind = "RETURN"
+target = "horizon_client::game::Game<'_>::far_terrain_choice"
+helper = "far.rs"
+bindings = [
+  { name = "value", ty = "(u32,bool)", value = "$value" },
+]
+
+[[injection]]
+id = "list"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_mods"
+helper = "list.rs"
+bindings = [
+  { name = "mods", ty = "&mut Vec<crate::game::native_hooks::NativeMod>", value = "&mut *mods" },
+]
+
+[[injection]]
+id = "settings"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_settings"
+helper = "settings.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "mod_id", ty = "&str", value = "mod_id" },
+  { name = "buttons", ty = "&mut Vec<String>", value = "&mut *buttons" },
+]
+
+[[injection]]
+id = "click"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_settings_click"
+helper = "click.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "mod_id", ty = "&str", value = "mod_id" },
+  { name = "button", ty = "usize", value = "button" },
+]
+
+[[injection]]
+id = "hud"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_hud"
+helper = "hud.rs"
+bindings = [
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+  { name = "batch", ty = "&mut HudBatch", value = "&mut *batch" },
+]
+
+[[injection]]
+id = "wheel"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_wheel"
+helper = "wheel.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "steps", ty = "f32", value = "steps" },
+  { name = "claimed", ty = "&mut bool", value = "&mut *claimed" },
+]
+
+[[injection]]
+id = "zoom"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_zoom"
+helper = "zoom.rs"
+bindings = [
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+  { name = "zoom", ty = "&mut Option<crate::game::native_hooks::NativeZoom>", value = "&mut *zoom" },
+]
+
+[[injection]]
+id = "command"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_command"
+helper = "command.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "command", ty = "&str", value = "command" },
+  { name = "ran", ty = "&mut bool", value = "&mut *ran" },
+]
+
+[[injection]]
+id = "window"
+kind = "HEAD"
+target = "horizon_client::game::<Game<'_> as ApplicationHandler>::window_event"
+helper = "window.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "event", ty = "&winit::event::WindowEvent", value = "&event" },
+  {name="id",ty="winit::window::WindowId",value="id"},
+]
+
+[[injection]]
+id = "turn"
+kind = "HEAD"
+target = "horizon_client::game::perspective::Game<'_>::turn_player"
+helper = "turn.rs"
+cancellable = true
+bindings = [
+  { name = "xo", ty = "f64", value = "xo" },
+  { name = "yo", ty = "f64", value = "yo" },
+]
+
+[[injection]]
+id = "camera"
+kind = "HEAD"
+target = "horizon_client::game::perspective::Game<'_>::camera_view"
+helper = "camera-hook.rs"
+cancellable = true
+bindings = [
+  { name = "partial", ty = "f32", value = "partial" },
+]
+
+[[injection]]
+id = "mapped"
+kind = "HEAD"
+target = "horizon_client::game::Game<'_>::mapped_key"
+helper = "mapped.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+  { name = "key", ty = "winit::keyboard::KeyCode", value = "key" },
+  {name="raw",ty="winit::keyboard::KeyCode",value="raw"},
+  {name="pressed",ty="bool",value="pressed"},
+  {name="repeat",ty="bool",value="repeat"},
+]
+
+[[injection]]
+id = "mouse"
+kind = "HEAD"
+target = "horizon_client::game::Game<'_>::play_mouse"
+helper = "mouse.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+]
+
+[[injection]]
+id = "pad"
+kind = "RETURN"
+target = "horizon_client::game::pad::Game<'_>::pad_move"
+helper = "pad.rs"
+bindings = [
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+  { name = "value", ty = "Option<[f32;2]>", value = "$value" },
+]
+
+[[injection]]
+id = "ui-draw"
+kind = "HEAD"
+target = "horizon_client::game::options::Game<'_>::draw_options"
+helper = "ui-draw.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "batch", ty = "&mut HudBatch", value = "&mut *batch" },
+]
+
+[[injection]]
+id = "ui-mouse"
+kind = "HEAD"
+target = "horizon_client::game::options::Game<'_>::options_mouse"
+helper = "ui-mouse.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "pressed", ty = "bool", value = "pressed" },
+  { name = "right", ty = "bool", value = "right" },
+]
+
+[[injection]]
+id = "ui-drag"
+kind = "HEAD"
+target = "horizon_client::game::options::Game<'_>::options_drag"
+helper = "ui-drag.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "ui-key"
+kind = "HEAD"
+target = "horizon_client::game::options::Game<'_>::options_key"
+helper = "ui-key.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "key", ty = "winit::keyboard::KeyCode", value = "key" },
+  { name = "text", ty = "Option<&str>", value = "text" },
+]
+
+[[injection]]
+id = "ui-shortcut"
+kind = "HEAD"
+target = "horizon_client::game::options::Game<'_>::options_shortcut"
+helper = "ui-shortcut.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "shortcut", ty = "horizon_client::clipboard::EditShortcut", value = "shortcut" },
+]
+
+[[injection]]
+id = "ui-scroll"
+kind = "HEAD"
+target = "horizon_client::game::options::Game<'_>::options_scroll"
+helper = "ui-scroll.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "amount", ty = "f32", value = "amount" },
+]
+
+[[injection]]
+id = "gizmos"
+kind = "HEAD"
+target = "horizon_client::game::debug_renderers::Game<'_>::debug_renderer_gizmos"
+helper = "gizmos.rs"
+bindings = [
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+  { name = "g", ty = "&mut horizon_client::gizmos::Gizmos", value = "&mut *g" },
+]
+
+[[injection]]
+id = "bright"
+kind = "RETURN"
+target = "horizon_client::game::options::Game<'_>::apply_ui_settings"
+helper = "bright.rs"
+bindings = [
+  { name = "value", ty = "()", value = "$value" },
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "fog"
+kind = "RETURN"
+target = "horizon_client::game::render_tick::Game<'_>::frame_fog"
+helper = "fog.rs"
+bindings = [
+  { name = "value", ty = "FogData", value = "$value" },
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+]
+
+[[injection]]
+id = "weather"
+kind = "HEAD"
+target = "horizon_client::game::Game<'_>::weather_geometry"
+helper = "weather.rs"
+cancellable = true
+bindings = [
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+]
+
+[[injection]]
+id = "weather-sky"
+kind = "HEAD"
+target = "horizon_client_render::environment::apply_weather"
+helper = "weather-sky.rs"
+cancellable = true
+bindings = [
+]
+
+[[injection]]
+id = "hurt"
+kind = "MODIFY_VARIABLE"
+target = "horizon_client::game::fov::Game<'_>::bob_matrix"
+helper = "hurt.rs"
+variable = { name = "tilt", ordinal = 0, at = "STORE" }
+require = 1
+ordinal = 0
+bindings = [
+  { name = "value", ty = "f64", value = "$value" },
+  { name = "game", ty = "&crate::game::Game<'_>", value = "&*self" },
+]
+
+[[injection]]
+id = "control-api"
+kind = "HEAD"
+cancellable = true
+target = "horizon_client::game::control::Game<'_>::control_command"
+helper = "control-api-hook.rs"
+bindings = [
+ {name="game",ty="&mut crate::game::Game<'_>",value="&mut *self"},
+ {name="line",ty="&str",value="line"},
+]
+
+[[injection]]
+id = "pressed-key-guard"
+kind = "HEAD"
+cancellable = true
+target = "horizon_client::game::Game<'_>::key_pressed"
+helper = "pressed-key-guard.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="key",ty="winit::keyboard::KeyCode",value="key"},
+]
+
+[[injection]]
+id = "control-body-key-guard"
+kind = "HEAD"
+cancellable = true
+target = "horizon_client::game::control::Game<'_>::control_key_down"
+helper = "pressed-key-guard.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="key",ty="winit::keyboard::KeyCode",value="key"},
+]
+
+
+[[module]]
+id = "textured-terrain"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_terrain"
+source = "terrain.rs"
+visibility = "pub"
+
+[[injection]]
+id = "textured-terrain-hook"
+kind = "RETURN"
+target = "horizon_client::game::Game<'_>::entity_geometry"
+helper = "terrain-hook.rs"
+bindings = [
+ {name="value",ty="(Vec<Vertex>, Arc<[StaticSectionSnapshot]>, Vec<[i32;3]>, StaticCacheFrameStats,)",value="$value"},
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="camera",ty="glam::DVec3",value="camera"},
+]
+[[module]]
+id = "module-catalog"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty_catalog"
+source = "catalog.rs"
+visibility = "pub"
+
+[[module]]
+id = "navigation-core"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty_navigation"
+source = "navigation.rs"
+visibility = "pub"
+
+[[module]]
+id = "navigation-native"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_navigation_native"
+source = "navigation_native.rs"
+visibility = "pub"
+
+[[module]]
+id = "clickgui"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_clickgui"
+source = "clickgui.rs"
+visibility = "pub"
+
+[[injection]]
+id = "clickgui-render"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_screen_render_post"
+helper = "clickgui-render.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="screen",ty="&NativeScreenView<'_>",value="screen"},
+ {name="batch",ty="&mut HudBatch",value="batch"},
+]
+
+[[injection]]
+id = "clickgui-press"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_screen_mouse_button_pressed_pre"
+helper = "clickgui-press.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="screen",ty="&NativeScreenView<'_>",value="screen"},
+ {name="button",ty="i32",value="button"},
+ {name="canceled",ty="&mut bool",value="canceled"},
+]
+
+[[injection]]
+id = "clickgui-release"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_screen_mouse_button_released_pre"
+helper = "clickgui-release.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="screen",ty="&NativeScreenView<'_>",value="screen"},
+ {name="button",ty="i32",value="button"},
+ {name="canceled",ty="&mut bool",value="canceled"},
+]
+
+[[injection]]
+id = "clickgui-drag"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_screen_mouse_dragged_pre"
+helper = "clickgui-drag.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="screen",ty="&NativeScreenView<'_>",value="screen"},
+ {name="canceled",ty="&mut bool",value="canceled"},
+]
+
+[[injection]]
+id = "clickgui-scroll"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_screen_mouse_scrolled_pre"
+helper = "clickgui-scroll.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="screen",ty="&NativeScreenView<'_>",value="screen"},
+ {name="scroll",ty="[f64;2]",value="scroll"},
+ {name="canceled",ty="&mut bool",value="canceled"},
+]
+
+[[injection]]
+id = "clickgui-key"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_screen_key_pressed_pre"
+helper = "clickgui-key.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="screen",ty="&NativeScreenView<'_>",value="screen"},
+ {name="key",ty="&str",value="key"},
+ {name="repeat",ty="bool",value="repeat"},
+ {name="modifiers",ty="u32",value="modifiers"},
+ {name="canceled",ty="&mut bool",value="canceled"},
+]
+
+[[injection]]
+id = "clickgui-key-up"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_screen_key_released_pre"
+helper = "clickgui-key-up.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="screen",ty="&NativeScreenView<'_>",value="screen"},
+ {name="key",ty="&str",value="key"},
+ {name="modifiers",ty="u32",value="modifiers"},
+ {name="canceled",ty="&mut bool",value="canceled"},
+]
+
+[[injection]]
+id = "clickgui-char"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_screen_char_typed_pre"
+helper = "clickgui-char.rs"
+bindings = [
+ {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+ {name="screen",ty="&NativeScreenView<'_>",value="screen"},
+ {name="c",ty="char",value="c"},
+ {name="canceled",ty="&mut bool",value="canceled"},
+]
+
+[[injection]]
+id = "navigation-teleport"
+kind = "HEAD"
+target = "horizon_client::game::remote::Game<'_>::remote_teleport"
+helper = "navigation-teleport.rs"
+bindings = []
+
+[[module]]
+id = "utility-core"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty_utility"
+source = "utility.rs"
+visibility = "pub"
+
+[[module]]
+id = "utility-native"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_utilities"
+source = "utility_native.rs"
+visibility = "pub"
+
+[[module]]
+id = "clickgui-model"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty_clickgui_model"
+source = "clickgui_model.rs"
+visibility = "pub"
+
+[[injection]]
+id = "menu-open"
+kind = "RETURN"
+target = "horizon_client::game::native_hooks::Game<'_>::native_mod_screen_open"
+helper = "menu-open.rs"
+bindings = [
+  {name="value",ty="bool",value="$value"},
+  {name="game",ty="&mut crate::game::Game<'_>",value="&mut *self"},
+]
+
+[[injection]]
+id = "menu-close"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::close_mod_screen"
+helper = "menu-close.rs"
+bindings = [
+  {name="game",ty="&mut crate::game::Game<'_>",value="&mut *self"},
+]
+
+[[injection]]
+id = "menu-key-restore"
+kind = "HEAD"
+target = "horizon_client::game::Game<'_>::restore_held_keys"
+helper = "menu-key-restore.rs"
+bindings = [
+  {name="game",ty="&mut crate::game::Game<'_>",value="&mut *self"},
+]
+
+[[injection]]
+id = "input-observe"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_key_event"
+helper = "input-observe.rs"
+bindings = [
+  {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+  {name="key",ty="winit::keyboard::KeyCode",value="key"},
+  {name="pressed",ty="bool",value="pressed"},
+  {name="repeat",ty="bool",value="repeat"},
+]
+
+[[injection]]
+id = "menu-pad-look"
+kind = "HEAD"
+target = "horizon_client::game::pad::Game<'_>::pad_look"
+helper = "menu-pad-look.rs"
+cancellable = true
+bindings = [
+  {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+]
+
+[[module]]
+id = "world-identity-core"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_world_identity"
+source = "world_identity.rs"
+visibility = "pub"
+
+[[module]]
+id = "world-identity-source"
+file = "crates/horizon-client/src/game/integrated.rs"
+name = "rusty_world_source"
+source = "world_source.rs"
+visibility = "pub"
+
+[[injection]]
+id = "world-identity-capture"
+kind = "HEAD"
+target = "horizon_client::game::Game<'_>::tick_world_icon"
+helper = "world-source-hook.rs"
+bindings = [
+  {name="game",ty="&crate::game::Game<'_>",value="&*self"},
+]
+
+[[module]]
+id="awareness-core"
+file="crates/horizon-client-render/src/mesher.rs"
+name="rusty_awareness"
+source="awareness.rs"
+visibility="pub"
+
+[[module]]
+id="awareness-native"
+file="crates/horizon-client/src/game.rs"
+name="rusty_awareness_native"
+source="awareness_native.rs"
+visibility="pub"
+
+[[module]]
+id="assistance-core"
+file="crates/horizon-client-render/src/mesher.rs"
+name="rusty_assistance"
+source="assistance.rs"
+visibility="pub"
+
+[[module]]
+id="assistance-native"
+file="crates/horizon-client/src/game.rs"
+name="rusty_assist"
+source="assistance_native.rs"
+visibility="pub"
+
+[[module]]
+id="assistance-remote"
+file="crates/horizon-client/src/game/remote.rs"
+name="rusty_assist_remote"
+source="assistance_remote.rs"
+visibility="pub"
+
+[[injection]]
+id="assistance-movement"
+kind="HEAD"
+target="horizon_client::game::native_hooks::Game<'_>::native_movement_input"
+helper="movement-input-hook.rs"
+bindings=[
+{name="game",ty="&crate::game::Game<'_>",value="&*self"},
+{name="forward",ty="&mut f32",value="forward"},
+{name="strafe",ty="&mut f32",value="strafe"},
+{name="jump",ty="&mut bool",value="jump"},
+{name="sneak",ty="&mut bool",value="sneak"},
+]
+[[injection]]
+id="weather-levels"
+kind="RETURN"
+target="horizon_client::game::Game<'_>::weather_levels"
+helper="weather-levels.rs"
+bindings=[
+{name="value",ty="(f32,f32)",value="$value"},
+{name="game",ty="&crate::game::Game<'_>",value="&*self"},
+]
+
+[[injection]]
+id="assistance-use"
+kind="HEAD"
+target="horizon_client::game::remote::Game<'_>::remote_use"
+helper="assistance-use-hook.rs"
+cancellable=true
+bindings=[{name="game",ty="&mut crate::game::Game<'_>",value="&mut *self"}]
+
+[[module]]
+id="waypoint-walk"
+file="crates/horizon-client/src/game.rs"
+name="rusty_waypoint_walk"
+source="waypoint_walk.rs"
+visibility="pub"
+
+[[module]]
+id="waypoint-walk-state"
+file="crates/horizon-client/src/game.rs"
+name="rusty_waypoint_walk_state"
+source="waypoint_walk_state.rs"
+visibility="pub"
+
+[[module]]
+id="waypoint-walk-agent"
+file="crates/horizon-client/src/game/agent.rs"
+name="rusty_waypoint_walk_agent"
+source="waypoint_walk_agent.rs"
+visibility="pub"
+
+[[injection]]
+id="waypoint-walk-advance"
+kind="HEAD"
+target="horizon_client::game::agent::Game<'_>::advance_agent"
+helper="waypoint_walk_advance_hook.rs"
+bindings=[{name="game",ty="&mut crate::game::Game<'_>",value="&mut *self"}]
+[[injection]]
+id="minimap"
+kind="HEAD"
+target="horizon_client::game::native_hooks::Game<'_>::native_minimap"
+helper="minimap-hook.rs"
+bindings=[{name="game",ty="&crate::game::Game<'_>",value="&*self"},{name="minimap",ty="&mut Option<NativeMinimap>",value="minimap"}]
+
+[[module]]
+id="prediction-native"
+file="crates/horizon-client/src/game/creatures.rs"
+name="rusty_prediction"
+source="prediction_native.rs"
+visibility="pub"
+
+[[module]]
+id="prediction-core"
+file="crates/horizon-client-render/src/mesher.rs"
+name="rusty_prediction_core"
+source="prediction_core.rs"
+visibility="pub"
+
+[[module]]
+id="automation-core"
+file="crates/horizon-client-render/src/mesher.rs"
+name="rusty_automation"
+source="automation.rs"
+visibility="pub"
+
+[[module]]
+id="automation-native"
+file="crates/horizon-client/src/game.rs"
+name="rusty_automations"
+source="automation_native.rs"
+visibility="pub"
+
+[[module]]
+id="automation-fishing"
+file="crates/horizon-client/src/game/fishing.rs"
+name="rusty_automation_fishing"
+source="automation_fishing.rs"
+visibility="pub"
+
+[[module]]
+id="automation-actions"
+file="crates/horizon-client/src/game/remote.rs"
+name="rusty_automation_actions"
+source="automation_actions.rs"
+visibility="pub"
+
+[[module]]
+id="scan-cache-core"
+file="crates/horizon-client-render/src/mesher.rs"
+name="rusty_scan_cache"
+source="scan_cache.rs"
+visibility="pub"
+
+[[module]]
+id="build-plan-core"
+file="crates/horizon-client-render/src/mesher.rs"
+name="rusty_build_plan"
+source="build_plan.rs"
+visibility="pub"
+
+[[module]]
+id="build-native"
+file="crates/horizon-client/src/game.rs"
+name="rusty_builder"
+source="build_native.rs"
+visibility="pub"
+
+[[module]]
+id="build-agent"
+file="crates/horizon-client/src/game/agent.rs"
+name="rusty_build_agent"
+source="build_agent.rs"
+visibility="pub"
+
+[[module]]
+id="build-actions"
+file="crates/horizon-client/src/game/remote.rs"
+name="rusty_build_actions"
+source="build_actions.rs"
+visibility="pub"
+
+[[module]]
+id="inventory-core"
+file="crates/horizon-client-render/src/mesher.rs"
+name="rusty_inventory_core"
+source="inventory_assistance.rs"
+visibility="pub"
+
+[[module]]
+id="inventory-native"
+file="crates/horizon-client/src/game.rs"
+name="rusty_inventory"
+source="inventory_native.rs"
+visibility="pub"
+
+[[module]]
+id="inventory-actions"
+file="crates/horizon-client/src/game/remote.rs"
+name="rusty_inventory_actions"
+source="inventory_actions.rs"
+visibility="pub"
+
+[[injection]]
+id="inventory-incoming-hand"
+kind="HEAD"
+target="horizon_client::game::remote::Game<'_>::remote_hand_slot_set"
+helper="inventory-mark-hook.rs"
+bindings=[
+{name="slot",ty="usize",value="slot"},
+]
+
+[[injection]]
+id="inventory-incoming-menu"
+kind="HEAD"
+target="horizon_client::game::remote::Game<'_>::set_menu_slot"
+helper="inventory-menu-mark-hook.rs"
+bindings=[
+{name="container",ty="i32",value="container"},
+{name="slot",ty="i32",value="slot"},
+]
+
+[[injection]]
+id="inventory-incoming-full"
+kind="RETURN"
+target="horizon_client::game::remote::Game<'_>::remote_synced"
+helper="inventory-full-hook.rs"
+bindings=[
+{name="_value",ty="()",value="$value"},
+{name="game",ty="&crate::game::Game<'_>",value="&*self"},
+]
+
+[[injection]]
+id="inventory-incoming-delta"
+kind="RETURN"
+target="horizon_client::game::remote::Game<'_>::remote_synced_since"
+helper="inventory-received-hook.rs"
+bindings=[
+{name="_value",ty="()",value="$value"},
+{name="game",ty="&crate::game::Game<'_>",value="&*self"},
+]
+
+[[injection]]
+id="input-release"
+kind="HEAD"
+target="horizon_client::game::Game<'_>::handle_window_event_inner"
+helper="input-release.rs"
+bindings=[
+{name="game",ty="&crate::game::Game<'_>",value="&*self"},
+{name="event",ty="&winit::event::WindowEvent",value="&event"},
+]
+
+[[injection]]
+id="inventory-pad-action"
+kind="HEAD"
+target="horizon_client::game::pad::Game<'_>::pad_action"
+helper="inventory-pad-action.rs"
+bindings=[
+{name="game",ty="&crate::game::Game<'_>",value="&*self"},
+{name="action",ty="&str",value="action"},
+{name="down",ty="bool",value="down"},
+]
+
+[[module]]
+id = "hud-layout"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty_hud_layout"
+source = "hud_layout.rs"
+visibility = "pub"
+
+[[module]]
+id = "hud-layout-native"
+file = "crates/horizon-client/src/game.rs"
+name = "rusty_hud_native"
+source = "hud_native.rs"
+visibility = "pub"
+
+[[module]]
+id = "hud-layout-render"
+file = "crates/horizon-client-render/src/mesher.rs"
+name = "rusty_hud_render"
+source = "hud_render.rs"
+visibility = "pub"
+
+# Hook the defining library crate, not horizon-client's public re-export.
+# The adapter belongs to horizon-client-render, accessible from both crates.
+[[injection]]
+id = "minimap-layout-begin"
+kind = "HEAD"
+target = "horizon_client_lib::extras_hud::draw_minimap"
+helper = "minimap-layout-begin.rs"
+bindings = [{ name = "batch", ty = "&HudBatch", value = "&*batch" }]
+
+[[injection]]
+id = "minimap-layout-end"
+kind = "RETURN"
+target = "horizon_client_lib::extras_hud::draw_minimap"
+helper = "minimap-layout-end.rs"
+bindings = [
+  { name = "_value", ty = "()", value = "$value" },
+  { name = "batch", ty = "&mut HudBatch", value = "&mut *batch" },
+]

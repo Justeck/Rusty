@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "brand": "Rusty",
+  "wordmark": "RUSTY",
+  "palette": {
+    "copper": "#c57b40",
+    "graphite": "#242424",
+    "patina": "#497f70"
+  },
+  "artwork": [
+    {
+      "file": "rusty-mark.png",
+      "sha256": "6f31238be890d01e0ce6ad84702640736280401f699033b91cfab66d27d49b95",
+      "width": 1254,
+      "height": 1254,
+      "generated_with": "Built-in image generation",
+      "image_altered": false
+    },
+    {
+      "file": "rusty-wordmark.png",
+      "sha256": "038a0a197fe6ea73b5db577ac5b1022e72e9eb93bdac5dfd6e89bd443af86ae8",
+      "width": 2172,
+      "height": 724,
+      "generated_with": "Built-in image generation",
+      "image_altered": false
+    }
+  ],
+  "design": "Original copper voxel R badge and matching squared wordmark. Distinct from the official Rust mark and Minecraft logo.",
+  "transparency_requested": true
+}
