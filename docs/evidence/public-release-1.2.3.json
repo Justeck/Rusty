@@ -1,0 +1,114 @@
+{
+  "source_commit": "470e9a594156421221684ccd80c5f5c973935fc2",
+  "releases": {
+    "v1.2.3": {
+      "url": "https://github.com/Justeck/Rusty/releases/tag/v1.2.3",
+      "immutable": true,
+      "assets": [
+        {
+          "name": "rusty-1.2.3.hnmod",
+          "sha256": "5593e7754e334505f54fdae8cb9c733d7d2b2f99319da5606e8fb7215121c5c9",
+          "bytes": 201232
+        },
+        {
+          "name": "SHA256SUMS",
+          "sha256": "581ec5e9af97ed8d247213e3948347b358b624383cbf9df6eef32d1e60a6db9a",
+          "bytes": 84
+        }
+      ]
+    },
+    "java-v1.3.0-beta.2": {
+      "url": "https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.2",
+      "immutable": true,
+      "assets": [
+        {
+          "name": "rusty-fabric-1.3.0-beta.2-sources.jar",
+          "sha256": "05e149c3b74b594cf46a3392b797d30d33d8f6a003e0b4b5d486c2e5f39417a7",
+          "bytes": 1626816
+        },
+        {
+          "name": "rusty-fabric-1.3.0-beta.2.jar",
+          "sha256": "90c70b7248a719725831f8731952cbac7fa0035c250eb1fa51925da8260d9a9f",
+          "bytes": 1709823
+        },
+        {
+          "name": "rusty-neoforge-1.3.0-beta.2-sources.jar",
+          "sha256": "1d965bf3242ec3068e08b50f7b349cb8c0312447a12c1bdb6c8342219aeea920",
+          "bytes": 1625365
+        },
+        {
+          "name": "rusty-neoforge-1.3.0-beta.2.jar",
+          "sha256": "3a09b94ba0efbf6269027a76585677b67372f07a92de0b870c1f6c3867dd049e",
+          "bytes": 1704185
+        },
+        {
+          "name": "SHA256SUMS",
+          "sha256": "882d4c4ff37e513ee30f7a89f5bf8ecae6aa1299bc10f3f6bb4170cbf5cac455",
+          "bytes": 404
+        }
+      ]
+    }
+  },
+  "inputs": [
+    {
+      "route": "fixed",
+      "url": "https://github.com/Justeck/Rusty/releases/tag/v1.2.3",
+      "exit_code": 0,
+      "origin": {
+        "id": "rusty",
+        "version": "1.2.3",
+        "owner": "Justeck",
+        "repo": "Rusty",
+        "tag": "v1.2.3",
+        "commit": "470e9a594156421221684ccd80c5f5c973935fc2",
+        "asset": "rusty-1.2.3.hnmod",
+        "sha256": "5593e7754e334505f54fdae8cb9c733d7d2b2f99319da5606e8fb7215121c5c9"
+      }
+    },
+    {
+      "route": "repository",
+      "url": "https://github.com/Justeck/Rusty",
+      "exit_code": 0,
+      "origin": {
+        "id": "rusty",
+        "version": "1.2.3",
+        "owner": "Justeck",
+        "repo": "Rusty",
+        "tag": "v1.2.3",
+        "commit": "470e9a594156421221684ccd80c5f5c973935fc2",
+        "asset": "rusty-1.2.3.hnmod",
+        "sha256": "5593e7754e334505f54fdae8cb9c733d7d2b2f99319da5606e8fb7215121c5c9"
+      }
+    }
+  ],
+  "sole_instance": "horizon",
+  "selected_build": "native-38609b7-62e1f0c09f3c",
+  "executable_sha256": "3aefe2228d77e803b1b6a4a169a579d65c622031476aa7986aaa5b431c23d0f8",
+  "cached_build_exit": 0,
+  "cached_build_seconds": 15.065,
+  "preferences_preserved": true,
+  "preference_files_checked": 1,
+  "existing_running_user_game_controlled": false,
+  "java_ci_product_classes_equal_locally_game_tested": true,
+  "modrinth": {
+    "project": "https://modrinth.com/mod/rusty-toolkit",
+    "status": "Under review",
+    "versions": [
+      {
+        "loader": "fabric",
+        "version_id": "8652O7m9",
+        "url": "https://modrinth.com/mod/rusty-toolkit/version/8652O7m9",
+        "sha256": "90c70b7248a719725831f8731952cbac7fa0035c250eb1fa51925da8260d9a9f",
+        "bytes_equal_github_release": true
+      },
+      {
+        "loader": "neoforge",
+        "version_id": "KzVxkGD2",
+        "url": "https://modrinth.com/mod/rusty-toolkit/version/KzVxkGD2",
+        "sha256": "3a09b94ba0efbf6269027a76585677b67372f07a92de0b870c1f6c3867dd049e",
+        "bytes_equal_github_release": true
+      }
+    ]
+  },
+  "claims": "Public-release installation and distribution identity only; game test scope stays in the separate versioned acceptance receipt."
+}

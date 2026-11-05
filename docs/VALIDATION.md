@@ -13,6 +13,8 @@ Fresh actual game checks on that executable passed: **5 X-ray/Finder independenc
 These fresh checks use isolated offline worlds. Earlier server/performance/endurance results below remain historical. The build used the official launcher CLI; this patch does not claim a fresh GUI Build/Play test. No existing user game or public-server character was controlled.
 
 
+The [published-release installation receipt](evidence/public-release-1.2.3.json) verifies both the fixed 1.2.3 URL and repository URL through the official installer. The downloaded native archive is byte-identical to the tested package. A final Performance build exited 0 in **15.065 seconds**, reusing the same accepted executable and leaving the sole `horizon` instance selected. The existing Rusty preference file stayed byte-identical. Both Java runtime downloads on Modrinth match their GitHub release files byte-for-byte; Modrinth still shows **Under review**. The existing running user game was left untouched and needs a restart to load the patch.
+
 ## 1.2.2 current Nightly compatibility patch
 
 Horizon Nightly **38609b7 / native API 409 / Minecraft 26.3** replaces the old held-key set with a device-aware container. Rusty's two obsolete collection calls prevented compilation. The camera integration now removes its movement mappings individually and restores physically held movement keys on exit. No upstream production source is changed.
