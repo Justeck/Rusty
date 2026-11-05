@@ -1,0 +1,1433 @@
+{
+  "schema": 1,
+  "binary_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "conditions": [
+    {
+      "condition": "performance-disabled",
+      "raw_receipt_sha256": "189725ccfa03ec66248dcb868cf1ddd67b949bb699865f534d0682afbb42a850",
+      "offscreen": true,
+      "render_distance": 4,
+      "fps_cap": 60,
+      "resolution_requested": [
+        960,
+        540
+      ],
+      "scan_cache_validation": null,
+      "owned_process_stopped": true,
+      "samples": [
+        {
+          "case": "normal",
+          "sample": 0,
+          "wall_seconds": 5.016905499996938,
+          "cpu_seconds": 1.0,
+          "rss_bytes": 1037516800,
+          "native": {
+            "avg_fps": 59.991407049762046,
+            "cpu": {
+              "avg_ms": 1.5785716678698858,
+              "max_ms": 3.0710999965667725,
+              "p50_ms": 1.403999924659729,
+              "p95_ms": 2.588900089263916,
+              "p99_ms": 2.9833998680114746
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 300,
+            "gpu": {
+              "avg_ms": 2.2772796261310577,
+              "max_ms": 5.539010047912598,
+              "p50_ms": 2.2383854389190674,
+              "p95_ms": 3.7046353816986084,
+              "p99_ms": 4.08145809173584
+            },
+            "low_01pct_fps": 57.11511830279135,
+            "low_1pct_fps": 57.331123190851656,
+            "max_ms": 17.508499145507812,
+            "p50_ms": 16.659000396728516,
+            "p95_ms": 17.1737003326416,
+            "p99_ms": 17.340600967407227,
+            "phases_avg_ms": {
+              "prepare": 0.5160706664125124,
+              "render": 0.7502096662918727,
+              "tick": 0.27395466465502977,
+              "update": 0.03899500009293357
+            },
+            "seconds": 5.000716181755066,
+            "slow_phases_avg_ms": {
+              "prepare": 0.728766659895579,
+              "render": 1.2171000242233276,
+              "tick": 1.0515999992688496,
+              "update": 0.04496666726966699
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "disabled": true
+          }
+        },
+        {
+          "case": "normal",
+          "sample": 1,
+          "wall_seconds": 5.01560409999729,
+          "cpu_seconds": 0.9375,
+          "rss_bytes": 1037819904,
+          "native": {
+            "avg_fps": 59.99961945202911,
+            "cpu": {
+              "avg_ms": 1.5372266674041748,
+              "max_ms": 3.09689998626709,
+              "p50_ms": 1.38100004196167,
+              "p95_ms": 2.438300132751465,
+              "p99_ms": 2.955199956893921
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 300,
+            "gpu": {
+              "avg_ms": 2.0363509897391,
+              "max_ms": 3.9399478435516357,
+              "p50_ms": 1.9479166269302368,
+              "p95_ms": 3.265625,
+              "p99_ms": 3.8129687309265137
+            },
+            "low_01pct_fps": 57.02391850842115,
+            "low_1pct_fps": 57.27343793127204,
+            "max_ms": 17.536500930786133,
+            "p50_ms": 16.640199661254883,
+            "p95_ms": 17.19890022277832,
+            "p99_ms": 17.37540054321289,
+            "phases_avg_ms": {
+              "prepare": 0.5174026653170586,
+              "render": 0.7380080018440882,
+              "tick": 0.24901266622667512,
+              "update": 0.0333753332712998
+            },
+            "seconds": 5.000031712532043,
+            "slow_phases_avg_ms": {
+              "prepare": 0.7422333359718323,
+              "render": 1.1062000195185344,
+              "tick": 1.1750999689102173,
+              "update": 0.033733333150545754
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "disabled": true
+          }
+        },
+        {
+          "case": "normal",
+          "sample": 2,
+          "wall_seconds": 5.031907900000078,
+          "cpu_seconds": 0.890625,
+          "rss_bytes": 1037619200,
+          "native": {
+            "avg_fps": 60.006254460263825,
+            "cpu": {
+              "avg_ms": 1.4760109625781492,
+              "max_ms": 3.703400135040283,
+              "p50_ms": 1.3152999877929688,
+              "p95_ms": 2.1714999675750732,
+              "p99_ms": 2.777899980545044
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 301,
+            "gpu": {
+              "avg_ms": 2.0662122327227923,
+              "max_ms": 3.9378645420074463,
+              "p50_ms": 2.099895715713501,
+              "p95_ms": 2.4647395610809326,
+              "p99_ms": 3.604114532470703
+            },
+            "low_01pct_fps": 56.95701358080525,
+            "low_1pct_fps": 57.26925936607443,
+            "max_ms": 17.557100296020508,
+            "p50_ms": 16.655099868774414,
+            "p95_ms": 17.172298431396484,
+            "p99_ms": 17.335298538208008,
+            "phases_avg_ms": {
+              "prepare": 0.4929415296478525,
+              "render": 0.7094644470468312,
+              "tick": 0.24378837096780243,
+              "update": 0.030364451929926872
+            },
+            "seconds": 5.016143778800965,
+            "slow_phases_avg_ms": {
+              "prepare": 0.6710250079631805,
+              "render": 1.21390001475811,
+              "tick": 1.1412250101566315,
+              "update": 0.0213000001385808
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "disabled": true
+          }
+        }
+      ],
+      "limitations": [
+        "Short local offscreen samples, not long-session or reference-client benchmarks",
+        "Comparisons across different Horizon revisions would confound mod-specific attribution",
+        "The native Rusty menu keeps single-player simulation live; the host Options menu has a different pause policy",
+        "Legacy optional compiled mods are disabled through normal settings if present",
+        "The private fixture explicitly rebinds the menu to M for reproducible input"
+      ]
+    },
+    {
+      "condition": "performance-enabled",
+      "raw_receipt_sha256": "487f0e7199acfa4f664da826b74aabbc14e4d9e1000ed53d71c1a1df20eb0f12",
+      "offscreen": true,
+      "render_distance": 4,
+      "fps_cap": 60,
+      "resolution_requested": [
+        960,
+        540
+      ],
+      "scan_cache_validation": {
+        "passed": true,
+        "stationary_case": "xray",
+        "before": {
+          "aggregations": 498,
+          "reused": 1
+        },
+        "after": {
+          "aggregations": 616,
+          "reused": 798
+        },
+        "reused_delta": 797
+      },
+      "owned_process_stopped": true,
+      "samples": [
+        {
+          "case": "normal",
+          "sample": 0,
+          "wall_seconds": 5.017071600002964,
+          "cpu_seconds": 0.984375,
+          "rss_bytes": 1047281664,
+          "native": {
+            "avg_fps": 60.00281449740403,
+            "cpu": {
+              "avg_ms": 1.6360983310143153,
+              "max_ms": 3.7797999382019043,
+              "p50_ms": 1.4422000646591187,
+              "p95_ms": 2.701200008392334,
+              "p99_ms": 3.066800117492676
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 300,
+            "gpu": {
+              "avg_ms": 2.5311902177333834,
+              "max_ms": 4.52635383605957,
+              "p50_ms": 2.2566144466400146,
+              "p95_ms": 3.8393750190734863,
+              "p99_ms": 3.9911978244781494
+            },
+            "low_01pct_fps": 57.32531642538567,
+            "low_1pct_fps": 57.35962243091552,
+            "max_ms": 17.444299697875977,
+            "p50_ms": 16.686800003051758,
+            "p95_ms": 17.194398880004883,
+            "p99_ms": 17.39590072631836,
+            "phases_avg_ms": {
+              "prepare": 0.5021213339765866,
+              "render": 0.7982209986448288,
+              "tick": 0.29764800078546005,
+              "update": 0.038712333456302685
+            },
+            "seconds": 4.999765469551086,
+            "slow_phases_avg_ms": {
+              "prepare": 0.9983999729156494,
+              "render": 1.3012332916259766,
+              "tick": 1.2145666281382244,
+              "update": 0.02143333355585734
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": false,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": null,
+            "partial": false,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 0,
+              "reused": 0
+            },
+            "targets": 0,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": false
+          }
+        },
+        {
+          "case": "normal",
+          "sample": 1,
+          "wall_seconds": 5.0154120000006515,
+          "cpu_seconds": 0.671875,
+          "rss_bytes": 1047552000,
+          "native": {
+            "avg_fps": 59.997251003335855,
+            "cpu": {
+              "avg_ms": 1.6215123371283213,
+              "max_ms": 4.065800189971924,
+              "p50_ms": 1.3114999532699585,
+              "p95_ms": 2.8721001148223877,
+              "p99_ms": 3.685999870300293
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 300,
+            "gpu": {
+              "avg_ms": 2.540336224238078,
+              "max_ms": 3.9765102863311768,
+              "p50_ms": 2.2885937690734863,
+              "p95_ms": 3.802968740463257,
+              "p99_ms": 3.884791612625122
+            },
+            "low_01pct_fps": 56.42226038796546,
+            "low_1pct_fps": 56.952041221055964,
+            "max_ms": 17.723501205444336,
+            "p50_ms": 16.672100067138672,
+            "p95_ms": 17.148500442504883,
+            "p99_ms": 17.370100021362305,
+            "phases_avg_ms": {
+              "prepare": 0.5075270015001297,
+              "render": 0.762322332461675,
+              "tick": 0.31885733333726723,
+              "update": 0.033446000122154755
+            },
+            "seconds": 5.000229093551636,
+            "slow_phases_avg_ms": {
+              "prepare": 1.0579333305358887,
+              "render": 1.3491000135739644,
+              "tick": 1.4505666891733806,
+              "update": 0.023866667101780575
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": false,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": null,
+            "partial": false,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 0,
+              "reused": 0
+            },
+            "targets": 0,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": false
+          }
+        },
+        {
+          "case": "normal",
+          "sample": 2,
+          "wall_seconds": 5.03116719999889,
+          "cpu_seconds": 0.921875,
+          "rss_bytes": 1047949312,
+          "native": {
+            "avg_fps": 60.004981235849066,
+            "cpu": {
+              "avg_ms": 1.5750574681449967,
+              "max_ms": 3.2139999866485596,
+              "p50_ms": 1.3073999881744385,
+              "p95_ms": 2.8444998264312744,
+              "p99_ms": 3.124300003051758
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 301,
+            "gpu": {
+              "avg_ms": 2.609757514491034,
+              "max_ms": 4.577916622161865,
+              "p50_ms": 2.423906087875366,
+              "p95_ms": 3.9002602100372314,
+              "p99_ms": 4.154895782470703
+            },
+            "low_01pct_fps": 57.40791474307974,
+            "low_1pct_fps": 57.65873719911407,
+            "max_ms": 17.419200897216797,
+            "p50_ms": 16.669200897216797,
+            "p95_ms": 17.181400299072266,
+            "p99_ms": 17.3174991607666,
+            "phases_avg_ms": {
+              "prepare": 0.4967571439537099,
+              "render": 0.7358827264205958,
+              "tick": 0.31064285571219713,
+              "update": 0.032284717709816176
+            },
+            "seconds": 5.016250214576721,
+            "slow_phases_avg_ms": {
+              "prepare": 0.7164749950170517,
+              "render": 1.0455999970436096,
+              "tick": 1.3821749985218048,
+              "update": 0.025674999691545963
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": false,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": null,
+            "partial": false,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 0,
+              "reused": 0
+            },
+            "targets": 0,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": false
+          }
+        },
+        {
+          "case": "xray",
+          "sample": 0,
+          "wall_seconds": 5.05014939999819,
+          "cpu_seconds": 0.890625,
+          "rss_bytes": 1078571008,
+          "native": {
+            "avg_fps": 59.99740652731713,
+            "cpu": {
+              "avg_ms": 2.4951498310431295,
+              "max_ms": 5.441299915313721,
+              "p50_ms": 2.3401999473571777,
+              "p95_ms": 3.8113999366760254,
+              "p99_ms": 5.210599899291992
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 301,
+            "gpu": {
+              "avg_ms": 1.8357389832651891,
+              "max_ms": 4.234739303588867,
+              "p50_ms": 1.8200520277023315,
+              "p95_ms": 2.582551956176758,
+              "p99_ms": 3.002812385559082
+            },
+            "low_01pct_fps": 56.995966597838,
+            "low_1pct_fps": 57.34693006970825,
+            "max_ms": 17.545101165771484,
+            "p50_ms": 16.66189956665039,
+            "p95_ms": 17.154800415039062,
+            "p99_ms": 17.387998580932617,
+            "phases_avg_ms": {
+              "prepare": 1.020346509657825,
+              "render": 0.8274182704992072,
+              "tick": 0.6152029887732874,
+              "update": 0.03269601334505204
+            },
+            "seconds": 5.016883519172668,
+            "slow_phases_avg_ms": {
+              "prepare": 1.071174994111061,
+              "render": 0.840624988079071,
+              "tick": 3.43259996175766,
+              "update": 0.03182499995455146
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": true,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": [
+              [
+                7,
+                48,
+                1
+              ],
+              4,
+              2.2913453465236455
+            ],
+            "partial": true,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 542,
+              "reused": 262
+            },
+            "targets": 16300,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": true
+          }
+        },
+        {
+          "case": "xray",
+          "sample": 1,
+          "wall_seconds": 5.032215399998677,
+          "cpu_seconds": 1.21875,
+          "rss_bytes": 1079844864,
+          "native": {
+            "avg_fps": 59.99314990248404,
+            "cpu": {
+              "avg_ms": 2.8621899843215943,
+              "max_ms": 10.117199897766113,
+              "p50_ms": 2.645199775695801,
+              "p95_ms": 4.765699863433838,
+              "p99_ms": 6.960700035095215
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 300,
+            "gpu": {
+              "avg_ms": 2.502243861357371,
+              "max_ms": 6.462395668029785,
+              "p50_ms": 2.528697967529297,
+              "p95_ms": 3.68442702293396,
+              "p99_ms": 4.060103893280029
+            },
+            "low_01pct_fps": 54.95743557683882,
+            "low_1pct_fps": 56.363750710207036,
+            "max_ms": 18.195899963378906,
+            "p50_ms": 16.672199249267578,
+            "p95_ms": 17.16119956970215,
+            "p99_ms": 17.40570068359375,
+            "phases_avg_ms": {
+              "prepare": 1.1842156676451365,
+              "render": 0.9698470000425975,
+              "tick": 0.6749813325951497,
+              "update": 0.03386733329854905
+            },
+            "seconds": 5.0005709066390995,
+            "slow_phases_avg_ms": {
+              "prepare": 1.4774666627248128,
+              "render": 1.1735666592915852,
+              "tick": 5.929766654968262,
+              "update": 0.02556666638702154
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": true,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": [
+              [
+                7,
+                48,
+                1
+              ],
+              4,
+              2.2913453465236455
+            ],
+            "partial": true,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 581,
+              "reused": 528
+            },
+            "targets": 16320,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": true
+          }
+        },
+        {
+          "case": "xray",
+          "sample": 2,
+          "wall_seconds": 5.015521599998465,
+          "cpu_seconds": 0.953125,
+          "rss_bytes": 1079914496,
+          "native": {
+            "avg_fps": 59.99945554082932,
+            "cpu": {
+              "avg_ms": 2.437010001341502,
+              "max_ms": 9.28010082244873,
+              "p50_ms": 2.242500066757202,
+              "p95_ms": 3.572700023651123,
+              "p99_ms": 4.625100135803223
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 300,
+            "gpu": {
+              "avg_ms": 2.4118101863066355,
+              "max_ms": 7.471197605133057,
+              "p50_ms": 2.510833263397217,
+              "p95_ms": 2.5910937786102295,
+              "p99_ms": 3.6617186069488525
+            },
+            "low_01pct_fps": 56.84078761907106,
+            "low_1pct_fps": 57.00463212650774,
+            "max_ms": 17.593000411987305,
+            "p50_ms": 16.651599884033203,
+            "p95_ms": 17.17690086364746,
+            "p99_ms": 17.447500228881836,
+            "phases_avg_ms": {
+              "prepare": 0.9894956680138906,
+              "render": 0.8510713332891464,
+              "tick": 0.561965669815739,
+              "update": 0.03506199990709623
+            },
+            "seconds": 5.000045372009278,
+            "slow_phases_avg_ms": {
+              "prepare": 0.9353333711624146,
+              "render": 2.5749666690826416,
+              "tick": 3.413900136947632,
+              "update": 0.0804333295673132
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": true,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": [
+              [
+                7,
+                48,
+                1
+              ],
+              4,
+              2.2913453465236455
+            ],
+            "partial": true,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 616,
+              "reused": 797
+            },
+            "targets": 16333,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": true
+          }
+        },
+        {
+          "case": "menu",
+          "sample": 0,
+          "wall_seconds": 5.033421200001612,
+          "cpu_seconds": 1.0,
+          "rss_bytes": 1081978880,
+          "native": {
+            "avg_fps": 60.000213815177354,
+            "cpu": {
+              "avg_ms": 2.7875335525436653,
+              "max_ms": 8.191299438476562,
+              "p50_ms": 2.5673999786376953,
+              "p95_ms": 4.263700008392334,
+              "p99_ms": 5.520599842071533
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 301,
+            "gpu": {
+              "avg_ms": 3.287313217736558,
+              "max_ms": 6.644218444824219,
+              "p50_ms": 2.816145658493042,
+              "p95_ms": 6.48604154586792,
+              "p99_ms": 6.596822738647461
+            },
+            "low_01pct_fps": 57.20922579076679,
+            "low_1pct_fps": 57.57889535276721,
+            "max_ms": 17.479698181152344,
+            "p50_ms": 16.670299530029297,
+            "p95_ms": 17.177799224853516,
+            "p99_ms": 17.27229881286621,
+            "phases_avg_ms": {
+              "prepare": 1.31121927202738,
+              "render": 0.9198867108338695,
+              "tick": 0.5257990035751333,
+              "update": 0.03136146190789748
+            },
+            "seconds": 5.0166487894058225,
+            "slow_phases_avg_ms": {
+              "prepare": 1.409674972295761,
+              "render": 1.3955499827861786,
+              "tick": 3.9632500410079956,
+              "update": 0.017099999822676182
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": true,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": [
+              [
+                7,
+                48,
+                1
+              ],
+              4,
+              2.2913453465236455
+            ],
+            "partial": true,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 653,
+              "reused": 1247
+            },
+            "targets": 16342,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": true
+          }
+        },
+        {
+          "case": "menu",
+          "sample": 1,
+          "wall_seconds": 5.031524799996987,
+          "cpu_seconds": 1.109375,
+          "rss_bytes": 1082748928,
+          "native": {
+            "avg_fps": 60.00474200035807,
+            "cpu": {
+              "avg_ms": 2.8382368812529353,
+              "max_ms": 6.862199783325195,
+              "p50_ms": 2.6401000022888184,
+              "p95_ms": 4.322999954223633,
+              "p99_ms": 5.667100429534912
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 301,
+            "gpu": {
+              "avg_ms": 2.1184251613395157,
+              "max_ms": 6.480208396911621,
+              "p50_ms": 1.9753124713897705,
+              "p95_ms": 2.8852083683013916,
+              "p99_ms": 4.805260181427002
+            },
+            "low_01pct_fps": 57.539056502495704,
+            "low_1pct_fps": 57.64453043494442,
+            "max_ms": 17.379499435424805,
+            "p50_ms": 16.670400619506836,
+            "p95_ms": 17.16510009765625,
+            "p99_ms": 17.29119873046875,
+            "phases_avg_ms": {
+              "prepare": 1.3092571435576656,
+              "render": 0.907748842160171,
+              "tick": 0.5894229221235082,
+              "update": 0.03244584732908644
+            },
+            "seconds": 5.01627021408081,
+            "slow_phases_avg_ms": {
+              "prepare": 1.219474971294403,
+              "render": 1.1212000250816345,
+              "tick": 3.9174749851226807,
+              "update": 0.024700000416487455
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": true,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": [
+              [
+                7,
+                48,
+                1
+              ],
+              4,
+              2.2913453465236455
+            ],
+            "partial": true,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 683,
+              "reused": 1522
+            },
+            "targets": 16320,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": true
+          }
+        },
+        {
+          "case": "menu",
+          "sample": 2,
+          "wall_seconds": 5.01512670000011,
+          "cpu_seconds": 0.921875,
+          "rss_bytes": 1082695680,
+          "native": {
+            "avg_fps": 60.00274938592834,
+            "cpu": {
+              "avg_ms": 2.725912333726883,
+              "max_ms": 6.420300006866455,
+              "p50_ms": 2.5756001472473145,
+              "p95_ms": 3.9198999404907227,
+              "p99_ms": 4.431299686431885
+            },
+            "dynamic_entities_drawn": 0,
+            "dynamic_entities_drawn_avg_per_frame": 0.0,
+            "frames": 300,
+            "gpu": {
+              "avg_ms": 1.9870758227507272,
+              "max_ms": 7.346874713897705,
+              "p50_ms": 2.01953125,
+              "p95_ms": 2.8651561737060547,
+              "p99_ms": 2.9072916507720947
+            },
+            "low_01pct_fps": 57.14252705667398,
+            "low_1pct_fps": 57.50949345185189,
+            "max_ms": 17.50010108947754,
+            "p50_ms": 16.681900024414062,
+            "p95_ms": 17.111499786376953,
+            "p99_ms": 17.268699645996094,
+            "phases_avg_ms": {
+              "prepare": 1.2895219989617666,
+              "render": 0.8959783315658569,
+              "tick": 0.5073793337742487,
+              "update": 0.033694000228618584
+            },
+            "seconds": 4.999770895004272,
+            "slow_phases_avg_ms": {
+              "prepare": 1.4908667008082073,
+              "render": 1.0625332991282146,
+              "tick": 2.663666566212972,
+              "update": 0.09190000096956889
+            },
+            "static_bytes_uploaded": 0,
+            "static_entities_drawn": 0,
+            "static_entities_drawn_avg_per_frame": 0.0,
+            "static_snapshot_bytes_built": 0,
+            "static_snapshot_rebuilds": 0
+          },
+          "rusty": {
+            "assistance": {
+              "attack_strength": 0.0,
+              "eating_blocked": false,
+              "eating_owned": null,
+              "eating_reason": null,
+              "eating_use_attempts": 0,
+              "movement": null
+            },
+            "automations": {
+              "fish_phase": "waiting_for_user_cast",
+              "last_action": null,
+              "last_bite": null,
+              "own_hook": null,
+              "totem_pending": false
+            },
+            "awareness": {
+              "clicks": {
+                "left": 0,
+                "right": 0
+              },
+              "depth_lines": 0,
+              "entity_tracer_lines": 0,
+              "light_cells": 0,
+              "on_top_lines": 0,
+              "prediction": {
+                "kind": "",
+                "partial": false,
+                "segments": 0,
+                "status": "disabled"
+              },
+              "speed": null,
+              "storage_boxes": 0,
+              "storage_partial": false
+            },
+            "build": {
+              "accepted": 0,
+              "busy": false,
+              "cells": 0,
+              "depth_lines": 0,
+              "dimension": null,
+              "matching_material": 0,
+              "material": null,
+              "missing": 0,
+              "occupied": 0,
+              "origin": null,
+              "phase": null,
+              "result": null,
+              "sequence": null,
+              "shown": 0,
+              "target": null,
+              "unknown": 0
+            },
+            "camera": null,
+            "freecam": false,
+            "fullbright": true,
+            "inventory_assist": {
+              "last_action": null,
+              "pending": false
+            },
+            "minimap": null,
+            "nearest": [
+              [
+                7,
+                48,
+                1
+              ],
+              4,
+              2.2913453465236455
+            ],
+            "partial": true,
+            "pending": 0,
+            "scan_cache": {
+              "aggregations": 703,
+              "reused": 1805
+            },
+            "targets": 16342,
+            "walking": {
+              "active": false,
+              "arrived": false,
+              "name": null,
+              "result": null,
+              "waypoint": null
+            },
+            "xray": true
+          }
+        }
+      ],
+      "limitations": [
+        "Short local offscreen samples, not long-session or reference-client benchmarks",
+        "Comparisons across different Horizon revisions would confound mod-specific attribution",
+        "The native Rusty menu keeps single-player simulation live; the host Options menu has a different pause policy",
+        "Legacy optional compiled mods are disabled through normal settings if present",
+        "The private fixture explicitly rebinds the menu to M for reproducible input"
+      ]
+    }
+  ]
+}

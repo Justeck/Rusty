@@ -166,6 +166,58 @@ class Multiplayer:
         return peer.wait_for(lambda: peer.command("block 8 97 10"),
                              lambda b: b["loaded"] and b["block"] == ore, "guest received authoritative ore state", timeout=60)
 
+    def settled_scan(self, guest, description, minimum=0, expected=None, nearest=None):
+        # A zero queue is an instantaneous observation, not a scan barrier:
+        # changed source sections can be evicted before the next auto-scan.
+        # Keep the exact target assertions, but establish their baseline and
+        # result across more than two configured scan intervals.
+        interval = guest.config()["scan_interval"] * .05
+        stable_seconds = max(.75, 2 * interval + .1)
+        candidate = None
+        since = None
+        samples = 0
+        last_frame = None
+        transitions = []
+
+        def read():
+            return {"native": guest.state(), "status": guest.command("status")}
+
+        def stable(value):
+            nonlocal candidate, since, samples, last_frame
+            state, status = value["native"], value["status"]
+            count = state["targets"]
+            at = (state["nearest"] or [None])[0]
+            signature = (count, tuple(at) if at is not None else None)
+            eligible = state["pending"] == 0 and not state["partial"] and count >= minimum
+            eligible = eligible and (expected is None or count == expected)
+            eligible = eligible and (nearest is None or at == nearest) and guest.render_ready(status)
+            now = time.monotonic()
+            observation = {"targets": count, "nearest": at, "pending": state["pending"], "partial": state["partial"]}
+            if (not transitions or observation != transitions[-1]) and len(transitions) < 64:
+                transitions.append(observation)
+            if not eligible:
+                candidate, since, samples, last_frame = None, None, 0, None
+                return False
+            if signature != candidate:
+                candidate, since, samples, last_frame = signature, now, 1, status["frames"]
+                return False
+            if status["frames"] != last_frame:
+                samples += 1
+                last_frame = status["frames"]
+            return samples >= 3 and now - since >= stable_seconds
+
+        observation = {
+            "description": description, "expected": expected, "settled": False,
+            "minimum_stable_seconds": stable_seconds,
+            "scan_interval_seconds": interval, "expected_nearest": nearest,
+            "observed_transitions": transitions,
+        }
+        self.report.setdefault("stable_scan_observations", []).append(observation)
+        result = guest.wait_for(read, stable, description, timeout=120)["native"]
+        observation.update(targets=result["targets"], pending=result["pending"], partial=result["partial"],
+                           samples=samples, settled=True, distinct_rendered_frames=True, renderer_queues_ready=True)
+        return result
+
     def teleport(self, host, guest, dimension, x=8.5, z=3.5):
         host.server(f"execute in {dimension} run tp {GUEST_NAME} {x} 95 {z} 0 0")
         guest.wait_for(lambda: guest.command("status"),
@@ -252,18 +304,17 @@ class Multiplayer:
         self.require(not guest.state()["xray"], "Guest Xray did not start off")
         guest.key("key.keyboard.x")
         guest.wait_for(guest.state, lambda s: s["xray"], "guest Xray enabled")
-        scan = guest.scan_ready(3)
+        guest.scan_ready(3)
         guest.photo("02-guest-xray-received-ore")
+        scan = self.settled_scan(guest, "stable remote target baseline", minimum=3, nearest=[8, 97, 10])
         self.require(canonical_digest(self.source(guest)) == source_hash, "Guest Xray changed received blocks")
         self.require(canonical_digest(self.source(host)) == source_hash, "Guest Xray changed host received blocks")
         host.server("setblock 8 97 10 stone")
         self.received_ore(guest, "minecraft:stone")
-        guest.wait_for(guest.state, lambda s: s["pending"] == 0 and s["targets"] == scan["targets"]-1,
-                       "remote cache refresh after host block update", timeout=120)
+        self.settled_scan(guest, "remote cache refresh after host block update", expected=scan["targets"]-1, nearest=[15, 97, 10])
         host.server("setblock 8 97 10 diamond_ore")
         self.received_ore(guest)
-        guest.wait_for(guest.state, lambda s: s["pending"] == 0 and s["targets"] == scan["targets"],
-                       "remote cache refresh after host restoration", timeout=120)
+        self.settled_scan(guest, "remote cache refresh after host restoration", expected=scan["targets"], nearest=[8, 97, 10])
         guest.key("key.keyboard.x")
         guest.wait_for(guest.state, lambda s: not s["xray"], "guest Xray disabled")
         guest.photo("03-guest-xray-off-restored")

@@ -1,0 +1,805 @@
+{
+  "schema": 1,
+  "binary_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "representation": "Summary of named checks and their original receipt digests; local paths and raw fixture data are not distributed.",
+  "suites": [
+    {
+      "suite": "java",
+      "raw_receipt_sha256": "2e7128d0138638946c06ba03ca73f14031cc9058314073560a9599b525d1a5e3",
+      "checks": [
+        {
+          "name": "OfficialJava26.3join and authoritative Xray source/update/restoration",
+          "passed": true
+        },
+        {
+          "name": "OfficialJava dimension lifecycle, scoped waypoints and same-endpoint reconnect",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative SafeWalk",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative AutoJump",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative AutoTool",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative TriggerBot",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative AutoEat",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative AutoTotem",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative AutoFish",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative ArmorAssist",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative AutoRefill",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative repeated single-item refill without menu or toggle",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative repeated single-item refill after menu suspension and a fresh user press",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative repeated single-item refill after its own gameplay binding toggles while Armor remains enabled",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative repeated single-item refill after held input is released beneath the menu and a fresh user press",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative repeated single-item refill after fresh ordinary controller USE presses",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative repeated single-item refill after held controller USE is released beneath the menu and a fresh controller press",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative repeated broken-tool refill after fresh ordinary attacks",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative repeated broken-tool refill after fresh ordinary controller attacks",
+          "passed": true
+        },
+        {
+          "name": "WaypointWalk reaches selected destination on officialJava server",
+          "passed": true
+        },
+        {
+          "name": "Java authoritative single ordinary builder placement and bounded passive preview",
+          "passed": true
+        },
+        {
+          "name": "Java-supplied storage, light, trajectories, tracers and world HUD",
+          "passed": true
+        }
+      ],
+      "scope": null,
+      "not_exercised": [
+        "One officialJava26.3server, offline mode and fresh controlled worlds; no claim of full server/plugin/anticheat compatibility.",
+        "Authoritative Java NBT/slot/item-count readbacks are distinguished from native client prediction."
+      ]
+    },
+    {
+      "suite": "assistance",
+      "raw_receipt_sha256": "fd48d055c43f7d6b4fa6f98d3af32a54cc650af0ddfa391d0d28f5df7881ea08",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "SafeWalk approaches a known ledge and retains body support",
+          "passed": true
+        },
+        {
+          "name": "Disabling SafeWalk restores ordinary movement off the same ledge",
+          "passed": true
+        },
+        {
+          "name": "AutoJump requests a normal jump over a received one-block obstacle",
+          "passed": true
+        },
+        {
+          "name": "AutoTool uses host tool rules, durability threshold and manual selection precedence",
+          "passed": true
+        },
+        {
+          "name": "TriggerBot uses ordinary visible-target attack and suspends beneath menu",
+          "passed": true
+        },
+        {
+          "name": "AutoEat consumes safe hotbar food, ignores poisonous food and never opens targeted chest",
+          "passed": true
+        }
+      ],
+      "scope": "Live ordinary input and received player/inventory/entity assertions; no screenshot art claim.",
+      "not_exercised": [
+        "External multiplayer, controller remappings, live focus loss, reconnect, high latency and modified item components are not covered.",
+        "Screenshots require separate visual review. Native collision, slot, food and target-health observations are asserted."
+      ]
+    },
+    {
+      "suite": "automation",
+      "raw_receipt_sha256": "46fba392a8f71ac14c9fc9170293caaaeea390f701f958cead8b069a70d82ad9",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "AutoTotem protects other offhand items and uses a normal confirmed empty-offhand swap",
+          "passed": true
+        },
+        {
+          "name": "AutoFish waits for real user cast and natural bite, reels once, receives loot and recasts after removal",
+          "passed": true
+        }
+      ],
+      "scope": "Natural received bite metadata, ordinary actions, received loot/hand state and user cancellation in a controlled integrated world.",
+      "not_exercised": [
+        "Separate Java-server authority is verified by the dedicated multiplayer fixture, not this integrated test.",
+        "High latency, rejected swaps and other players' bobbers are not exercised by this fixture."
+      ]
+    },
+    {
+      "suite": "inventory",
+      "raw_receipt_sha256": "93a73aa4885d6a88c17f4d3c890c2a7e54fe1383bf422f60a8364d92451e3ea2",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Armor Assist fills empty parts, rejects binding curse, preserves existing equipment and rearms after real gear loss",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill restores only a consumed exact-component hotbar stack and preserves named alternatives",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill replenishes repeated single-item exhaustion without context reset",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill replenishes successive broken tools after fresh ordinary attacks",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill replenishes repeated single-item exhaustion after menu",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill replenishes repeated single-item exhaustion after reenable",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill replenishes repeated single-item exhaustion after held_menu",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill replenishes repeated single-item exhaustion without context reset",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill replenishes repeated single-item exhaustion after held_controller_menu",
+          "passed": true
+        },
+        {
+          "name": "Auto Refill replenishes successive broken tools after fresh ordinary attacks",
+          "passed": true
+        }
+      ],
+      "scope": "Ordinary inventory actions, received/predicted slot observations and preservation checks in a fresh controlled world.",
+      "not_exercised": [
+        "Separate Java authority is asserted by the Java fixture, not this integrated fixture.",
+        "High latency, correction rejection and arbitrary component overrides are not covered here."
+      ]
+    },
+    {
+      "suite": "builder",
+      "raw_receipt_sha256": "9336232b2a4248db8fa03e45c11bb947748832eb41100b022d6d868c1281292b",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Anchored preview reads received terrain with bounded geometry and unchanged inventory",
+          "passed": true
+        },
+        {
+          "name": "Place Next dispatches one ordinary action, consumes one item and waits for server confirmation",
+          "passed": true
+        },
+        {
+          "name": "Held movement cancels the queued action permanently before dispatch",
+          "passed": true
+        },
+        {
+          "name": "Maximum plan computes at most4096cells and draws128nearest without placement",
+          "passed": true
+        },
+        {
+          "name": "Disabling clears transient anchor, geometry and pending action",
+          "passed": true
+        }
+      ],
+      "scope": "Actual bounded preview, native GUI single placement, server acknowledgment and authoritative fixture predicate.",
+      "not_exercised": [
+        "External Java multiplayer, high latency, controller remappings, focus loss, multi-block items and custom component packs.",
+        "Screenshots require separate visual review; source geometry counts are asserted.",
+        "The negative cancellation case uses the native control facade while normal placement uses real GUI actions."
+      ]
+    },
+    {
+      "suite": "waypoint",
+      "raw_receipt_sha256": "f3e22ae89ca044b6a6ef246e35ab2791b80bf296ded77d54c912d9be5d6a2852",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Explicit waypoint walk reaches selected marker using native host Goto",
+          "passed": true
+        },
+        {
+          "name": "Opening a menu cancels walking and closing it never restarts",
+          "passed": true
+        },
+        {
+          "name": "Manual forward cancels only route input and remains held by the user",
+          "passed": true
+        },
+        {
+          "name": "Native virtual controller movement cancels route while retaining controller state",
+          "passed": true
+        },
+        {
+          "name": "Existing agent task is refused and survives rejected route start",
+          "passed": true
+        },
+        {
+          "name": "Freecam cancels ordinary body route and does not resume it",
+          "passed": true
+        },
+        {
+          "name": "Player death ends route ownership",
+          "passed": true
+        }
+      ],
+      "scope": "Actual native route arrival/ownership/input assertions; screenshots require visual review.",
+      "not_exercised": [
+        "Real remote servers, latency, hardware controllers and physical focus loss are not covered.",
+        "The host planner uses coarse solid/fluid/lava cells, loaded terrain and a node budget; no arbitrary-shape safety or shortest-path claim.",
+        "World/dimension selection ownership has pure regression coverage; runtime scope-transfer coverage is not claimed."
+      ]
+    },
+    {
+      "suite": "gui",
+      "raw_receipt_sha256": "4778a0b8dcd60cd9347324577c72fc87eb494d39dfcdacfbe231e79857215ff1",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Right Shift opens the real native Mod screen",
+          "passed": true
+        },
+        {
+          "name": "World simulation continues under GUI",
+          "passed": true
+        },
+        {
+          "name": "Alias search selects an existing module",
+          "passed": true
+        },
+        {
+          "name": "Multiword setting search reveals the actual setting",
+          "passed": true
+        },
+        {
+          "name": "Favorites filter and saved favorite use actual clicks",
+          "passed": true
+        },
+        {
+          "name": "Recent collection preserves visited modules and persisted order",
+          "passed": true
+        },
+        {
+          "name": "Nonempty category picker supports selection and All",
+          "passed": true
+        },
+        {
+          "name": "Theme clicks persist Graphite and Copper",
+          "passed": true
+        },
+        {
+          "name": "Reduced motion preference persists",
+          "passed": true
+        },
+        {
+          "name": "F1 leaves GUI open and actionable",
+          "passed": true
+        },
+        {
+          "name": "Numeric slider reaches both endpoints and flushes on release",
+          "passed": true
+        },
+        {
+          "name": "Save failure preserves last valid file and editable draft; explicit Close retries",
+          "passed": true
+        },
+        {
+          "name": "Contextual help opens and Escape returns to GUI",
+          "passed": true
+        },
+        {
+          "name": "Key capture cancels, saves a real key, and resets with right-click",
+          "passed": true
+        },
+        {
+          "name": "Mouse capture saves canonical key.mouse.right and restores the default",
+          "passed": true
+        },
+        {
+          "name": "GUI captures WASD without changing body, health, food or inventory",
+          "passed": true
+        },
+        {
+          "name": "Escape closes and held or repeated movement does not resume",
+          "passed": true
+        },
+        {
+          "name": "Controller east closes without resuming held axes",
+          "passed": true
+        },
+        {
+          "name": "Controller start closes without resuming held axes",
+          "passed": true
+        },
+        {
+          "name": "Controller movement resumes after neutral and a fresh tilt",
+          "passed": true
+        },
+        {
+          "name": "Disposable fixture restored after controller movement test",
+          "passed": true
+        },
+        {
+          "name": "Right Shift reopens and closes the native screen",
+          "passed": true
+        }
+      ],
+      "scope": null,
+      "not_exercised": [
+        "Live resize: no documented window resize command in the inspected API359 control surface; rerun at other --width/--height values.",
+        "GUI scale changes: no direct screen input route for that option is assumed by this GUI-only test.",
+        "Visual composition/readability needs inspection of the actual saved screenshots.",
+        "Feature-specific X-ray, freecam, navigation and inventory behavior belong to separate fixtures."
+      ]
+    },
+    {
+      "suite": "feature",
+      "raw_receipt_sha256": "3239dc13676a74c0b621001182bad2742d9a3cd7634ad2280b39fe58f99476a4",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Known enclosed ore and both sides of chunk boundary received",
+          "passed": true
+        },
+        {
+          "name": "B toggles saved Fullbright and actual renderer flag in both directions",
+          "passed": true
+        },
+        {
+          "name": "Xray visibly reveals terrain, restores at 100% and off, preserves received source, and refreshes after authoritative update",
+          "passed": true
+        },
+        {
+          "name": "V toggles Finder with Xray off and a fully drained nonempty received-target scan",
+          "passed": true
+        },
+        {
+          "name": "Held C changes the known rendered view and release restores it",
+          "passed": true
+        },
+        {
+          "name": "U detaches a moving and turning camera while body XZ and rotation remain unchanged, then exits",
+          "passed": true
+        },
+        {
+          "name": "Typed waypoint commands persist selection, isolate dimensions and isolate separate worlds across disconnect/reopen",
+          "passed": true
+        },
+        {
+          "name": "Ordinary local commands provide received damaged armor/tool and shulker components for native HUD review",
+          "passed": true
+        }
+      ],
+      "scope": "Control/data assertions and bounded pixel comparisons; screenshot text/art review remains pending.",
+      "not_exercised": [
+        "NoFog, ClearWeather, ESP, AutoSprint and NoHurt behavior are not exercised.",
+        "External servers, accounts, a LAN guest and reconnecting a separate remote client are not exercised.",
+        "Integrated single-player receives authoritative chunk changes through its normal remote client path; this is not separate-server acceptance.",
+        "Breadcrumb count/cap has no native status accessor. Only observed movement and screenshots are recorded; bounded capacity remains covered by the pure harness/manual native review.",
+        "Waypoint persistence is checked across disconnect/reopen and dimensions, not an operating-system process restart.",
+        "Utility numeric labels, container rows, compass bearing and breadcrumb visibility require review of the saved native screenshots.",
+        "Window focus loss, live resize, other graphics backends and resource packs are not covered here."
+      ]
+    },
+    {
+      "suite": "visual",
+      "raw_receipt_sha256": "0979c0766679ed165a2548c25fa469b60fb27c49a238328c79ae9b8a048f1844",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Remaining-feature fixture uses a new known stone platform and received body position",
+          "passed": true
+        },
+        {
+          "name": "NoFog toggles persist with the same received submerged body and known far wall",
+          "passed": true
+        },
+        {
+          "name": "ClearWeather changes persist while received authoritative rain remains true",
+          "passed": true
+        },
+        {
+          "name": "Entity ESP and mob filter persist with a received pig behind the opaque wall",
+          "passed": true
+        },
+        {
+          "name": "AutoSprint native control off",
+          "passed": true
+        },
+        {
+          "name": "AutoSprint native control on",
+          "passed": true
+        },
+        {
+          "name": "AutoSprint native control off",
+          "passed": true
+        },
+        {
+          "name": "NoHurtCamera off keeps real damage and animation state",
+          "passed": true
+        },
+        {
+          "name": "NoHurtCamera on keeps real damage and animation state",
+          "passed": true
+        },
+        {
+          "name": "Actual Y binding toggles X-ray while old X input is ignored",
+          "passed": true
+        },
+        {
+          "name": "Hold activation responds to actual press and release",
+          "passed": true
+        },
+        {
+          "name": "Coordinates and Status HUD controls persist independently of active X-ray",
+          "passed": true
+        }
+      ],
+      "scope": "Native data/config/input assertions. Fog, weather, ESP and damage-tilt screenshots require human interpretation; no renderer state is inferred from file-byte differences.",
+      "not_exercised": [
+        "No direct native control probe exposes final FogData uniforms or weather vertex counts.",
+        "Fog visibility, rain removal, orange ESP through the wall and hurt-camera suppression require screenshot review.",
+        "Water vision brightens with time. Off/on/restored captures retain timing and camera data; no pixel threshold pretends to isolate that evolving brightness.",
+        "Other resource packs, biomes, fluids, hostile combat, physical controllers, external servers and real accounts are not covered."
+      ]
+    },
+    {
+      "suite": "hud",
+      "raw_receipt_sha256": "54887f88f52960aacd17896813ce371b78c36518bfb69f62df54ec4737f7200c",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Help overlay disables background hit actions and Escape restores them",
+          "passed": true
+        },
+        {
+          "name": "Click Counter observes actual ordinary clicks and decays without item actions",
+          "passed": true
+        },
+        {
+          "name": "Minimap uses native on/off descriptors and real round/size/scale controls",
+          "passed": true
+        },
+        {
+          "name": "Ordinary local commands provide received damaged armor/tool and shulker components for native HUD review",
+          "passed": true
+        },
+        {
+          "name": "HUD known-data labels and trail off/on screenshots captured",
+          "passed": true
+        }
+      ],
+      "scope": "Actual click counter increase/decay, native minimap descriptor/control transitions and staged native HUD screenshots.",
+      "not_exercised": [
+        "Screenshot text, map tiles and trail appearance require explicit image review; configuration is not rendering acceptance.",
+        "Physical controller hardware, high latency and other resource packs are not tested."
+      ]
+    },
+    {
+      "suite": "binding",
+      "raw_receipt_sha256": "771c9337febb05f54d6621259a39bc8b135d5562baea9e94973c7863aa732676",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "All 38 persisted module flags respond to actual captured gameplay bindings and restore cleanly",
+          "passed": true
+        }
+      ],
+      "scope": "Actual native GUI F8 capture/save, ordinary gameplay press routing to each intended flag, restoration and per-module reset in an empty private Creative world.",
+      "not_exercised": [
+        "These toggles do not accept the underlying38 gameplay/rendering implementations; use their behavior and image fixtures.",
+        "Physical keyboard/controller hardware, arbitrary remappings and optional shortcuts for the4 special modules are not individually covered by this loop."
+      ]
+    },
+    {
+      "suite": "awareness",
+      "raw_receipt_sha256": "efdb5ea52e89021161226b2cc6056d4e135a2bd8ad3665f86113df1f3fec3980",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Chunk Borders toggles through native menu and captures real geometry for review",
+          "passed": true
+        },
+        {
+          "name": "Storage ESP observes ordinary authoritative chest placement and removes deleted storage",
+          "passed": true
+        },
+        {
+          "name": "Light Risk draws only from received ready light and clears when disabled",
+          "passed": true
+        },
+        {
+          "name": "Speed HUD follows real body movement and returns to stationary",
+          "passed": true
+        },
+        {
+          "name": "Entity tracer adds visible geometry through the wall, using a non-degenerate screen origin",
+          "passed": true
+        },
+        {
+          "name": "Native charged bow/pearl predictions and received entity tracers toggle through actual renderer",
+          "passed": true
+        },
+        {
+          "name": "All awareness modules restore disabled state without source-world mutation",
+          "passed": true
+        },
+        {
+          "name": "Observed death saves exactly one scoped marker without changing selection",
+          "passed": true
+        }
+      ],
+      "scope": "Actual game observations, toggles and screenshots. Image appearance requires separate review.",
+      "not_exercised": [
+        "Other resource packs, physical GPU devices and long sessions.",
+        "Projectile paths omit random spread and future target movement; only current received targets are used.",
+        "Light risk is not complete mob-spawn eligibility."
+      ]
+    },
+    {
+      "suite": "multiplayer-retry01",
+      "raw_receipt_sha256": "4ae86caab9709f5097625acb34fc5c714f2024389790d7c3bbf8b49d5a296550",
+      "checks": [
+        {
+          "name": "Separate loaded Survival guest receives known host terrain",
+          "passed": true
+        },
+        {
+          "name": "Remote Xray toggles preserve source and refresh after ordinary host updates",
+          "passed": true
+        },
+        {
+          "name": "Separate guest unloads old chunk, receives distant terrain and reloads original terrain",
+          "passed": true
+        },
+        {
+          "name": "Remote dimension transition resets native activation and isolates waypoint scopes",
+          "passed": true
+        },
+        {
+          "name": "Same guest reconnects to the owned host with intact received terrain and scoped waypoint selection",
+          "passed": true
+        }
+      ],
+      "scope": null,
+      "not_exercised": [
+        "External/dedicated servers, accounts and server-specific obfuscation/anti-cheat are not exercised.",
+        "No server bypass or access to terrain the guest has not received is claimed.",
+        "Screenshots require visual review; received-source equality does not by itself prove rendered face correctness.",
+        "Separate host/guest process restart, Freecam networking, controller/focus lifecycle and utility modules are outside this fixture."
+      ]
+    },
+    {
+      "suite": "ui",
+      "raw_receipt_sha256": "2803d887be6683a0ea76f85244a3bd47b1f7ab185db32f8952428a29296a7d65",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Enabled membership follows actual hotkey activation and native toggle deactivation",
+          "passed": true
+        },
+        {
+          "name": "ClearBind saves unbound state, old key stops, captured new key routes, default restores",
+          "passed": true
+        },
+        {
+          "name": "Cleared menu recovers through actual /rusty menu chat and accepts a working new key",
+          "passed": true
+        },
+        {
+          "name": "Menu scale endpoint saves and real scaled target routes",
+          "passed": true
+        },
+        {
+          "name": "Menu scale endpoint saves and real scaled target routes",
+          "passed": true
+        },
+        {
+          "name": "All three palette controls persist and produce captured native frames",
+          "passed": true
+        },
+        {
+          "name": "All18 HUD panels independently save X/Y/size and reset through actual native controls",
+          "passed": true
+        },
+        {
+          "name": "Native named-preset import applies feature settings and preserves menu size, palette and HUD layout",
+          "passed": true
+        },
+        {
+          "name": "New owned process reloads saved layout, menu size, palette and bindings",
+          "passed": true
+        }
+      ],
+      "scope": "Real native pointer/key routing, saved settings, live Enabled membership, named-preset import and owned process restart; screenshots require visual review.",
+      "not_exercised": [
+        "Image composition, labels, clipping and map texture alignment need review of the saved native frames; hit/config assertions alone do not accept their appearance.",
+        "All18 HUD layout controls are changed/reset; conditional finder/target/trajectory/container/build/waypoint content is not individually manufactured or accepted here.",
+        "Physical device input, live window resize, other graphics backends/resource packs and external servers are outside this bounded fixture."
+      ]
+    },
+    {
+      "suite": "columns",
+      "raw_receipt_sha256": "abaa6cf4f84f4022bf3e5b942d7b106713171921c75537da6e606a46765a67c7",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Owned scene supplies stateful target, Finder ores, waypoint and ten-entry container at default HUD positions",
+          "passed": true
+        },
+        {
+          "name": "Native X/Y/size sliders change only the Environment panel",
+          "passed": true
+        }
+      ],
+      "scope": "Expanded default columns and one native custom-position edit; appearance requires image review.",
+      "not_exercised": [
+        "Other viewport sizes, packs and graphics backends; this is a bounded composition fixture."
+      ]
+    },
+    {
+      "suite": "showcase",
+      "raw_receipt_sha256": "30b8f7d39554532d1219f5f6274893f53e67319ad8fad3524d33fb2fb785b090",
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Standalone Fullbright visibly brightens the underground scene and restores normal lighting",
+          "passed": true
+        }
+      ],
+      "scope": "Unedited actual native captures in one disposable authored mine. No account or existing world loaded. This visual showcase preserves default finite scan/context budgets, may show their reported partial state, and does not assert complete target coverage.",
+      "not_exercised": [
+        "NoFog, ClearWeather, ESP, AutoSprint and NoHurt behavior are not exercised.",
+        "External servers, accounts, a LAN guest and reconnecting a separate remote client are not exercised.",
+        "Integrated single-player receives authoritative chunk changes through its normal remote client path; this is not separate-server acceptance.",
+        "Breadcrumb count/cap has no native status accessor. Only observed movement and screenshots are recorded; bounded capacity remains covered by the pure harness/manual native review.",
+        "Waypoint persistence is checked across disconnect/reopen and dimensions, not an operating-system process restart.",
+        "Utility numeric labels, container rows, compass bearing and breadcrumb visibility require review of the saved native screenshots.",
+        "Window focus loss, live resize, other graphics backends and resource packs are not covered here."
+      ]
+    },
+    {
+      "suite": "performance-disabled",
+      "raw_receipt_sha256": "189725ccfa03ec66248dcb868cf1ddd67b949bb699865f534d0682afbb42a850",
+      "checks": [],
+      "scope": null,
+      "not_exercised": [
+        "Short local offscreen samples, not long-session or reference-client benchmarks",
+        "Comparisons across different Horizon revisions would confound mod-specific attribution",
+        "The native Rusty menu keeps single-player simulation live; the host Options menu has a different pause policy",
+        "Legacy optional compiled mods are disabled through normal settings if present",
+        "The private fixture explicitly rebinds the menu to M for reproducible input"
+      ]
+    },
+    {
+      "suite": "performance-enabled",
+      "raw_receipt_sha256": "487f0e7199acfa4f664da826b74aabbc14e4d9e1000ed53d71c1a1df20eb0f12",
+      "checks": [],
+      "scope": null,
+      "not_exercised": [
+        "Short local offscreen samples, not long-session or reference-client benchmarks",
+        "Comparisons across different Horizon revisions would confound mod-specific attribution",
+        "The native Rusty menu keeps single-player simulation live; the host Options menu has a different pause policy",
+        "Legacy optional compiled mods are disabled through normal settings if present",
+        "The private fixture explicitly rebinds the menu to M for reproducible input"
+      ]
+    },
+    {
+      "suite": "endurance",
+      "raw_receipt_sha256": "fc05714d8ba74f97e58ae69826c003b164f61334720092abd38d56530ab910ae",
+      "checks": [
+        {
+          "name": "Fresh isolated vanilla endurance world ready",
+          "passed": true
+        },
+        {
+          "name": "Bounded process observation and scheduled operations completed",
+          "passed": true
+        }
+      ],
+      "scope": "Observed native process RSS/CPU and actual bounded input/context operations; no leak-free or long-session claim.",
+      "not_exercised": [
+        "Online servers, authenticated accounts, plugins, latency and arbitrary resource packs.",
+        "No allocator-level allocation counts are exposed or measured.",
+        "RSS includes allocator reservations, world caches and renderer resources; a short RSS trend is not a leak diagnosis.",
+        "This observation supplies no reference-client or maximum-throughput comparison."
+      ]
+    }
+  ]
+}

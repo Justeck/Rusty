@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "passed": true,
+  "launcher_version": "0.2.42",
+  "launcher_update": "Official staged update installed by Restart to update. Installed launcher bytes equal the independently downloaded official bundle.",
+  "launcher_executable_sha256": "3125dd71a470c03b5785a464fa4b89a24ee3f15f95b43c1471375bed268db5c6",
+  "version": "native-6475f62-84012272e8af",
+  "binary_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "sole_horizon_instance": true,
+  "only_native_mod": "rusty",
+  "mod_version": "1.2.0",
+  "build_method": "Official native-build Performance CLI, waited to exit0; then latest launcher GUI showed green Up to date. The GUI offered no Build button because this exact mod set was already built.",
+  "gui_build_button_shown": false,
+  "gui_build_button_pressed": false,
+  "gui_play_pressed": true,
+  "normal_title_screen_observed": true,
+  "options_mods_rusty_settings_observed": true,
+  "default_x_binding_observed": true,
+  "default_right_shift_menu_binding_observed": true,
+  "quit_game_clicked": true,
+  "game_window_absent_after_quit": true,
+  "launcher_returned_to_play": true,
+  "personal_world_opened": false,
+  "public_server_joined": false,
+  "private_screenshot_sha256": {
+    "launcher-ready.png": "8d823c9b6e0bd1a26c66209f7e8622b7ffa5ba8060815f880df7f57a7b46f70a",
+    "launcher-play-title.png": "859622bcc5a5e456f9819a7c021541d0f17806760f00ab66c369b5de53388628",
+    "launcher-rusty-settings.png": "6a892691cb89a61111d8f2c80cabb323387477f483bd03accdd239b2335fff9e"
+  },
+  "scope": "Actual visible latest-launcher Play, title-screen native settings and clean Quit. Separate fresh offline/owned-server fixtures establish game behavior."
+}

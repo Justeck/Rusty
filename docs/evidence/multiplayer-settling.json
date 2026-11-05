@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "binary_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "passed": true,
+  "raw_receipt_sha256": "4ae86caab9709f5097625acb34fc5c714f2024389790d7c3bbf8b49d5a296550",
+  "observations": [
+    {
+      "description": "stable remote target baseline",
+      "expected": null,
+      "settled": true,
+      "minimum_stable_seconds": 0.75,
+      "scan_interval_seconds": 0.25,
+      "expected_nearest": [
+        8,
+        97,
+        10
+      ],
+      "observed_transitions": [
+        {
+          "targets": 495,
+          "nearest": [
+            8,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 487,
+          "nearest": [
+            8,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 495,
+          "nearest": [
+            8,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        }
+      ],
+      "targets": 495,
+      "pending": 0,
+      "partial": false,
+      "samples": 8,
+      "distinct_rendered_frames": true,
+      "renderer_queues_ready": true
+    },
+    {
+      "description": "remote cache refresh after host block update",
+      "expected": 494,
+      "settled": true,
+      "minimum_stable_seconds": 0.75,
+      "scan_interval_seconds": 0.25,
+      "expected_nearest": [
+        15,
+        97,
+        10
+      ],
+      "observed_transitions": [
+        {
+          "targets": 494,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 433,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 494,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 494,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 1,
+          "partial": false
+        },
+        {
+          "targets": 494,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 433,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 494,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 486,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 494,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 442,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 494,
+          "nearest": [
+            15,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        }
+      ],
+      "targets": 494,
+      "pending": 0,
+      "partial": false,
+      "samples": 8,
+      "distinct_rendered_frames": true,
+      "renderer_queues_ready": true
+    },
+    {
+      "description": "remote cache refresh after host restoration",
+      "expected": 495,
+      "settled": true,
+      "minimum_stable_seconds": 0.75,
+      "scan_interval_seconds": 0.25,
+      "expected_nearest": [
+        8,
+        97,
+        10
+      ],
+      "observed_transitions": [
+        {
+          "targets": 493,
+          "nearest": [
+            16,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 495,
+          "nearest": [
+            8,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 445,
+          "nearest": [
+            8,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        },
+        {
+          "targets": 495,
+          "nearest": [
+            8,
+            97,
+            10
+          ],
+          "pending": 0,
+          "partial": false
+        }
+      ],
+      "targets": 495,
+      "pending": 0,
+      "partial": false,
+      "samples": 7,
+      "distinct_rendered_frames": true,
+      "renderer_queues_ready": true
+    }
+  ],
+  "diagnostic": "An unchanged-binary diagnostic passed all five lifecycle checks and recorded an expected bounded-cache transition from 493 to 495 restored targets. The first failing attempt did not record its exact baseline, so that original baseline is not reconstructed or claimed. The strengthened fixture retains exact source, count, nearest-target and renderer assertions."
+}

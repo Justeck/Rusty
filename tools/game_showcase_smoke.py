@@ -40,6 +40,9 @@ try:
  s.report['standalone_fullbright_pixels']={'enabled':change,'disabled_restoration':restoration,'fixed_camera':pose}
  s.passed('Standalone Fullbright visibly brightens the underground scene and restores normal lighting',enabled=change,disabled_restoration=restoration)
  s.key('key.keyboard.x');s.wait_for(s.state,lambda v:v['xray'],'xray on');scan=s.wait_for(s.state,lambda v:v['pending']==0 and v['targets']>=1,'settled bounded showcase scan',timeout=120);s.report['showcase_scan']=scan;s.photo('02-mine-textured-xray',pose)
+ # The terrain comparison stays above; the interface photograph uses an
+ # ordinary mine background so its controls remain easy to read.
+ s.key('key.keyboard.x');s.wait_for(s.state,lambda v:not v['xray'] and not v['fullbright'],'ordinary terrain before menu capture')
  s.command('options-set chatVisibility 2');s.set_hud_hidden(False)
  s.key('key.keyboard.right.shift');s.wait_for(s.ui,lambda v:v['open'] and bool(v['hits']),'showcase GUI');s.search('');s.top_details();s.shot('03-classic-live-menu')
  s.search('block textures');s.click('Select("xray")');s.hit('Numeric("texture_visibility",',pane='detail');s.shot('04-search-texture-controls')

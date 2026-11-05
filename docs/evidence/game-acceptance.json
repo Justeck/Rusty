@@ -1,0 +1,332 @@
+{
+  "schema": 1,
+  "binary_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "stage_receipt_sha256": "1c5d75b9a97e0f3f9e3ebf83de45e6d4a4aa41804ddf4b51391c83365d4f7646",
+  "passed": true,
+  "suites": [
+    {
+      "name": "java",
+      "passed": true,
+      "expected_checks": 22,
+      "observed_checks": 22,
+      "elapsed_seconds": 288.566,
+      "owned_processes_stopped": true,
+      "raw_receipt": "java/java-server-acceptance.json",
+      "raw_receipt_sha256": "2e7128d0138638946c06ba03ca73f14031cc9058314073560a9599b525d1a5e3",
+      "fixture_sources_sha256": {
+        "game_java_server_smoke.py": "cbf210c1168ced090e62ec4ca3c91b5a2ed49f41b63ed3a976cff3424b083794",
+        "game_assistance_smoke.py": "167c0ad2dc027deee48ed0c194f1011bbf53a1b3a0838aff34c108a77b3ce427",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d",
+        "game_automation_smoke.py": "afa55ace3b63880e991034bd5c59d2a5d2420f6bd3133caf24d6f3f58382309d",
+        "game_awareness_smoke.py": "55b963b0bccb6226acb0c65cd9ab5f54aa8903d120b2aee44512263dee68b50d",
+        "game_builder_smoke.py": "2a084e99b2308b7ed689802c7323c83b116b480af0f15c5950d50d5f53a4d653",
+        "game_inventory_smoke.py": "f01da9dbf8158882f371a1a5b34f03012417030857ba5cdc0fac524a33fbcf3e",
+        "game_multiplayer_smoke.py": "bf5fd01e729219490cecea4c41e6a8cbe52efb26c3e6c4d1cd5f4e209e370f06"
+      }
+    },
+    {
+      "name": "assistance",
+      "passed": true,
+      "expected_checks": 7,
+      "observed_checks": 7,
+      "elapsed_seconds": 57.913,
+      "owned_processes_stopped": true,
+      "raw_receipt": "assistance/assistance-acceptance.json",
+      "raw_receipt_sha256": "fd48d055c43f7d6b4fa6f98d3af32a54cc650af0ddfa391d0d28f5df7881ea08",
+      "fixture_sources_sha256": {
+        "game_assistance_smoke.py": "167c0ad2dc027deee48ed0c194f1011bbf53a1b3a0838aff34c108a77b3ce427",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "automation",
+      "passed": true,
+      "expected_checks": 3,
+      "observed_checks": 3,
+      "elapsed_seconds": 39.194,
+      "owned_processes_stopped": true,
+      "raw_receipt": "automation/automation-acceptance.json",
+      "raw_receipt_sha256": "46fba392a8f71ac14c9fc9170293caaaeea390f701f958cead8b069a70d82ad9",
+      "fixture_sources_sha256": {
+        "game_automation_smoke.py": "afa55ace3b63880e991034bd5c59d2a5d2420f6bd3133caf24d6f3f58382309d",
+        "game_assistance_smoke.py": "167c0ad2dc027deee48ed0c194f1011bbf53a1b3a0838aff34c108a77b3ce427",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "inventory",
+      "passed": true,
+      "expected_checks": 11,
+      "observed_checks": 11,
+      "elapsed_seconds": 101.273,
+      "owned_processes_stopped": true,
+      "raw_receipt": "inventory/inventory-acceptance.json",
+      "raw_receipt_sha256": "93a73aa4885d6a88c17f4d3c890c2a7e54fe1383bf422f60a8364d92451e3ea2",
+      "fixture_sources_sha256": {
+        "game_inventory_smoke.py": "f01da9dbf8158882f371a1a5b34f03012417030857ba5cdc0fac524a33fbcf3e",
+        "game_automation_smoke.py": "afa55ace3b63880e991034bd5c59d2a5d2420f6bd3133caf24d6f3f58382309d",
+        "game_assistance_smoke.py": "167c0ad2dc027deee48ed0c194f1011bbf53a1b3a0838aff34c108a77b3ce427",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "builder",
+      "passed": true,
+      "expected_checks": 6,
+      "observed_checks": 6,
+      "elapsed_seconds": 38.034,
+      "owned_processes_stopped": true,
+      "raw_receipt": "builder/builder-acceptance.json",
+      "raw_receipt_sha256": "9336232b2a4248db8fa03e45c11bb947748832eb41100b022d6d868c1281292b",
+      "fixture_sources_sha256": {
+        "game_builder_smoke.py": "2a084e99b2308b7ed689802c7323c83b116b480af0f15c5950d50d5f53a4d653",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "waypoint",
+      "passed": true,
+      "expected_checks": 8,
+      "observed_checks": 8,
+      "elapsed_seconds": 42.488,
+      "owned_processes_stopped": true,
+      "raw_receipt": "waypoint/waypoint-walk-acceptance.json",
+      "raw_receipt_sha256": "f3e22ae89ca044b6a6ef246e35ab2791b80bf296ded77d54c912d9be5d6a2852",
+      "fixture_sources_sha256": {
+        "game_waypoint_walk_smoke.py": "6c8c8c0ce3283b331c7b3536acdfa12dacd4470ffb83e6d77d60dad927d66de1",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "gui",
+      "passed": true,
+      "expected_checks": 23,
+      "observed_checks": 23,
+      "elapsed_seconds": 38.07,
+      "owned_processes_stopped": true,
+      "raw_receipt": "gui/gui-acceptance.json",
+      "raw_receipt_sha256": "4778a0b8dcd60cd9347324577c72fc87eb494d39dfcdacfbe231e79857215ff1",
+      "fixture_sources_sha256": {
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "feature",
+      "passed": true,
+      "expected_checks": 9,
+      "observed_checks": 9,
+      "elapsed_seconds": 108.729,
+      "owned_processes_stopped": true,
+      "raw_receipt": "feature/feature-acceptance.json",
+      "raw_receipt_sha256": "3239dc13676a74c0b621001182bad2742d9a3cd7634ad2280b39fe58f99476a4",
+      "fixture_sources_sha256": {
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "visual",
+      "passed": true,
+      "expected_checks": 13,
+      "observed_checks": 13,
+      "elapsed_seconds": 75.647,
+      "owned_processes_stopped": true,
+      "raw_receipt": "visual/visual-acceptance.json",
+      "raw_receipt_sha256": "0979c0766679ed165a2548c25fa469b60fb27c49a238328c79ae9b8a048f1844",
+      "fixture_sources_sha256": {
+        "game_visual_smoke.py": "29535f7f5e520d3d96c5047f2a26d7a2bc5c9740b6c16f6f0c4d10085043fa71",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb"
+      }
+    },
+    {
+      "name": "hud",
+      "passed": true,
+      "expected_checks": 6,
+      "observed_checks": 6,
+      "elapsed_seconds": 62.78,
+      "owned_processes_stopped": true,
+      "raw_receipt": "hud/hud-acceptance.json",
+      "raw_receipt_sha256": "54887f88f52960aacd17896813ce371b78c36518bfb69f62df54ec4737f7200c",
+      "fixture_sources_sha256": {
+        "game_hud_smoke.py": "9af89857736ffe9e8af89450af5ba11bc2602f3fcd1e7038849d302555c9b841",
+        "game_inventory_smoke.py": "f01da9dbf8158882f371a1a5b34f03012417030857ba5cdc0fac524a33fbcf3e",
+        "game_automation_smoke.py": "afa55ace3b63880e991034bd5c59d2a5d2420f6bd3133caf24d6f3f58382309d",
+        "game_assistance_smoke.py": "167c0ad2dc027deee48ed0c194f1011bbf53a1b3a0838aff34c108a77b3ce427",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "binding",
+      "passed": true,
+      "expected_checks": 2,
+      "observed_checks": 2,
+      "elapsed_seconds": 106.324,
+      "owned_processes_stopped": true,
+      "raw_receipt": "binding/binding-acceptance.json",
+      "raw_receipt_sha256": "771c9337febb05f54d6621259a39bc8b135d5562baea9e94973c7863aa732676",
+      "fixture_sources_sha256": {
+        "game_binding_smoke.py": "08c200095daa56696bc96b01b3e3cce4f023e0277add99c470147d8efa448965",
+        "game_inventory_smoke.py": "f01da9dbf8158882f371a1a5b34f03012417030857ba5cdc0fac524a33fbcf3e",
+        "game_automation_smoke.py": "afa55ace3b63880e991034bd5c59d2a5d2420f6bd3133caf24d6f3f58382309d",
+        "game_assistance_smoke.py": "167c0ad2dc027deee48ed0c194f1011bbf53a1b3a0838aff34c108a77b3ce427",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "awareness",
+      "passed": true,
+      "expected_checks": 9,
+      "observed_checks": 9,
+      "elapsed_seconds": 73.564,
+      "owned_processes_stopped": true,
+      "raw_receipt": "awareness/awareness-acceptance.json",
+      "raw_receipt_sha256": "efdb5ea52e89021161226b2cc6056d4e135a2bd8ad3665f86113df1f3fec3980",
+      "fixture_sources_sha256": {
+        "game_awareness_smoke.py": "55b963b0bccb6226acb0c65cd9ab5f54aa8903d120b2aee44512263dee68b50d",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "multiplayer-retry01",
+      "passed": true,
+      "expected_checks": 5,
+      "observed_checks": 5,
+      "elapsed_seconds": 67.895,
+      "owned_processes_stopped": true,
+      "raw_receipt": "multiplayer-retry01/multiplayer-acceptance.json",
+      "raw_receipt_sha256": "4ae86caab9709f5097625acb34fc5c714f2024389790d7c3bbf8b49d5a296550",
+      "fixture_sources_sha256": {
+        "game_multiplayer_smoke.py": "6bb3d127c7b16464748597a5b90a2bb002d0fe12f6e1aff64b1952a63a0e36df",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb"
+      }
+    },
+    {
+      "name": "ui",
+      "passed": true,
+      "expected_checks": 10,
+      "observed_checks": 10,
+      "elapsed_seconds": 93.077,
+      "owned_processes_stopped": true,
+      "raw_receipt": "ui/ui12-acceptance.json",
+      "raw_receipt_sha256": "2803d887be6683a0ea76f85244a3bd47b1f7ab185db32f8952428a29296a7d65",
+      "fixture_sources_sha256": {
+        "game_ui12_smoke.py": "1a891646d52ecdcd9b134891ce8e3b4dbc1c75b921ebbde7c7e6cf1b35c7455f",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "columns",
+      "passed": true,
+      "expected_checks": 3,
+      "observed_checks": 3,
+      "elapsed_seconds": 35.017,
+      "owned_processes_stopped": true,
+      "raw_receipt": "columns/hud-columns-acceptance.json",
+      "raw_receipt_sha256": "abaa6cf4f84f4022bf3e5b942d7b106713171921c75537da6e606a46765a67c7",
+      "fixture_sources_sha256": {
+        "game_hud_columns_smoke.py": "9d11d843d024d36b968744c56e25ac14b9da889ecb486f3cce846a15c99df33c",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d",
+        "game_ui12_smoke.py": "1a891646d52ecdcd9b134891ce8e3b4dbc1c75b921ebbde7c7e6cf1b35c7455f",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb"
+      }
+    },
+    {
+      "name": "showcase",
+      "passed": true,
+      "expected_checks": null,
+      "observed_checks": 2,
+      "elapsed_seconds": 63.758,
+      "owned_processes_stopped": true,
+      "raw_receipt": "showcase/feature-acceptance.json",
+      "raw_receipt_sha256": "30b8f7d39554532d1219f5f6274893f53e67319ad8fad3524d33fb2fb785b090",
+      "fixture_sources_sha256": {
+        "game_showcase_smoke.py": "16b1f719d867e79ea6267cd04e18ab51ed3b7f53260256a421bd5f76edb6f860",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    },
+    {
+      "name": "performance-disabled",
+      "passed": true,
+      "expected_checks": null,
+      "observed_checks": 0,
+      "elapsed_seconds": 59.217,
+      "owned_processes_stopped": true,
+      "raw_receipt": "performance-disabled/measurements.json",
+      "raw_receipt_sha256": "189725ccfa03ec66248dcb868cf1ddd67b949bb699865f534d0682afbb42a850",
+      "fixture_sources_sha256": {
+        "game_performance_smoke.py": "a3fb113facc0c4f7b24c08108342b5d1d0e08a7e0894c991a6a66d586da57ef4"
+      }
+    },
+    {
+      "name": "performance-enabled",
+      "passed": true,
+      "expected_checks": null,
+      "observed_checks": 0,
+      "elapsed_seconds": 97.202,
+      "owned_processes_stopped": true,
+      "raw_receipt": "performance-enabled/measurements.json",
+      "raw_receipt_sha256": "487f0e7199acfa4f664da826b74aabbc14e4d9e1000ed53d71c1a1df20eb0f12",
+      "fixture_sources_sha256": {
+        "game_performance_smoke.py": "a3fb113facc0c4f7b24c08108342b5d1d0e08a7e0894c991a6a66d586da57ef4"
+      }
+    },
+    {
+      "name": "endurance",
+      "passed": true,
+      "expected_checks": null,
+      "observed_checks": 2,
+      "elapsed_seconds": 638.723,
+      "owned_processes_stopped": true,
+      "raw_receipt": "endurance/endurance-acceptance.json",
+      "raw_receipt_sha256": "fc05714d8ba74f97e58ae69826c003b164f61334720092abd38d56530ab910ae",
+      "fixture_sources_sha256": {
+        "game_endurance_smoke.py": "258cbdc84e6e52358812d47c1c19b7a3c86fb6b5f2e386ce8494e027a873a027",
+        "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb",
+        "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d"
+      }
+    }
+  ],
+  "prior_attempts": [
+    {
+      "summary": "attempt01-summary.json",
+      "sha256": "94b14a61e77b1c2c493a6ee4b3f8c25cfe6f88d3cfcfea9375e216c69ab40600",
+      "failed_suite": {
+        "name": "multiplayer",
+        "passed": false,
+        "expected_checks": 5,
+        "observed_checks": 2,
+        "elapsed_seconds": 178.999,
+        "owned_processes_stopped": true,
+        "raw_receipt": "multiplayer/multiplayer-acceptance.json",
+        "raw_receipt_sha256": "b964636d682540dc8c77ff72e6adf0b57b10b94a4d7fd18893ae4e7600c38f67",
+        "fixture_sources_sha256": {
+          "game_multiplayer_smoke.py": "bf5fd01e729219490cecea4c41e6a8cbe52efb26c3e6c4d1cd5f4e209e370f06",
+          "game_gui_smoke.py": "2bad08fc20a6badeb3ee3ab4adcb3b783115f3d9edf8969dd86812a1d013ee9d",
+          "game_feature_smoke.py": "f695d963d76cc1a4b31455345cdb01b91c3d9f96ed6036ea0bff72ed2252ffcb"
+        }
+      },
+      "resolution": "Diagnostic unchanged-binary run restored 495 targets after transient 493. Strengthened multiplayer fixture settling across two scan intervals, distinct rendered frames, ready renderer queues and exact count/nearest assertions. Native source unchanged."
+    }
+  ],
+  "runner_corrections": [
+    {
+      "kind": "Argument invocation before game startup",
+      "log": "performance-disabled-invocation-error.log",
+      "sha256": "f577d03c44183f47bb41c892e3fc0e359364a47278c96aaf70595c8b531cdbc2",
+      "reason": "Runner passed width/height to the fixed-size performance fixture; argparse rejected them before any game launched. Removed unsupported runner arguments; fixture and native executable unchanged."
+    }
+  ]
+}

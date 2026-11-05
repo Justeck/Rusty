@@ -1,0 +1,1440 @@
+{
+  "schema": 1,
+  "raw_receipt_sha256": "fc05714d8ba74f97e58ae69826c003b164f61334720092abd38d56530ab910ae",
+  "binary_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "passed": true,
+  "conditions": {
+    "terrain": "vanilla",
+    "initial_seed": 42,
+    "render_distance": 4,
+    "fps_cap_requested": 60,
+    "inactivity_limit_requested": "minimized",
+    "offscreen": true,
+    "fresh_private_worlds": 2,
+    "inactivity_limit_readback": "minimized"
+  },
+  "measured_seconds": 600.0257582999984,
+  "observed_memory": {
+    "minimum_rss_bytes": 1064275968,
+    "maximum_rss_bytes": 1582088192,
+    "first_minute_median_rss_bytes": 1073274880.0,
+    "last_minute_median_rss_bytes": 1412972544,
+    "median_change_bytes": 339697664.0,
+    "last_restored_idle_samples": 7,
+    "idle_first_rss_bytes": 1419489280,
+    "idle_last_rss_bytes": 1413410816,
+    "interpretation": "Observed resident memory only. No allocation-free, leak-free or endurance beyond this bounded interval claim."
+  },
+  "samples": [
+    {
+      "elapsed_seconds": 0.03274460000102408,
+      "context": "original_overworld",
+      "rss_bytes": 1064275968,
+      "private_bytes": 2304446464,
+      "process_cpu_seconds": 74.859375,
+      "frames": 1517,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 695,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 23186208,
+        "gpu_allocated_bytes": 229485312,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 150224808
+      }
+    },
+    {
+      "elapsed_seconds": 15.115665499997704,
+      "context": "original_overworld",
+      "rss_bytes": 1066180608,
+      "private_bytes": 2302935040,
+      "process_cpu_seconds": 76.796875,
+      "frames": 2422,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 695,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 23229024,
+        "gpu_allocated_bytes": 229485312,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 161501352
+      }
+    },
+    {
+      "elapsed_seconds": 38.39952899999844,
+      "context": "original_overworld",
+      "rss_bytes": 1080369152,
+      "private_bytes": 2320543744,
+      "process_cpu_seconds": 80.1875,
+      "frames": 3819,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 491,
+        "reused": 2
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 220747776,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 170597160
+      }
+    },
+    {
+      "elapsed_seconds": 45.04918909999833,
+      "context": "original_overworld",
+      "rss_bytes": 1081098240,
+      "private_bytes": 2326089728,
+      "process_cpu_seconds": 81.171875,
+      "frames": 4218,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 523,
+        "reused": 369
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 220747776,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 170704344
+      }
+    },
+    {
+      "elapsed_seconds": 61.81655369999862,
+      "context": "original_overworld",
+      "rss_bytes": 1110466560,
+      "private_bytes": 2397556736,
+      "process_cpu_seconds": 84.484375,
+      "frames": 5224,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21285408,
+        "gpu_allocated_bytes": 233679616,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 192749424
+      }
+    },
+    {
+      "elapsed_seconds": 75.08228550000058,
+      "context": "original_overworld",
+      "rss_bytes": 1110605824,
+      "private_bytes": 2394275840,
+      "process_cpu_seconds": 86.078125,
+      "frames": 6020,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21293856,
+        "gpu_allocated_bytes": 233679616,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 195538440
+      }
+    },
+    {
+      "elapsed_seconds": 98.39919870000085,
+      "context": "original_overworld",
+      "rss_bytes": 1095774208,
+      "private_bytes": 2324889600,
+      "process_cpu_seconds": 89.96875,
+      "frames": 7419,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 489,
+        "reused": 6
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 224942080,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 200866896
+      }
+    },
+    {
+      "elapsed_seconds": 105.04895919999763,
+      "context": "original_overworld",
+      "rss_bytes": 1096019968,
+      "private_bytes": 2325737472,
+      "process_cpu_seconds": 91.140625,
+      "frames": 7818,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 515,
+        "reused": 379
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 224942080,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 200955024
+      }
+    },
+    {
+      "elapsed_seconds": 121.91575039999952,
+      "context": "original_overworld",
+      "rss_bytes": 1124950016,
+      "private_bytes": 2457968640,
+      "process_cpu_seconds": 94.5,
+      "frames": 8830,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21325056,
+        "gpu_allocated_bytes": 233679616,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 222792504
+      }
+    },
+    {
+      "elapsed_seconds": 135.19907759999842,
+      "context": "original_overworld",
+      "rss_bytes": 1125191680,
+      "private_bytes": 2459541504,
+      "process_cpu_seconds": 96.09375,
+      "frames": 9627,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21332256,
+        "gpu_allocated_bytes": 233679616,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 225614400
+      }
+    },
+    {
+      "elapsed_seconds": 158.3158414999998,
+      "context": "original_overworld",
+      "rss_bytes": 1117716480,
+      "private_bytes": 2395119616,
+      "process_cpu_seconds": 99.171875,
+      "frames": 11014,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 489,
+        "reused": 6
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 224942080,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 230118984
+      }
+    },
+    {
+      "elapsed_seconds": 165.16600579999795,
+      "context": "original_overworld",
+      "rss_bytes": 1117458432,
+      "private_bytes": 2393939968,
+      "process_cpu_seconds": 100.265625,
+      "frames": 11425,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 502,
+        "reused": 404
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 224942080,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 230141856
+      }
+    },
+    {
+      "elapsed_seconds": 182.58192729999791,
+      "context": "original_nether",
+      "rss_bytes": 1186828288,
+      "private_bytes": 2611384320,
+      "process_cpu_seconds": 106.625,
+      "frames": 12455,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:the_nether",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 617,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 13007184,
+        "gpu_allocated_bytes": 224942080,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 258532680
+      }
+    },
+    {
+      "elapsed_seconds": 195.04827619999924,
+      "context": "original_nether",
+      "rss_bytes": 1191272448,
+      "private_bytes": 2645340160,
+      "process_cpu_seconds": 107.90625,
+      "frames": 13204,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:the_nether",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 617,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 13207416,
+        "gpu_allocated_bytes": 224942080,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 302702400
+      }
+    },
+    {
+      "elapsed_seconds": 218.38148369999908,
+      "context": "original_nether",
+      "rss_bytes": 1192153088,
+      "private_bytes": 2643103744,
+      "process_cpu_seconds": 110.78125,
+      "frames": 14604,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:the_nether",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 490,
+        "reused": 5
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 576,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 1383888,
+        "gpu_allocated_bytes": 224942080,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 320682048
+      }
+    },
+    {
+      "elapsed_seconds": 225.23198390000107,
+      "context": "original_nether",
+      "rss_bytes": 1192861696,
+      "private_bytes": 2645073920,
+      "process_cpu_seconds": 112.0,
+      "frames": 15015,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:the_nether",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 522,
+        "reused": 384
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 576,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 1383888,
+        "gpu_allocated_bytes": 224942080,
+        "gpu_reserved_bytes": 305684480,
+        "uploaded_bytes": 320713512
+      }
+    },
+    {
+      "elapsed_seconds": 241.64950210000097,
+      "context": "original_overworld",
+      "rss_bytes": 1230553088,
+      "private_bytes": 2752225280,
+      "process_cpu_seconds": 115.53125,
+      "frames": 15988,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21358368,
+        "gpu_allocated_bytes": 242068224,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 354019800
+      }
+    },
+    {
+      "elapsed_seconds": 255.09956989999773,
+      "context": "original_overworld",
+      "rss_bytes": 1229869056,
+      "private_bytes": 2753675264,
+      "process_cpu_seconds": 117.03125,
+      "frames": 16795,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21365856,
+        "gpu_allocated_bytes": 242068224,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 356051040
+      }
+    },
+    {
+      "elapsed_seconds": 278.41642109999884,
+      "context": "original_overworld",
+      "rss_bytes": 1247817728,
+      "private_bytes": 3046785024,
+      "process_cpu_seconds": 121.59375,
+      "frames": 18194,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 490,
+        "reused": 5
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 233330688,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 360993624
+      }
+    },
+    {
+      "elapsed_seconds": 285.0663158999996,
+      "context": "original_overworld",
+      "rss_bytes": 1247072256,
+      "private_bytes": 3044163584,
+      "process_cpu_seconds": 122.625,
+      "frames": 18593,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 512,
+        "reused": 382
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 233330688,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 361040136
+      }
+    },
+    {
+      "elapsed_seconds": 301.9000570999997,
+      "context": "original_overworld",
+      "rss_bytes": 1265016832,
+      "private_bytes": 3144593408,
+      "process_cpu_seconds": 125.671875,
+      "frames": 19602,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21396288,
+        "gpu_allocated_bytes": 246262528,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 382615320
+      }
+    },
+    {
+      "elapsed_seconds": 315.1835700999982,
+      "context": "original_overworld",
+      "rss_bytes": 1252569088,
+      "private_bytes": 3092688896,
+      "process_cpu_seconds": 127.265625,
+      "frames": 20399,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21407040,
+        "gpu_allocated_bytes": 246262528,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 385609896
+      }
+    },
+    {
+      "elapsed_seconds": 338.2334091999983,
+      "context": "original_overworld",
+      "rss_bytes": 1244168192,
+      "private_bytes": 3039608832,
+      "process_cpu_seconds": 130.25,
+      "frames": 21783,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 488,
+        "reused": 2
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 237524992,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 390370080
+      }
+    },
+    {
+      "elapsed_seconds": 345.08312529999967,
+      "context": "original_overworld",
+      "rss_bytes": 1243496448,
+      "private_bytes": 3036786688,
+      "process_cpu_seconds": 131.328125,
+      "frames": 22194,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 505,
+        "reused": 396
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 237524992,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 390397704
+      }
+    },
+    {
+      "elapsed_seconds": 371.3028764999981,
+      "context": "other_overworld",
+      "rss_bytes": 1456771072,
+      "private_bytes": 3766218752,
+      "process_cpu_seconds": 157.125,
+      "frames": 23444,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 622,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 17541360,
+        "gpu_allocated_bytes": 245738240,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 450842976
+      }
+    },
+    {
+      "elapsed_seconds": 375.13552309999795,
+      "context": "other_overworld",
+      "rss_bytes": 1345843200,
+      "private_bytes": 3650441216,
+      "process_cpu_seconds": 157.4375,
+      "frames": 23675,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 622,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 17582040,
+        "gpu_allocated_bytes": 245738240,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 462261192
+      }
+    },
+    {
+      "elapsed_seconds": 398.46901309999885,
+      "context": "other_overworld",
+      "rss_bytes": 1349881856,
+      "private_bytes": 3661201408,
+      "process_cpu_seconds": 159.8125,
+      "frames": 25075,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 493,
+        "reused": 3
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 693,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2379792,
+        "gpu_allocated_bytes": 237524992,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 491015808
+      }
+    },
+    {
+      "elapsed_seconds": 405.1192881999996,
+      "context": "other_overworld",
+      "rss_bytes": 1349947392,
+      "private_bytes": 3658379264,
+      "process_cpu_seconds": 160.640625,
+      "frames": 25474,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 545,
+        "reused": 350
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 693,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2379792,
+        "gpu_allocated_bytes": 237524992,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 491197656
+      }
+    },
+    {
+      "elapsed_seconds": 428.5409956000003,
+      "context": "original_overworld",
+      "rss_bytes": 1582088192,
+      "private_bytes": 4319076352,
+      "process_cpu_seconds": 175.015625,
+      "frames": 26610,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21428640,
+        "gpu_allocated_bytes": 246262528,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 531429528
+      }
+    },
+    {
+      "elapsed_seconds": 435.1909599999999,
+      "context": "original_overworld",
+      "rss_bytes": 1430712320,
+      "private_bytes": 4127641600,
+      "process_cpu_seconds": 175.921875,
+      "frames": 27009,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21432000,
+        "gpu_allocated_bytes": 246262528,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 532139448
+      }
+    },
+    {
+      "elapsed_seconds": 458.2575226000008,
+      "context": "original_overworld",
+      "rss_bytes": 1427648512,
+      "private_bytes": 4118401024,
+      "process_cpu_seconds": 179.765625,
+      "frames": 28393,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 489,
+        "reused": 2
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 237524992,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 536919600
+      }
+    },
+    {
+      "elapsed_seconds": 465.1080026999989,
+      "context": "original_overworld",
+      "rss_bytes": 1427988480,
+      "private_bytes": 4117946368,
+      "process_cpu_seconds": 181.0,
+      "frames": 28804,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": true,
+      "fullbright": true,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 517,
+        "reused": 385
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 636,
+        "drawn_sections": 1,
+        "arena_bytes": 25165824,
+        "section_vertex_bytes": 2212128,
+        "gpu_allocated_bytes": 237524992,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 536983152
+      }
+    },
+    {
+      "elapsed_seconds": 481.97554169999785,
+      "context": "original_overworld",
+      "rss_bytes": 1441857536,
+      "private_bytes": 4235571200,
+      "process_cpu_seconds": 184.765625,
+      "frames": 29816,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21464160,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 558973824
+      }
+    },
+    {
+      "elapsed_seconds": 495.0910022999997,
+      "context": "original_overworld",
+      "rss_bytes": 1422458880,
+      "private_bytes": 4137312256,
+      "process_cpu_seconds": 186.703125,
+      "frames": 30603,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21470400,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 560622144
+      }
+    },
+    {
+      "elapsed_seconds": 510.17482759999984,
+      "context": "original_overworld",
+      "rss_bytes": 1419489280,
+      "private_bytes": 4137758720,
+      "process_cpu_seconds": 188.8125,
+      "frames": 31508,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21477216,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 562355904
+      }
+    },
+    {
+      "elapsed_seconds": 525.0409961000005,
+      "context": "original_overworld",
+      "rss_bytes": 1413664768,
+      "private_bytes": 4119830528,
+      "process_cpu_seconds": 190.859375,
+      "frames": 32400,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21485280,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 564676512
+      }
+    },
+    {
+      "elapsed_seconds": 540.1411017999999,
+      "context": "original_overworld",
+      "rss_bytes": 1414135808,
+      "private_bytes": 4122517504,
+      "process_cpu_seconds": 192.890625,
+      "frames": 33306,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21492768,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 566426424
+      }
+    },
+    {
+      "elapsed_seconds": 555.2080060000008,
+      "context": "original_overworld",
+      "rss_bytes": 1412972544,
+      "private_bytes": 4129472512,
+      "process_cpu_seconds": 194.90625,
+      "frames": 34210,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21501696,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 568869384
+      }
+    },
+    {
+      "elapsed_seconds": 570.0911196999987,
+      "context": "original_overworld",
+      "rss_bytes": 1411899392,
+      "private_bytes": 4120879104,
+      "process_cpu_seconds": 196.984375,
+      "frames": 35102,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21510336,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 571011408
+      }
+    },
+    {
+      "elapsed_seconds": 585.1576977000004,
+      "context": "original_overworld",
+      "rss_bytes": 1412059136,
+      "private_bytes": 4117868544,
+      "process_cpu_seconds": 199.109375,
+      "frames": 36007,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21518496,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 573086064
+      }
+    },
+    {
+      "elapsed_seconds": 600.0244418000002,
+      "context": "original_overworld",
+      "rss_bytes": 1413410816,
+      "private_bytes": 4134985728,
+      "process_cpu_seconds": 201.125,
+      "frames": 36899,
+      "chunks": 117,
+      "pending_chunks": 0,
+      "pending_uploads": 0,
+      "dimension": "minecraft:overworld",
+      "xray": false,
+      "fullbright": false,
+      "scan_pending": 0,
+      "scan_cache": {
+        "aggregations": 0,
+        "reused": 0
+      },
+      "decode_errors": 0,
+      "renderer": {
+        "resident_sections": 616,
+        "drawn_sections": 1,
+        "arena_bytes": 31457280,
+        "section_vertex_bytes": 21526752,
+        "gpu_allocated_bytes": 250456832,
+        "gpu_reserved_bytes": 322461696,
+        "uploaded_bytes": 575874672
+      }
+    }
+  ],
+  "operations": [
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 30.0,
+      "started_seconds": 30.15289230000053,
+      "finished_seconds": 38.366104599997925,
+      "passed": true,
+      "xray": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 60.0,
+      "started_seconds": 60.0899748999982,
+      "finished_seconds": 60.14934060000087,
+      "passed": true,
+      "xray": false
+    },
+    {
+      "name": "saved_settings_cycle",
+      "scheduled_seconds": 60.0,
+      "started_seconds": 60.1493487000007,
+      "finished_seconds": 61.782927199998085,
+      "passed": true,
+      "saved_and_observed_fullbright_restored": true,
+      "native_menu_visits": 2
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 90.0,
+      "started_seconds": 90.11903119999988,
+      "finished_seconds": 98.34957700000086,
+      "passed": true,
+      "xray": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 120.0,
+      "started_seconds": 120.08076269999947,
+      "finished_seconds": 120.15034379999997,
+      "passed": true,
+      "xray": false
+    },
+    {
+      "name": "saved_settings_cycle",
+      "scheduled_seconds": 120.0,
+      "started_seconds": 120.15035050000006,
+      "finished_seconds": 121.88220209999781,
+      "passed": true,
+      "saved_and_observed_fullbright_restored": true,
+      "native_menu_visits": 2
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 150.0,
+      "started_seconds": 150.03242540000065,
+      "finished_seconds": 158.26588329999868,
+      "passed": true,
+      "xray": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 180.0,
+      "started_seconds": 180.0039665000004,
+      "finished_seconds": 180.0493580000002,
+      "passed": true,
+      "xray": false
+    },
+    {
+      "name": "nether_transition",
+      "scheduled_seconds": 180.0,
+      "started_seconds": 180.04936530000123,
+      "finished_seconds": 182.5152648000003,
+      "passed": true,
+      "dimension": "minecraft:the_nether",
+      "activation_reset": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 210.0,
+      "started_seconds": 210.0877529999998,
+      "finished_seconds": 218.34844249999878,
+      "passed": true,
+      "xray": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 240.0,
+      "started_seconds": 240.06058190000113,
+      "finished_seconds": 240.11513990000094,
+      "passed": true,
+      "xray": false
+    },
+    {
+      "name": "overworld_return",
+      "scheduled_seconds": 240.0,
+      "started_seconds": 240.11514700000043,
+      "finished_seconds": 241.61646149999797,
+      "passed": true,
+      "dimension": "minecraft:overworld",
+      "activation_reset": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 270.0,
+      "started_seconds": 270.1305074000011,
+      "finished_seconds": 278.382951399999,
+      "passed": true,
+      "xray": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 300.0,
+      "started_seconds": 300.1039209999981,
+      "finished_seconds": 300.1666640000003,
+      "passed": true,
+      "xray": false
+    },
+    {
+      "name": "saved_settings_cycle",
+      "scheduled_seconds": 300.0,
+      "started_seconds": 300.16667139999845,
+      "finished_seconds": 301.84956070000044,
+      "passed": true,
+      "saved_and_observed_fullbright_restored": true,
+      "native_menu_visits": 2
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 330.0,
+      "started_seconds": 330.0220558000001,
+      "finished_seconds": 338.199959900001,
+      "passed": true,
+      "xray": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 360.0,
+      "started_seconds": 360.11901840000064,
+      "finished_seconds": 360.1834037999979,
+      "passed": true,
+      "xray": false
+    },
+    {
+      "name": "second_world",
+      "scheduled_seconds": 360.0,
+      "started_seconds": 360.18341189999774,
+      "finished_seconds": 371.25257430000056,
+      "passed": true,
+      "world": "second_fresh_world",
+      "activation_reset": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 390.0,
+      "started_seconds": 390.1680166999977,
+      "finished_seconds": 398.4352786999989,
+      "passed": true,
+      "xray": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 420.0,
+      "started_seconds": 420.1530410999985,
+      "finished_seconds": 420.23675860000003,
+      "passed": true,
+      "xray": false
+    },
+    {
+      "name": "original_world_return",
+      "scheduled_seconds": 420.0,
+      "started_seconds": 420.23676479999995,
+      "finished_seconds": 428.5078665000001,
+      "passed": true,
+      "world": "original",
+      "activation_reset": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 450.0,
+      "started_seconds": 450.0258369000003,
+      "finished_seconds": 458.22442659999797,
+      "passed": true,
+      "xray": true
+    },
+    {
+      "name": "xray_toggle",
+      "scheduled_seconds": 480.0,
+      "started_seconds": 480.14363129999765,
+      "finished_seconds": 480.207609699999,
+      "passed": true,
+      "xray": false
+    },
+    {
+      "name": "saved_settings_cycle",
+      "scheduled_seconds": 480.0,
+      "started_seconds": 480.20761610000045,
+      "finished_seconds": 481.94078459999946,
+      "passed": true,
+      "saved_and_observed_fullbright_restored": true,
+      "native_menu_visits": 2
+    },
+    {
+      "name": "restore_idle_original_scene",
+      "scheduled_seconds": 495.0,
+      "started_seconds": 495.0073564999984,
+      "finished_seconds": 495.05766740000035,
+      "passed": true,
+      "xray": false,
+      "fullbright": false,
+      "menu_open": false
+    }
+  ],
+  "panic_or_fatal_observed": false,
+  "owned_process_stopped": true,
+  "claims": "Observed native process RSS/CPU and actual bounded input/context operations; no leak-free or long-session claim.",
+  "not_exercised": [
+    "Online servers, authenticated accounts, plugins, latency and arbitrary resource packs.",
+    "No allocator-level allocation counts are exposed or measured.",
+    "RSS includes allocator reservations, world caches and renderer resources; a short RSS trend is not a leak diagnosis.",
+    "This observation supplies no reference-client or maximum-throughput comparison."
+  ]
+}

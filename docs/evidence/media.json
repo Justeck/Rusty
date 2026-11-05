@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "binary_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "gallery": [
+    {
+      "file": "docs/screenshots/rusty-1.2-normal.png",
+      "sha256": "85cf5b3210e3ed2012c8a3b5b3ead624a736807d226988a4a9e8f33423776bd6",
+      "original_capture": "screenshots/01-mine-normal.png",
+      "fixture": "showcase",
+      "raw_receipt_sha256": "30b8f7d39554532d1219f5f6274893f53e67319ad8fad3524d33fb2fb785b090",
+      "description": "Ordinary authored underground mine",
+      "width": 2000,
+      "height": 1125,
+      "image_altered": false
+    },
+    {
+      "file": "docs/screenshots/rusty-1.2-fullbright.png",
+      "sha256": "bfa3073ebadba08c1a82e4ab45767d210eed4a7662c56c6746373228d4799196",
+      "original_capture": "screenshots/01b-mine-fullbright-only.png",
+      "fixture": "showcase",
+      "raw_receipt_sha256": "30b8f7d39554532d1219f5f6274893f53e67319ad8fad3524d33fb2fb785b090",
+      "description": "Same fixed camera with standalone Fullbright",
+      "width": 2000,
+      "height": 1125,
+      "image_altered": false
+    },
+    {
+      "file": "docs/screenshots/rusty-1.2-restored.png",
+      "sha256": "d04718b86d4ea5e603499884c7817933651e9e9d7e5e7550dff6294e8d85d3f2",
+      "original_capture": "screenshots/01c-mine-normal-restored.png",
+      "fixture": "showcase",
+      "raw_receipt_sha256": "30b8f7d39554532d1219f5f6274893f53e67319ad8fad3524d33fb2fb785b090",
+      "description": "Normal lighting restored at the same camera",
+      "width": 2000,
+      "height": 1125,
+      "image_altered": false
+    },
+    {
+      "file": "docs/screenshots/rusty-1.2-textured-xray.png",
+      "sha256": "3af3fd0821adc68eff1769e095cf1a19f90e380c7beaf4749fd599a22a1d8f48",
+      "original_capture": "screenshots/02-mine-textured-xray.png",
+      "fixture": "showcase",
+      "raw_receipt_sha256": "30b8f7d39554532d1219f5f6274893f53e67319ad8fad3524d33fb2fb785b090",
+      "description": "Received ore targets with original-texture terrain context",
+      "width": 2000,
+      "height": 1125,
+      "image_altered": false
+    },
+    {
+      "file": "docs/screenshots/rusty-1.2-classic.png",
+      "sha256": "068594d6382e1279c525350877a08b1d825bd5fa6df27baad5f6cf0692770647",
+      "original_capture": "screenshots/03-classic-live-menu.png",
+      "fixture": "showcase",
+      "raw_receipt_sha256": "30b8f7d39554532d1219f5f6274893f53e67319ad8fad3524d33fb2fb785b090",
+      "description": "Classic Minecraft-style browser over ordinary terrain",
+      "width": 2000,
+      "height": 1125,
+      "image_altered": false
+    },
+    {
+      "file": "docs/screenshots/rusty-1.2-texture-settings.png",
+      "sha256": "353f777fef7acf06d62812b06694d45e2f640ab471dba5aec059e07f4ff542c2",
+      "original_capture": "screenshots/04-search-texture-controls.png",
+      "fixture": "showcase",
+      "raw_receipt_sha256": "30b8f7d39554532d1219f5f6274893f53e67319ad8fad3524d33fb2fb785b090",
+      "description": "Search and block-texture coverage controls",
+      "width": 2000,
+      "height": 1125,
+      "image_altered": false
+    },
+    {
+      "file": "docs/screenshots/rusty-1.2-enabled.png",
+      "sha256": "fcee899d17ac33e8c90c9b1c49161171ab3caf60c7bf204c149e7d7f2dbb12b8",
+      "original_capture": "screenshots/02-enabled-live.png",
+      "fixture": "ui",
+      "raw_receipt_sha256": "2803d887be6683a0ea76f85244a3bd47b1f7ab185db32f8952428a29296a7d65",
+      "description": "Live Enabled collection",
+      "width": 1600,
+      "height": 900,
+      "image_altered": false
+    },
+    {
+      "file": "docs/screenshots/rusty-1.2-hud-layout.png",
+      "sha256": "fe2f4f00d5d04d559658163f6b454c5b11bcd7320fc48afe259a0188872dc1d7",
+      "original_capture": "screenshots/07-hud-layout-live.png",
+      "fixture": "ui",
+      "raw_receipt_sha256": "2803d887be6683a0ea76f85244a3bd47b1f7ab185db32f8952428a29296a7d65",
+      "description": "Independent HUD positions, size and textured minimap",
+      "width": 1600,
+      "height": 900,
+      "image_altered": false
+    },
+    {
+      "file": "docs/screenshots/rusty-1.2-profiles.png",
+      "sha256": "b11c52c5a69fd6ca88134cc1e31575b6b341a17bbfa0d8fa5c04bf75de27166a",
+      "original_capture": "screenshots/08-native-preset-import.png",
+      "fixture": "ui",
+      "raw_receipt_sha256": "2803d887be6683a0ea76f85244a3bd47b1f7ab185db32f8952428a29296a7d65",
+      "description": "Native detailed settings and profile import",
+      "width": 1600,
+      "height": 900,
+      "image_altered": false
+    }
+  ],
+  "tour": {
+    "method": "Timed still-image sequence of five fresh native screenshots, two seconds each; resized and encoded using FFmpeg. This is a screenshot tour, not continuous gameplay footage or a frame-rate demonstration.",
+    "order": [
+      "classic",
+      "enabled",
+      "texture-settings",
+      "textured-xray",
+      "hud-layout"
+    ],
+    "duration_seconds": 10,
+    "gif_duration_ms": 10000,
+    "video": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 720,
+          "nb_frames": "300"
+        }
+      ],
+      "format": {
+        "duration": "10.000000"
+      }
+    },
+    "files": [
+      {
+        "file": "docs/media/rusty-1.2-ui-tour.gif",
+        "sha256": "73d1014c450525fee0549bd3411663293bc4391a66249bb2348178894c6d878a",
+        "bytes": 1005602
+      },
+      {
+        "file": "docs/media/rusty-1.2-ui-tour.mp4",
+        "sha256": "f48cf692cc7661c2a12246d61bd2ac8aed9d3811b6adfade88448a56b922dd18",
+        "bytes": 639236
+      }
+    ]
+  }
+}

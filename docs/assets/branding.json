@@ -23,8 +23,33 @@
       "height": 724,
       "generated_with": "Built-in image generation",
       "image_altered": false
+    },
+    {
+      "file": "rusty-cover.png",
+      "sha256": "2ed9135f0befdb3ac99a5957de9c46ebefc177c4d3af3b0641bf2092188462e9",
+      "generated_with": "Built-in image generation",
+      "image_altered": false,
+      "purpose": "Original 2:1 social-preview cover",
+      "text": [
+        "RUSTY",
+        "Native tools for Horizon",
+        "42 tools. Built in Rust."
+      ]
+    },
+    {
+      "file": "rusty-cover.jpg",
+      "sha256": "c405a302f71aa5949a492026b7d7ad2aa3631ef6f507088f3d8fcd92a25d64ae",
+      "width": 1774,
+      "height": 887,
+      "source": "rusty-cover.png",
+      "processing": "JPEG encoding only for the GitHub social-preview upload limit; no cropping, resizing or content edits",
+      "bytes": 274345
     }
   ],
   "design": "Original copper voxel R badge and matching squared wordmark. Distinct from the official Rust mark and Minecraft logo.",
-  "transparency_requested": true
+  "transparency_requested": {
+    "rusty-mark.png": true,
+    "rusty-wordmark.png": true,
+    "rusty-cover.png": false
+  }
 }

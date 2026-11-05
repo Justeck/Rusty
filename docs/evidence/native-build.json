@@ -1,0 +1,30 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 834.608,
+  "explicit_process_wait": true,
+  "profile": "performance",
+  "method": "Official Horizon Launcher native-build after GitHub Rusty source install",
+  "version": "native-6475f62-84012272e8af",
+  "binary_sha256": "fb177cd9216a567bb4982bfacedc47d0b07e6af6cdc43cfd2591050209ca29ea",
+  "only_horizon_instance": true,
+  "native_metadata": {
+    "base": "nightly-2026-11-04-6475f62",
+    "horizon": "6475f62f3c834b7489e1816bf47f47ea5eb2b879",
+    "base_horizon": "6475f62f3c834b7489e1816bf47f47ea5eb2b879",
+    "pinned_by": [],
+    "on_base": false,
+    "horizon_mixins": "e8cd0aa38cffef49cb2e088ef716baa107148c02",
+    "hooks": null,
+    "rust": "1.99.1",
+    "profile": "performance",
+    "target": "client",
+    "mods": [
+      {
+        "id": "rusty",
+        "version": "1.2.0",
+        "sha256": "1b8034d32485fe48fd2aecc9cf7a59fc540106608e98ddecafa59f365b25a7cd"
+      }
+    ]
+  },
+  "stage_receipt_sha256": "1c5d75b9a97e0f3f9e3ebf83de45e6d4a4aa41804ddf4b51391c83365d4f7646"
+}
