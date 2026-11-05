@@ -63,5 +63,21 @@ class UpstreamFixtureTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 fixture.apply_stage(pristine, fixture.PIN)
 
+    def test_current_sdk_is_validated_without_modification(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            stage = pathlib.Path(tmp) / "stage"
+            source = stage / fixture.REL
+            source.parent.mkdir(parents=True)
+            source.write_bytes(self.corrected.encode())
+            (stage / ".horizon-revision").write_text(fixture.CURRENT_PIN)
+            with patch.object(fixture, "CURRENT_HASH", hashlib.sha256(self.corrected.encode()).hexdigest()):
+                receipt = fixture.apply_stage(stage, fixture.CURRENT_PIN)
+                self.assertEqual(receipt["change"], "none; upstream fixture already fixed")
+                self.assertEqual(source.read_bytes(), self.corrected.encode())
+                source.write_bytes(self.source.encode())
+                with self.assertRaises(ValueError):
+                    fixture.apply_stage(stage, fixture.CURRENT_PIN)
+                self.assertEqual(source.read_bytes(), self.source.encode())
+
 if __name__ == "__main__":
     unittest.main()

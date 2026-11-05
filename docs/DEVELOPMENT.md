@@ -14,7 +14,7 @@ cargo run --locked --features native-tools --bin rusty-native -- package
 python tools/native.py verify-package
 ```
 
-Use stable Rust, the host's C/C++ linker/system dependencies, and Python 3.12+. Linux needs `libasound2-dev` and `libudev-dev`. The official Windows native lane uses the launcher's GNU toolchain. Keep pure MSVC and native GNU target caches separate. Prepared legal Minecraft resources are required for rendering/game checks and are not distributed.
+The current native target is Horizon 38609b7 / API 409. Use stable Rust, the host's C/C++ linker/system dependencies, and Python 3.12+. Linux needs `libasound2-dev` and `libudev-dev`. The official Windows native lane uses the launcher's GNU toolchain. Keep pure MSVC and native GNU target caches separate. Prepared legal Minecraft resources are required for rendering/game checks and are not distributed.
 
 The Python helper stages the exact source mixins into an isolated pinned host. `check` performs SDK/type checking; `build` uses Performance by default. `--profile dev` is for iteration. Optional prepared paths can avoid repeated downloads:
 
@@ -23,7 +23,7 @@ python tools/native.py check --horizon-tree /path/to/pinned/horizon --mixins-bin
 python tools/native.py mesh-test --resources /path/to/prepared/26.3
 ```
 
-The Rust tool writes deterministic `dist/rusty-1.2.0.hnmod` and `SHA256SUMS`; structural archive verification does not execute the game. Official SDK checking, compilation, launcher integration and live game behavior are separate gates.
+The Rust tool writes deterministic `dist/rusty-1.2.2.hnmod` and `SHA256SUMS`; structural archive verification does not execute the game. Official SDK checking, compilation, launcher integration and live game behavior are separate gates.
 
 ## Actual game fixtures
 

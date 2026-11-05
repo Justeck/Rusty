@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "version": "1.2.2",
+  "horizon_revision": "38609b7b1f261b530261ead7855d41e3a850e310",
+  "native_api": 409,
+  "minecraft": "26.3",
+  "mixins_revision": "e8cd0aa38cffef49cb2e088ef716baa107148c02",
+  "official_source_archive_sha256": "a4b31e8af37a4d7313b8b6e71f988c4d01dffd49741bbaf31b52c99433fb63c4",
+  "tested_source_commit": "6f20c77401d219af180e3b39a52d1764983480d9",
+  "native_payload_count": 115,
+  "native_payload_sha256": "3783c72a41dc74f2562cd00627e32d709eeaf2363f1d853dc254dd432496fa44",
+  "native_archive_sha256": "13a4d22ad1985e08eada3a36777a89a5c58f71e961b32a597adecfd3595f05b9",
+  "executable_sha256": "a3dd935963a3acecfc518c274fb2d58572d3657d7a7a3e94cc4a53f00cd5c363",
+  "selected_build": "native-38609b7-ba8dab22119b",
+  "launcher": {
+    "version": "0.2.42",
+    "rust": "1.99.1-x86_64-pc-windows-gnu",
+    "profile": "performance",
+    "gui_rebuild_latest_pressed": true,
+    "gui_trust_build_pressed": true,
+    "compile_succeeded": true,
+    "cargo_compile_seconds": 693,
+    "total_build_install_seconds": 1228,
+    "up_to_date_observed": true,
+    "gui_play_pressed": true,
+    "title_observed": true,
+    "options_mods_rusty_settings_observed": true,
+    "clean_quit_observed": true,
+    "sole_instance": "horizon",
+    "personal_world_or_server_joined": false
+  },
+  "local_checks": {
+    "rust_library": 141,
+    "native_tool_tests": 18,
+    "python_tooling": 14,
+    "formatting": "passed",
+    "strict_clippy": "passed",
+    "package_structure": "passed"
+  },
+  "candidate_ci": {
+    "run_id": 42061879720,
+    "conclusion": "success",
+    "scope": "Linux pure/tooling, exact native SDK compilation, official package verification"
+  },
+  "game_suites": {
+    "features": {
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Known enclosed ore and both sides of chunk boundary received",
+          "passed": true
+        },
+        {
+          "name": "B toggles saved Fullbright and actual renderer flag in both directions",
+          "passed": true
+        },
+        {
+          "name": "Xray visibly reveals terrain, restores at 100% and off, preserves received source, and refreshes after authoritative update",
+          "passed": true
+        },
+        {
+          "name": "V toggles Finder with Xray off and a fully drained nonempty received-target scan",
+          "passed": true
+        },
+        {
+          "name": "Held C changes the known rendered view and release restores it",
+          "passed": true
+        },
+        {
+          "name": "U detaches a moving and turning camera while body XZ and rotation remain unchanged, then exits",
+          "passed": true
+        },
+        {
+          "name": "Typed waypoint commands persist selection, isolate dimensions and isolate separate worlds across disconnect/reopen",
+          "passed": true
+        },
+        {
+          "name": "Ordinary local commands provide received damaged armor/tool and shulker components for native HUD review",
+          "passed": true
+        }
+      ],
+      "count": 9,
+      "raw_receipt_sha256": "dc3205101810ff06f218b884fb1d8f84c569b87313c49d93d785dd65467fda0c",
+      "started_utc": "2026-11-05T16:36:19Z",
+      "finished_utc": "2026-11-05T16:38:17Z",
+      "isolated_offline_world": true,
+      "owned_process_stopped": true
+    },
+    "interface": {
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Enabled membership follows actual hotkey activation and native toggle deactivation",
+          "passed": true
+        },
+        {
+          "name": "ClearBind saves unbound state, old key stops, captured new key routes, default restores",
+          "passed": true
+        },
+        {
+          "name": "Cleared menu recovers through actual /rusty menu chat and accepts a working new key",
+          "passed": true
+        },
+        {
+          "name": "Menu scale endpoint saves and real scaled target routes",
+          "passed": true
+        },
+        {
+          "name": "Menu scale endpoint saves and real scaled target routes",
+          "passed": true
+        },
+        {
+          "name": "All three palette controls persist and produce captured native frames",
+          "passed": true
+        },
+        {
+          "name": "All18 HUD panels independently save X/Y/size and reset through actual native controls",
+          "passed": true
+        },
+        {
+          "name": "Native named-preset import applies feature settings and preserves menu size, palette and HUD layout",
+          "passed": true
+        },
+        {
+          "name": "New owned process reloads saved layout, menu size, palette and bindings",
+          "passed": true
+        }
+      ],
+      "count": 10,
+      "raw_receipt_sha256": "2738e7dd6ac92f4e46a0a9a74b6cc8b81140c67e98114531d481a8bcf16187ad",
+      "started_utc": "2026-11-05T16:38:41Z",
+      "finished_utc": "2026-11-05T16:40:43Z",
+      "isolated_offline_world": true,
+      "owned_process_stopped": true
+    }
+  },
+  "visual_review": [
+    "Original X-ray frame shows enclosed diamond ores and retained stone-texture borders; no pause menu.",
+    "Original native Classic browser shows the copper R badge, spaced feature/category row, binding controls and menu-size slider; no pause menu.",
+    "Original Freecam frame shows its detached scene; camera and stationary body behavior are asserted by the feature receipt."
+  ],
+  "limits": [
+    "Fresh game tests are disposable singleplayer tests; no remote server or separate LAN guest was retested for 1.2.2.",
+    "Earlier 1.2.0 exhaustive functional, server, performance and ten-minute stability results retain their original scope and identity.",
+    "Other graphics backends, resource packs, arbitrary servers and long-duration stability were not revalidated.",
+    "Server anti-X-ray can withhold or replace block data; no bypass or withheld-data access.",
+    "This pre-release acceptance receipt verifies source installation and native payload equivalence; installation of the published tag is a separate subsequent gate."
+  ]
+}

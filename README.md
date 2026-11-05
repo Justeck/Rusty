@@ -6,7 +6,7 @@
 
 **Rusty is a native Rust toolkit for Horizon, with Fabric and NeoForge counterparts:** a familiar Minecraft interface, textured world views, independent HUD layouts, local navigation and ordinary player assistance. Press **Right Shift** to open the menu. Search by module, setting or description, then enable the tools you want.
 
-**Tested in the game:** 124 core checks, 10 interface checks, 3 HUD-column checks, owned Java and native multiplayer fixtures, short performance measurements and a ten-minute stability run. The official launcher Build/Play path is checked separately. [Validation](docs/VALIDATION.md) records exact identities, scope and limits.
+**Earlier native 1.2.0 acceptance:** 124 core checks, 10 interface checks, 3 HUD-column checks, owned Java and native multiplayer fixtures, short performance measurements and a ten-minute stability run. The current 1.2.2 Nightly compatibility patch has separate fresh build, game and launcher checks. [Validation](docs/VALIDATION.md) records exact identities, scope and limits.
 
 <p align="center"><img src="docs/screenshots/rusty-1.2.1-classic.png" width="960" alt="Rusty native Minecraft-style module browser"></p>
 
@@ -16,7 +16,7 @@
 
 | Edition | Game/runtime | Installation |
 |---|---|---|
-| **Horizon native 1.2.1** | Horizon 6475f62 · API 359 · Minecraft 26.3 · Rust | Native GitHub input below |
+| **Horizon native 1.2.2** | Horizon 38609b7 · API 409 · Minecraft 26.3 · Rust | Native GitHub input below |
 | **Fabric 1.3.0-beta.1** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
 | **NeoForge 1.3.0-beta.1** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
 
@@ -32,9 +32,9 @@ In Horizon Launcher, select **Horizon → Mods → Add a Native Mod from GitHub*
 https://github.com/Justeck/Rusty
 ```
 
-Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **6475f62**, native API **359**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
+Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **38609b7**, native API **409**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
 
-The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.1`](https://github.com/Justeck/Rusty/releases/tag/v1.2.1). Both inputs are [installation-verified](docs/evidence/public-release-1.2.1.json) through the official launcher and resolve to the immutable 1.2.1 release. [Validation](docs/VALIDATION.md) records the actual Build/Play checks.
+The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.2`](https://github.com/Justeck/Rusty/releases/tag/v1.2.2). The [1.2.2 acceptance receipt](docs/evidence/native-update-1.2.2.json) identifies the native source payloads and tested executable. [Validation](docs/VALIDATION.md) records the actual Build/Play checks and distinguishes release installation from source-build acceptance.
 
 **Right Shift** opens Rusty. **Options → Mods → Rusty** remains the recovery path. See [Installation](docs/INSTALLATION.md), [Usage](docs/USAGE.md) and [Modules](docs/MODULES.md).
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## Rusty 1.2.2
+
+- Updated the native host pin to Horizon Nightly 38609b7, native API 409, Minecraft 26.3.
+- Fixed Freecam compilation against Horizon's device-aware HeldKeys input container. Clear only movement mappings while detached, and restore only physically held movement keys on exit.
+- Updated exact-revision validation for the upstream renderer test fixture; no upstream production changes.
+- Fresh launcher Performance build, Play and bounded game checks are recorded separately from earlier releases in [Validation](docs/VALIDATION.md).
+
 ## Rusty 1.2.1
 
 - Integrated wordmark: the copper badge is the R in Rusty, followed only by USTY.

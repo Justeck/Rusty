@@ -1,27 +1,27 @@
 # Install Rusty
 
-Rusty 1.2.0 is a Horizon-native Rust source mod for Minecraft Java 26.3. Horizon compiles the client with the enabled native mods. Fabric, Forge and NeoForge are not runtime dependencies.
+Rusty 1.2.2 is a Horizon-native Rust source mod for Minecraft Java 26.3. Horizon compiles the client with the enabled native mods. Fabric, Forge and NeoForge are not runtime dependencies.
 
 1. Select the original **Horizon** instance and open **Mods**.
 2. Choose **Add a Native Mod from GitHub** and paste `https://github.com/Justeck/Rusty`.
 3. Review the resolved immutable revision and native-source notice, then enable Rusty.
-4. Use the supported Horizon revision **6475f62**. If Horizon shows **Needs rebuild**, choose **Build → Performance**.
+4. Use the supported Horizon revision **38609b7**. If Horizon shows **Needs rebuild**, select **Performance build**, then **Rebuild on Horizon Nightly 2026-11-05** (or **Build** if already on that base).
 5. Wait for **Up to date**, then press **Play**. An identical mod set can reuse its verified native build and show green immediately.
 6. In a world, press **Right Shift**. **Options → Mods → Rusty** is the fallback.
 
-The versioned package is `rusty-1.2.0.hnmod`, accompanied by `SHA256SUMS`. A native source package still requires Horizon's build. A full source ZIP, if supplied, is for development/review; install the native package or GitHub source URL.
+The versioned package is `rusty-1.2.2.hnmod`, accompanied by `SHA256SUMS`. A native source package still requires Horizon's build. A full source ZIP, if supplied, is for development/review; install the native package or GitHub source URL.
 
 The repository URL follows the latest public release when available; Horizon resolves it to an immutable revision before installation. A fixed commit/release URL also works. Review an offered update's source and host pin before replacing a working installation. Do not combine native mods built for incompatible Horizon revisions.
 
-For the fixed 1.2.0 release, paste `https://github.com/Justeck/Rusty/releases/tag/v1.2.1`. Both this release URL and the repository URL were accepted by the official launcher installer and resolved to the same immutable commit and native asset. The installed release was then built/verified and opened through the launcher Play button. [Installation evidence](evidence/release-installation.json).
+For the fixed 1.2.2 release, paste `https://github.com/Justeck/Rusty/releases/tag/v1.2.2`. Horizon resolves a release input to its immutable native asset. The [1.2.2 acceptance receipt](evidence/native-update-1.2.2.json) records the exact source payloads, tested executable and launcher Build/Play checks; published-release installation is a separate gate.
 
 ## Compatibility
 
 | Component | Supported target |
 |---|---|
 | Minecraft Java | 26.3 |
-| Horizon | `6475f62f3c834b7489e1816bf47f47ea5eb2b879` |
-| Native API | 359 |
+| Horizon | `38609b7b1f261b530261ead7855d41e3a850e310` |
+| Native API | 409 |
 | Mixins | `e8cd0aa38cffef49cb2e088ef716baa107148c02` |
 
 ## First use

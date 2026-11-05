@@ -1,4 +1,16 @@
-# Rusty 1.2 validation
+# Rusty validation
+
+## 1.2.2 current Nightly compatibility patch
+
+Horizon Nightly **38609b7 / native API 409 / Minecraft 26.3** replaces the old held-key set with a device-aware container. Rusty's two obsolete collection calls prevented compilation. The camera integration now removes its movement mappings individually and restores physically held movement keys on exit. No upstream production source is changed.
+
+Fresh checks on the new identity: **141 Rust library + 18 native-tool tests**, **14 Python tests**, formatting, strict Clippy, structural packaging, Linux exact-SDK compilation and official package verification passed. The actual launcher **Rebuild on latest Nightly → trust-build** buttons were pressed in **Performance** mode. Windows compilation succeeded in **11m 33s**; total build/installation took **20m 28s**. Horizon showed **Up to date**, selected `native-38609b7-ba8dab22119b`, and GUI **Play → title → Options → Mods → Rusty → clean Quit** passed.
+
+The installed executable (SHA-256 `a3dd935963a3acecfc518c274fb2d58572d3657d7a7a3e94cc4a53f00cd5c363`) passed **9 fresh feature checks** and **10 interface checks**, including X-ray/off/100% restoration, received block updates, Finder, lighting, held zoom, moving/turning Freecam with stationary body XZ/rotation, waypoint scopes and dimension/reopen behavior, keybind clear/recovery, menu-size endpoints, three palettes, all 18 HUD controls, profile preservation and actual process-restart persistence. Original X-ray, Freecam and native browser frames were inspected. All 115 native payloads in the release package match the source installation used by the launcher build.
+
+[1.2.2 acceptance receipt](evidence/native-update-1.2.2.json) keeps exact inputs and named checks. The package contains 116 files, including its root manifest; archive SHA-256 is `13a4d22ad1985e08eada3a36777a89a5c58f71e961b32a597adecfd3595f05b9`. Public-tag installation is a separate subsequent gate. Fresh 1.2.2 tests did **not** join a remote server, rerun the earlier exhaustive module/performance/endurance suites, or validate arbitrary graphics configurations. No personal world or public-server character was used. The Fabric/NeoForge beta was not changed.
+
+## 1.2.0 full native acceptance (historical)
 
 Fresh checks identify the actual Rusty executable and source inputs. No historical game result is relabeled as a new test. [Build evidence](evidence/native-build.json), [game acceptance](evidence/game-acceptance.json), [named checks](evidence/game-checks.json), [launcher UI acceptance](evidence/launcher-ui.json) and [media provenance](evidence/media.json) keep their separate scopes.
 
