@@ -548,7 +548,9 @@ public final class GameAcceptance {
         "Enter confirms visual HUD changes and returns to the Rusty menu",
         () -> {
           ((HudEditor) mc.gui.screen())
-              .keyPressed(new net.minecraft.client.input.KeyEvent(257, 0, 0));
+              .keyPressed(
+                  new net.minecraft.client.input.KeyEvent(
+                      com.mojang.blaze3d.platform.InputConstants.KEY_RETURN, 0, 0));
         },
         () ->
             mc.gui.screen() instanceof RustyScreen
@@ -573,7 +575,9 @@ public final class GameAcceptance {
           e.mouseClicked(hudMouse(x, y), false);
           e.mouseDragged(hudMouse(x + 30, y + 20), 30, 20);
           e.mouseReleased(hudMouse(x + 30, y + 20));
-          e.keyPressed(new net.minecraft.client.input.KeyEvent(256, 0, 0));
+          e.keyPressed(
+              new net.minecraft.client.input.KeyEvent(
+                  com.mojang.blaze3d.platform.InputConstants.KEY_ESCAPE, 0, 0));
         },
         () ->
             mc.gui.screen() instanceof RustyScreen

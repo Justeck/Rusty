@@ -118,7 +118,7 @@ public final class HudEditor extends Screen {
       startRect = new double[] {r[0], r[1], r[2], r[3]};
       startX = e.x();
       startY = e.y();
-      startScale = scales.getOrDefault(picked, 1.0);
+      startScale = RustyHud.renderedScales.getOrDefault(picked, 1.0);
       corner = handle(r, e.x(), e.y());
     }
     return true;

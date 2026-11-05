@@ -280,7 +280,12 @@ public final class RustyClient {
     }
     boolean focused = mc.isWindowActive() && mc.gui.screen() == null;
     zoomHeld = focused && down("zoom");
-    boolean menu = MENU.sampleQueued(down("menu"), false, mc.isWindowActive(), presses("menu"));
+    boolean menu =
+        MENU.sampleQueued(
+            down("menu"),
+            false,
+            mc.isWindowActive() && !(mc.gui.screen() instanceof HudEditor),
+            presses("menu"));
     if (menu && !(mc.gui.screen() instanceof RustyScreen)) {
       mc.gui.setScreen(new RustyScreen());
       MENU.set(false);

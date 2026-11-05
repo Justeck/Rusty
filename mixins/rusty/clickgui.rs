@@ -43,6 +43,7 @@ pub(super) fn snapshot() -> serde_json::Value {
         serde_json::json!({
             "open": m.ui.open,
             "hud_editing":m.hud_editor.is_some(),
+            "hud_viewport":m.hud_viewport,
             "hud_selected":m.hud_editor.as_ref().and_then(|e|e.selected),
             "hud_draft":m.hud_editor.as_ref().map(|e|&e.draft),
             "hud_panels":horizon_client_render::mesher::rusty_hud_render::bounds().iter().map(|p|serde_json::json!({"id":p.id,"rect":p.rect,"size":p.size,"scale":p.scale})).collect::<Vec<_>>(),
@@ -958,22 +959,21 @@ pub(super) fn mouse(game: &Game<'_>, at: [f32; 2], button: i32, pressed: bool) -
             if button == 0 {
                 if !pressed {
                     m.hud_editor.as_mut().unwrap().release();
-                } else if at[1] >= m.hud_viewport[1] - 27.0 {
-                    let w = m.hud_viewport[0];
-                    if at[0] >= w / 2.0 - 51.0 && at[0] < w / 2.0 + 49.0 {
-                        finish_hud_edit(m, true);
-                    } else if at[0] >= w / 2.0 + 54.0 && at[0] < w / 2.0 + 154.0 {
-                        finish_hud_edit(m, false);
-                    } else if at[0] >= w / 2.0 - 156.0 && at[0] < w / 2.0 - 56.0 {
-                        let e = m.hud_editor.as_mut().unwrap();
-                        if let Some(id) = e.selected {
-                            e.draft.reset(id);
-                        } else {
-                            e.draft.0.clear();
+                } else if let Some(button) = hud_layout::footer_button(at, m.hud_viewport) {
+                    match button {
+                        1 => finish_hud_edit(m, true),
+                        2 => finish_hud_edit(m, false),
+                        _ => {
+                            let e = m.hud_editor.as_mut().unwrap();
+                            if let Some(id) = e.selected {
+                                e.draft.reset(id);
+                            } else {
+                                e.draft.0.clear();
+                            }
+                            horizon_client_render::mesher::rusty_hud_render::preview(Some(
+                                e.draft.clone(),
+                            ));
                         }
-                        horizon_client_render::mesher::rusty_hud_render::preview(Some(
-                            e.draft.clone(),
-                        ));
                     }
                 } else {
                     m.hud_editor.as_mut().unwrap().press(

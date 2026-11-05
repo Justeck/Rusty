@@ -12,6 +12,14 @@ public final class CoreAcceptance {
   }
 
   public static void main(String[] args) {
+    var edgeResize =
+        HudGesture.resize(new double[] {20, 60, 100, 20}, 1, 0, -9000, -9000, 800, 450);
+    check(
+        Math.abs(edgeResize.x() + 100 * edgeResize.scale() - 120) < .001,
+        "edge resize holds opposite horizontal corner");
+    check(
+        Math.abs(edgeResize.y() + 20 * edgeResize.scale() - 80) < .001,
+        "edge resize holds opposite vertical corner");
     for (int corner = 0; corner < 4; corner++) {
       double sx = corner % 2 == 0 ? -1 : 1, sy = corner < 2 ? -1 : 1;
       var result =

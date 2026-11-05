@@ -4,6 +4,13 @@ use std::collections::BTreeMap;
 
 pub const MIN_SCALE: f32 = 0.5;
 pub const MAX_SCALE: f32 = 2.0;
+pub fn footer_button(at: [f32; 2], viewport: [f32; 2]) -> Option<usize> {
+    [-156.0, -51.0, 54.0].iter().position(|offset| {
+        let x = viewport[0] / 2.0 + offset;
+        let y = viewport[1] - 27.0;
+        at[0] >= x && at[0] < x + 100.0 && at[1] >= y && at[1] < y + 21.0
+    })
+}
 pub const PANELS: &[&str] = &[
     "enabled_mods",
     "status_hud",
@@ -88,6 +95,7 @@ pub struct Resolved {
 /// Actual rendered bounds, in HUD pixels rather than menu-scaled coordinates.
 #[derive(Clone, Copy, Debug)]
 pub struct PanelBounds {
+    pub paint_order: usize,
     pub id: &'static str,
     pub rect: [f32; 4],
     pub size: [f32; 2],
@@ -152,7 +160,8 @@ impl Editor {
                 panels
                     .iter()
                     .rev()
-                    .find(|p| p.contains(at) || p.handle(at).is_some())
+                    .filter(|p| p.contains(at) || p.handle(at).is_some())
+                    .max_by_key(|p| p.paint_order)
             });
         let Some(&panel) = chosen else {
             self.selected = None;
@@ -180,7 +189,11 @@ impl Editor {
         }
         let p = g.panel;
         let mut origin = [p.rect[0] + at[0] - g.at[0], p.rect[1] + at[1] - g.at[1]];
-        let mut scale = p.scale;
+        let mut scale = if self.draft.0.contains_key(p.id) {
+            self.draft.get(p.id).scale
+        } else {
+            p.scale
+        };
         if let Some(c) = g.corner {
             let sign = [
                 if c % 2 == 0 { -1.0 } else { 1.0 },
@@ -192,6 +205,24 @@ impl Editor {
                     / (p.size[0] * p.size[0] + p.size[1] * p.size[1]))
                 .clamp(MIN_SCALE, MAX_SCALE);
             let anchor = p.corner(3 - c);
+            let margin = 3.0_f32.min(viewport[0] / 4.0).min(viewport[1] / 4.0);
+            let room = [
+                if c % 2 == 0 {
+                    anchor[0] - margin
+                } else {
+                    viewport[0] - margin - anchor[0]
+                },
+                if c < 2 {
+                    anchor[1] - margin
+                } else {
+                    viewport[1] - margin - anchor[1]
+                },
+            ];
+            let max_scale = (room[0] / p.size[0]).min(room[1] / p.size[1]);
+            if max_scale < MIN_SCALE {
+                return;
+            }
+            scale = scale.min(max_scale);
             origin = [
                 anchor[0] - if c % 2 == 0 { p.size[0] * scale } else { 0.0 },
                 anchor[1] - if c < 2 { p.size[1] * scale } else { 0.0 },
@@ -552,11 +583,28 @@ mod tests {
 
     fn panel() -> PanelBounds {
         PanelBounds {
+            paint_order: 0,
             id: "fps_hud",
             rect: [103.0, 63.0, 100.0, 20.0],
             size: [100.0, 20.0],
             scale: 1.0,
         }
+    }
+    #[test]
+    fn visual_pick_follows_paint_order_even_when_bounds_are_collected_later() {
+        let mut e = Editor::new(HudLayout::default());
+        let top = PanelBounds {
+            id: "coordinates",
+            paint_order: 500,
+            ..panel()
+        };
+        let bottom = PanelBounds {
+            id: "status_hud",
+            paint_order: 10,
+            ..panel()
+        };
+        assert!(e.press([140.0, 72.0], [800.0, 450.0], &[top, bottom]));
+        assert_eq!(e.selected, Some("coordinates"));
     }
     #[test]
     fn visual_drag_keeps_grab_offset_and_clamps_to_screen() {
@@ -577,6 +625,59 @@ mod tests {
             .unwrap();
         assert_eq!(r.origin, [697.0, 3.0]);
         assert!(HudLayout::default().0.is_empty());
+    }
+    #[test]
+    fn visual_resize_stops_at_edge_without_moving_opposite_corner() {
+        let mut e = Editor::new(HudLayout::default());
+        let p = PanelBounds {
+            rect: [23.0, 63.0, 100.0, 20.0],
+            ..panel()
+        };
+        e.press(p.corner(0), [800.0, 450.0], &[p]);
+        e.drag([-9000.0, -9000.0], [800.0, 450.0]);
+        let r = e
+            .draft
+            .get("fps_hud")
+            .resolve([800.0, 450.0], p.size)
+            .unwrap();
+        assert!((r.origin[0] + 100.0 * r.scale - 123.0).abs() < 0.001);
+        assert!((r.origin[1] + 20.0 * r.scale - 83.0).abs() < 0.001);
+    }
+    #[test]
+    fn visual_move_preserves_saved_size_when_temporarily_fitted() {
+        let mut layout = HudLayout::default();
+        layout
+            .set(
+                "fps_hud",
+                Placement {
+                    scale: 2.0,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+        let mut e = Editor::new(layout);
+        let p = PanelBounds {
+            rect: [3.0, 3.0, 120.0, 24.0],
+            scale: 1.2,
+            ..panel()
+        };
+        e.press([50.0, 15.0], [126.0, 100.0], &[p]);
+        e.drag([50.0, 30.0], [126.0, 100.0]);
+        assert_eq!(e.draft.get("fps_hud").scale, 2.0);
+        assert_eq!(
+            e.draft
+                .get("fps_hud")
+                .resolve([800.0, 450.0], p.size)
+                .unwrap()
+                .scale,
+            2.0
+        );
+    }
+    #[test]
+    fn visual_footer_only_intercepts_the_visible_button_rectangles() {
+        assert_eq!(footer_button([400.0, 435.0], [800.0, 450.0]), Some(1));
+        assert_eq!(footer_button([10.0, 435.0], [800.0, 450.0]), None);
+        assert_eq!(footer_button([400.0, 449.0], [800.0, 450.0]), None);
     }
     #[test]
     fn visual_resize_anchors_each_opposite_corner_and_preserves_aspect() {

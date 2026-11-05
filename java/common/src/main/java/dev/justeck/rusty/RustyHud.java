@@ -36,6 +36,7 @@ public final class RustyHud {
           "trajectories",
           "minimap");
   public static final Map<String, int[]> bounds = new LinkedHashMap<>();
+  static final Map<String, Double> renderedScales = new LinkedHashMap<>();
   private static final ArrayDeque<Long> clicks = new ArrayDeque<>();
   private static volatile Map<String, List<String>> panels = Map.of();
   private static volatile int[] map = new int[24 * 24];
@@ -48,6 +49,7 @@ public final class RustyHud {
     mapCursor = 0;
     clicks.clear();
     bounds.clear();
+    renderedScales.clear();
   }
 
   public static void click() {
@@ -233,6 +235,7 @@ public final class RustyHud {
     var scales =
         editor && screen instanceof HudEditor e ? e.scales : RustyClient.config.overlayScales;
     bounds.clear();
+    renderedScales.clear();
     var measures = new ArrayList<HudLayout.Panel>();
     var extraScales = new HashMap<String, Double>();
     for (String id : IDS) {
@@ -255,9 +258,15 @@ public final class RustyHud {
       var rect = layout.panels().get(id);
       if (rect == null) continue;
       List<String> lines = panels.getOrDefault(id, List.of(id.replace('_', ' ')));
-      double s = layout.scale() * extraScales.get(id);
-      int bw = Math.min(g.guiWidth(), (int) Math.ceil(rect.width() * extraScales.get(id))),
-          bh = Math.min(g.guiHeight(), (int) Math.ceil(rect.height() * extraScales.get(id))),
+      double extra =
+          Math.min(
+              extraScales.get(id),
+              Math.min(
+                  (double) g.guiWidth() / rect.width(), (double) g.guiHeight() / rect.height()));
+      double s = layout.scale() * extra;
+      renderedScales.put(id, extra);
+      int bw = Math.min(g.guiWidth(), (int) Math.ceil(rect.width() * extra)),
+          bh = Math.min(g.guiHeight(), (int) Math.ceil(rect.height() * extra)),
           x = rect.x(),
           y = rect.y();
       if (id.equals("minimap")) s = Math.min(s, (double) bw / RustyClient.config.mapSize);

@@ -7,7 +7,7 @@ from pathlib import Path
 import subprocess
 import sys
 import time
-from game_gui_smoke import Smoke, AcceptanceFailure, canonical_digest
+from game_gui_smoke import Smoke, AcceptanceFailure
 from game_ui12_smoke import Ui12Smoke, same_native_layout
 
 
@@ -52,11 +52,24 @@ class HudEditorSmoke(Ui12Smoke):
         self.require(self.config()==saved,'Escape must discard the entire draft')
         self.passed('Escape discards edits without changing features, saved layout or menu selection')
         self.click('EditHud',pane='detail');self.wait_for(self.ui,lambda s:s['hud_editing'],'input safety editor')
+        p=self.panel();status=self.panel('status_hud');x,y,w,h=p['rect']
+        self.gesture([x+w/2,y+h/2],[status['rect'][0]+w/2,status['rect'][1]+h/2])
+        p=self.panel();x,y,w,h=p['rect']
+        self.command(f'click-at {x+w/2:.4f} {y+h/2:.4f}')
+        self.require(self.ui()['hud_selected']=='coordinates','visible topmost overlay must win overlapping picks')
+        self.passed('Overlapping HUD selection follows actual paint order')
+        # Native HUD extent is exposed separately from menu-scaled control targets.
+        viewport=self.ui()['hud_viewport']
+        self.gesture([x+w/2,y+h/2],[3+w/2,viewport[1]-3-h/2])
+        p=self.panel();x,y,w,h=p['rect']
+        self.gesture([x+w/2,y+h/2],[x+w/2+30,y+h/2-60])
+        q=self.panel();self.require(abs(q['rect'][1]-y+60)<1,'bottom-edge overlay must remain draggable outside footer buttons')
+        self.passed('Bottom-edge overlay remains selectable and draggable beside footer controls')
         body=self.command('status')['player']['position']
         self.key('key.keyboard.w','down');time.sleep(.4);self.key('key.keyboard.w','up')
         after=self.command('status')['player']['position']
         self.require(body==after,'editor movement key must not move the body')
-        self.key('key.keyboard.enter');self.close_browser()
+        self.key('key.keyboard.escape');self.close_browser()
         self.capture('02-confirmed-hud','Confirmed overlay placement in the ordinary game view')
         self.require(same_native_layout(draft,self.config()['client']['hud_layout']),'confirmed layout remains after closing menu')
         self.passed('Editing consumes gameplay movement; confirmed layout remains in ordinary game view')

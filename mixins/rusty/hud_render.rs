@@ -27,8 +27,9 @@ pub fn preview(layout: Option<HudLayout>) {
 pub fn bounds() -> Vec<PanelBounds> {
     BOUNDS.with_borrow(Clone::clone)
 }
-fn record(id: &'static str, size: [f32; 2], r: Resolved) {
+fn record(id: &'static str, size: [f32; 2], r: Resolved, paint_order: usize) {
     let panel = PanelBounds {
+        paint_order,
         id,
         rect: [
             r.origin[0],
@@ -89,7 +90,7 @@ pub fn finish(batch: &mut HudBatch, layout: &HudLayout) {
         let resolved = layout.resolve_default_columns(viewport, &sizes, map_top);
         for (panel, resolved) in panels.iter().zip(resolved) {
             if let Some(r) = resolved {
-                record(PANELS[panel.id], panel.size, r);
+                record(PANELS[panel.id], panel.size, r, panel.start);
             }
             if let Some(vertices) = batch.vertices.get_mut(panel.start..panel.end) {
                 for vertex in vertices {
@@ -129,7 +130,7 @@ pub fn place(batch: &mut HudBatch, start: usize, layout: &HudLayout, id: &str) {
         return;
     };
     if id == "minimap" {
-        record("minimap", size, resolved);
+        record("minimap", size, resolved, start);
         if !layout.0.contains_key(id) {
             MINIMAP_TOP.set(Some((viewport, resolved.origin[1])));
         }
@@ -158,7 +159,7 @@ pub fn place(batch: &mut HudBatch, start: usize, layout: &HudLayout, id: &str) {
         }
     }
     if let Some(&id) = PANELS.iter().find(|p| **p == id) {
-        record(id, size, resolved);
+        record(id, size, resolved, start);
     }
     apply(batch, start, min, resolved);
 }
