@@ -65,6 +65,12 @@ public final class HudEditor extends Screen {
   }
 
   @Override
+  public void extractBackground(GuiGraphicsExtractor g, int x, int y, float delta) {
+    // Keep the live world clear while arranging overlays, without changing options.
+    if (minecraft.level == null) super.extractBackground(g, x, y, delta);
+  }
+
+  @Override
   public void extractRenderState(GuiGraphicsExtractor g, int x, int y, float delta) {
     RustyHud.draw(g, true);
     var r = RustyHud.bounds.get(selected);
