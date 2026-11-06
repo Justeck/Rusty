@@ -266,5 +266,16 @@
     "modrinth-final-versions.png": "3d8fa14e8ce4a6c9a526c55b9dcafc4b0369cbcdfc00dfcf78c726d53ff6bc9f",
     "modrinth-area-gallery.png": "06f6fe3659297d4a2d7ceeb7980c644e36dc37e79ab8e367a965892ba516a31f"
   },
-  "github_old_releases_cleanup": "Authorized gated cleanup workflow runs after this verified receipt. Both superseded releases and their metadata/assets are backed up privately; immutable source tags remain for gallery images and historical receipts."
+  "github_old_releases_cleanup": {
+    "passed": true,
+    "workflow_run_id": 42175653023,
+    "url": "https://github.com/Justeck/Rusty/actions/runs/42175653023",
+    "superseded_downloads_removed": 2,
+    "remaining": [
+      "v1.3.1",
+      "java-v1.3.0-beta.8"
+    ],
+    "immutable_source_tags_retained": true,
+    "old_release_assets_backed_up_privately_before_removal": true
+  }
 }
