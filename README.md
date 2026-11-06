@@ -24,7 +24,7 @@ Arrange your HUD directly in the game view: click **Edit HUD**, drag overlays in
 
 The Java counterparts share Minecraft-style controls and a 44-module catalog, with edition-specific behavior and validation. Their restricted multiplayer tools require authoritative server opt-in; ordinary information tools work on unmodified servers. [Permissions and differences](java/README.md#multiplayer-permissions) · [Java validation](docs/JAVA_VALIDATION.md). The stable native release remains the GitHub `latest` so Horizon's installer keeps resolving its native package.
 
-The Fabric and NeoForge beta has been [submitted to Modrinth](https://modrinth.com/mod/rusty-toolkit) with explicit AI code, asset and text disclosures. It is **under review**, with approval unconfirmed. GitHub remains the available download source. [Submission record](docs/evidence/modrinth-submission.json) · [Latest tracer-target validation](docs/evidence/tracer-targets-1.2.6.json) · [Published downloads and launcher installation](docs/evidence/tracer-publication-1.2.6.json).
+The Fabric and NeoForge beta has been [submitted to Modrinth](https://modrinth.com/mod/rusty-toolkit) with explicit AI code, asset and text disclosures. It is **under review**, with approval unconfirmed. GitHub remains the available download source. [Submission record](docs/evidence/modrinth-submission.json) · [Auto Mine acceptance](docs/evidence/auto-mine-1.3.0.json) · [Published downloads and launcher installation](docs/evidence/auto-mine-publication-1.3.0.json).
 
 ## Install
 

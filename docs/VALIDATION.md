@@ -1,5 +1,13 @@
 # Rusty validation
 
+## 1.3.0 published downloads and launcher acceptance
+
+[Native 1.3.0](https://github.com/Justeck/Rusty/releases/tag/v1.3.0) and [Java beta.7](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.7) are releases of `09d06e44783fc25a3479c53e5c86c66eccedcc33`. Both publication workflows passed, and both actual tags resolve to that commit. The public native archive exactly equals the game-tested source package: SHA-256 `68b0a9859a3bbb4e0399670cb56e43492a016a924ba86b6a327fb1066de0fd12`, 121 entries. Public Java product classes equal the game-tested classes; differences in the mixin JSON and Java source text are CRLF/LF only. Both saved Modrinth downloads are byte-identical to GitHub.
+
+The official launcher accepted the fixed release URL and repository URL. Its actual **Build** and **I trust these mods: build** controls were exercised; the window refreshed its older cached selection to `native-66f3981-cbf500999b94` and visibly showed green **Up to date**. **Play** reached the Minecraft title screen on the exact accepted executable, then **Quit Game** exited normally. No personal world or server was opened. Existing Rusty preferences stayed byte-for-byte unchanged. The only instance is **Horizon**, and Rusty 1.3.0 is its only native mod.
+
+Eight superseded local native/Nightly builds were removed through the official launcher commands. The latest `66f3981` base and accepted Rusty Performance build remain. Modrinth now has only the two beta.7 loader versions; twelve older downloads were removed after checking the replacements. Its guide was saved and independently reloaded, with 44 tools, 106-check scope, the latest native target and a reviewed original Auto Mine image. An older duplicate HUD preview was replaced to stay within the gallery limit. The project remains **under review**, with approval unconfirmed. Superseded GitHub release downloads are removed by the separately gated cleanup workflow; immutable source tags remain for gallery URLs and historical evidence. [Exact publication and installation receipt](evidence/auto-mine-publication-1.3.0.json).
+
 ## 1.3.0 — Auto Mine and the latest Horizon target
 
 Rusty 1.3.0 targets **Horizon Nightly 2026-11-05 · 66f3981 / native API 411 / Minecraft 26.3**. The official **0.2.45** launcher built the native client with its supported **GNU Rust 1.99.1** toolchain and **Performance** profile. Accepted build: `native-66f3981-cbf500999b94`. Executable SHA-256: `0bc7caf346ff30ad2d2c8e3923a8329662891efd706355f0d2471ca8137634f3`.

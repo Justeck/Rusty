@@ -1,5 +1,9 @@
 # Java edition validation
 
+## Beta.7 published package verification
+
+Both GitHub loader releases were downloaded and compared with the actual game-tested builds. Every compiled product class is byte-identical. `rusty.mixins.json` has identical JSON and differs only in Windows/Linux line endings; source-jar Java text has the same CRLF/LF distinction. Both Modrinth CDN files exactly equal the public GitHub runtime jars. The saved page now documents 44 modules, Auto Mine, its permission requirements and the 106-check game scope, with a visually reviewed original settings capture. Twelve superseded Modrinth versions were removed after verifying the new files. Approval remains unconfirmed while the project is under review. [Publication receipt](evidence/auto-mine-publication-1.3.0.json).
+
 ## 1.3.0-beta.7 — Auto Mine
 
 Both supported Java 25 loader builds and QA compilation passed. The shared core passed **1,231 existing behavioral assertions** and **four mining-planner test methods** covering route costs, hazards, bounded search and collection sequencing. Fabric and NeoForge each completed **106 actual owned singleplayer game checks**. The final production code includes explicit transient activation, server-prediction acknowledgment guards, supported collection steps and safe route-queue handling.

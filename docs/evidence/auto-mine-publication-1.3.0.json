@@ -1,0 +1,371 @@
+{
+  "schema": 1,
+  "native_release": "v1.3.0",
+  "java_release": "java-v1.3.0-beta.7",
+  "source_commit": "09d06e44783fc25a3479c53e5c86c66eccedcc33",
+  "horizon_revision": "66f3981f522b24c250b21523a70080965b940424",
+  "launcher_version": "0.2.45",
+  "public_assets_verified": true,
+  "launcher_up_to_date": true,
+  "play_to_title_passed": true,
+  "modrinth_downloads_verified": true,
+  "publication": {
+    "source_commit": "09d06e44783fc25a3479c53e5c86c66eccedcc33",
+    "ci": [
+      {
+        "id": 42157190207,
+        "name": "Java edition checks",
+        "conclusion": "success"
+      },
+      {
+        "id": 42157189964,
+        "name": "Native mod checks",
+        "conclusion": "success"
+      }
+    ],
+    "releases": {
+      "v1.3.0": {
+        "url": "https://github.com/Justeck/Rusty/releases/tag/v1.3.0",
+        "tag": "v1.3.0",
+        "assets": [
+          {
+            "name": "rusty-1.3.0.hnmod",
+            "bytes": 225517,
+            "sha256": "68b0a9859a3bbb4e0399670cb56e43492a016a924ba86b6a327fb1066de0fd12",
+            "url": "https://github.com/Justeck/Rusty/releases/download/v1.3.0/rusty-1.3.0.hnmod"
+          },
+          {
+            "name": "SHA256SUMS",
+            "bytes": 84,
+            "sha256": "41feecff465b91dc0a57155c9e1f005c62e1cbf7b00258999764f0e853f78558",
+            "url": "https://github.com/Justeck/Rusty/releases/download/v1.3.0/SHA256SUMS"
+          }
+        ]
+      },
+      "java-v1.3.0-beta.7": {
+        "url": "https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.7",
+        "tag": "java-v1.3.0-beta.7",
+        "assets": [
+          {
+            "name": "rusty-fabric-1.3.0-beta.7-sources.jar",
+            "bytes": 1642342,
+            "sha256": "6c9e60d129efba71903dae813ec7113ab2164038d21741f4f3f67a2faaf73a50",
+            "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.7/rusty-fabric-1.3.0-beta.7-sources.jar"
+          },
+          {
+            "name": "rusty-fabric-1.3.0-beta.7.jar",
+            "bytes": 1756280,
+            "sha256": "ab5218a550e8e4071f38441acae1fe306e5ae72c2b95c1032e46af6a593dad10",
+            "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.7/rusty-fabric-1.3.0-beta.7.jar"
+          },
+          {
+            "name": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+            "bytes": 1640891,
+            "sha256": "20cc227fe5bda000b3ebd241f659f06edaea22e7d59ceb4c47d2fe005b8595a4",
+            "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.7/rusty-neoforge-1.3.0-beta.7-sources.jar"
+          },
+          {
+            "name": "rusty-neoforge-1.3.0-beta.7.jar",
+            "bytes": 1750322,
+            "sha256": "33147c21e029084d19bdc33f9e8ec8d7661843fb064306719d476ac243341d64",
+            "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.7/rusty-neoforge-1.3.0-beta.7.jar"
+          },
+          {
+            "name": "SHA256SUMS",
+            "bytes": 404,
+            "sha256": "a5f24eabb31002d179079d982949f1882bb8438edeb0636c4172dbdc7f8e15b4",
+            "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.7/SHA256SUMS"
+          }
+        ]
+      }
+    },
+    "platform_text_differences": [
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "rusty.mixins.json",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyAssistance.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyClient.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyMining.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyOverlay.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyPlanner.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyScreen.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/mixin/InputMixin.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/mixin/KeyboardMixin.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/mixin/MouseMixin.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/mixin/UseKeyMixin.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/core/Catalog.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/core/Mining.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/core/SessionPolicy.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/core/Settings.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.7.jar",
+        "entry": "rusty.mixins.json",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "rusty.mixins.json",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyAssistance.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyClient.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyMining.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyOverlay.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyPlanner.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/RustyScreen.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/mixin/InputMixin.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/mixin/KeyboardMixin.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/mixin/MouseMixin.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/mixin/UseKeyMixin.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/core/Catalog.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/core/Mining.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/core/SessionPolicy.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7-sources.jar",
+        "entry": "dev/justeck/rusty/core/Settings.java",
+        "difference": "CRLF/LF only; product classes unchanged"
+      },
+      {
+        "file": "rusty-neoforge-1.3.0-beta.7.jar",
+        "entry": "rusty.mixins.json",
+        "difference": "CRLF/LF only; product classes unchanged"
+      }
+    ]
+  },
+  "installation": {
+    "source_commit": "09d06e44783fc25a3479c53e5c86c66eccedcc33",
+    "selected_build": "native-66f3981-cbf500999b94",
+    "binary_sha256": "0bc7caf346ff30ad2d2c8e3923a8329662891efd706355f0d2471ca8137634f3",
+    "asset_sha256": "68b0a9859a3bbb4e0399670cb56e43492a016a924ba86b6a327fb1066de0fd12",
+    "public_asset_exact": true,
+    "fixed_release_url_accepted": true,
+    "repository_url_accepted": true,
+    "user_preferences_unchanged": true,
+    "only_horizon_instance": true,
+    "only_rusty_native_mod": true,
+    "first_build_seconds": 5.387,
+    "cache_check_seconds": 5.161,
+    "origin": {
+      "id": "rusty",
+      "version": "1.3.0",
+      "owner": "Justeck",
+      "repo": "Rusty",
+      "tag": "v1.3.0",
+      "commit": "09d06e44783fc25a3479c53e5c86c66eccedcc33",
+      "asset": "rusty-1.3.0.hnmod",
+      "sha256": "68b0a9859a3bbb4e0399670cb56e43492a016a924ba86b6a327fb1066de0fd12"
+    }
+  },
+  "launcher_gui": {
+    "launcher_version": "0.2.45",
+    "build_button_exercised": true,
+    "trust_build_button_exercised": true,
+    "launcher_up_to_date": true,
+    "play_to_title_passed": true,
+    "launched_binary_sha256": "0bc7caf346ff30ad2d2c8e3923a8329662891efd706355f0d2471ca8137634f3",
+    "personal_world_or_server_opened": false,
+    "preferences_unchanged": true
+  },
+  "modrinth": [
+    {
+      "loader": "fabric",
+      "version_id": "dE7AI6Xr",
+      "version_number": "1.3.0-beta.7+fabric",
+      "url": "https://modrinth.com/mod/rusty-toolkit/version/1.3.0-beta.7+fabric",
+      "cdn_url": "https://cdn.modrinth.com/data/tQFy3VCO/versions/dE7AI6Xr/rusty-fabric-1.3.0-beta.7.jar",
+      "sha256": "ab5218a550e8e4071f38441acae1fe306e5ae72c2b95c1032e46af6a593dad10",
+      "github_bytes_identical": true
+    },
+    {
+      "loader": "neoforge",
+      "version_id": "NgFPQJhr",
+      "version_number": "1.3.0-beta.7+neoforge",
+      "url": "https://modrinth.com/mod/rusty-toolkit/version/1.3.0-beta.7+neoforge",
+      "cdn_url": "https://cdn.modrinth.com/data/tQFy3VCO/versions/NgFPQJhr/rusty-neoforge-1.3.0-beta.7.jar",
+      "sha256": "33147c21e029084d19bdc33f9e8ec8d7661843fb064306719d476ac243341d64",
+      "github_bytes_identical": true
+    }
+  ],
+  "modrinth_cleanup": {
+    "removed": [
+      "1.3.0-beta.6+neoforge",
+      "1.3.0-beta.6+fabric",
+      "1.3.0-beta.5+neoforge",
+      "1.3.0-beta.5+fabric",
+      "1.3.0-beta.4+neoforge",
+      "1.3.0-beta.4+fabric",
+      "1.3.0-beta.3+neoforge",
+      "1.3.0-beta.3+fabric",
+      "1.3.0-beta.2+neoforge",
+      "1.3.0-beta.2+fabric",
+      "1.3.0-beta.1+neoforge",
+      "1.3.0-beta.1+fabric"
+    ],
+    "remaining": [
+      "B\n\t\n1.3.0-beta.7+neoforge\n\t\n26.3\n\t\nNeoForge\n\t\n10m ago\n\t\n0\n\t",
+      "B\n\t\n1.3.0-beta.7+fabric\n\t\n26.3\n\t\nFabric\n\t\n13m ago\n\t\n0\n\t"
+    ]
+  },
+  "local_version_cleanup": {
+    "kept": [
+      "native-66f3981-cbf500999b94",
+      "nightly-2026-11-05-66f3981"
+    ],
+    "removed": [
+      {
+        "version": "native-38609b7-4176aea7d777",
+        "seconds": 104.077
+      },
+      {
+        "version": "native-38609b7-9fa4cf1ba4b5",
+        "seconds": 104.076
+      },
+      {
+        "version": "native-38609b7-ee61bbdfaa40",
+        "seconds": 43.445
+      },
+      {
+        "version": "nightly-2026-10-31-68ac6f6",
+        "seconds": 67.581
+      },
+      {
+        "version": "nightly-2026-10-31-aa27eca",
+        "seconds": 115.474
+      },
+      {
+        "version": "nightly-2026-11-03-f42ef42",
+        "seconds": 128.162
+      },
+      {
+        "version": "nightly-2026-11-04-67dad0d",
+        "seconds": 124.135
+      },
+      {
+        "version": "nightly-2026-11-05-38609b7",
+        "seconds": 100.472
+      }
+    ],
+    "only_horizon_instance": true,
+    "personal_saves_untouched": true
+  },
+  "modrinth_page": {
+    "description_reloaded_and_verified": true,
+    "summary_updated": true,
+    "reviewed_auto_mine_image_loaded": true,
+    "gallery_image_added": true,
+    "redundant_older_hud_preview_replaced": true,
+    "ai_branding_disclosure_accurate": true,
+    "status": "under review; approval unconfirmed"
+  },
+  "github_old_releases_cleanup": "Authorized cleanup workflow runs after this verification receipt; source tags retained for immutable screenshots and historical evidence."
+}
