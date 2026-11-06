@@ -367,5 +367,22 @@
     "ai_branding_disclosure_accurate": true,
     "status": "under review; approval unconfirmed"
   },
-  "github_old_releases_cleanup": "Authorized cleanup workflow runs after this verification receipt; source tags retained for immutable screenshots and historical evidence."
+  "github_old_releases_cleanup": {
+    "passed": true,
+    "workflow_run_id": 42159472166,
+    "url": "https://github.com/Justeck/Rusty/actions/runs/42159472166",
+    "superseded_downloads_removed": 14,
+    "remaining": [
+      "v1.3.0",
+      "java-v1.3.0-beta.7"
+    ],
+    "immutable_source_tags_retained": true,
+    "old_release_assets_backed_up_privately_before_removal": true
+  },
+  "local_visual_proof_sha256": {
+    "launcher-up-to-date.png": "354acac10a434de4c62890b11efa9d0a86cdd65aeb58cf88644e02787bd40f04",
+    "launcher-play-title.png": "51b82c6ff951f929386c01bc9b9b9709340f69b48eb6f5a5f6a1d24176f87895",
+    "github-final-release.png": "6b1761879cd56e6144807354aed0ac2c36a4615a04af0d46caaa22b50a1e1390",
+    "modrinth-final-versions.png": "81c0ac81b412273aa984146f17338302cac94475c6002f81e60074a4f962c1d5"
+  }
 }
