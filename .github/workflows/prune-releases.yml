@@ -1,0 +1,63 @@
+name: Remove superseded downloads
+on:
+  push:
+    branches: [main]
+    paths: [docs/evidence/auto-mine-publication-1.3.0.json]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Require verified replacement installation
+        run: |
+          test "$GITHUB_REPOSITORY" = Justeck/Rusty
+          python - <<'PY'
+          import json
+          r=json.load(open('docs/evidence/auto-mine-publication-1.3.0.json'))
+          assert r['native_release']=='v1.3.0'
+          assert r['java_release']=='java-v1.3.0-beta.7'
+          assert r['public_assets_verified']
+          assert r['launcher_up_to_date'] and r['play_to_title_passed']
+          assert r['modrinth_downloads_verified']
+          PY
+      - name: Check both replacement releases and back up old release metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release view v1.3.0 --json isDraft,assets > native.json
+          gh release view java-v1.3.0-beta.7 --json isDraft,assets > java.json
+          jq -e '.isDraft == false and any(.assets[]; .name == "rusty-1.3.0.hnmod")' native.json
+          jq -e '.isDraft == false and any(.assets[]; .name == "rusty-fabric-1.3.0-beta.7.jar") and any(.assets[]; .name == "rusty-neoforge-1.3.0-beta.7.jar")' java.json
+          gh api --paginate "repos/$GH_REPO/releases?per_page=100" > previous-releases.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: previous-release-metadata
+          path: previous-releases.json
+          retention-days: 30
+      - name: Remove only superseded Rusty release downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          # Preserve immutable source tags used by gallery images and historical receipts.
+          python - <<'PY' > superseded-tags.txt
+          import json,re
+          for release in json.load(open('previous-releases.json')):
+              if release['draft']:
+                  continue
+              tag=release['tag_name']
+              native=re.fullmatch(r'v(\d+)\.(\d+)\.(\d+)',tag)
+              java=re.fullmatch(r'java-v(\d+)\.(\d+)\.(\d+)-beta\.(\d+)',tag)
+              if (native and tuple(map(int,native.groups())) < (1,3,0)) or (java and tuple(map(int,java.groups())) < (1,3,0,7)):
+                  print(tag)
+          PY
+          while IFS= read -r tag; do
+            gh release delete "$tag" --yes
+          done < superseded-tags.txt

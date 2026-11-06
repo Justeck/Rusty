@@ -1154,7 +1154,7 @@
       ]
     }
   },
-  "scope": "Original owned test worlds and a separate vanilla Java server; no personal saves or public-server character. Latest native host acceptance is recorded separately.",
+  "scope": "Owned native survival world, separate unmodified Java 26.3 server, and owned Fabric/NeoForge worlds. No personal saves or public-server character.",
   "local_java_packages": {
     "verified_packages": [
       {
@@ -1178,5 +1178,314 @@
         "sha256": "0ba744954967b4740a9944f5c5b8f77a751c5e5c70364f9118ad0ae877a322f6"
       }
     ]
+  },
+  "native_latest_host": {
+    "selected_build": "native-66f3981-cbf500999b94",
+    "binary_sha256": "0bc7caf346ff30ad2d2c8e3923a8329662891efd706355f0d2471ca8137634f3",
+    "metadata": {
+      "base": "nightly-2026-11-05-66f3981",
+      "horizon": "66f3981f522b24c250b21523a70080965b940424",
+      "base_horizon": "66f3981f522b24c250b21523a70080965b940424",
+      "pinned_by": [],
+      "on_base": false,
+      "horizon_mixins": "e8cd0aa38cffef49cb2e088ef716baa107148c02",
+      "hooks": null,
+      "rust": "1.99.1",
+      "profile": "performance",
+      "target": "client",
+      "rust_target": "x86_64-pc-windows-gnu",
+      "mods": [
+        {
+          "id": "rusty",
+          "version": "1.3.0",
+          "sha256": "3517c72fd212a6597327ffb32eca713f6fb5ec66cdcd7401692795d25f2d6d2c"
+        }
+      ],
+      "left_out": []
+    },
+    "suites": {
+      "mining": {
+        "count": 14,
+        "receipt_sha256": "72b92bd6f0a99c27f002ca740c4b00afd8872ff374318f038e21c9aa0852d52c",
+        "checks": [
+          {
+            "name": "Fresh isolated offline world ready",
+            "passed": true
+          },
+          {
+            "name": "Menu starts Auto Mine; survival walking, normal ore break, drop pickup and quota stop",
+            "passed": true
+          },
+          {
+            "name": "Conservative access tunnel clears safe ordinary terrain before mining ore",
+            "passed": true
+          },
+          {
+            "name": "A harvest-correct tool replaces an ineligible golden pickaxe and the previous selection is restored",
+            "passed": true
+          },
+          {
+            "name": "Tools below the durability reserve do not start resource actions",
+            "passed": true
+          },
+          {
+            "name": "Full inventory rejects an explicit start before any movement",
+            "passed": true
+          },
+          {
+            "name": "The menu rebinds Auto Mine; its shortcut explicitly starts and stops without resuming",
+            "passed": true
+          },
+          {
+            "name": "Hazard blocks route execution before any movement or mining",
+            "passed": true
+          },
+          {
+            "name": "Hazard blocks route execution before any movement or mining",
+            "passed": true
+          },
+          {
+            "name": "Manual movement cancels automation and retains the user's held key",
+            "passed": true
+          },
+          {
+            "name": "Menus cancel mining and closing them never resumes it",
+            "passed": true
+          },
+          {
+            "name": "Observed damage immediately stops the mode",
+            "passed": true
+          },
+          {
+            "name": "Server-denied break times out without counting a resource or retrying forever",
+            "passed": true
+          },
+          {
+            "name": "Dimension changes cancel the old session and never resume it",
+            "passed": true
+          }
+        ]
+      },
+      "server": {
+        "count": 13,
+        "receipt_sha256": "1fe0d4ff342599e653dd482606f93b5fa5471204f37cc3629b946212ac74255f",
+        "checks": [
+          {
+            "name": "Menu starts Auto Mine; survival walking, normal ore break, drop pickup and quota stop",
+            "passed": true
+          },
+          {
+            "name": "Conservative access tunnel clears safe ordinary terrain before mining ore",
+            "passed": true
+          },
+          {
+            "name": "A harvest-correct tool replaces an ineligible golden pickaxe and the previous selection is restored",
+            "passed": true
+          },
+          {
+            "name": "Tools below the durability reserve do not start resource actions",
+            "passed": true
+          },
+          {
+            "name": "Full inventory rejects an explicit start before any movement",
+            "passed": true
+          },
+          {
+            "name": "The menu rebinds Auto Mine; its shortcut explicitly starts and stops without resuming",
+            "passed": true
+          },
+          {
+            "name": "Hazard blocks route execution before any movement or mining",
+            "passed": true
+          },
+          {
+            "name": "Hazard blocks route execution before any movement or mining",
+            "passed": true
+          },
+          {
+            "name": "Manual movement cancels automation and retains the user's held key",
+            "passed": true
+          },
+          {
+            "name": "Menus cancel mining and closing them never resumes it",
+            "passed": true
+          },
+          {
+            "name": "Observed damage immediately stops the mode",
+            "passed": true
+          },
+          {
+            "name": "Server-denied break times out without counting a resource or retrying forever",
+            "passed": true
+          },
+          {
+            "name": "Dimension changes cancel the old session and never resume it",
+            "passed": true
+          }
+        ]
+      },
+      "hud": {
+        "count": 8,
+        "receipt_sha256": "40be844f1eb5b12150f8284ed74f9794e9ffd7d94d0067668de3cc1eecf33bf7",
+        "checks": [
+          {
+            "name": "Fresh isolated offline world ready",
+            "passed": true
+          },
+          {
+            "name": "Edit HUD replaces coordinate controls and drags actual overlay geometry without saving",
+            "passed": true
+          },
+          {
+            "name": "Image-like corner resizing keeps the opposite corner anchored",
+            "passed": true
+          },
+          {
+            "name": "Enter confirms the layout and returns to the same mod menu",
+            "passed": true
+          },
+          {
+            "name": "Escape discards edits without changing features, saved layout or menu selection",
+            "passed": true
+          },
+          {
+            "name": "Overlapping HUD selection follows actual paint order",
+            "passed": true
+          },
+          {
+            "name": "Bottom-edge overlay remains selectable and draggable beside footer controls",
+            "passed": true
+          },
+          {
+            "name": "Editing consumes gameplay movement; confirmed layout remains in ordinary game view",
+            "passed": true
+          }
+        ]
+      },
+      "defaults": {
+        "count": 9,
+        "receipt_sha256": "55d42d3eadae792aa8148aa800fccfdb0f3d7b76445dccbb6f12f5a04060b84c",
+        "checks": [
+          {
+            "name": "Fresh isolated offline world ready",
+            "passed": true
+          },
+          {
+            "name": "Individual boolean Default restores its actual configured default",
+            "passed": true
+          },
+          {
+            "name": "Numeric and true-by-default controls restore independently",
+            "passed": true
+          },
+          {
+            "name": "Default keybind restores B after a saved custom shortcut",
+            "passed": true
+          },
+          {
+            "name": "Visual HUD Default panel restores automatic placement after confirmation",
+            "passed": true
+          },
+          {
+            "name": "Advanced target Default repairs invalid text and applies valid settings",
+            "passed": true
+          },
+          {
+            "name": "Cancel in the full reset confirmation leaves all settings unchanged",
+            "passed": true
+          },
+          {
+            "name": "Confirmed reset restores configuration and keybind defaults while keeping saved profiles and waypoints",
+            "passed": true
+          },
+          {
+            "name": "Enabled Mods tracks active names in stable vertical order and can be independently disabled",
+            "passed": true
+          }
+        ]
+      },
+      "tracers": {
+        "count": 8,
+        "receipt_sha256": "cd201de66d9c73e629790dbe239175872092a7e01ed48afb74ec1c9ae2d8db12",
+        "checks": [
+          {
+            "name": "Fresh isolated offline world ready",
+            "passed": true
+          },
+          {
+            "name": "Empty tracer target selection draws no lines",
+            "passed": true
+          },
+          {
+            "name": "Mobs-only selection renders one received pig tracer",
+            "passed": true
+          },
+          {
+            "name": "Dropped-items-only selection renders one received item tracer",
+            "passed": true
+          },
+          {
+            "name": "Mobs-only ESP coexists with items-only tracers without shared target flags",
+            "passed": true
+          },
+          {
+            "name": "Both tracer targets render while ESP still selects mobs only",
+            "passed": true
+          },
+          {
+            "name": "Turning off tracers clears all lines while Entity ESP remains enabled",
+            "passed": true
+          },
+          {
+            "name": "Individual tracer Default restores its target without changing ESP",
+            "passed": true
+          }
+        ]
+      },
+      "isolation": {
+        "count": 5,
+        "receipt_sha256": "1bf3347b43dc5b356e6c1ec7b607c8661830fd1d586d3b76043ae90eb0c66b18",
+        "checks": [
+          {
+            "name": "Fresh isolated offline world ready",
+            "passed": true
+          },
+          {
+            "name": "X-ray alone renders identically with saved block lines/boxes on or off",
+            "passed": true
+          },
+          {
+            "name": "Finder explicitly enables visible tracer rendering while X-ray remains on",
+            "passed": true
+          },
+          {
+            "name": "Finder keeps working with ordinary terrain after X-ray is switched off",
+            "passed": true
+          },
+          {
+            "name": "Independent hotkey toggles preserve line preferences and received block data",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  "native_latest_package": {
+    "sha256": "68b0a9859a3bbb4e0399670cb56e43492a016a924ba86b6a327fb1066de0fd12",
+    "size": 225517,
+    "entries": 121,
+    "version": "1.3.0",
+    "validation": "archive-structural"
+  },
+  "static_checks": {
+    "rust_library_tests": 157,
+    "rust_packaging_tests": 18,
+    "rust_mining_tests": 15,
+    "python_tests": 14,
+    "formatting": true,
+    "strict_clippy": true,
+    "native_sdk_check": "66f3981, supported GNU Rust 1.99.1, passed",
+    "java_core_assertions": 1231,
+    "java_mining_test_methods": 4
   }
 }

@@ -54,6 +54,14 @@ The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.3.
 
 ## Familiar controls, less friction
 
+### Resource routes, under your control
+
+Choose a resource, radius and block goal in **Auto Mine**, then explicitly start the mode. It weighs normal walking and mining time, uses suitable hotbar tools, checks live terrain before each action and can approach supported openings to collect drops. Manual controls, menus, damage and unsafe or failed actions stop it. The mode starts off and unbound and never resumes itself. Its conservative, bounded planner cannot reveal server-hidden ores or guarantee invulnerability. [Full controls and defaults](docs/AUTO_MINE.md).
+
+![Actual Auto Mine settings in the Fabric edition](docs/screenshots/java/rusty-auto-mine-settings.png)
+
+Original Fabric beta.7 capture from the owned acceptance world; the Horizon edition exposes the same mining settings through its native Minecraft-style menu. Multiplayer permission requirements differ by edition as documented above.
+
 - Minecraft-style buttons and clear name/category spacing across Classic, Graphite and Copper.
 - Live **Enabled**, Favorites and Recent collections; instant search and contextual **?** help.
 - Rebind or **Clear** a shortcut, including the menu shortcut. Native settings remain available for recovery.
@@ -88,7 +96,7 @@ The Java tour uses an authored, disposable singleplayer fixture. Restricted Java
 |---|---|
 | World views | X-Ray, Finder, Entity ESP, Entity Tracers, Storage ESP, Chunk Borders, Light Risk, Trajectories, Target Info, Minimap |
 | Visibility and camera | Fullbright, No Fog, Clear Weather, Zoom, No Hurt Camera, Freecam |
-| Assistance and building | Auto Sprint, Safe Walk, Auto Jump, Auto Tool, Trigger Bot, Auto Eat, Auto Fish, Auto Totem, Armor Assist, Auto Refill, Build Planner |
+| Assistance and building | Auto Mine, Auto Sprint, Safe Walk, Auto Jump, Auto Tool, Trigger Bot, Auto Eat, Auto Fish, Auto Totem, Armor Assist, Auto Refill, Build Planner |
 | Navigation | Compass, Waypoints, Breadcrumbs, Death Markers, Waypoint Walk, Portal Coordinates |
 | Information | Coordinates, Status HUD, Enabled Mods, Equipment HUD, Environment HUD, Container Preview, Speed HUD, World Clock, Frame Rate, Click Counter |
 

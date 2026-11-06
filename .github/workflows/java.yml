@@ -1,9 +1,9 @@
 name: Java edition checks
 on:
   push:
-    paths: ['java/**', '.github/workflows/java.yml']
+    paths: ['java/**', '!java/*.md', '!java/SHA256SUMS', '.github/workflows/java.yml']
   pull_request:
-    paths: ['java/**', '.github/workflows/java.yml']
+    paths: ['java/**', '!java/*.md', '!java/SHA256SUMS', '.github/workflows/java.yml']
   workflow_dispatch:
     inputs:
       publish_release:

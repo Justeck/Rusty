@@ -1,7 +1,9 @@
 name: Native mod checks
 on:
   push:
+    paths: ['*.rs', 'Cargo.*', 'compatibility.json', 'horizon-native.json', 'mixins/**', 'tests/**', 'tools/**', 'LICENSE', 'NOTICE', 'THIRD-PARTY.md', 'LEGAL.md', '.github/workflows/build.yml']
   pull_request:
+    paths: ['*.rs', 'Cargo.*', 'compatibility.json', 'horizon-native.json', 'mixins/**', 'tests/**', 'tools/**', 'LICENSE', 'NOTICE', 'THIRD-PARTY.md', 'LEGAL.md', '.github/workflows/build.yml']
   workflow_dispatch:
 permissions:
   contents: read

@@ -1,5 +1,17 @@
 # Rusty validation
 
+## 1.3.0 — Auto Mine and the latest Horizon target
+
+Rusty 1.3.0 targets **Horizon Nightly 2026-11-05 · 66f3981 / native API 411 / Minecraft 26.3**. The official **0.2.45** launcher built the native client with its supported **GNU Rust 1.99.1** toolchain and **Performance** profile. Accepted build: `native-66f3981-cbf500999b94`. Executable SHA-256: `0bc7caf346ff30ad2d2c8e3923a8329662891efd706355f0d2471ca8137634f3`.
+
+The exact launcher-built executable passed **14 singleplayer mining checks**, **13 mining checks against a separate unmodified Java 26.3 server**, **8 HUD editor checks**, **9 defaults/list checks**, **8 tracer checks** and **5 rendered X-Ray/Finder independence checks**. The mining fixtures perform actual ordinary survival movement, resource breaking and drop collection. Separate-server checks include authoritative console/inventory readbacks, tool selection, worn-tool/full-inventory refusal, water/gravel hazards, manual takeover, menus, damage, rejected mining and dimension cancellation. Every owned fixture process stopped after its run.
+
+Fresh source checks passed **157 Rust library tests + 18 packaging tests + 15 mining tests**, **14 Python tests**, formatting, strict Clippy, exact SDK type checks and structural package verification. All 121 packaged source entries equal their staged source bytes. Both Java editions separately passed **106 actual owned-world checks per loader**; see [Java validation](JAVA_VALIDATION.md). [Exact acceptance, named checks and artifact identities](evidence/auto-mine-1.3.0.json).
+
+Auto Mine starts off and unbound, uses only received terrain, and waits for normal server prediction acknowledgment before counting or traversing an opening. Its route balances estimated walking and mining time within fixed search bounds. Supported collection steps retain live hazard checks; manual input and safety stops never resume themselves. [Controls and limits](AUTO_MINE.md).
+
+These tests do not prove invulnerability, globally fastest travel, arbitrary server/plugin compatibility, high-latency behavior, hardware input reliability or long-session stability. No personal world, account inventory or public-server character was used. Server anti-X-Ray can withhold ores. The earlier `38609b7` acceptance is retained in the receipt as historical evidence; it does not stand in for the new host's tests. Public-download installation and the launcher's final Build/Play check are recorded separately after publication.
+
 ## 1.2.7 published assets and launcher acceptance
 
 [Native 1.2.7](https://github.com/Justeck/Rusty/releases/tag/v1.2.7) and [Java beta.6](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.6) are immutable releases of `01598bf28c22e249f24cd2b224845ab5bceebfed`. Both publication workflows passed. The native public asset exactly equals the maintained package. Both Java runtime archives have the same entries and bytes as the game-tested builds. Source-jar Java files differ only in Windows/Linux line endings; the public release checksums identify the Linux-produced assets.

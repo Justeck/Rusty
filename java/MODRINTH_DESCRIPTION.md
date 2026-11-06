@@ -66,7 +66,7 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 | **Navigation** | Coordinates, compass, local waypoints, death markers, breadcrumbs, portal coordinates and a received-surface minimap |
 | **World awareness** | Target information, chunk borders, sampled floor-light warnings and approximate projectile paths |
 | **Information** | Enabled Mods list, equipment durability, biome/light, held-container contents, clock, speed, FPS and click counters |
-| **Optional assistance** | Sprint/crouch/jump requests, tool/food/armor/refill/totem assistance, owned-hook bite reeling, explicit waypoint walking, one-action build planning and full-cooldown crosshair attacks |
+| **Optional assistance** | Auto Mine resource routes, sprint/crouch/jump requests, tool/food/armor/refill/totem assistance, owned-hook bite reeling, explicit waypoint walking, one-action build planning and full-cooldown crosshair attacks |
 
 **Start simple:** Status HUD is enabled by default. Other modules start off. Inventory and movement assistance use normal game actions; the server decides their results.
 
