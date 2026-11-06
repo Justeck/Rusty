@@ -1,5 +1,13 @@
 # Rusty validation
 
+## 1.3.1 published downloads and launcher acceptance
+
+[Native 1.3.1](https://github.com/Justeck/Rusty/releases/tag/v1.3.1) and [Java beta.8](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.8) are immutable releases of `5b0e0ef4c1d80cbd58c57318d07d7f7c9b7b8134`. Both publication workflows passed and both actual tags resolve to that commit. The public native package exactly equals the game-tested source archive: SHA-256 `f3abce1e1283610b6fc0c09512f466bdcc8b5b0088f46cd4bb712f922315968a`, 122 entries. All public Java product classes equal their game-tested counterparts; only source/mixin-JSON line endings differ between build platforms. Both new saved Modrinth downloads exactly equal GitHub.
+
+The official launcher accepted the fixed release URL and repository URL, rebuilt its archive metadata through its normal build path and confirmed the Performance cache. The actual **Build** and **I trust these mods: build** controls were exercised. The long-running window initially retained a removed `38609b7` resource target and reported it missing; restarting the official launcher refreshed the selection to the correct `native-66f3981-3fe0b000f7c3` and visibly showed green **Up to date**. **Play** reached the Minecraft title on the exact accepted executable, then **Quit Game** exited normally. No obsolete base was installed to mask that stale-window error. No personal world/server was opened, and existing Rusty preferences stayed byte-for-byte unchanged.
+
+Only the **Horizon** instance, Rusty 1.3.1 native mod, latest verified `66f3981` base and accepted Performance build remain. Two superseded local native builds were removed through official launcher commands. Modrinth has only the two beta.8 loader downloads after verifying both replacements, required Fabric API metadata and private old-download backups. Its saved guide has 45 tools, Area Clear controls, final 133-check-per-loader scope and a reviewed original Area Clear image. One older duplicate HUD preview was replaced within the 30-image gallery limit. The project remains **under review**, with approval unconfirmed. [Exact publication, installation and presentation receipt](evidence/area-clear-publication-1.3.1.json).
+
 ## 1.3.1 — Area Clear
 
 The official Horizon launcher built the exact native source with its supported **GNU Rust1.99.1** toolchain and **Performance** profile on the latest verified **66f3981 / API411 / Minecraft26.3** host. Accepted build: `native-66f3981-3fe0b000f7c3`; executable SHA-256 `3687069499d78b442c872d218a15426c72650d86ad91aa97ee746e58faac1392`.
@@ -10,7 +18,7 @@ Fresh checks passed **201 Rust tests** (157 library, 18 packaging, 11 Area Clear
 
 A fresh independent source review found two safety gaps: support beneath protected partial block entities, and live world-border validation. Both received reproducing regressions and verified fixes. The final border route filter also preserves received unknown, hazard and attachment facts outside the border. The native landing gate was checked against the exact host source and verified by real excavation after the original host's loose arrival tolerance caused drift during a descent.
 
-These results do not guarantee survival, globally optimal clearing, arbitrary server/plugin compatibility, high latency, alternate renderers or long-session stability. Containers, fluids, unstable terrain, unknown data and unsafe/unreachable leftovers remain conservative stops or protected objects. No personal save, public-server character or account inventory was used. Public-download installation and final launcher Build/Play are recorded separately after publication.
+These results do not guarantee survival, globally optimal clearing, arbitrary server/plugin compatibility, high latency, alternate renderers or long-session stability. Containers, fluids, unstable terrain, unknown data and unsafe/unreachable leftovers remain conservative stops or protected objects. No personal save, public-server character or account inventory was used. Public-download installation and final launcher Build/Play are recorded in the acceptance section above.
 
 ## 1.3.0 published downloads and launcher acceptance
 

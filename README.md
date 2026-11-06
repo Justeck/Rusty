@@ -26,7 +26,7 @@ Arrange your HUD directly in the game view: click **Edit HUD**, drag overlays in
 
 The Java counterparts share Minecraft-style controls and a 45-module catalog, with edition-specific behavior and validation. Their restricted multiplayer tools require authoritative server opt-in; ordinary information tools work on unmodified servers. [Permissions and differences](java/README.md#multiplayer-permissions) · [Java validation](docs/JAVA_VALIDATION.md). The stable native release remains the GitHub `latest` so Horizon's installer keeps resolving its native package.
 
-The Fabric and NeoForge beta has been [submitted to Modrinth](https://modrinth.com/mod/rusty-toolkit) with explicit AI code, asset and text disclosures. It is **under review**, with approval unconfirmed. GitHub remains the available download source. [Submission record](docs/evidence/modrinth-submission.json) · [Auto Mine acceptance](docs/evidence/auto-mine-1.3.0.json) · [Published downloads and launcher installation](docs/evidence/auto-mine-publication-1.3.0.json).
+The Fabric and NeoForge beta has been [submitted to Modrinth](https://modrinth.com/mod/rusty-toolkit) with explicit AI code, asset and text disclosures. It is **under review**, with approval unconfirmed. GitHub remains the available download source. [Submission record](docs/evidence/modrinth-submission.json) · [Area Clear acceptance](docs/evidence/area-clear-1.3.1.json) · [Published downloads and launcher installation](docs/evidence/area-clear-publication-1.3.1.json).
 
 ## Install
 
@@ -106,11 +106,11 @@ The Java tour uses an authored, disposable singleplayer fixture. Restricted Java
 |---|---|
 | World views | X-Ray, Finder, Entity ESP, Entity Tracers, Storage ESP, Chunk Borders, Light Risk, Trajectories, Target Info, Minimap |
 | Visibility and camera | Fullbright, No Fog, Clear Weather, Zoom, No Hurt Camera, Freecam |
-| Assistance and building | Auto Mine, Auto Sprint, Safe Walk, Auto Jump, Auto Tool, Trigger Bot, Auto Eat, Auto Fish, Auto Totem, Armor Assist, Auto Refill, Build Planner |
+| Assistance and building | Area Clear, Auto Mine, Auto Sprint, Safe Walk, Auto Jump, Auto Tool, Trigger Bot, Auto Eat, Auto Fish, Auto Totem, Armor Assist, Auto Refill, Build Planner |
 | Navigation | Compass, Waypoints, Breadcrumbs, Death Markers, Waypoint Walk, Portal Coordinates |
 | Information | Coordinates, Status HUD, Enabled Mods, Equipment HUD, Environment HUD, Container Preview, Speed HUD, World Clock, Frame Rate, Click Counter |
 
-The catalog contains **44 actual modules**. **Status HUD** starts enabled; other modules start off. Zoom works while its shortcut is held. Gameplay automation and inventory actions are opt-in. [Modules](docs/MODULES.md) explains each tool's bounded behavior.
+The catalog contains **45 actual modules**. **Status HUD** starts enabled; other modules start off. Zoom works while its shortcut is held. Gameplay automation and inventory actions are opt-in. [Modules](docs/MODULES.md) explains each tool's bounded behavior.
 
 Rusty uses data the client receives. Servers may withhold or replace block information, and retain authority over movement, reach, inventory and health. Finite work budgets, unknown chunks and unsupported data remain explicit limits. Freecam leaves the player body in ordinary simulation.
 

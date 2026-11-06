@@ -1,0 +1,270 @@
+{
+  "native_release": "v1.3.1",
+  "java_release": "java-v1.3.0-beta.8",
+  "source_commit": "5b0e0ef4c1d80cbd58c57318d07d7f7c9b7b8134",
+  "public_assets_verified": true,
+  "launcher_up_to_date": true,
+  "play_to_title_passed": true,
+  "modrinth_downloads_verified": true,
+  "source_tree": "cbc03001aeb2ba86f07a3ee528ff24628964accc",
+  "ci": [
+    {
+      "id": 42173597231,
+      "name": "Java edition checks",
+      "conclusion": "success"
+    },
+    {
+      "id": 42173597365,
+      "name": "Native mod checks",
+      "conclusion": "success"
+    }
+  ],
+  "releases": {
+    "v1.3.1": {
+      "url": "https://github.com/Justeck/Rusty/releases/tag/v1.3.1",
+      "tag": "v1.3.1",
+      "assets": [
+        {
+          "name": "rusty-1.3.1.hnmod",
+          "bytes": 231037,
+          "sha256": "f3abce1e1283610b6fc0c09512f466bdcc8b5b0088f46cd4bb712f922315968a",
+          "url": "https://github.com/Justeck/Rusty/releases/download/v1.3.1/rusty-1.3.1.hnmod"
+        },
+        {
+          "name": "SHA256SUMS",
+          "bytes": 84,
+          "sha256": "d3d8518ef2a090e8b0258ffa1e9aeac24d8c566ea6c10278dfe0cf280b4ad003",
+          "url": "https://github.com/Justeck/Rusty/releases/download/v1.3.1/SHA256SUMS"
+        }
+      ]
+    },
+    "java-v1.3.0-beta.8": {
+      "url": "https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.8",
+      "tag": "java-v1.3.0-beta.8",
+      "assets": [
+        {
+          "name": "rusty-fabric-1.3.0-beta.8-sources.jar",
+          "bytes": 1645982,
+          "sha256": "2f6b108393381af89d8fd2ac081e9b77f791f3ac47889f5d8cff0a33d859bcb2",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.8/rusty-fabric-1.3.0-beta.8-sources.jar"
+        },
+        {
+          "name": "rusty-fabric-1.3.0-beta.8.jar",
+          "bytes": 1765838,
+          "sha256": "7bb68f480c9f95e11df99c45419f32476fb24598c68a7b6ca60d0fb0ea506447",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.8/rusty-fabric-1.3.0-beta.8.jar"
+        },
+        {
+          "name": "rusty-neoforge-1.3.0-beta.8-sources.jar",
+          "bytes": 1644531,
+          "sha256": "586fe7cef88cc4c6d4b6ad1515bc49d6598be3b6b709eeb92ad515ee6bf22c45",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.8/rusty-neoforge-1.3.0-beta.8-sources.jar"
+        },
+        {
+          "name": "rusty-neoforge-1.3.0-beta.8.jar",
+          "bytes": 1759848,
+          "sha256": "765de5188a28e32bd4eca45a537c77ebc3338e662720ca345eae08a061355fe7",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.8/rusty-neoforge-1.3.0-beta.8.jar"
+        },
+        {
+          "name": "SHA256SUMS",
+          "bytes": 404,
+          "sha256": "c07e9f8f16df9d0aad740be740d9d451163a3876da2ae8da22a3b93124fb9a52",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.8/SHA256SUMS"
+        }
+      ]
+    }
+  },
+  "immutable_tags": [
+    {
+      "tag": "v1.3.1",
+      "commit": "5b0e0ef4c1d80cbd58c57318d07d7f7c9b7b8134",
+      "type": "commit"
+    },
+    {
+      "tag": "java-v1.3.0-beta.8",
+      "commit": "5b0e0ef4c1d80cbd58c57318d07d7f7c9b7b8134",
+      "type": "commit"
+    }
+  ],
+  "java_public_comparison": [
+    {
+      "name": "rusty-fabric-1.3.0-beta.8-sources.jar",
+      "sha256": "2f6b108393381af89d8fd2ac081e9b77f791f3ac47889f5d8cff0a33d859bcb2",
+      "product_classes_exact": 0,
+      "text_line_endings_only": [
+        "rusty.mixins.json",
+        "dev/justeck/rusty/RustyAssistance.java",
+        "dev/justeck/rusty/RustyMining.java",
+        "dev/justeck/rusty/RustyOverlay.java",
+        "dev/justeck/rusty/RustyPlanner.java",
+        "dev/justeck/rusty/RustyScreen.java",
+        "dev/justeck/rusty/mixin/InputMixin.java",
+        "dev/justeck/rusty/mixin/MouseMixin.java",
+        "dev/justeck/rusty/mixin/UseKeyMixin.java",
+        "dev/justeck/rusty/core/Mining.java",
+        "dev/justeck/rusty/core/Settings.java"
+      ]
+    },
+    {
+      "name": "rusty-fabric-1.3.0-beta.8.jar",
+      "sha256": "7bb68f480c9f95e11df99c45419f32476fb24598c68a7b6ca60d0fb0ea506447",
+      "product_classes_exact": 75,
+      "text_line_endings_only": [
+        "rusty.mixins.json"
+      ]
+    },
+    {
+      "name": "rusty-neoforge-1.3.0-beta.8-sources.jar",
+      "sha256": "586fe7cef88cc4c6d4b6ad1515bc49d6598be3b6b709eeb92ad515ee6bf22c45",
+      "product_classes_exact": 0,
+      "text_line_endings_only": [
+        "rusty.mixins.json",
+        "dev/justeck/rusty/RustyAssistance.java",
+        "dev/justeck/rusty/RustyMining.java",
+        "dev/justeck/rusty/RustyOverlay.java",
+        "dev/justeck/rusty/RustyPlanner.java",
+        "dev/justeck/rusty/RustyScreen.java",
+        "dev/justeck/rusty/mixin/InputMixin.java",
+        "dev/justeck/rusty/mixin/MouseMixin.java",
+        "dev/justeck/rusty/mixin/UseKeyMixin.java",
+        "dev/justeck/rusty/core/Mining.java",
+        "dev/justeck/rusty/core/Settings.java"
+      ]
+    },
+    {
+      "name": "rusty-neoforge-1.3.0-beta.8.jar",
+      "sha256": "765de5188a28e32bd4eca45a537c77ebc3338e662720ca345eae08a061355fe7",
+      "product_classes_exact": 73,
+      "text_line_endings_only": [
+        "rusty.mixins.json"
+      ]
+    }
+  ],
+  "launcher_installation": {
+    "source_commit": "5b0e0ef4c1d80cbd58c57318d07d7f7c9b7b8134",
+    "selected_build": "native-66f3981-3fe0b000f7c3",
+    "binary_sha256": "3687069499d78b442c872d218a15426c72650d86ad91aa97ee746e58faac1392",
+    "asset_sha256": "f3abce1e1283610b6fc0c09512f466bdcc8b5b0088f46cd4bb712f922315968a",
+    "public_asset_exact": true,
+    "fixed_release_url_accepted": true,
+    "repository_url_accepted": true,
+    "user_preferences_unchanged": true,
+    "only_horizon_instance": true,
+    "only_rusty_native_mod": true,
+    "first_build_seconds": 5.131,
+    "cache_check_seconds": 5.471,
+    "origin": {
+      "id": "rusty",
+      "version": "1.3.1",
+      "owner": "Justeck",
+      "repo": "Rusty",
+      "tag": "v1.3.1",
+      "commit": "5b0e0ef4c1d80cbd58c57318d07d7f7c9b7b8134",
+      "asset": "rusty-1.3.1.hnmod",
+      "sha256": "f3abce1e1283610b6fc0c09512f466bdcc8b5b0088f46cd4bb712f922315968a"
+    }
+  },
+  "launcher_gui": {
+    "build_control_exercised": true,
+    "trust_control_exercised": true,
+    "first_gui_attempt": "The long-running launcher window cached removed nightly-2026-11-05-38609b7 and reported its resources missing. Restarting the official launcher refreshed its selection; no obsolete version was installed.",
+    "public_cli_build_passed": true,
+    "launcher_restarted": true,
+    "launcher_up_to_date": true,
+    "play_to_title_passed": true,
+    "quit_game_exited": true,
+    "personal_worlds_or_servers_opened": false,
+    "binary_sha256": "3687069499d78b442c872d218a15426c72650d86ad91aa97ee746e58faac1392",
+    "selected_build": "native-66f3981-3fe0b000f7c3",
+    "proof_images": [
+      "launcher-up-to-date.png",
+      "launcher-play-title.png"
+    ]
+  },
+  "local_version_cleanup": {
+    "kept": [
+      "native-66f3981-3fe0b000f7c3",
+      "nightly-2026-11-05-66f3981"
+    ],
+    "removed": [
+      {
+        "version": "native-66f3981-7dedeee582c5",
+        "seconds": 119.605
+      },
+      {
+        "version": "native-66f3981-cbf500999b94",
+        "seconds": 114.099
+      }
+    ],
+    "only_horizon_instance": true,
+    "personal_saves_untouched": true
+  },
+  "modrinth": {
+    "project_url": "https://modrinth.com/mod/rusty-toolkit",
+    "status": "under review; approval unconfirmed",
+    "versions": [
+      {
+        "file": "rusty-neoforge-1.3.0-beta.8.jar",
+        "url": "https://cdn.modrinth.com/data/tQFy3VCO/versions/E9KboXu0/rusty-neoforge-1.3.0-beta.8.jar?mr_download_reason=standalone",
+        "sha256": "765de5188a28e32bd4eca45a537c77ebc3338e662720ca345eae08a061355fe7",
+        "bytes": 1759848,
+        "public_github_asset_exact": true,
+        "backup_verified": false
+      },
+      {
+        "file": "rusty-fabric-1.3.0-beta.8.jar",
+        "url": "https://cdn.modrinth.com/data/tQFy3VCO/versions/MTMpzEj6/rusty-fabric-1.3.0-beta.8.jar?mr_download_reason=standalone",
+        "sha256": "7bb68f480c9f95e11df99c45419f32476fb24598c68a7b6ca60d0fb0ea506447",
+        "bytes": 1765838,
+        "public_github_asset_exact": true,
+        "backup_verified": false
+      }
+    ],
+    "gallery": {
+      "images": [
+        {
+          "height": 197,
+          "loaded": true,
+          "src": "https://cdn.modrinth.com/data/tQFy3VCO/images/b884fb5ad3fccb8debe01027eb92679b1a6804cb_350.webp",
+          "width": 350
+        },
+        {
+          "height": 0,
+          "loaded": false,
+          "src": "",
+          "width": 0
+        }
+      ],
+      "correct_menu_visually_reviewed": true,
+      "not_pause_menu": true,
+      "total_gallery_images": 30,
+      "description_saved_exact": true,
+      "tool_count": 45,
+      "status": "under review; approval unconfirmed",
+      "new_versions": [
+        "MTMpzEj6",
+        "E9KboXu0"
+      ],
+      "removed_old_versions": [
+        "dE7AI6Xr",
+        "NgFPQJhr"
+      ],
+      "fabric_api_required": "nJlcvFfj"
+    },
+    "superseded_loader_versions_removed": [
+      "dE7AI6Xr",
+      "NgFPQJhr"
+    ],
+    "previous_versions_backed_up": true,
+    "icon_preserved": true
+  },
+  "local_visual_proof_sha256": {
+    "launcher-up-to-date.png": "657796001f869bc53c2692171aafadbf97e060e7ea00ee6ca7153726526f85c0",
+    "launcher-play-title.png": "3e642db4acd9aa884bddd30eddd7917db80a5edbfdfeeae972e8417d0e4b89e3",
+    "github-final-release.png": "ad213e9480c20125036920b0548364c0268f60a676f3498f9ff3eaced1ec928e",
+    "modrinth-final-versions.png": "3d8fa14e8ce4a6c9a526c55b9dcafc4b0369cbcdfc00dfcf78c726d53ff6bc9f",
+    "modrinth-area-gallery.png": "06f6fe3659297d4a2d7ceeb7980c644e36dc37e79ab8e367a965892ba516a31f"
+  },
+  "github_old_releases_cleanup": "Authorized gated cleanup workflow runs after this verified receipt. Both superseded releases and their metadata/assets are backed up privately; immutable source tags remain for gallery images and historical receipts."
+}
