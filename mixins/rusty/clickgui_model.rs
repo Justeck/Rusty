@@ -67,6 +67,8 @@ pub enum Intent {
     Activation,
     MiningResource,
     MiningAimed,
+    ClearCorner(bool),
+    ClearSelection,
     Favorite(&'static str),
     Visit(&'static str),
     Theme,
@@ -106,7 +108,7 @@ impl Intent {
             | Self::Flush => true,
             Self::ToggleModule(id) => !matches!(
                 *id,
-                "xray" | "freecam" | "zoom" | "waypoint_walk" | "auto_mine"
+                "xray" | "freecam" | "zoom" | "waypoint_walk" | "auto_mine" | "area_clear"
             ),
             _ => false,
         }

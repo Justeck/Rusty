@@ -1,3 +1,12 @@
+## 1.3.1 / Java 1.3.0-beta.8 — Area Clear
+
+- Add explicit corner capture, inclusive dimensions, selection details, Clear Selection and a green boundary preview.
+- Share exclusive normal-control mining with highest eligible layer selection and position-dependent excavation boundaries; no access tunnel outside the box.
+- Keep separate health, food and tool preferences, defaults and an unbound shortcut. Discard corners on session/world changes and never persist activation.
+- Protect containers, fluids, unstable terrain and outside partial attachments. Report unknown, protected or unreachable leftovers; require a fresh all-air survey for completion.
+- Aim Java mining at actual outline geometry for thin blocks through ordinary reach and occlusion checks.
+- Add original region regressions and owned game acceptance fixtures. [Area Clear guide](docs/AREA_CLEAR.md).
+
 ## 1.3.0 / Java 1.3.0-beta.7 — Auto Mine
 
 - Update the native target to Horizon Nightly 66f3981 / native API 411; preserve the original Horizon instance.

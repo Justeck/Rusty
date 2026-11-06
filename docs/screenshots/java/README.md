@@ -1,5 +1,11 @@
 # Original Java-edition captures
 
+## Area Clear — Java 1.3.0-beta.8
+
+![Actual Area Clear controls](rusty-area-clear-settings.png)
+
+Original 1280×720 Minecraft framebuffer capture from the owned Fabric26.3 acceptance world. Reviewed to confirm it shows the actual Area Clear menu: first/second corner buttons, selection details, Clear Selection, separate safety sliders, preview toggle and defaults. This is an interface capture, not a claim that the background shows completed excavation. The test fixture took the screenshot without enabling automation. The image is unretouched.
+
 **New: [browse the 39-scene Java screenshot tour](tour/README.md).** It covers texture minimum/default/60%/maximum, ore and custom-block filters, Finder, outlines, navigation, minimap, equipment, trajectory/build previews, Freecam, Fullbright restoration, Enabled/Favorites/search, keybind clearing, contextual help, profiles, themes and menu/HUD sizing. [Exact original PNG identities](tour/manifest.json).
 
 The four acceptance captures below remain unchanged. The expanded tour is a separate visual showcase of the same released Java product, not 39 new functional acceptance tests.

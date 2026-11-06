@@ -1,6 +1,6 @@
 # Usage and settings
 
-This guide describes Rusty **1.2.7**. The [module guide](MODULES.md) covers all 43 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
+This guide describes Rusty **1.3.1**. The [module guide](MODULES.md) covers all 45 registered tools, ordinary-action requirements and data limits. [Area Clear](AREA_CLEAR.md) selects a bounded box; [Auto Mine](AUTO_MINE.md) selects resources. Both require an explicit start and never resume themselves. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
 
 ## The live ClickGUI
 

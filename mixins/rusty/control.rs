@@ -65,7 +65,9 @@ pub(super) fn observe_key(
     pressed: bool,
     repeat: bool,
 ) {
-    if pressed && !repeat {super::rusty_mining_native::manual_look();}
+    if pressed && !repeat {
+        super::rusty_mining_native::manual_look();
+    }
     if game.native_window()
         && let Some(name) = horizon_client::keybinds::key_name(key)
     {
@@ -246,11 +248,22 @@ pub(super) fn default_module(game: &mut Game<'_>, id: &str) {
         "zoom" => ZOOM.set(false),
         "waypoint_walk" => super::rusty_waypoint_walk::reset(game),
         "auto_mine" => super::rusty_mining_native::reset(game),
+        "area_clear" => {
+            super::rusty_mining_native::reset(game);
+            super::rusty_mining_native::reset_selection();
+        }
         _ => {}
     }
 }
 pub(super) fn default_runtime(game: &mut Game<'_>) {
-    for id in ["xray", "freecam", "zoom", "waypoint_walk", "auto_mine"] {
+    for id in [
+        "xray",
+        "freecam",
+        "zoom",
+        "waypoint_walk",
+        "auto_mine",
+        "area_clear",
+    ] {
         default_module(game, id);
     }
     super::rusty_assist::reset(game);
@@ -339,7 +352,15 @@ pub(super) fn key(game: &mut Game<'_>, key: &str, pressed: bool) {
     }
     let mine_binding = game.native_mod_key(rusty::ID, "auto_mine", "key.keyboard.unknown");
     if mine_binding != "key.keyboard.unknown" && key == mine_binding {
-        if let Err(error) = super::rusty_mining_native::toggle(game) { game.native_chat(&error); }
+        if let Err(error) = super::rusty_mining_native::toggle(game) {
+            game.native_chat(&error);
+        }
+    }
+    let clear_binding = game.native_mod_key(rusty::ID, "area_clear", "key.keyboard.unknown");
+    if clear_binding != "key.keyboard.unknown" && key == clear_binding {
+        if let Err(error) = super::rusty_mining_native::toggle_area(game) {
+            game.native_chat(&error);
+        }
     }
     let walk_binding = game.native_mod_key(rusty::ID, "waypoint_walk", "key.keyboard.unknown");
     if walk_binding != "key.keyboard.unknown" && key == walk_binding {
@@ -403,7 +424,15 @@ pub(super) fn frame(game: &mut Game<'_>) {
             }
         });
     }
-    match MINE_REQUEST.replace(0) {1 if !super::rusty_mining_native::active()=>{if let Err(e)=super::rusty_mining_native::toggle(game){game.native_chat(&e);}},2=>super::rusty_mining_native::reset(game),_=>{}}
+    match MINE_REQUEST.replace(0) {
+        1 if !super::rusty_mining_native::active() => {
+            if let Err(e) = super::rusty_mining_native::toggle(game) {
+                game.native_chat(&e);
+            }
+        }
+        2 => super::rusty_mining_native::reset(game),
+        _ => {}
+    }
     if WALK_REQUEST.replace(false) {
         if let Err(error) = super::rusty_waypoint_walk::toggle(game) {
             game.native_chat(&error);
@@ -466,6 +495,7 @@ pub(super) fn reset(game: &mut Game<'_>) {
     });
     ZOOM.set(false);
     super::rusty_navigation_native::reset();
+    super::rusty_mining_native::reset_selection();
     super::rusty_waypoint_walk::reset(game);
     super::rusty_mining_native::reset(game);
     WALK_REQUEST.set(false);
@@ -484,7 +514,15 @@ pub(super) fn reset(game: &mut Game<'_>) {
     brightness(game);
 }
 pub(super) fn window(game: &mut Game<'_>, event: &WindowEvent) {
-    if matches!(event,WindowEvent::MouseInput{state:ElementState::Pressed,..}|WindowEvent::MouseWheel{..}){super::rusty_mining_native::manual_look();}
+    if matches!(
+        event,
+        WindowEvent::MouseInput {
+            state: ElementState::Pressed,
+            ..
+        } | WindowEvent::MouseWheel { .. }
+    ) {
+        super::rusty_mining_native::manual_look();
+    }
     if !game.native_window() {
         return;
     }
@@ -699,8 +737,37 @@ pub(super) fn control(
             Err(error) => serde_json::json!({"error":error}),
         })));
     }
-    if line.trim() == "rusty-mine-status" {return ControlFlow::Break(Ok(Some(super::rusty_mining_native::status())));}
-    if line.trim() == "rusty-mine-toggle" {return ControlFlow::Break(Ok(Some(match super::rusty_mining_native::toggle(game){Ok(())=>super::rusty_mining_native::status(),Err(error)=>serde_json::json!({"error":error})})));}
+    if line.trim() == "rusty-clear-status" {
+        return ControlFlow::Break(Ok(Some(super::rusty_mining_native::status())));
+    }
+    if line.trim() == "rusty-clear-toggle" {
+        return ControlFlow::Break(Ok(Some(
+            match super::rusty_mining_native::toggle_area(game) {
+                Ok(()) => super::rusty_mining_native::status(),
+                Err(error) => serde_json::json!({"error":error}),
+            },
+        )));
+    }
+    if let Some(which) = line.trim().strip_prefix("rusty-clear-corner ") {
+        if !matches!(which, "first" | "second") {
+            return ControlFlow::Break(Err("Use first or second".into()));
+        }
+        return ControlFlow::Break(Ok(Some(
+            match super::rusty_mining_native::select_corner(game, which == "second") {
+                Ok(()) => super::rusty_mining_native::status(),
+                Err(error) => serde_json::json!({"error":error}),
+            },
+        )));
+    }
+    if line.trim() == "rusty-mine-status" {
+        return ControlFlow::Break(Ok(Some(super::rusty_mining_native::status())));
+    }
+    if line.trim() == "rusty-mine-toggle" {
+        return ControlFlow::Break(Ok(Some(match super::rusty_mining_native::toggle(game) {
+            Ok(()) => super::rusty_mining_native::status(),
+            Err(error) => serde_json::json!({"error":error}),
+        })));
+    }
     if line.trim() == "rusty-walk-status" {
         return ControlFlow::Break(Ok(Some(super::rusty_waypoint_walk::status())));
     }

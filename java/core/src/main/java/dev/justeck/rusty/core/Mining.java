@@ -41,7 +41,13 @@ public final class Mining {
         || (s.mineResource < 8 && id.equals("minecraft:deepslate_" + IDS[s.mineResource]));
   }
 
-  private static final int KNOWN = 1, EMPTY = 2, SOLID = 4, DIG = 8, ORE = 16, DANGER = 32;
+  private static final int KNOWN = 1,
+      EMPTY = 2,
+      SOLID = 4,
+      DIG = 8,
+      ORE = 16,
+      DANGER = 32,
+      SUPPORT_GUARD = 64;
   public static final int UNKNOWN = 0,
       AIR = KNOWN | EMPTY,
       WALL = KNOWN | SOLID,
@@ -57,6 +63,106 @@ public final class Mining {
 
   public static boolean air(int c) {
     return (c & EMPTY) != 0;
+  }
+
+  public static int resourceShape(int ticks, boolean full) {
+    return full ? resource(ticks) : resource(ticks) & ~SOLID;
+  }
+
+  public static int passive(boolean full) {
+    return KNOWN | (full ? SOLID : SUPPORT_GUARD);
+  }
+
+  public record Region(Pos min, Pos max) {
+    public Region {
+      var a = min;
+      var b = max;
+      min = new Pos(Math.min(a.x, b.x), Math.min(a.y, b.y), Math.min(a.z, b.z));
+      max = new Pos(Math.max(a.x, b.x), Math.max(a.y, b.y), Math.max(a.z, b.z));
+      if ((long) max.x - min.x >= 32
+          || (long) max.y - min.y >= 32
+          || (long) max.z - min.z >= 32
+          || min.x < -29999984
+          || min.z < -29999984
+          || max.x > 29999983
+          || max.z > 29999983
+          || min.y < -2048
+          || max.y > 2047)
+        throw new IllegalArgumentException(
+            "Selection must fit 32 blocks per axis inside supported world bounds");
+    }
+
+    public int volume() {
+      return (max.x - min.x + 1) * (max.y - min.y + 1) * (max.z - min.z + 1);
+    }
+
+    public boolean contains(Pos p) {
+      return p.x >= min.x
+          && p.x <= max.x
+          && p.y >= min.y
+          && p.y <= max.y
+          && p.z >= min.z
+          && p.z <= max.z;
+    }
+
+    public Pos position(int i) {
+      if (i < 0 || i >= volume()) return null;
+      int w = max.x - min.x + 1, d = max.z - min.z + 1;
+      return min.add(i % w, i / (w * d), i / w % d);
+    }
+
+    public int constrain(int cell, Pos p, int layer) {
+      if (contains(p) && p.y == layer) return cell;
+      int restricted = cell & ~(DIG | ORE);
+      if (!contains(p) && (cell & KNOWN) != 0 && (cell & (EMPTY | SOLID)) == 0)
+        restricted |= SUPPORT_GUARD;
+      return restricted;
+    }
+
+    public boolean withinBorder(double minX, double minZ, double maxX, double maxZ) {
+      return Double.isFinite(minX)
+          && Double.isFinite(minZ)
+          && Double.isFinite(maxX)
+          && Double.isFinite(maxZ)
+          && min.x >= minX
+          && min.z >= minZ
+          && max.x + 1.0 <= maxX
+          && max.z + 1.0 <= maxZ;
+    }
+
+    public List<Pos[]> edges() {
+      var out = new ArrayList<Pos[]>();
+      int[] lo = {min.x, min.y, min.z}, hi = {max.x + 1, max.y + 1, max.z + 1};
+      for (int axis = 0; axis < 3; axis++)
+        for (int a = 0; a < 2; a++)
+          for (int b = 0; b < 2; b++) {
+            int[] from = lo.clone();
+            from[(axis + 1) % 3] = a == 0 ? lo[(axis + 1) % 3] : hi[(axis + 1) % 3];
+            from[(axis + 2) % 3] = b == 0 ? lo[(axis + 2) % 3] : hi[(axis + 2) % 3];
+            int[] to = from.clone();
+            to[axis] = hi[axis];
+            out.add(new Pos[] {new Pos(from[0], from[1], from[2]), new Pos(to[0], to[1], to[2])});
+          }
+      return out;
+    }
+  }
+
+  public static final class ClearSurvey {
+    public int remaining, protectedCount, unknown, dangerous, highest = Integer.MIN_VALUE;
+
+    public void observe(Pos p, int cell) {
+      if ((cell & KNOWN) == 0) unknown++;
+      else if (!air(cell)) {
+        remaining++;
+        if ((cell & DANGER) != 0) dangerous++;
+        if ((cell & DIG) != 0) highest = Math.max(highest, p.y);
+        else protectedCount++;
+      }
+    }
+
+    public boolean complete() {
+      return remaining == 0 && unknown == 0;
+    }
   }
 
   public record Pos(int x, int y, int z) {
@@ -181,7 +287,7 @@ public final class Mining {
       if ((c & DIG) == 0 || (!tunnels && (c & ORE) == 0)) return false;
       for (var d : DIRS) {
         int n = get(p.add(d[0], d[1], d[2]));
-        if ((n & KNOWN) == 0 || (n & DANGER) != 0) return false;
+        if ((n & KNOWN) == 0 || (n & (DANGER | SUPPORT_GUARD)) != 0) return false;
       }
       return true;
     }

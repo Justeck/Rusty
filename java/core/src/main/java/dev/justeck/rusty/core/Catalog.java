@@ -25,6 +25,12 @@ public final class Catalog {
   public static final List<Module> ALL =
       List.of(
           new Module(
+              "area_clear",
+              "Area Clear",
+              "World",
+              "Select two corners and explicitly clear their box, highest layer first. Strict"
+                  + " boundaries, safe normal controls and no automatic resume."),
+          new Module(
               "auto_mine",
               "Auto Mine",
               "World",

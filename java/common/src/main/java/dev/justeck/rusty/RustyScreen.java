@@ -241,8 +241,8 @@ public final class RustyScreen extends Screen {
           ys[0],
           bw - 62,
           b -> {
-            if (selected.equals("auto_mine")) {
-              boolean start = !RustyMining.active();
+            if (selected.equals("auto_mine") || selected.equals("area_clear")) {
+              boolean start = !RustyClient.requested(selected);
               onClose();
               RustyClient.set(selected, start);
               return;
@@ -431,6 +431,117 @@ public final class RustyScreen extends Screen {
               v -> RustyClient.config.espItems = v,
               x,
               ys));
+    } else if (selected.equals("area_clear")) {
+      options.add(() -> {
+        button(
+            "Set first corner",
+            x,
+            ys[0],
+            bw,
+            b -> {
+              RustyMining.selectCorner(false);
+              rebuildWidgets();
+            });
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button(
+            "Set second corner",
+            x,
+            ys[0],
+            bw,
+            b -> {
+              RustyMining.selectCorner(true);
+              rebuildWidgets();
+            });
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button(
+            "? Selection details",
+            x,
+            ys[0],
+            bw,
+            b -> {
+              popup =
+                  RustyMining.selectionText()
+                      + "\n"
+                      + RustyMining.selectionDetails()
+                      + "\n"
+                      + "Inclusive box; maximum 32 blocks on each axis. Aim before opening this"
+                      + " menu.";
+              rebuildWidgets();
+            });
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button(
+            "Clear selection",
+            x,
+            ys[0],
+            bw,
+            b -> {
+              RustyMining.stop("Selection cleared");
+              RustyMining.clearSelection();
+              rebuildWidgets();
+            });
+        ys[0] += 26;
+      });
+      options.add(() ->
+          slider(
+              "clearHealth",
+              "Minimum health",
+              1,
+              20,
+              RustyClient.config.clearHealth,
+              v -> RustyClient.config.clearHealth = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          slider(
+              "clearFood",
+              "Minimum food",
+              0,
+              20,
+              RustyClient.config.clearFood,
+              v -> RustyClient.config.clearFood = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          slider(
+              "clearDurability",
+              "Tool reserve %",
+              1,
+              100,
+              RustyClient.config.clearDurability,
+              v -> RustyClient.config.clearDurability = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          toggle(
+              "clearPreview",
+              "Selection and route preview",
+              () -> RustyClient.config.clearPreview,
+              v -> RustyClient.config.clearPreview = v,
+              x,
+              ys));
+      options.add(() -> {
+        button(
+            "? Safety and progress",
+            x,
+            ys[0],
+            bw,
+            b -> {
+              popup =
+                  "Clears accessible ordinary blocks inside your selection, highest eligible layer"
+                      + " first. Never digs access tunnels outside it. Containers, fluids, unstable"
+                      + " blocks and unsafe routes are protected. Manual input, menus, damage or"
+                      + " low resources stop it. Unreachable or protected leftovers are reported;"
+                      + " clearing is not guaranteed. Automation never resumes by itself.";
+              rebuildWidgets();
+            });
+        ys[0] += 26;
+      });
     } else if (selected.equals("auto_mine")) {
       options.add(() -> {
         button(

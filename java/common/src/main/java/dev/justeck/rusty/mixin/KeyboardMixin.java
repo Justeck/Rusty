@@ -12,7 +12,9 @@ public abstract class KeyboardMixin {
   @Inject(method = "keyPress", at = @At("HEAD"))
   private void rusty$queuedPress(long window, int action, KeyEvent event, CallbackInfo ci) {
     if (action == 1) {
-      if (event.key() != RustyClient.config.bindings.getOrDefault("auto_mine", -1))
+      if (event.key()
+          != RustyClient.config.bindings.getOrDefault(
+              dev.justeck.rusty.RustyMining.areaActive() ? "area_clear" : "auto_mine", -1))
         dev.justeck.rusty.RustyMining.manual();
       RustyClient.keyPressed(event.key());
     }

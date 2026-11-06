@@ -104,7 +104,7 @@ public final class RustyClient {
     publish();
     terrainHash = terrainHash();
     LOG.info(
-        "Rusty Java 1.3.0-beta.7 initialized ({})", System.getProperty("rusty.edition", "loader"));
+        "Rusty Java 1.3.0-beta.8 initialized ({})", System.getProperty("rusty.edition", "loader"));
   }
 
   public static Path configPath() {
@@ -139,6 +139,7 @@ public final class RustyClient {
     RustyCamera.reset();
     RustyNavigation.reset();
     RustyMining.stop("World or settings changed");
+    RustyMining.clearSelection();
     zoomHeld = false;
     config = new Settings();
     for (var id : List.of("menu", "xray", "zoom")) config.bindings.put(id, defaultBinding(id));
@@ -185,12 +186,14 @@ public final class RustyClient {
   }
 
   public static boolean requested(String id) {
-    if (id.equals("auto_mine")) return RustyMining.active();
+    if (id.equals("auto_mine")) return RustyMining.resourceActive();
+    if (id.equals("area_clear")) return RustyMining.areaActive();
     return config.enabled.contains(id);
   }
 
   public static boolean active(String id) {
-    if (id.equals("auto_mine")) return RustyMining.active() && POLICY.allows(id);
+    if (id.equals("auto_mine")) return RustyMining.resourceActive() && POLICY.allows(id);
+    if (id.equals("area_clear")) return RustyMining.areaActive() && POLICY.allows(id);
     return effective.contains(id);
   }
 
@@ -200,6 +203,11 @@ public final class RustyClient {
   }
 
   public static void set(String id, boolean enabled) {
+    if (id.equals("area_clear")) {
+      if (enabled) RustyMining.startArea();
+      else RustyMining.stop("Stopped");
+      return;
+    }
     if (id.equals("auto_mine")) {
       if (enabled) RustyMining.start();
       else RustyMining.stop("Stopped");
@@ -261,6 +269,7 @@ public final class RustyClient {
       KEY_EVENTS.clear();
       connection = mc.getConnection();
       RustyMining.stop("Connection changed");
+      RustyMining.clearSelection();
       POLICY.disconnect();
       token = UUID.randomUUID().toString();
       if (connection != null) POLICY.connect(token, mc.hasSingleplayerServer());
@@ -283,6 +292,7 @@ public final class RustyClient {
       trail.clear();
       RustyNavigation.reset();
       RustyMining.stop("World or settings changed");
+      RustyMining.clearSelection();
       RustyAssistance.reset();
       RustyCamera.reset();
       RustyHud.reset();
@@ -302,7 +312,7 @@ public final class RustyClient {
     }
     for (var module : Catalog.ALL) {
       if (module.id().equals("zoom")) continue;
-      if (module.id().equals("auto_mine")) {
+      if ((module.id().equals("auto_mine") || module.id().equals("area_clear"))) {
         if (focused && presses(module.id()) % 2 == 1) set(module.id(), !requested(module.id()));
         continue;
       }

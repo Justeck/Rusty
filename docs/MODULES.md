@@ -2,6 +2,10 @@
 
 Rusty exposes implemented native modules rather than placeholder entries for the reference clients' much larger catalogs. Search names, aliases, descriptions and individual setting labels with **Right Shift**, then **Ctrl+F**. Every module has a configurable shortcut; most start unbound. New action and awareness modules start disabled. Test receipts and the supported binary belong in [Validation](VALIDATION.md), not in this feature inventory.
 
+## Area Clear
+
+Set two opposite corners and explicitly clear the inclusive box with normal guarded survival inputs. Includes a box/route preview, separate health, food and durability defaults, top-layer ordering and strict excavation boundaries. Containers, hazards and unsafe or unreachable leftovers are reported. Off and unbound by default; never resumes automatically. [Controls and limitations](AREA_CLEAR.md).
+
 ## Auto Mine
 
 Explicitly mine a chosen resource through a conservative weighted route, with normal movement and mining, suitable hotbar tools, a block goal and live safety stops. Includes eleven ore presets, aimed Custom selection, optional access tunnels and a green route preview. Off and unbound by default; stops never resume themselves. Predicted openings wait for normal server acknowledgment. [Controls, defaults and limitations](AUTO_MINE.md).

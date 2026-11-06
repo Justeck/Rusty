@@ -34,8 +34,112 @@ public final class RustyMining {
   private static Run run;
   public static String result = "Not started";
   public static int count;
+  private static Mining.Pos first, second;
+  private static Object selectionLevel, selectionConnection;
+  private static String selectionScope;
+
+  public static boolean areaActive() {
+    return run != null && run.area != null;
+  }
+
+  public static boolean resourceActive() {
+    return active() && !areaActive();
+  }
+
+  private static int healthLimit() {
+    return areaActive() ? RustyClient.config.clearHealth : RustyClient.config.mineHealth;
+  }
+
+  private static int foodLimit() {
+    return areaActive() ? RustyClient.config.clearFood : RustyClient.config.mineFood;
+  }
+
+  private static int durabilityLimit() {
+    return areaActive() ? RustyClient.config.clearDurability : RustyClient.config.mineDurability;
+  }
+
+  private static boolean tunnels() {
+    return !areaActive() && RustyClient.config.mineTunnels;
+  }
+
+  private static boolean quota() {
+    return !areaActive() && count >= RustyClient.config.mineGoal;
+  }
+
+  public static void clearSelection() {
+    first = null;
+    second = null;
+    selectionLevel = null;
+    selectionConnection = null;
+    selectionScope = null;
+  }
+
+  private static Mining.Region region() {
+    return first != null && second != null ? new Mining.Region(first, second) : null;
+  }
+
+  public static String selectionText() {
+    var r = region();
+    if (r != null)
+      return (r.max().x() - r.min().x() + 1)
+          + " × "
+          + (r.max().y() - r.min().y() + 1)
+          + " × "
+          + (r.max().z() - r.min().z() + 1)
+          + " — "
+          + r.volume()
+          + " blocks";
+    return first != null
+        ? "First corner set; choose the second"
+        : second != null
+            ? "Second corner set; choose the first"
+            : "Aim at blocks and set both corners";
+  }
+
+  public static String selectionDetails() {
+    return "First: " + first + "; second: " + second;
+  }
+
+  public static boolean selectCorner(boolean last) {
+    var mc = Minecraft.getInstance();
+    if (mc.level == null
+        || mc.player == null
+        || !(mc.hitResult instanceof BlockHitResult hit)
+        || hit.getType() != HitResult.Type.BLOCK) {
+      RustyClient.notice = "Aim at a block before opening the menu";
+      return false;
+    }
+    if (selectionLevel != mc.level
+        || selectionConnection != mc.getConnection()
+        || !Objects.equals(selectionScope, RustyClient.scope())) clearSelection();
+    var at = pos(hit.getBlockPos());
+    if (!loaded(at) || !settled(at)) {
+      RustyClient.notice = "Corner is not settled received terrain";
+      return false;
+    }
+    var a = last ? first : at;
+    var b = last ? at : second;
+    try {
+      var candidate = new Mining.Region(a != null ? a : at, b != null ? b : at);
+      if (!insideBorder(candidate))
+        throw new IllegalArgumentException("Selection crosses the current world border");
+    } catch (IllegalArgumentException e) {
+      RustyClient.notice = e.getMessage();
+      return false;
+    }
+    first = a;
+    second = b;
+    selectionLevel = mc.level;
+    selectionConnection = mc.getConnection();
+    selectionScope = RustyClient.scope();
+    RustyClient.notice = selectionText();
+    return true;
+  }
 
   private static final class Run {
+    Mining.Region area;
+    Mining.ClearSurvey survey;
+    int surveyIndex, highest = Integer.MIN_VALUE, remaining, protectedCount;
     Object level, connection, player;
     String scope, settings;
     Mining.Grid grid;
@@ -88,6 +192,15 @@ public final class RustyMining {
 
   static String signature() {
     var s = RustyClient.config;
+    if (areaActive())
+      return "area:"
+          + s.clearHealth
+          + ":"
+          + s.clearFood
+          + ":"
+          + s.clearDurability
+          + ":"
+          + s.clearPreview;
     return s.mineResource
         + ":"
         + s.mineCustom
@@ -112,7 +225,8 @@ public final class RustyMining {
     if (old == null) return;
     run = null;
     result = why;
-    RustyClient.notice = "Auto Mine: " + why + " (" + count + " blocks)";
+    RustyClient.notice =
+        (old.area != null ? "Area Clear: " : "Auto Mine: ") + why + " (" + count + " blocks)";
     var mc = Minecraft.getInstance();
     if (old.attack && mc.gameMode != null && !mc.options.keyAttack.isDown())
       mc.gameMode.stopDestroyBlock();
@@ -125,8 +239,20 @@ public final class RustyMining {
   }
 
   public static boolean start() {
+    return startMode(false);
+  }
+
+  public static boolean startArea() {
+    return startMode(true);
+  }
+
+  private static boolean startMode(boolean clearing) {
     var mc = Minecraft.getInstance();
     if (active()) {
+      if (areaActive() != clearing) {
+        RustyClient.notice = "Stop the other mining mode first";
+        return false;
+      }
       stop("Stopped");
       return false;
     }
@@ -134,7 +260,7 @@ public final class RustyMining {
         || mc.level == null
         || mc.gui.screen() != null
         || !mc.isWindowActive()
-        || !RustyClient.POLICY.allows("auto_mine")
+        || !RustyClient.POLICY.allows(clearing ? "area_clear" : "auto_mine")
         || RustyAssistance.eating()
         || RustyNavigation.walking()
         || RustyClient.active("freecam")) {
@@ -142,15 +268,34 @@ public final class RustyMining {
       return false;
     }
     var r = new Run();
+    if (clearing) {
+      if (selectionLevel != mc.level
+          || selectionConnection != mc.getConnection()
+          || !Objects.equals(selectionScope, RustyClient.scope())) clearSelection();
+      r.area = region();
+      if (r.area == null) {
+        RustyClient.notice = "Set both corners in this world first";
+        return false;
+      }
+      if (!insideBorder(r.area)) {
+        RustyClient.notice = "Selection crosses the current world border";
+        return false;
+      }
+      if (r.area.min().y() < mc.level.getMinY() || r.area.max().y() >= mc.level.getMaxY()) {
+        RustyClient.notice = "Selection is outside this dimension's height";
+        return false;
+      }
+    }
     r.level = mc.level;
     r.connection = mc.getConnection();
     r.player = mc.player;
     r.scope = RustyClient.scope();
-    r.settings = signature();
+
     r.health = mc.player.getHealth();
     r.previousSlot = mc.player.getInventory().getSelectedSlot();
     count = 0;
     run = r;
+    r.settings = signature();
     try {
       snapshot(r);
       if (!guard()) return false;
@@ -170,6 +315,22 @@ public final class RustyMining {
         && level.getChunkSource().getChunk(p.x() >> 4, p.z() >> 4, ChunkStatus.FULL, false) != null;
   }
 
+  private static boolean insideBorder(Mining.Region area) {
+    var border = Minecraft.getInstance().level.getWorldBorder();
+    return area.withinBorder(
+        border.getMinX(), border.getMinZ(), border.getMaxX(), border.getMaxZ());
+  }
+
+  private static int positionCell(int cell, Mining.Pos p) {
+    if (!areaActive()) return cell;
+    var border = Minecraft.getInstance().level.getWorldBorder();
+    if (p.x() < border.getMinX()
+        || p.z() < border.getMinZ()
+        || p.x() + 1.0 > border.getMaxX()
+        || p.z() + 1.0 > border.getMaxZ()) return Mining.WALL;
+    return run.area.constrain(cell, p, run.highest);
+  }
+
   private record Tool(int slot, int ticks) {}
 
   static Tool tool(BlockState state, BlockPos at) {
@@ -184,7 +345,7 @@ public final class RustyMining {
       if (stack.isEmpty()
           || (stack.isDamageableItem()
               && (stack.getMaxDamage() - stack.getDamageValue()) * 100L
-                  <= stack.getMaxDamage() * (long) RustyClient.config.mineDurability)
+                  <= stack.getMaxDamage() * (long) durabilityLimit())
           || (state.requiresCorrectToolForDrops() && !stack.isCorrectToolForDrops(state))) continue;
       float speed = stack.getDestroySpeed(state);
       if (!Float.isFinite(speed) || speed <= 0) continue;
@@ -231,8 +392,13 @@ public final class RustyMining {
                 "wither_rose",
                 "pointed_dripstone")
             .stream()
-            .anyMatch(id::contains)
-        || !state.isCollisionShapeFullBlock(mc.level, at)) return Mining.HAZARD;
+            .anyMatch(id::contains)) return Mining.HAZARD;
+    boolean full = state.isCollisionShapeFullBlock(mc.level, at);
+    if (areaActive()) {
+      var tool = state.hasBlockEntity() ? null : tool(state, at);
+      return tool == null ? Mining.passive(full) : Mining.resourceShape(tool.ticks, full);
+    }
+    if (!full) return Mining.HAZARD;
     if (!state.hasBlockEntity()
         && (TERRAIN.contains(id.replace("minecraft:", ""))
             || Mining.matches(RustyClient.config, id))) {
@@ -246,9 +412,41 @@ public final class RustyMining {
   }
 
   static void snapshot(Run r) {
+    r.stand = playerPos();
+    r.start = r.stand;
+    r.cache.clear();
+    r.search = null;
+    if (r.area != null) {
+      r.surveyIndex = 0;
+      r.survey = new Mining.ClearSurvey();
+      r.phase = 4;
+    } else allocate(r);
+  }
+
+  static void allocate(Run r) {
     var level = Minecraft.getInstance().level;
     r.start = playerPos();
     r.stand = r.start;
+    if (r.area != null) {
+      var a = r.area.min();
+      var b = r.area.max();
+      var lo =
+          new Mining.Pos(
+              Math.min(a.x(), r.start.x()) - 2,
+              Math.min(a.y(), r.start.y()) - 2,
+              Math.min(a.z(), r.start.z()) - 2);
+      var hi =
+          new Mining.Pos(
+              Math.max(b.x(), r.start.x()) + 2,
+              Math.max(b.y(), r.start.y() + 1) + 2,
+              Math.max(b.z(), r.start.z()) + 2);
+      r.grid = new Mining.Grid(lo, hi.x() - lo.x() + 1, hi.y() - lo.y() + 1, hi.z() - lo.z() + 1);
+      r.scan = 0;
+      r.phase = 0;
+      r.cache.clear();
+      r.search = null;
+      return;
+    }
     int radius = RustyClient.config.mineRadius;
     r.grid =
         new Mining.Grid(
@@ -274,7 +472,8 @@ public final class RustyMining {
             Math.abs(a.z() - b.z()) + 5);
     for (int i = 0; i < g.size(); i++) {
       var p = g.position(i);
-      g.set(p, classify(p));
+      int cell = classify(p);
+      g.set(p, positionCell(cell, p));
     }
     return g;
   }
@@ -293,7 +492,9 @@ public final class RustyMining {
         || !RustyClient.scope().equals(r.scope)) reason = "World or player changed";
     else if (mc.gui.screen() != null || !mc.isWindowActive())
       reason = "Menu opened or window lost focus";
-    else if (!RustyClient.POLICY.allows("auto_mine")
+    else if (r.area != null && !insideBorder(r.area))
+      reason = "World border changed; selection is no longer inside it";
+    else if (!RustyClient.POLICY.allows(areaActive() ? "area_clear" : "auto_mine")
         || RustyClient.active("freecam")
         || p.isDeadOrDying()
         || p.isSpectator()
@@ -302,8 +503,7 @@ public final class RustyMining {
         || p.getAbilities().flying
         || p.isFallFlying()) reason = "Player or permission is unavailable";
     else if (p.getHealth() < r.health) reason = "Player took damage";
-    else if (p.getHealth() < RustyClient.config.mineHealth
-        || p.getFoodData().getFoodLevel() < RustyClient.config.mineFood)
+    else if (p.getHealth() < healthLimit() || p.getFoodData().getFoodLevel() < foodLimit())
       reason = "Health or food is below the safety limit";
     else if (p.getInventory().getFreeSlot() < 0) reason = "Inventory is full";
     else if (mc.options.keyAttack.isDown()
@@ -338,7 +538,7 @@ public final class RustyMining {
       var a = r.action;
       var g = local(r.stand, a.pos());
       if (a.mine()) {
-        if (!rawAir(a.pos()) && !g.canMine(a.pos(), RustyClient.config.mineTunnels)) {
+        if (!rawAir(a.pos()) && !g.canMine(a.pos(), tunnels())) {
           stop("Mining face became unsafe");
           return false;
         }
@@ -354,25 +554,39 @@ public final class RustyMining {
     var mc = Minecraft.getInstance();
     var p = mc.player;
     var eye = p.getEyePosition();
-    var center = Vec3.atCenterOf(block(target));
-    if (eye.distanceTo(center) > p.blockInteractionRange()) return null;
-    var delta = center.subtract(eye);
-    for (var entity : mc.level.getEntities(p, p.getBoundingBox().expandTowards(delta).inflate(1))) {
-      if (entity.isPickable()
-          && !entity.isSpectator()
-          && entity.getBoundingBox().inflate(entity.getPickRadius()).clip(eye, center).isPresent())
-        return null;
+    var at = block(target);
+    // Aim into actual outline geometry, including thin carpets and slabs.
+    // Every candidate still uses ordinary reach, occlusion and entity checks.
+    for (var box :
+        mc.level.getBlockState(at).getShape(mc.level, at).toAabbs().stream().limit(16).toList()) {
+      var center = box.getCenter().add(at.getX(), at.getY(), at.getZ());
+      if (eye.distanceTo(center) > p.blockInteractionRange()) continue;
+      var delta = center.subtract(eye);
+      boolean blocked = false;
+      for (var entity :
+          mc.level.getEntities(p, p.getBoundingBox().expandTowards(delta).inflate(1))) {
+        if (entity.isPickable()
+            && !entity.isSpectator()
+            && entity
+                .getBoundingBox()
+                .inflate(entity.getPickRadius())
+                .clip(eye, center)
+                .isPresent()) {
+          blocked = true;
+          break;
+        }
+      }
+      if (blocked) continue;
+      var hit =
+          mc.level.clip(
+              new ClipContext(eye, center, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, p));
+      if (hit.getType() != HitResult.Type.BLOCK || !hit.getBlockPos().equals(at)) continue;
+      p.setYRot((float) Math.toDegrees(Math.atan2(-delta.x, delta.z)));
+      p.setXRot((float) -Math.toDegrees(Math.atan2(delta.y, Math.hypot(delta.x, delta.z))));
+      mc.hitResult = hit;
+      return hit;
     }
-    var hit =
-        mc.level.clip(
-            new ClipContext(eye, center, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, p));
-    if (hit.getType() != HitResult.Type.BLOCK || !hit.getBlockPos().equals(block(target)))
-      return null;
-    var d = center.subtract(eye);
-    p.setYRot((float) Math.toDegrees(Math.atan2(-d.x, d.z)));
-    p.setXRot((float) -Math.toDegrees(Math.atan2(d.y, Math.sqrt(d.x * d.x + d.z * d.z))));
-    mc.hitResult = hit;
-    return hit;
+    return null;
   }
 
   public static void preInput() {
@@ -396,7 +610,7 @@ public final class RustyMining {
     var r = run;
     var mc = Minecraft.getInstance();
     r.clock++;
-    if (count >= RustyClient.config.mineGoal && r.action == null && r.actions.isEmpty()) {
+    if (quota() && r.action == null && r.actions.isEmpty()) {
       if (r.clock >= r.collectUntil) stop("Block goal reached");
       return;
     }
@@ -442,13 +656,56 @@ public final class RustyMining {
       r.emptySince = -1;
       if (a.mine() && a.resource()) {
         var to = local(r.stand, a.pos()).collectionStep(r.stand, a.pos());
-        if (Mining.collectAfter(r.actions, to, count >= RustyClient.config.mineGoal))
+        if (Mining.collectAfter(r.actions, to, quota()))
           result = "Collecting settled resource drops";
         r.collectUntil = r.clock + 10;
-      } else if (!a.mine() && count >= RustyClient.config.mineGoal) r.collectUntil = r.clock + 10;
-      if (count >= RustyClient.config.mineGoal && r.actions.isEmpty()) return;
+      } else if (!a.mine() && quota()) r.collectUntil = r.clock + 10;
+      if (quota() && r.actions.isEmpty()) return;
     }
     switch (r.phase) {
+      case 4 -> {
+        int end = Math.min(r.surveyIndex + 2048, r.area.volume());
+        while (r.surveyIndex < end) {
+          var p = r.area.position(r.surveyIndex++);
+          int cell;
+          if (!loaded(p) || !settled(p)) cell = Mining.UNKNOWN;
+          else {
+            var state = mc.level.getBlockState(block(p));
+            cell = r.cache.computeIfAbsent(state, key -> classify(p));
+          }
+          r.survey.observe(p, cell);
+        }
+        result = "Reviewing selection — " + r.surveyIndex + "/" + r.area.volume() + " cells";
+        if (r.surveyIndex == r.area.volume()) {
+          r.remaining = r.survey.remaining;
+          r.protectedCount = r.survey.protectedCount;
+          if (r.survey.unknown > 0) {
+            stop(r.survey.unknown + " unknown or pending cells remain; stopped");
+            return;
+          }
+          if (r.survey.dangerous > 0) {
+            stop(
+                "Selection contains "
+                    + r.survey.dangerous
+                    + " hazardous or unstable cells; clear hazards manually");
+            return;
+          }
+          if (r.survey.complete()) {
+            stop("Area cleared");
+            return;
+          }
+          r.highest = r.survey.highest;
+          if (r.highest == Integer.MIN_VALUE) {
+            stop(r.remaining + " protected or unsuitable blocks remain");
+            return;
+          }
+          try {
+            allocate(r);
+          } catch (IllegalArgumentException e) {
+            stop("Selection and player exceed bounded route area");
+          }
+        }
+      }
       case 0 -> {
         int end = Math.min(r.scan + 8192, r.grid.size());
         while (r.scan < end) {
@@ -459,7 +716,7 @@ public final class RustyMining {
             var state = mc.level.getBlockState(block(p));
             cell = r.cache.computeIfAbsent(state, key -> classify(p));
           }
-          r.grid.set(p, cell);
+          r.grid.set(p, positionCell(cell, p));
         }
         if (r.scan == r.grid.size()) r.phase = 1;
       }
@@ -467,7 +724,7 @@ public final class RustyMining {
         result = "Planning a safe route";
         if (r.grid.prepare(32768)) {
           try {
-            r.search = new Mining.Search(r.grid, r.start, RustyClient.config.mineTunnels, 32768);
+            r.search = new Mining.Search(r.grid, r.start, tunnels(), 32768);
             r.grid = null;
             r.phase = 2;
           } catch (IllegalArgumentException e) {
@@ -480,12 +737,22 @@ public final class RustyMining {
         switch (search.state()) {
           case WORKING -> {}
           case LIMITED -> stop("Route search limit reached; no partial route was executed");
-          case NO_PATH -> stop("No safely reachable resource in received terrain");
+          case NO_PATH ->
+              stop(
+                  r.area != null
+                      ? r.remaining
+                          + " blocks remain ("
+                          + r.protectedCount
+                          + " protected); no safe route to the top layer"
+                      : "No safely reachable resource in received terrain");
           case FOUND -> {
             r.actions.addAll(search.plan().actions());
             r.search = null;
             r.phase = 3;
-            result = "Mining " + Mining.RESOURCES[RustyClient.config.mineResource];
+            result =
+                r.area != null
+                    ? "Clearing the selected top layer"
+                    : "Mining " + Mining.RESOURCES[RustyClient.config.mineResource];
           }
         }
       }
@@ -497,9 +764,12 @@ public final class RustyMining {
         }
         var g = local(r.stand, a.pos());
         if (a.mine()) {
+          if (r.area != null && !r.area.contains(a.pos())) {
+            stop("Refusing excavation outside the selection");
+            return;
+          }
           var p = playerPos();
-          if (p.x() == a.pos().x() && p.z() == a.pos().z()
-              || !g.canMine(a.pos(), RustyClient.config.mineTunnels)) {
+          if (p.x() == a.pos().x() && p.z() == a.pos().z() || !g.canMine(a.pos(), tunnels())) {
             stop("Unsafe mining face");
             return;
           }
@@ -530,8 +800,12 @@ public final class RustyMining {
     var m = new LinkedHashMap<String, Object>();
     m.put("active", active());
     m.put("count", count);
+    m.put("area", areaActive());
+    m.put("selection", selectionText());
     m.put("result", result);
     if (run != null) {
+      m.put("remaining", run.remaining);
+      m.put("protected", run.protectedCount);
       m.put("phase", run.phase);
       m.put("clock", run.clock);
       m.put("actions", run.actions.size());
@@ -541,8 +815,18 @@ public final class RustyMining {
   }
 
   public static List<Vec3[]> segments() {
-    if (run == null || !RustyClient.config.minePreview) return List.of();
     var out = new ArrayList<Vec3[]>();
+    var area = region();
+    if (area != null && RustyClient.config.clearPreview)
+      for (var edge : area.edges())
+        out.add(
+            new Vec3[] {
+              new Vec3(edge[0].x(), edge[0].y(), edge[0].z()),
+              new Vec3(edge[1].x(), edge[1].y(), edge[1].z())
+            });
+    if (run == null
+        || !(areaActive() ? RustyClient.config.clearPreview : RustyClient.config.minePreview))
+      return out;
     var last = Vec3.atCenterOf(block(run.stand));
     for (var a : run.actions.stream().limit(256).toList()) {
       var next = Vec3.atCenterOf(block(a.pos()));

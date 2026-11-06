@@ -2,24 +2,28 @@
 
 Keep your bearings: textured world views, navigation, movable HUDs and ordinary player assistance in a familiar Minecraft interface.
 
-**Java edition 1.3.0-beta.7 · Minecraft 26.3 · Java 25.** These jars run in Java Edition through Fabric or NeoForge. Horizon uses the separate native Rust package; never put a Java jar into Horizon's native mod installer.
+**Java edition 1.3.0-beta.8 · Minecraft 26.3 · Java 25.** These jars run in Java Edition through Fabric or NeoForge. Horizon uses the separate native Rust package; never put a Java jar into Horizon's native mod installer.
 
 The menu now defaults to **100% at the former 70% physical size**. Its **50–300%** slider and 100% reset scale only the menu; saved physical sizes and HUD placement remain intact. Drag the slider and release to apply, use keyboard arrows, or use **Apply size**.
 
 ## Install
 
-[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.7).
+[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.8).
 
 Choose exactly one loader:
 
 | Edition | Required environment | Download |
 |---|---|---|
-| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.7.jar` |
-| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.7.jar` |
+| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.8.jar` |
+| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.8.jar` |
 
 Install the matching jar in that Java installation's `mods` folder. Fabric also needs Fabric API. Do not install both Rusty loader jars together. Java 25 is required. Earlier game versions, snapshots, shader replacements and third-party rendering mods are not validated.
 
 Press **Right Shift** for the menu or use **Options → Rusty**. **X** toggles X-ray; **C** holds Zoom. Every shortcut can be rebound or cleared. X-ray also offers Hold mode. Status HUD is the only enabled module by default; restricted tools additionally need server permission in multiplayer.
+
+## Area Clear
+
+Aim at opposite block corners and use **Set first corner / Set second corner**, review the inclusive box and explicitly enable **Area Clear**. The box is limited to 32 blocks per axis. Its normal-control planner works on the highest eligible layer and never deliberately excavates outside the box. Independent health, food, tool-reserve and preview preferences have individual defaults. Containers, hazards and unsafe or unreachable leftovers are reported rather than hidden. Starts off and unbound; manual input and menus stop it without automatic resume. Multiplayer retains the existing **view + movement + assistance** grants. [Full controls and safety limits](../docs/AREA_CLEAR.md).
 
 ## A view you can navigate
 

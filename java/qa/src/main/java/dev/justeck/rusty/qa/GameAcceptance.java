@@ -26,7 +26,7 @@ public final class GameAcceptance {
   private static net.minecraft.world.entity.LivingEntity combatTarget;
   private static float combatHealth;
   private static String savedSettings, savedWaypoints, savedProfile;
-  private static volatile boolean listCaptureComplete, miningCaptureComplete;
+  private static volatile boolean listCaptureComplete, miningCaptureComplete, areaCaptureComplete;
   private static final List<Map<String, Object>> performance = new ArrayList<>();
   private static final List<Step> steps = new ArrayList<>();
 
@@ -1139,6 +1139,339 @@ public final class GameAcceptance {
         30);
     add(
         "Settings capture never starts Auto Mine",
+        () -> mc.gui.setScreen(null),
+        () -> !RustyMining.active(),
+        5);
+    addAreaClearChecks();
+  }
+
+  private static void clearFixture() {
+    miningFixture(false, false);
+    for (String cmd :
+        List.of(
+            "fill -1 200 3 1 202 5 air",
+            "fill 0 200 3 0 201 4 stone",
+            "setblock 0 200 5 stone",
+            "setblock 0 200 7 air")) command(cmd);
+  }
+
+  private static void clearCorner(BlockPos at, boolean second) {
+    var mc = Minecraft.getInstance();
+    var eye = mc.player.getEyePosition();
+    var shape = mc.level.getBlockState(at).getShape(mc.level, at);
+    var center =
+        shape.isEmpty()
+            ? Vec3.atCenterOf(at)
+            : shape.bounds().getCenter().add(at.getX(), at.getY(), at.getZ());
+    var d = center.subtract(eye);
+    mc.player.setYRot((float) Math.toDegrees(Math.atan2(-d.x, d.z)));
+    mc.player.setXRot((float) -Math.toDegrees(Math.atan2(d.y, Math.hypot(d.x, d.z))));
+    var hit =
+        mc.level.clip(
+            new net.minecraft.world.level.ClipContext(
+                eye,
+                center,
+                net.minecraft.world.level.ClipContext.Block.OUTLINE,
+                net.minecraft.world.level.ClipContext.Fluid.NONE,
+                mc.player));
+    if (hit.getType() != net.minecraft.world.phys.HitResult.Type.BLOCK
+        || !hit.getBlockPos().equals(at))
+      throw new AssertionError(
+          "Fixture corner not visible: " + at + " actual " + hit.getBlockPos());
+    mc.hitResult = hit;
+    if (!RustyMining.selectCorner(second)) throw new AssertionError(RustyClient.notice);
+  }
+
+  private static boolean areaDone(int count) {
+    return !RustyMining.active()
+        && RustyMining.count == count
+        && RustyMining.result.equals("Area cleared");
+  }
+
+  private static void addAreaClearChecks() {
+    var mc = Minecraft.getInstance();
+    add(
+        "Area Clear owned survival fixture is received",
+        () -> clearFixture(),
+        () ->
+            mc.player.onGround()
+                && mc.level.getBlockState(new BlockPos(0, 201, 4)).is(Blocks.STONE),
+        40);
+    add(
+        "Area Clear first corner uses an ordinary visible block ray",
+        () -> {
+          clearCorner(new BlockPos(0, 200, 3), false);
+          command("tp @a 0.5 200 7.5 180 0");
+        },
+        () -> Math.abs(mc.player.getZ() - 7.5) < .1,
+        10);
+    add(
+        "Area Clear second corner normalizes an inclusive two-by-two column",
+        () -> {
+          clearCorner(new BlockPos(0, 201, 4), true);
+          command("tp @a 0.5 200 0.5 0 0");
+        },
+        () ->
+            mc.player.onGround()
+                && Math.abs(mc.player.getZ() - .5) < .1
+                && RustyMining.selectionText().contains("4 blocks"),
+        10);
+    add(
+        "Area Clear removes four selected blocks and preserves outside stone and supporting"
+            + " bedrock",
+        () -> {
+          if (!RustyMining.startArea()) throw new AssertionError(RustyClient.notice);
+        },
+        () ->
+            areaDone(4)
+                && mc.getSingleplayerServer()
+                    .overworld()
+                    .getBlockState(new BlockPos(0, 200, 5))
+                    .is(Blocks.STONE)
+                && mc.getSingleplayerServer()
+                    .overworld()
+                    .getBlockState(new BlockPos(0, 199, 3))
+                    .is(Blocks.BEDROCK),
+        40);
+    add("Area Clear remains stopped after completion", () -> {}, () -> !RustyMining.active(), 20);
+    add(
+        "Partial-shape carpet fixture is received",
+        () -> {
+          clearFixture();
+          command("fill 0 200 3 0 201 4 air");
+          command("setblock 0 200 3 red_carpet");
+        },
+        () ->
+            mc.player.onGround()
+                && net.minecraft.core.registries.BuiltInRegistries.BLOCK
+                    .getKey(mc.level.getBlockState(new BlockPos(0, 200, 3)).getBlock())
+                    .toString()
+                    .equals("minecraft:red_carpet"),
+        40);
+    add(
+        "Area Clear targets a real partial-shape block",
+        () -> {
+          clearCorner(new BlockPos(0, 200, 3), false);
+          clearCorner(new BlockPos(0, 200, 3), true);
+          if (!RustyMining.startArea()) throw new AssertionError(RustyClient.notice);
+        },
+        () ->
+            areaDone(1)
+                && mc.getSingleplayerServer()
+                    .overworld()
+                    .getBlockState(new BlockPos(0, 200, 3))
+                    .isAir(),
+        40);
+    add(
+        "Area Clear protected container fixture is received",
+        () -> {
+          clearFixture();
+          command("fill 0 200 3 0 201 4 air");
+          command("setblock 0 200 3 chest{Items:[{Slot:0b,id:\"minecraft:diamond\",count:7}]}");
+        },
+        () ->
+            mc.player.onGround()
+                && mc.level.getBlockState(new BlockPos(0, 200, 3)).is(Blocks.CHEST),
+        40);
+    add(
+        "Area Clear preserves a container and reports protected leftovers",
+        () -> {
+          clearCorner(new BlockPos(0, 200, 3), false);
+          clearCorner(new BlockPos(0, 200, 3), true);
+          RustyMining.startArea();
+        },
+        () ->
+            !RustyMining.active()
+                && RustyMining.count == 0
+                && !RustyMining.result.equals("Area cleared")
+                && mc.getSingleplayerServer()
+                    .overworld()
+                    .getBlockState(new BlockPos(0, 200, 3))
+                    .is(Blocks.CHEST),
+        40);
+    add(
+        "Protected sign fixture receives both visible corner blocks",
+        () -> {
+          clearFixture();
+          command("fill 0 200 3 1 201 3 stone");
+        },
+        () ->
+            mc.player.onGround()
+                && mc.level.getBlockState(new BlockPos(1, 201, 3)).is(Blocks.STONE),
+        40);
+    add(
+        "Named wall sign replaces a selected block with its placed text",
+        () -> {
+          clearCorner(new BlockPos(0, 200, 3), false);
+          clearCorner(new BlockPos(1, 201, 3), true);
+          for (String cmd :
+              List.of(
+                  "fill 0 200 3 1 201 3 air",
+                  "setblock 0 200 3 stone",
+                  "setblock 1 200 3 oak_wall_sign[facing=east]{front_text:{messages:[\"KEEP"
+                      + " RUSTY\",\"\",\"\",\"\"]}}")) command(cmd);
+        },
+        () -> mc.level.getBlockState(new BlockPos(1, 200, 3)).is(Blocks.OAK_WALL_SIGN),
+        20);
+    add(
+        "Area Clear preserves inside wall-sign support and its actual server text",
+        () -> RustyMining.startArea(),
+        () -> {
+          var level = mc.getSingleplayerServer().overworld();
+          var sign = level.getBlockEntity(new BlockPos(1, 200, 3));
+          return !RustyMining.active()
+              && RustyMining.count == 0
+              && !RustyMining.result.equals("Area cleared")
+              && level.getBlockState(new BlockPos(0, 200, 3)).is(Blocks.STONE)
+              && sign instanceof net.minecraft.world.level.block.entity.SignBlockEntity text
+              && text.getText(net.minecraft.world.level.block.entity.SignTextSlot.FRONT)
+                  .getMessages(false)
+                  .getFirst()
+                  .getString()
+                  .contains("KEEP RUSTY");
+        },
+        20);
+    add(
+        "Live-border fixture receives safe terrain",
+        () -> clearFixture(),
+        () ->
+            mc.player.onGround()
+                && mc.level.getBlockState(new BlockPos(0, 201, 3)).is(Blocks.STONE),
+        40);
+    add(
+        "A smaller world border arrives after normal selection capture",
+        () -> {
+          clearCorner(new BlockPos(0, 200, 3), false);
+          clearCorner(new BlockPos(0, 201, 3), true);
+          command("worldborder center 0 0");
+          command("worldborder set 6");
+        },
+        () -> mc.level.getWorldBorder().getMaxZ() <= 3.01,
+        10);
+    add(
+        "Area Clear rejects a captured box crossing the live world border",
+        () -> {
+          if (RustyMining.startArea()) throw new AssertionError("Cross-border start was accepted");
+        },
+        () ->
+            !RustyMining.active()
+                && RustyClient.notice.toLowerCase(java.util.Locale.ROOT).contains("border")
+                && mc.getSingleplayerServer()
+                    .overworld()
+                    .getBlockState(new BlockPos(0, 200, 3))
+                    .is(Blocks.STONE),
+        5);
+    add(
+        "Restoring the live border permits reviewing the old selection",
+        () -> command("worldborder set 59999968"),
+        () -> mc.level.getWorldBorder().getMaxZ() > 1000000,
+        10);
+    add(
+        "A border change cancels an already active Area Clear run",
+        () -> {
+          if (!RustyMining.startArea()) throw new AssertionError(RustyClient.notice);
+          command("worldborder set 6");
+        },
+        () ->
+            !RustyMining.active()
+                && RustyMining.count == 0
+                && RustyMining.result.toLowerCase(java.util.Locale.ROOT).contains("border"),
+        10);
+    add(
+        "Owned fixture restores the border before further checks",
+        () -> command("worldborder set 59999968"),
+        () -> mc.level.getWorldBorder().getMaxZ() > 1000000,
+        10);
+    add(
+        "Area Clear hazard fixture is received",
+        () -> clearFixture(),
+        () ->
+            mc.player.onGround()
+                && mc.level.getBlockState(new BlockPos(0, 201, 3)).is(Blocks.STONE),
+        40);
+    add(
+        "Sealed fluid replaces a selected block after normal corner capture",
+        () -> {
+          clearCorner(new BlockPos(0, 200, 3), false);
+          clearCorner(new BlockPos(0, 201, 3), true);
+          for (String cmd :
+              List.of(
+                  "setblock 0 201 2 bedrock",
+                  "setblock -1 201 3 bedrock",
+                  "setblock 1 201 3 bedrock",
+                  "setblock 0 202 3 bedrock",
+                  "setblock 0 201 3 water")) command(cmd);
+        },
+        () -> !mc.level.getBlockState(new BlockPos(0, 201, 3)).getFluidState().isEmpty(),
+        10);
+    add(
+        "Area Clear refuses the entire hazardous selection before any excavation",
+        () -> RustyMining.startArea(),
+        () ->
+            !RustyMining.active()
+                && RustyMining.count == 0
+                && RustyMining.result.contains("hazardous")
+                && mc.getSingleplayerServer()
+                    .overworld()
+                    .getBlockState(new BlockPos(0, 200, 3))
+                    .is(Blocks.STONE),
+        10);
+    add(
+        "Area Clear cancellation fixture is received",
+        () -> clearFixture(),
+        () ->
+            mc.player.onGround()
+                && mc.level.getBlockState(new BlockPos(0, 200, 3)).is(Blocks.STONE),
+        40);
+    add(
+        "Area Clear manual input takes over and does not resume",
+        () -> {
+          clearCorner(new BlockPos(0, 200, 3), false);
+          clearCorner(new BlockPos(0, 200, 3), true);
+          RustyMining.startArea();
+          mc.options.keyUp.setDown(true);
+        },
+        () -> !RustyMining.active() && RustyMining.count == 0,
+        5);
+    add(
+        "Area Clear releases controls and restores defaults",
+        () -> {
+          mc.options.keyUp.setDown(false);
+          RustyClient.restoreDefaults();
+        },
+        () ->
+            !RustyMining.active()
+                && RustyMining.selectionText().contains("both corners")
+                && RustyClient.config.enabled.equals(Set.of("status_hud")),
+        20);
+    add(
+        "Area Clear uses the actual Minecraft-style settings screen",
+        () -> {
+          var screen = new RustyScreen();
+          try {
+            var field = RustyScreen.class.getDeclaredField("selected");
+            field.setAccessible(true);
+            field.set(screen, "area_clear");
+          } catch (ReflectiveOperationException e) {
+            throw new AssertionError(e);
+          }
+          mc.gui.setScreen(screen);
+        },
+        () -> mc.gui.screen() instanceof RustyScreen,
+        20);
+    add(
+        "Area Clear settings framebuffer capture completes",
+        () ->
+            net.minecraft.client.Screenshot.grab(
+                mc.gameDirectory,
+                "rusty-area-clear-settings.png",
+                mc.gameRenderer.mainRenderTarget(),
+                1,
+                message -> areaCaptureComplete = true),
+        () -> areaCaptureComplete,
+        30);
+    add(
+        "Area Clear screenshot and menu never activate excavation",
         () -> mc.gui.setScreen(null),
         () -> !RustyMining.active(),
         5);

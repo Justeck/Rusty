@@ -19,6 +19,8 @@ public final class Settings {
     return Math.max(.001, Math.min(scale, Math.min(width / 390, height / 250)));
   }
 
+  public int clearHealth = 12, clearFood = 10, clearDurability = 10;
+  public boolean clearPreview = true;
   public int mineResource = 6,
       mineRadius = 24,
       mineGoal = 16,
@@ -91,6 +93,9 @@ public final class Settings {
   }
 
   public void validate() {
+    clearHealth = Math.clamp(clearHealth, 1, 20);
+    clearFood = Math.clamp(clearFood, 0, 20);
+    clearDurability = Math.clamp(clearDurability, 1, 100);
     mineResource = Math.clamp(mineResource, 0, 11);
     mineRadius = Math.clamp(mineRadius, 8, 32);
     mineGoal = Math.clamp(mineGoal, 1, 256);
@@ -129,6 +134,7 @@ public final class Settings {
     Catalog.ALL.forEach(m -> known.add(m.id()));
     enabled.retainAll(known);
     enabled.remove("auto_mine");
+    enabled.remove("area_clear");
     favorites.retainAll(known);
     if (recent == null) recent = new java.util.ArrayList<>();
     recent =

@@ -1,5 +1,17 @@
 # Java edition validation
 
+## 1.3.0-beta.8 — Area Clear
+
+Both loader packages build on Java25. The shared core passes **1,231 behavioral assertions**, **four existing mining test methods** and **six new Area Clear methods** covering normalized limits, per-position boundaries, partial support, incomplete surveys, null settings and transient server-gated activation.
+
+The final beta.8 Fabric runtime completed **118 full owned-world checks**, followed by **38 focused mining/Area Clear checks** including the new settings framebuffer capture. NeoForge completed **121 full owned-world checks**, including the same new capture. The focused run overlaps the full suite; these are separate run counts, not additional unique feature claims. All completed successfully.
+
+Area Clear checks use actual ordinary survival mining on a disposable integrated server. They remove the complete selected four-block box and independently inspect outside stone and supporting bedrock, target a real carpet shape, preserve a chest while reporting protected leftovers, yield to manual input and reset transient corners. The actual menu capture is reviewed and unretouched. Existing Auto Mine, HUD, tracer, default, X-Ray/Finder and world-lifecycle regressions remain in the full suites.
+
+Java's restricted multiplayer tools retain the current-server **view + movement + assistance** requirement for both mining modes. No new dedicated Java-server permission run, arbitrary modpack/rendering replacement, latency stress or endurance result is claimed for this patch. These tests reduce uncertainty; they do not guarantee survival or a globally fastest excavation order. [Controls and limits](AREA_CLEAR.md).
+
+![Reviewed actual Area Clear settings](screenshots/java/rusty-area-clear-settings.png)
+
 ## Beta.7 published package verification
 
 Both GitHub loader releases were downloaded and compared with the actual game-tested builds. Every compiled product class is byte-identical. `rusty.mixins.json` has identical JSON and differs only in Windows/Linux line endings; source-jar Java text has the same CRLF/LF distinction. Both Modrinth CDN files exactly equal the public GitHub runtime jars. The saved page now documents 44 modules, Auto Mine, its permission requirements and the 106-check game scope, with a visually reviewed original settings capture. Twelve superseded Modrinth versions were removed after verifying the new files. Approval remains unconfirmed while the project is under review. [Publication receipt](evidence/auto-mine-publication-1.3.0.json).

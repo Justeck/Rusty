@@ -1,7 +1,7 @@
 # Rusty, Apache-2.0; native Freecam component MIT.
 [mod]
 id = "rusty"
-version = "1.3.0"
+version = "1.3.1"
 priority = 100
 [compatibility]
 horizon_revision = "66f3981f522b24c250b21523a70080965b940424"
@@ -1024,6 +1024,14 @@ file="crates/horizon-client/src/game/agent.rs"
 name="rusty_mining_agent"
 source="mining_agent.rs"
 visibility="pub"
+
+[[injection]]
+id="mining-grounded-arrival"
+kind="HEAD"
+cancellable=true
+target="horizon_client::game::agent::Game<'_>::step_goto"
+helper="mining_goto_hook.rs"
+bindings=[{name="game",ty="&mut crate::game::Game<'_>",value="&mut *self"},{name="goto",ty="&mut Goto",value="&mut *g"},{name="timed_out",ty="bool",value="timed_out"}]
 
 [[injection]]
 id="auto-mine-mouse-takeover"

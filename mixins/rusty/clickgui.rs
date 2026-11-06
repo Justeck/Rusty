@@ -120,6 +120,7 @@ pub(super) fn config_bool<'a>(c: &'a mut Config, id: &str) -> Option<&'a mut boo
     Some(match id {
         "mine_tunnels" => &mut c.mining.tunnels,
         "mine_preview" => &mut c.mining.preview,
+        "clear_preview" => &mut c.area_clear.preview,
         "minimap" => &mut c.awareness.minimap,
         "minimap_rotate" => &mut c.awareness.minimap_rotate,
         "minimap_round" => &mut c.awareness.minimap_round,
@@ -253,7 +254,8 @@ pub(super) fn enabled_with_config(cfg: &Config, id: &str) -> bool {
         "xray" => rusty::active(),
         "freecam" => rusty_freecam::active(),
         "waypoint_walk" => super::rusty_waypoint_walk::active(),
-        "auto_mine" => super::rusty_mining_native::active(),
+        "auto_mine" => super::rusty_mining_native::resource_active(),
+        "area_clear" => super::rusty_mining_native::area_active(),
         "zoom" => rusty_control::zoom_active(),
         _ => flag(cfg, id).unwrap_or(false),
     }
@@ -272,6 +274,9 @@ fn number(c: &Config, id: &str) -> f64 {
         };
     }
     match id {
+        "clear_health" => c.area_clear.min_health as f64,
+        "clear_food" => c.area_clear.min_food as f64,
+        "clear_durability" => c.area_clear.min_durability as f64,
         "mine_radius" => c.mining.radius as f64,
         "mine_goal" => c.mining.goal as f64,
         "mine_health" => c.mining.min_health as f64,
@@ -385,6 +390,9 @@ fn set_number(c: &mut Config, id: &str, value: f64) -> Result<(), String> {
         return c.client.hud_layout.set(panel, p);
     }
     match id {
+        "clear_health" => c.area_clear.min_health = value as f32,
+        "clear_food" => c.area_clear.min_food = value as u32,
+        "clear_durability" => c.area_clear.min_durability = value as u8,
         "mine_radius" => c.mining.radius = value as u32,
         "mine_goal" => c.mining.goal = value as u32,
         "mine_health" => c.mining.min_health = value as f32,
@@ -491,7 +499,10 @@ pub(super) fn frame(game: &mut Game<'_>) {
             Intent::DefaultSetting(id) => {
                 force = true;
                 dirty = true;
-                if matches!(id, "xray" | "freecam" | "zoom" | "waypoint_walk" | "auto_mine") {
+                if matches!(
+                    id,
+                    "xray" | "freecam" | "zoom" | "waypoint_walk" | "auto_mine" | "area_clear"
+                ) {
                     operations.push(Intent::DefaultSetting(id));
                     Ok(())
                 } else {
@@ -529,7 +540,7 @@ pub(super) fn frame(game: &mut Game<'_>) {
                         status=Some("X-ray uses Hold activation. Hold its bound key while playing, or choose Toggle.".into());
                         Ok(())
                     }
-                    "xray" | "freecam" | "waypoint_walk" | "auto_mine" => {
+                    "xray" | "freecam" | "waypoint_walk" | "auto_mine" | "area_clear" => {
                         operations.push(Intent::ToggleModule(id));
                         Ok(())
                     }
@@ -556,11 +567,36 @@ pub(super) fn frame(game: &mut Game<'_>) {
                 };
                 Ok(())
             }
-            Intent::MiningResource => { dirty=true;cfg.mining.resource=(cfg.mining.resource+1)%12;Ok(()) }
+            Intent::ClearCorner(second) => super::rusty_mining_native::select_corner(game, second)
+                .map(|()| {
+                    status = Some(super::rusty_mining_native::selection_text());
+                }),
+            Intent::ClearSelection => {
+                super::rusty_mining_native::reset_selection();
+                status = Some("Selection cleared".into());
+                Ok(())
+            }
+            Intent::MiningResource => {
+                dirty = true;
+                cfg.mining.resource = (cfg.mining.resource + 1) % 12;
+                Ok(())
+            }
             Intent::MiningAimed => {
-                match game.pick().map(|hit|game.res.facts().get(game.world.block(hit.pos[0],hit.pos[1],hit.pos[2])).name.to_string()) {
-                    Some(id)=>{cfg.mining.custom_block=id.clone();cfg.mining.resource=11;dirty=true;status=Some(format!("Custom resource: {id}"));Ok(())},
-                    None=>Err("Aim at a block before opening this menu".into()),
+                match game.pick().map(|hit| {
+                    game.res
+                        .facts()
+                        .get(game.world.block(hit.pos[0], hit.pos[1], hit.pos[2]))
+                        .name
+                        .to_string()
+                }) {
+                    Some(id) => {
+                        cfg.mining.custom_block = id.clone();
+                        cfg.mining.resource = 11;
+                        dirty = true;
+                        status = Some(format!("Custom resource: {id}"));
+                        Ok(())
+                    }
+                    None => Err("Aim at a block before opening this menu".into()),
                 }
             }
             Intent::Favorite(id) => {
@@ -670,9 +706,19 @@ pub(super) fn frame(game: &mut Game<'_>) {
                 }
                 Intent::ToggleModule("xray") => rusty_control::toggle_xray(game),
                 Intent::ToggleModule("freecam") => rusty_control::toggle_freecam(game),
+                Intent::ToggleModule("area_clear") => {
+                    rusty_control::close_menu(game);
+                    if let Err(e) = super::rusty_mining_native::toggle_area(game) {
+                        game.native_chat(&e);
+                        error = Some(e);
+                    }
+                }
                 Intent::ToggleModule("auto_mine") => {
                     rusty_control::close_menu(game);
-                    if let Err(e)=super::rusty_mining_native::toggle(game){game.native_chat(&e);error=Some(e);}
+                    if let Err(e) = super::rusty_mining_native::toggle(game) {
+                        game.native_chat(&e);
+                        error = Some(e);
+                    }
                 }
                 Intent::ToggleModule("waypoint_walk") => {
                     rusty_control::close_menu(game);
@@ -886,7 +932,14 @@ fn act(m: &mut Menu, action: Action, at: [f32; 2], right: bool) {
             ui.enqueue(Intent::ToggleBool(id));
         }
         Action::Choice(id) => {
-            ui.enqueue(if id == "mine_resource" {Intent::MiningResource}else if id == "mine_aimed" {Intent::MiningAimed}else{Intent::Activation});
+            ui.enqueue(match id {
+                "mine_resource" => Intent::MiningResource,
+                "mine_aimed" => Intent::MiningAimed,
+                "clear_first" => Intent::ClearCorner(false),
+                "clear_second" => Intent::ClearCorner(true),
+                "clear_selection" => Intent::ClearSelection,
+                _ => Intent::Activation,
+            });
         }
         Action::Numeric(id, rect, kind) => {
             if right {
@@ -2269,7 +2322,19 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                         &format!(
                             "{}: {}",
                             s.label,
-                            if s.id == "mine_resource" { if cfg.mining.resource==11 { &cfg.mining.custom_block } else { horizon_client_render::mesher::rusty_mining::RESOURCES[usize::from(cfg.mining.resource)] } } else {match cfg.activation {ActivationMode::Toggle=>"Toggle",ActivationMode::Hold=>"Hold"}}
+                            if s.id == "mine_resource" {
+                                if cfg.mining.resource == 11 {
+                                    &cfg.mining.custom_block
+                                } else {
+                                    horizon_client_render::mesher::rusty_mining::RESOURCES
+                                        [usize::from(cfg.mining.resource)]
+                                }
+                            } else {
+                                match cfg.activation {
+                                    ActivationMode::Toggle => "Toggle",
+                                    ActivationMode::Hold => "Hold",
+                                }
+                            }
                         ),
                         Action::Choice(s.id),
                         false,
@@ -2302,6 +2367,7 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                     yy += 27.0;
                 }
                 SettingKind::Action => {
+                    let clear_label = super::rusty_mining_native::selection_text();
                     button(
                         game,
                         batch,
@@ -2311,10 +2377,22 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                             if s.id == "edit_rules" { sw - 62.0 } else { sw },
                             21.0,
                         ],
-                        s.label,
+                        if s.id == "clear_info" {
+                            &clear_label
+                        } else {
+                            s.label
+                        },
                         match s.id {
                             "add_waypoint" => Action::AddWaypoint,
                             "mine_aimed" => Action::Choice("mine_aimed"),
+                            "clear_first" | "clear_second" | "clear_selection" => {
+                                Action::Choice(s.id)
+                            }
+                            "clear_info" => Action::Help(format!(
+                                "{}\n{}",
+                                super::rusty_mining_native::selection_details(),
+                                s.description
+                            )),
                             "build_anchor" => Action::BuildAnchor,
                             "build_place" => Action::BuildPlace,
                             _ => Action::Advanced,

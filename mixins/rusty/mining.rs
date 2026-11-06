@@ -4,6 +4,175 @@ use serde::{Deserialize, Serialize};
 use std::{cmp::Reverse, collections::BinaryHeap};
 
 pub type Node = [i32; 3];
+
+/// Normal walking must stop applying forward input at a reached column while
+/// landing. The host's general arrival tolerance also accepts mid-air drops.
+pub fn brake_before_landing(
+    position: [f64; 3],
+    target: [f64; 3],
+    near: f64,
+    grounded: bool,
+) -> bool {
+    let horizontal = (position[0] - target[0]).hypot(position[2] - target[2]);
+    horizontal <= near && (!grounded || (position[1] - target[1]).abs() > 0.15)
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct Region {
+    pub min: Node,
+    pub max: Node,
+}
+impl Region {
+    pub fn new(a: Node, b: Node) -> Result<Self, String> {
+        let min = std::array::from_fn(|i| a[i].min(b[i]));
+        let max = std::array::from_fn(|i| a[i].max(b[i]));
+        if (0..3).any(|i| i64::from(max[i]) - i64::from(min[i]) >= 32)
+            || [0, 2]
+                .into_iter()
+                .any(|i| min[i] < -29_999_984 || max[i] > 29_999_983)
+            || min[1] < -2048
+            || max[1] > 2047
+        {
+            return Err(
+                "Selection must fit 32 blocks per axis inside the supported world bounds".into(),
+            );
+        }
+        Ok(Self { min, max })
+    }
+    pub fn contains(self, p: Node) -> bool {
+        (0..3).all(|i| p[i] >= self.min[i] && p[i] <= self.max[i])
+    }
+    pub fn within_border(self, bounds: [f64; 4]) -> bool {
+        bounds.iter().all(|v| v.is_finite())
+            && f64::from(self.min[0]) >= bounds[0]
+            && f64::from(self.min[2]) >= bounds[1]
+            && f64::from(self.max[0]) + 1.0 <= bounds[2]
+            && f64::from(self.max[2]) + 1.0 <= bounds[3]
+    }
+    pub fn volume(self) -> usize {
+        (0..3)
+            .map(|i| (self.max[i] - self.min[i] + 1) as usize)
+            .product()
+    }
+    pub fn position(self, i: usize) -> Option<Node> {
+        if i >= self.volume() {
+            return None;
+        }
+        let w = (self.max[0] - self.min[0] + 1) as usize;
+        let d = (self.max[2] - self.min[2] + 1) as usize;
+        Some([
+            self.min[0] + (i % w) as i32,
+            self.min[1] + (i / (w * d)) as i32,
+            self.min[2] + (i / w % d) as i32,
+        ])
+    }
+    pub fn constrain(self, cell: Cell, p: Node, layer: Option<i32>) -> Cell {
+        if self.contains(p) && layer == Some(p[1]) {
+            cell
+        } else {
+            Cell {
+                // Outside attachments and tall-block halves may break when their
+                // support is removed. Protect neighboring excavation conservatively.
+                flags: (cell.flags & !(MINE | RESOURCE))
+                    | if !self.contains(p)
+                        && cell.flags & KNOWN != 0
+                        && cell.flags & (AIR | SOLID) == 0
+                    {
+                        SUPPORT_GUARD
+                    } else {
+                        0
+                    },
+                ..cell
+            }
+        }
+    }
+    pub fn edges(self) -> Vec<[[f64; 3]; 2]> {
+        let mut out = Vec::with_capacity(12);
+        for axis in 0..3 {
+            for a in 0..2 {
+                for b in 0..2 {
+                    let mut from = self.min.map(f64::from);
+                    from[(axis + 1) % 3] = if a == 0 {
+                        f64::from(self.min[(axis + 1) % 3])
+                    } else {
+                        f64::from(self.max[(axis + 1) % 3]) + 1.0
+                    };
+                    from[(axis + 2) % 3] = if b == 0 {
+                        f64::from(self.min[(axis + 2) % 3])
+                    } else {
+                        f64::from(self.max[(axis + 2) % 3]) + 1.0
+                    };
+                    let mut to = from;
+                    to[axis] = f64::from(self.max[axis]) + 1.0;
+                    out.push([from, to]);
+                }
+            }
+        }
+        out
+    }
+}
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[serde(default)]
+pub struct ClearSettings {
+    pub min_health: f32,
+    pub min_food: u32,
+    pub min_durability: u8,
+    pub preview: bool,
+}
+impl Default for ClearSettings {
+    fn default() -> Self {
+        Self {
+            min_health: 12.0,
+            min_food: 10,
+            min_durability: 10,
+            preview: true,
+        }
+    }
+}
+impl ClearSettings {
+    pub fn mining(&self) -> Settings {
+        Settings {
+            radius: 32,
+            tunnels: false,
+            min_health: self.min_health,
+            min_food: self.min_food,
+            min_durability: self.min_durability,
+            preview: self.preview,
+            ..Settings::default()
+        }
+    }
+    pub fn validate(&self) -> Result<(), String> {
+        self.mining().validate()
+    }
+}
+#[derive(Default, Debug)]
+pub struct ClearSurvey {
+    pub remaining: u32,
+    pub protected: u32,
+    pub unknown: u32,
+    pub dangerous: u32,
+    pub highest: Option<i32>,
+}
+impl ClearSurvey {
+    pub fn observe(&mut self, p: Node, cell: Cell) {
+        if cell.flags & KNOWN == 0 {
+            self.unknown += 1;
+        } else if !cell.is_air() {
+            self.remaining += 1;
+            if cell.flags & DANGER != 0 {
+                self.dangerous += 1;
+            }
+            if cell.flags & MINE != 0 {
+                self.highest = Some(self.highest.map_or(p[1], |y| y.max(p[1])));
+            } else {
+                self.protected += 1;
+            }
+        }
+    }
+    pub fn complete(&self) -> bool {
+        self.remaining == 0 && self.unknown == 0
+    }
+}
 pub const RESOURCES: [&str; 12] = [
     "Coal",
     "Iron",
@@ -149,6 +318,7 @@ const SOLID: u8 = 4;
 const MINE: u8 = 8;
 const RESOURCE: u8 = 16;
 const DANGER: u8 = 32;
+const SUPPORT_GUARD: u8 = 64;
 #[derive(Clone, Copy, Debug, Default)]
 pub struct Cell {
     flags: u8,
@@ -192,6 +362,18 @@ impl Cell {
         Self {
             flags: KNOWN | SOLID | MINE | RESOURCE,
             ticks,
+        }
+    }
+    pub const fn resource_shape(ticks: u16, full: bool) -> Self {
+        Self {
+            flags: KNOWN | MINE | RESOURCE | if full { SOLID } else { 0 },
+            ticks,
+        }
+    }
+    pub const fn passive(full: bool) -> Self {
+        Self {
+            flags: KNOWN | if full { SOLID } else { SUPPORT_GUARD },
+            ticks: 0,
         }
     }
     pub fn is_air(self) -> bool {
@@ -321,7 +503,7 @@ impl Grid {
             && (tunnels || c.is_resource())
             && DIRS.iter().all(|d| {
                 let n = self.get(add(p, *d));
-                n.flags & KNOWN != 0 && n.flags & DANGER == 0
+                n.flags & KNOWN != 0 && n.flags & (DANGER | SUPPORT_GUARD) == 0
             })
     }
     pub fn safe_stand(&self, p: Node) -> bool {

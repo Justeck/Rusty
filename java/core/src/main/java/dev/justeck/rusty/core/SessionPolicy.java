@@ -10,7 +10,7 @@ public final class SessionPolicy {
   public static String required(String module) {
     return switch (module) {
       case "xray", "finder", "entity_esp", "entity_tracers", "storage_esp", "freecam" -> "view";
-      case "auto_mine" -> "view + movement + assistance";
+      case "auto_mine", "area_clear" -> "view + movement + assistance";
       case "trigger_bot" -> "combat";
       case "auto_sprint", "safe_walk", "auto_jump", "waypoint_walk" -> "movement";
       case "auto_tool",
@@ -34,7 +34,7 @@ public final class SessionPolicy {
   }
 
   public boolean allows(String module) {
-    if (module.equals("auto_mine"))
+    if (module.equals("auto_mine") || module.equals("area_clear"))
       return identity != null
           && (local || grants.containsAll(Set.of("view", "movement", "assistance")));
     String permission = required(module);

@@ -53,7 +53,7 @@ pub(in crate::game) fn walk(
         progress_tick: game.ticks,
         replans: 0,
         jump_until: 0,
-        warning: None,
+        warning: Some("Rusty checked mining step".into()),
     };
     let (tx, rx) = mpsc::channel();
     game.start_task(NAME, TaskKind::Goto(Box::new(goto)), &tx, 4.)

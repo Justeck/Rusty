@@ -1,12 +1,14 @@
 <p align="center"><img src="docs/assets/rusty-wordmark.png" width="760" alt="Rusty — original copper wordmark"></p>
 <p align="center"><strong>Keep your bearings.</strong></p>
-<p align="center">44 configurable tools · Horizon · Fabric · NeoForge · Minecraft 26.3</p>
+<p align="center">45 configurable tools · Horizon · Fabric · NeoForge · Minecraft 26.3</p>
 
 <p align="center"><a href="https://github.com/Justeck/Rusty/actions/workflows/build.yml"><img src="https://github.com/Justeck/Rusty/actions/workflows/build.yml/badge.svg" alt="Native checks"></a> <a href="https://github.com/Justeck/Rusty/actions/workflows/java.yml"><img src="https://github.com/Justeck/Rusty/actions/workflows/java.yml/badge.svg" alt="Java edition checks"></a> <img src="https://img.shields.io/badge/Horizon_runtime-Rust-ce8b62" alt="Horizon runtime: Rust"> <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-777777" alt="Apache-2.0"></a></p>
 
 **Rusty is a native Rust toolkit for Horizon, with Fabric and NeoForge counterparts:** a familiar Minecraft interface, textured world views, independent HUD layouts, local navigation and ordinary player assistance. Press **Right Shift** to open the menu. Search by module, setting or description, then enable the tools you want.
 
-**New in 1.3.0: Auto Mine.** Select a resource and block goal, then explicitly start a bounded route that weighs walking and mining time. Normal player controls perform each action, with live terrain checks, server acknowledgment, supported drop collection and immediate manual takeover. Off and unbound by default. [Auto Mine guide](docs/AUTO_MINE.md) · [Validation and limits](docs/VALIDATION.md).
+**New in 1.3.1: Area Clear.** Set two opposite corners, review the bounded box and explicitly start ordinary survival excavation. It works from the highest eligible layer, protects excavation boundaries and reports unsafe or unreachable leftovers. Off and unbound by default. [Area Clear guide](docs/AREA_CLEAR.md).
+
+**Auto Mine remains available.** Select a resource and block goal, then explicitly start a bounded route that weighs walking and mining time. Normal player controls perform each action, with live terrain checks, server acknowledgment, supported drop collection and immediate manual takeover. Off and unbound by default. [Auto Mine guide](docs/AUTO_MINE.md) · [Validation and limits](docs/VALIDATION.md).
 
 Arrange your HUD directly in the game view: click **Edit HUD**, drag overlays into place and resize with corner handles. **Enter** saves; **Escape** cancels. Independent Entity Tracers target choices remain available.
 
@@ -18,11 +20,11 @@ Arrange your HUD directly in the game view: click **Edit HUD**, drag overlays in
 
 | Edition | Game/runtime | Installation |
 |---|---|---|
-| **Horizon native 1.3.0** | Horizon 66f3981 · API 411 · Minecraft 26.3 · Rust | Native GitHub input below |
-| **Fabric 1.3.0-beta.7** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
-| **NeoForge 1.3.0-beta.7** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
+| **Horizon native 1.3.1** | Horizon 66f3981 · API 411 · Minecraft 26.3 · Rust | Native GitHub input below |
+| **Fabric 1.3.0-beta.8** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
+| **NeoForge 1.3.0-beta.8** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
 
-The Java counterparts share Minecraft-style controls and a 44-module catalog, with edition-specific behavior and validation. Their restricted multiplayer tools require authoritative server opt-in; ordinary information tools work on unmodified servers. [Permissions and differences](java/README.md#multiplayer-permissions) · [Java validation](docs/JAVA_VALIDATION.md). The stable native release remains the GitHub `latest` so Horizon's installer keeps resolving its native package.
+The Java counterparts share Minecraft-style controls and a 45-module catalog, with edition-specific behavior and validation. Their restricted multiplayer tools require authoritative server opt-in; ordinary information tools work on unmodified servers. [Permissions and differences](java/README.md#multiplayer-permissions) · [Java validation](docs/JAVA_VALIDATION.md). The stable native release remains the GitHub `latest` so Horizon's installer keeps resolving its native package.
 
 The Fabric and NeoForge beta has been [submitted to Modrinth](https://modrinth.com/mod/rusty-toolkit) with explicit AI code, asset and text disclosures. It is **under review**, with approval unconfirmed. GitHub remains the available download source. [Submission record](docs/evidence/modrinth-submission.json) · [Auto Mine acceptance](docs/evidence/auto-mine-1.3.0.json) · [Published downloads and launcher installation](docs/evidence/auto-mine-publication-1.3.0.json).
 
@@ -36,7 +38,7 @@ https://github.com/Justeck/Rusty
 
 Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **66f3981**, native API **411**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
 
-The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.3.0`](https://github.com/Justeck/Rusty/releases/tag/v1.3.0). The [Auto Mine guide](docs/AUTO_MINE.md) describes its controls and conservative limits. Earlier [HUD editor acceptance](docs/evidence/hud-editor-1.2.7.json) and [publication/launcher verification](docs/evidence/hud-publication-1.2.7.json) remain available for that release. [Validation](docs/VALIDATION.md) distinguishes automated checks, actual game tests and launcher installation.
+The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.3.1`](https://github.com/Justeck/Rusty/releases/tag/v1.3.1). The [Area Clear](docs/AREA_CLEAR.md) and [Auto Mine](docs/AUTO_MINE.md) guides describe their controls and conservative limits. Historical receipts retain their original release scope. [Validation](docs/VALIDATION.md) distinguishes automated checks, actual game tests and launcher installation.
 
 **Auto Mine** is an explicitly started resource mode with ore presets, aimed Custom blocks, weighted routes, ordinary walking and mining, a block goal and conservative safety stops. It uses received terrain and waits for normal server acknowledgments. It stays off by default and never resumes a stopped run. [Controls, defaults and limitations](docs/AUTO_MINE.md).
 
@@ -53,6 +55,14 @@ The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.3.
 **Right Shift** opens Rusty. **Options → Mods → Rusty** remains the recovery path. See [Installation](docs/INSTALLATION.md), [Usage](docs/USAGE.md) and [Modules](docs/MODULES.md).
 
 ## Familiar controls, less friction
+
+### Choose a box. Clear it under your control.
+
+Aim at two opposite corners in **Area Clear**, review the inclusive dimensions and start explicitly. The green box and route preview show the planned work. Independent safety defaults and strict deliberate excavation boundaries keep the operation bounded. Containers, fluids and unsafe or unreachable leftovers are protected and reported. Manual controls or opening a menu stop it; it never resumes automatically. [Area Clear controls and limitations](docs/AREA_CLEAR.md).
+
+![Actual Area Clear settings in Fabric beta.8](docs/screenshots/java/rusty-area-clear-settings.png)
+
+Original, unretouched capture from the owned Fabric 26.3 acceptance world. The Horizon edition offers the same controls through its native Minecraft-style menu; multiplayer permission requirements differ by edition.
 
 ### Resource routes, under your control
 
