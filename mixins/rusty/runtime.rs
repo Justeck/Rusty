@@ -5,7 +5,7 @@ use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::{Arc, RwLock};
 
 pub const ID: &str = "rusty";
-pub const VERSION: &str = "1.3.1";
+pub const VERSION: &str = "1.4.0";
 pub const TITLE: &str = "Rusty";
 pub const DEFAULT_KEY: &str = "key.keyboard.x";
 pub const MAX_PROFILE_BYTES: usize = 4 * 1024 * 1024;

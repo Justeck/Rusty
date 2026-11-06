@@ -241,7 +241,10 @@ public final class RustyNavigation {
     cancelWalk();
     var mc = Minecraft.getInstance();
     var marker = selected();
-    if (marker == null || mc.player == null || !RustyClient.POLICY.allows("waypoint_walk")) {
+    if (SchematicConstruction.active()
+        || marker == null
+        || mc.player == null
+        || !RustyClient.POLICY.allows("waypoint_walk")) {
       RustyClient.notice = "Select a marker and obtain server movement permission first.";
       return;
     }

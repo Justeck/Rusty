@@ -67,6 +67,7 @@ pub(super) fn observe_key(
 ) {
     if pressed && !repeat {
         super::rusty_mining_native::manual_look();
+        super::rusty_schematic_native::manual_look();
     }
     if game.native_window()
         && let Some(name) = horizon_client::keybinds::key_name(key)
@@ -270,6 +271,7 @@ pub(super) fn default_runtime(game: &mut Game<'_>) {
     super::rusty_inventory::reset();
     super::rusty_automations::reset();
     super::rusty_builder::reset();
+    super::rusty_schematic_native::reset(game);
 }
 pub(super) fn apply_config(game: &mut Game<'_>, cfg: Config) -> Result<(), String> {
     let cfg = cfg.validated()?;
@@ -444,6 +446,7 @@ pub(super) fn frame(game: &mut Game<'_>) {
     super::rusty_ui::frame(game);
     super::rusty_navigation_native::frame(game);
     super::rusty_builder::frame(game);
+    super::rusty_schematic_native::frame(game);
     super::rusty_assist::frame(game);
     super::rusty_automations::frame(game);
     super::rusty_inventory::frame(game);
@@ -474,6 +477,7 @@ pub(super) fn sprint(game: &mut Game<'_>) {
     });
     let want = game.native_on(rusty::ID)
         && !super::rusty_mining_native::active()
+        && !super::rusty_schematic_native::active()
         && rusty::config().auto_sprint
         && game.native_playing()
         && game.focused
@@ -501,6 +505,7 @@ pub(super) fn reset(game: &mut Game<'_>) {
     WALK_REQUEST.set(false);
     MINE_REQUEST.set(0);
     super::rusty_builder::reset();
+    super::rusty_schematic_native::reset(game);
     super::rusty_assist::reset(game);
     super::rusty_automations::reset();
     super::rusty_inventory::reset();
@@ -522,6 +527,7 @@ pub(super) fn window(game: &mut Game<'_>, event: &WindowEvent) {
         } | WindowEvent::MouseWheel { .. }
     ) {
         super::rusty_mining_native::manual_look();
+        super::rusty_schematic_native::manual_look();
     }
     if !game.native_window() {
         return;
@@ -682,6 +688,7 @@ pub(super) fn control(
         return ControlFlow::Continue(());
     }
     if matches!(line.trim(), "release" | "stop") {
+        super::rusty_schematic_native::stop(game);
         ZOOM.set(false);
         INPUT.with_borrow_mut(|input| {
             input.down = false;
@@ -717,6 +724,7 @@ pub(super) fn control(
             "assistance":super::rusty_assist::status(game),
             "automations":super::rusty_automations::status(),
             "build":super::rusty_builder::snapshot(),
+            "schematic":super::rusty_schematic_native::snapshot(),
             "inventory_assist":super::rusty_inventory::status(),
             "minimap":game.native_minimap_now().map(|m|serde_json::json!({"size":m.size,"scale":m.blocks_per_pixel,"rotate":m.rotate,"round":m.round})),
             "walking":super::rusty_waypoint_walk::status(),
@@ -725,6 +733,12 @@ pub(super) fn control(
     }
     if line.trim() == "rusty-build-status" {
         return ControlFlow::Break(Ok(Some(super::rusty_builder::snapshot())));
+    }
+    if let Some(rest)=line.trim().strip_prefix("rusty-schematic "){
+        let (command,raw)=rest.split_once(' ').unwrap_or((rest,"{}"));
+        let result=serde_json::from_str::<serde_json::Value>(raw).map_err(|e|format!("Invalid schematic arguments: {e}"))
+            .and_then(|args|super::rusty_schematic_native::command(game,command,&args));
+        return ControlFlow::Break(Ok(Some(match result{Ok(())=>super::rusty_schematic_native::snapshot(),Err(error)=>serde_json::json!({"error":error})})));
     }
     if matches!(line.trim(), "rusty-build-anchor" | "rusty-build-place") {
         let result = if line.trim() == "rusty-build-anchor" {

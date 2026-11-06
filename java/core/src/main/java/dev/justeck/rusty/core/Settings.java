@@ -19,6 +19,7 @@ public final class Settings {
     return Math.max(.001, Math.min(scale, Math.min(width / 390, height / 250)));
   }
 
+  public int plannerHealth = 12, plannerFood = 10;
   public int clearHealth = 12, clearFood = 10, clearDurability = 10;
   public boolean clearPreview = true;
   public int mineResource = 6,
@@ -93,6 +94,8 @@ public final class Settings {
   }
 
   public void validate() {
+    plannerHealth = Math.clamp(plannerHealth, 1, 20);
+    plannerFood = Math.clamp(plannerFood, 0, 20);
     clearHealth = Math.clamp(clearHealth, 1, 20);
     clearFood = Math.clamp(clearFood, 0, 20);
     clearDurability = Math.clamp(clearDurability, 1, 100);

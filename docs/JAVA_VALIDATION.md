@@ -1,5 +1,17 @@
 # Java edition validation
 
+## 1.4.0-beta.1 — Schematic Builder
+
+Fabric and NeoForge each pass **80 actual schematic/UI checks** and **133 existing feature checks** in fresh owned disposable development worlds. Both packages compile on Java25, with **60 JUnit tests**, **1,231 shared behavioral assertions** and **18 direct host regressions** passing. Host tests are isolated from both game QA mods and downloadable jars.
+
+Schematic checks independently generate modern `.schem`, `.litematic` and structure `.nbt` inputs, verify all 12 directional/coupled cells, source ten placement items from the main inventory with a full hotbar, walk beyond ordinary reach and retain displaced stacks. Partial blocks, protected obstructions, actual rejected swaps and stale Stats traffic, scoped cancellation, normal rotation before use, ordinary/absorbed damage, health/food limits and dimension changes are exercised. The existing suites retain X-ray/Finder isolation, texture coverage, HUD dragging/resizing, defaults, active lists, Auto Mine and Area Clear.
+
+The expanded checks include Survival/Creative permission refusal and active revocation, coherent multi-batch verification, bounded relevant churn, unknown/partial terminal counts, mixed preexisting/coupled/new/manual/detail outcomes and late normal placement receipts after Stop. Chunk replacement, drop and cache-range cases invoke actual host cache operations in the owned world; these are explicitly **controlled host-cache mutations, not observed network deliveries**. The retained result view separates initial matches, newly completed cells, action count, final matches and manual/unknown leftovers. Real-I/O tests exercise cancellation on both sides of the atomic save-commit boundary without blocking the game thread.
+
+The real Build Planner and Materials widgets are also exercised. Captures wait for pop-ups to clear; all eight final frames were opened and inspected before choosing three originals. The actual Copy button preserves eight sorted item quantities and the complete exact-state list: 96 air cells plus 12 non-air cells in the fixture's 108-cell bounds. Windows clipboard comparisons allow only the platform's CRLF conversion. [Named checks and identities](evidence/schematic-1.4.0.json) · [Original media](evidence/schematic-media-1.4.0.json) · [Schematic controls and limits](SCHEMATICS.md).
+
+Interrupted and failed development runs are retained privately and are not counted as passes. Fresh fixture worlds prevent saved falling/dead player state from contaminating another suite; no product assertion or safety guard was weakened. The screenshots and widget checks do not establish physical OS chooser/overwrite behavior. Final public artifact equivalence and delivery have separate receipts. Restricted multiplayer construction retains the current-server **view + movement + assistance** requirement; no arbitrary server/modpack, latency or endurance claim is made.
+
 ## 1.3.0-beta.8 — Area Clear
 
 Both loader packages build on Java25. The shared core passes **1,231 behavioral assertions**, **four existing mining test methods** and **nine Area Clear methods** covering normalized limits, per-position boundaries, protected partial support, live borders, preserved safety facts beyond borders, incomplete surveys, null settings and transient server-gated activation.

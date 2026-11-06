@@ -21,7 +21,7 @@ struct State {
 thread_local! {static STATE:RefCell<State>=RefCell::new(State::default());}
 
 fn allowed(game: &Game<'_>) -> bool {
-    if super::rusty_mining_native::active() { return false; }
+    if super::rusty_mining_native::active() || super::rusty_schematic_native::busy() { return false; }
     game.native_window()
         && game.native_on(rusty::ID)
         && game.native_playing()

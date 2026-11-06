@@ -1,3 +1,6 @@
+#[path = "mixins/rusty/schematic.rs"]
+pub mod rusty_schematic;
+
 #[path = "mixins/rusty/runtime.rs"]
 pub mod core;
 

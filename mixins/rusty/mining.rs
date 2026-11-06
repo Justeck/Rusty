@@ -394,6 +394,9 @@ impl Cell {
     pub fn is_air(self) -> bool {
         self.flags & AIR != 0
     }
+    pub fn safe_neighbor(self) -> bool {
+        self.flags & KNOWN != 0 && self.flags & DANGER == 0
+    }
     pub fn is_resource(self) -> bool {
         self.flags & RESOURCE != 0
     }
@@ -533,7 +536,7 @@ impl Grid {
             .all(|d| {
                 (0..2).all(|y| {
                     let c = self.get(add(add(p, d), [0, y, 0]));
-                    c.flags & KNOWN != 0 && c.flags & DANGER == 0
+                    c.safe_neighbor()
                 })
             })
     }

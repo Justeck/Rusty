@@ -12,7 +12,10 @@ public abstract class MouseMixin {
   @Inject(method = "onButton", at = @At("HEAD"))
   private void rusty$observedClick(
       long window, net.minecraft.client.input.MouseButtonInfo button, int action, CallbackInfo ci) {
-    if (action == 1) RustyMining.manual();
+    if (action == 1) {
+      RustyMining.manual();
+      SchematicConstruction.manual();
+    }
     if (action == 1 && net.minecraft.client.Minecraft.getInstance().gui.screen() == null)
       RustyHud.click();
   }
@@ -21,7 +24,10 @@ public abstract class MouseMixin {
       method = "turnPlayer",
       at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;turn(DD)V"))
   private void rusty$cameraOnly(LocalPlayer player, double x, double y) {
-    if (x != 0 || y != 0) RustyMining.manual();
+    if (x != 0 || y != 0) {
+      RustyMining.manual();
+      SchematicConstruction.manual();
+    }
     if (RustyClient.active("freecam")) RustyCamera.turn(x, y);
     else player.turn(x, y);
   }

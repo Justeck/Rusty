@@ -208,6 +208,38 @@ fn validate(files: &Files, expected: &serde_json::Value) -> Result<()> {
             )?;
         }
     }
+    if let Some(crates) = mixin.get("crate").and_then(toml::Value::as_array) {
+        for entry in crates {
+            let path = entry
+                .get("path")
+                .and_then(toml::Value::as_str)
+                .ok_or("missing bundle crate path")?;
+            safe_path(path)?;
+            let manifest_name = format!("{PREFIX}{path}/Cargo.toml");
+            let manifest: toml::Value = toml::from_str(text(files, &manifest_name)?)?;
+            let library = manifest
+                .get("lib")
+                .and_then(|v| v.get("path"))
+                .and_then(toml::Value::as_str)
+                .unwrap_or("src/lib.rs");
+            safe_path(library)?;
+            ensure(
+                files.contains_key(&format!("{PREFIX}{path}/{library}")),
+                format!("missing bundle crate library: {path}/{library}"),
+            )?;
+            if let Some(build) = manifest
+                .get("package")
+                .and_then(|v| v.get("build"))
+                .and_then(toml::Value::as_str)
+            {
+                safe_path(build)?;
+                ensure(
+                    files.contains_key(&format!("{PREFIX}{path}/{build}")),
+                    "missing bundle crate build source",
+                )?;
+            }
+        }
+    }
     for (name, anchors) in [
         (
             "LICENSE.rs",
@@ -671,6 +703,30 @@ mod tests {
             files.remove(&format!("mixins/rusty/{name}"));
             assert!(validate(&files, &manifest()).is_err());
         }
+    }
+    #[test]
+    fn bundle_crate_sources_are_required_in_the_package() {
+        let mut files = fixture();
+        files
+            .get_mut("mixins/rusty/horizon-mixin.toml")
+            .unwrap()
+            .extend_from_slice(
+                b"\n[[crate]]\nid='platform'\npath='platform'\ndependent='horizon-client'\n",
+            );
+        files.insert(
+            "mixins/rusty/platform/Cargo.toml".into(),
+            b"[package]\nname='rusty-platform'\nversion='0.1.0'\n[lib]\npath='lib.rs'\n".to_vec(),
+        );
+        files.insert(
+            "mixins/rusty/platform/lib.rs".into(),
+            b"pub fn safe_entry() {}\n".to_vec(),
+        );
+        assert!(validate(&files, &manifest()).is_ok());
+        files.remove("mixins/rusty/platform/lib.rs");
+        assert!(
+            validate(&files, &manifest()).is_err(),
+            "A declared native platform crate cannot omit its source"
+        );
     }
     #[test]
     fn rejects_traversal_absolute_windows_and_non_payload_paths() {

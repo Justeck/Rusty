@@ -82,6 +82,7 @@ pub enum Intent {
     AddWaypoint,
     BuildAnchor,
     BuildPlace,
+    Schematic(&'static str),
     Paste,
     Copy(String),
     Flush,
@@ -206,6 +207,7 @@ pub enum Action {
     AddWaypoint,
     BuildAnchor,
     BuildPlace,
+    Schematic(&'static str),
     Help(String),
     Close,
 }

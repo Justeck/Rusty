@@ -2,20 +2,20 @@
 
 Keep your bearings: textured world views, navigation, movable HUDs and ordinary player assistance in a familiar Minecraft interface.
 
-**Java edition 1.3.0-beta.8 · Minecraft 26.3 · Java 25.** These jars run in Java Edition through Fabric or NeoForge. Horizon uses the separate native Rust package; never put a Java jar into Horizon's native mod installer.
+**Java edition 1.4.0-beta.1 · Minecraft 26.3 · Java 25.** These jars run in Java Edition through Fabric or NeoForge. Horizon uses the separate native Rust package; never put a Java jar into Horizon's native mod installer.
 
 The menu now defaults to **100% at the former 70% physical size**. Its **50–300%** slider and 100% reset scale only the menu; saved physical sizes and HUD placement remain intact. Drag the slider and release to apply, use keyboard arrows, or use **Apply size**.
 
 ## Install
 
-[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.8).
+[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.4.0-beta.1).
 
 Choose exactly one loader:
 
 | Edition | Required environment | Download |
 |---|---|---|
-| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.8.jar` |
-| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.8.jar` |
+| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.4.0-beta.1.jar` |
+| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.4.0-beta.1.jar` |
 
 Install the matching jar in that Java installation's `mods` folder. Fabric also needs Fabric API. Do not install both Rusty loader jars together. Java 25 is required. Earlier game versions, snapshots, shader replacements and third-party rendering mods are not validated.
 
@@ -103,3 +103,7 @@ Apache-2.0 with applicable project notices. Preserve [LICENSE](../LICENSE), [NOT
 **Enabled Mods** is an opt-in Interface tool: active Rusty tools appear alphabetically in separate top-left rows. Move or resize the panel in **Edit HUD**. A selected panel has **Default panel**, and **Default layout** restores all panel arrangements.
 
 Visible **Default** buttons restore individual values and bindings; **Clear** removes a binding. **Restore defaults** in the menu footer opens Minecraft’s confirmation screen and restores all preferences and default shortcuts, stops active tools, and keeps saved waypoint/profile files. **Default ores** restores the normal block selection.
+
+## Schematic Builder
+
+**Build Planner → Load schematic…** opens the native operating system file picker. Review the origin, rotation/mirror and exact states; **Copy all materials** copies item counts, stacks, available inventory and manual-state notes. Construction starts explicitly, sources the main inventory and uses ordinary walking and placement with received settlement. Two inclusive corners in an opened world can be exported as a states-only `.schem`. [Formats, workflow and conservative limits](../docs/SCHEMATICS.md). The current-server view, movement and assistance permissions remain required in Java multiplayer.

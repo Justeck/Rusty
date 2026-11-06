@@ -1,5 +1,25 @@
 # Rusty validation
 
+## 1.4.0 — Schematic Builder acceptance
+
+The official launcher **0.2.47** compiled the native candidate in **Performance** mode for **Horizon 66f3981 / API411 / Minecraft26.3**, exited successfully and selected `native-66f3981-258e68b91497`. The command took 27.0 minutes including installation and cleanup. This is a completed official build; normal launcher GUI delivery is verified separately.
+
+| Actual native suite | Passing checks |
+|---|---:|
+| Schematic construction and safety in an owned singleplayer world | 19 |
+| Schematic construction and safety on a separate unmodified vanilla Java server | 17 |
+| Existing Area Clear in singleplayer | 15 |
+| Existing Auto Mine in singleplayer | 14 |
+| Existing Area Clear on a separate vanilla server | 14 |
+
+Both hotbar and full-hotbar/main-inventory construction produce **12 exact target cells with 10 ordinary placement items**. The separate server independently confirms all final states and preserved inventory, including 45 displaced sticks. Tests cover walking beyond reach, directional logs/stairs/slabs, coupled doors/beds, two-stage double slabs, refusal of outside coupled writes, states-only inclusive export/import, missing materials, manual input, menus, ordinary and absorbed damage, denied/revoked build permission and dimension changes. Recovery never restarts construction automatically.
+
+The **65,536-cell** multi-batch fixture changes already-scanned cells through actual block and bulk updates, confirms invalidation, allows a stable retry, and stops midway through a scan to verify read-only refresh without resuming. This is actual block/bulk mutation coverage; real network full-column replacement/unload is covered by source hooks and SDK checks rather than newly claimed as a network fixture. Preview accumulation uses an explicit restart signal, including equal old/new batch cursors.
+
+Source checks pass **240 Rust tests**, **19 Python tests**, formatting, strict Clippy and exact supported-SDK compilation with Rust warnings denied. The package is structurally verified and all archived source entries are checked against Git. [Named game checks, candidate identities and evidence boundaries](evidence/schematic-1.4.0.json) · [Controls and supported formats](SCHEMATICS.md).
+
+Physical OS Save/overwrite, final publication, public-download equivalence and normal launcher GUI checks have separate delivery receipts. No arbitrary plugins, anticheat, modpacks, latency stress or endurance result is claimed. The native successful inventory processing path is tested; deliberate rejected-SWAP/stale-response network fixtures are established for Java, not newly claimed for native.
+
 ## 1.3.1 published downloads and launcher acceptance
 
 [Native 1.3.1](https://github.com/Justeck/Rusty/releases/tag/v1.3.1) and [Java beta.8](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.8) are immutable releases of `5b0e0ef4c1d80cbd58c57318d07d7f7c9b7b8134`. Both publication workflows passed and both actual tags resolve to that commit. The public native package exactly equals the game-tested source archive: SHA-256 `f3abce1e1283610b6fc0c09512f466bdcc8b5b0088f46cd4bb712f922315968a`, 122 entries. All public Java product classes equal their game-tested counterparts; only source/mixin-JSON line endings differ between build platforms. Both new saved Modrinth downloads exactly equal GitHub.

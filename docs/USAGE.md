@@ -1,6 +1,6 @@
 # Usage and settings
 
-This guide describes Rusty **1.3.1**. The [module guide](MODULES.md) covers all 45 registered tools, ordinary-action requirements and data limits. [Area Clear](AREA_CLEAR.md) selects a bounded box; [Auto Mine](AUTO_MINE.md) selects resources. Both require an explicit start and never resume themselves. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
+This guide describes Rusty **1.4.0**. The [module guide](MODULES.md) covers all 45 registered tools, ordinary-action requirements and data limits. [Area Clear](AREA_CLEAR.md) selects a bounded box; [Auto Mine](AUTO_MINE.md) selects resources. Both require an explicit start and never resume themselves. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
 
 ## The live ClickGUI
 
@@ -104,7 +104,7 @@ The SDK represents absent container components and empty decoded lists identical
 
 Views and searches depend on data already delivered to the client. Rusty cannot bypass server anti-X-ray, recover blocks the server withheld, or replace missing world data. Server rules and enforcement remain applicable.
 
-The source registry contains **43 modules**. The [research matrix](research/README.md) contains **884 reference occurrences** with source/documentation/historical boundaries; they are comparison records, not implemented module counts or proof of reference parity. See the [backlog](research/BACKLOG.md) for remaining capability and test gates.
+The source registry contains **45 modules**. The [research matrix](research/README.md) contains **884 reference occurrences** with source/documentation/historical boundaries; they are comparison records, not implemented module counts or proof of reference parity. See the [backlog](research/BACKLOG.md) for remaining capability and test gates.
 
 ## Default HUD stacking
 
@@ -121,3 +121,7 @@ Choose **Restore defaults** in the main menu header to reset all Rusty preferenc
 ## Enabled Mods overlay
 
 Enable **Interface → Enabled Mods** to list active Rusty tools in separate rows, alphabetically. The list starts at the top-left and excludes its own name. It reflects runtime activation, including key-held tools. Use **Edit HUD** to drag or resize the list directly on screen. Other modules, X-ray and Finder do not enable this overlay automatically.
+
+## Schematic construction and export
+
+**Build Planner → Load schematic** opens the operating system file picker. Import previews the file without starting construction. Review the origin, rotation/mirror and **Materials**, use **Copy materials** for a clipboard list, then start construction explicitly. Set two export corners in an opened world and choose **Save selection** for a states-only `.schem`. [Step-by-step schematic guide, formats and limits](SCHEMATICS.md).

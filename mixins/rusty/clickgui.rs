@@ -304,6 +304,8 @@ fn number(c: &Config, id: &str) -> f64 {
         "build_width" => c.build.width as f64,
         "build_depth" => c.build.depth as f64,
         "build_height" => c.build.height as f64,
+        "schematic_health" => c.build.schematic_min_health as f64,
+        "schematic_food" => c.build.schematic_min_food as f64,
         "eat_below" => c.assistance.eat_below as f64,
         "fish_delay" => c.assistance.fish_delay as f64,
         _ => 0.0,
@@ -420,6 +422,8 @@ fn set_number(c: &mut Config, id: &str, value: f64) -> Result<(), String> {
         "build_width" => c.build.width = value as u8,
         "build_depth" => c.build.depth = value as u8,
         "build_height" => c.build.height = value as u8,
+        "schematic_health" => c.build.schematic_min_health = value as u8,
+        "schematic_food" => c.build.schematic_min_food = value as u8,
         "eat_below" => c.assistance.eat_below = value as u8,
         "fish_delay" => c.assistance.fish_delay = value as u8,
         _ => return Err("Unknown numeric setting".into()),
@@ -727,6 +731,17 @@ pub(super) fn frame(game: &mut Game<'_>) {
                         error = Some(e);
                     }
                 }
+                Intent::Schematic(command) => {
+                    rusty_control::close_menu(game);
+                    if let Err(e) = super::rusty_schematic_native::command(
+                        game,
+                        command,
+                        &serde_json::Value::Null,
+                    ) {
+                        game.native_chat(&e);
+                        error = Some(e);
+                    }
+                }
                 Intent::BuildAnchor | Intent::BuildPlace => {
                     rusty_control::close_menu(game);
                     let result = if operation == Intent::BuildAnchor {
@@ -1000,6 +1015,9 @@ fn act(m: &mut Menu, action: Action, at: [f32; 2], right: bool) {
                         .into();
                 ui.error = false;
             }
+        }
+        Action::Schematic(command) => {
+            ui.enqueue(Intent::Schematic(command));
         }
         Action::BuildAnchor => {
             ui.enqueue(Intent::BuildAnchor);
@@ -1447,25 +1465,32 @@ fn fit(g: &Game<'_>, s: &str, width: f32) -> String {
 }
 fn wrapped(g: &Game<'_>, s: &str, width: f32, limit: usize) -> Vec<String> {
     let mut lines = Vec::new();
-    let mut line = String::new();
-    for word in s.split_whitespace() {
-        let next = if line.is_empty() {
-            word.into()
-        } else {
-            format!("{line} {word}")
-        };
-        if g.native_text_width(&next) > width && !line.is_empty() {
-            lines.push(line);
-            if lines.len() == limit {
-                return lines;
+    for paragraph in s.lines() {
+        let mut line = String::new();
+        for word in paragraph.split_whitespace() {
+            let next = if line.is_empty() {
+                word.into()
+            } else {
+                format!("{line} {word}")
+            };
+            if g.native_text_width(&next) > width && !line.is_empty() {
+                lines.push(std::mem::take(&mut line));
+                line = word.into();
+            } else {
+                line = next;
             }
-            line = word.into();
-        } else {
-            line = next;
+        }
+        if !line.is_empty() {
+            lines.push(line);
         }
     }
-    if !line.is_empty() && lines.len() < limit {
-        lines.push(line);
+    if lines.len() > limit {
+        lines.truncate(limit.saturating_sub(1));
+        lines.push(if s.starts_with("Full-plan") {
+            "More rows: Escape, then Copy materials for all.".into()
+        } else {
+            "More details do not fit at this menu scale.".into()
+        });
     }
     lines
 }
@@ -2393,6 +2418,13 @@ fn draw_menu(game: &Game<'_>, batch: &mut HudBatch, menu: &mut Menu) {
                                 super::rusty_mining_native::selection_details(),
                                 s.description
                             )),
+                            "schematic_materials" => {
+                                Action::Help(super::rusty_schematic_native::materials_details(game))
+                            }
+                            "schematic_details" => {
+                                Action::Help(super::rusty_schematic_native::details())
+                            }
+                            id if id.starts_with("schematic_") => Action::Schematic(id),
                             "build_anchor" => Action::BuildAnchor,
                             "build_place" => Action::BuildPlace,
                             _ => Action::Advanced,

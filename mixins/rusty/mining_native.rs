@@ -424,6 +424,7 @@ fn toggle_mode(game: &mut Game<'_>, area_mode: bool) -> Result<(), String> {
         || super::rusty_assist::busy()
         || super::rusty_automations::busy()
         || super::rusty_builder::busy()
+        || super::rusty_schematic_native::busy()
         || super::rusty_inventory::busy()
     {
         return Err("Finish other automated actions first".into());

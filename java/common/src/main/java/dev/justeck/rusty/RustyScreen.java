@@ -701,6 +701,105 @@ public final class RustyScreen extends Screen {
     } else if (selected.equals("build_planner")) {
       options.add(() ->
           slider(
+              "plannerHealth",
+              "Construction health stop",
+              1,
+              20,
+              RustyClient.config.plannerHealth,
+              v -> RustyClient.config.plannerHealth = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          slider(
+              "plannerFood",
+              "Construction food stop",
+              0,
+              20,
+              RustyClient.config.plannerFood,
+              v -> RustyClient.config.plannerFood = (int) v,
+              x,
+              ys));
+      options.add(() -> {
+        button("Load schematic…", x, ys[0], bw, b -> SchematicFiles.load());
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Cancel file operation", x, ys[0], bw, b -> SchematicFiles.cancel());
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Clear schematic / box mode", x, ys[0], bw, b -> RustySchematics.clear());
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Set schematic origin at crosshair", x, ys[0], bw, b -> RustySchematics.origin());
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Rotate schematic 90°", x, ys[0], bw, b -> RustySchematics.rotate());
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Mirror schematic", x, ys[0], bw, b -> RustySchematics.mirror());
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button(
+            "Materials / exact states",
+            x,
+            ys[0],
+            bw,
+            b -> minecraft.gui.setScreen(new SchematicMaterialScreen(this)));
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Copy all materials", x, ys[0], bw, b -> RustySchematics.copyMaterials());
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button(
+            "Start construction (ordinary walking)",
+            x,
+            ys[0],
+            bw,
+            b -> {
+              onClose();
+              SchematicConstruction.start();
+            });
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button(
+            "Stop construction",
+            x,
+            ys[0],
+            bw,
+            b -> SchematicConstruction.stop("Stopped explicitly"));
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button(
+            "Construction result / details",
+            x,
+            ys[0],
+            bw,
+            b -> minecraft.gui.setScreen(new SchematicMaterialScreen(this, true)));
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Export: set first corner", x, ys[0], bw, b -> RustySchematics.corner(false));
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Export: set second corner", x, ys[0], bw, b -> RustySchematics.corner(true));
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button("Save states-only selection…", x, ys[0], bw, b -> SchematicFiles.save());
+        ys[0] += 26;
+      });
+      options.add(() ->
+          slider(
               "plannerWidth",
               "Width",
               1,

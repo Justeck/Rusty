@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "scope": "Original reviewed development-client captures; automated acceptance is documented separately. No OS file-dialog claim.",
+  "captures": [
+    {
+      "edition": "fabric",
+      "version": "1.4.0-beta.1",
+      "qa_commit": "47da85fe10152ac9dd62036f1c916014a3c056b8",
+      "source_basename": "rusty-schematic-fabric-1793974587223-a83eecf1-build-planner-page-1.png",
+      "page": "build-planner-page-1",
+      "sha256": "a2307cad85033afa184d8fe6170ad36855bbd2dd5e91a80672c051c43e20e060",
+      "width": 1280,
+      "height": 720,
+      "capture": "Actual Minecraft framebuffer through Screenshot.grab; original PNG, no retouching",
+      "visual_review": {
+        "correct_screen": true,
+        "readable": true,
+        "toast_free": true,
+        "method": "Opened and inspected each of all eight final80-check captures with the local image viewer"
+      },
+      "selected": true,
+      "file": "docs/screenshots/java/rusty-schematic-planner.png"
+    },
+    {
+      "edition": "fabric",
+      "version": "1.4.0-beta.1",
+      "qa_commit": "47da85fe10152ac9dd62036f1c916014a3c056b8",
+      "source_basename": "rusty-schematic-fabric-1793974587223-a83eecf1-materials-exact-states-page-1.png",
+      "page": "materials-exact-states-page-1",
+      "sha256": "d9690d5f84ce79d3f79b5c326dee9408a2ae979658fe8c6b08b05906a49203c3",
+      "width": 1280,
+      "height": 720,
+      "capture": "Actual Minecraft framebuffer through Screenshot.grab; original PNG, no retouching",
+      "visual_review": {
+        "correct_screen": true,
+        "readable": true,
+        "toast_free": true,
+        "method": "Opened and inspected each of all eight final80-check captures with the local image viewer"
+      },
+      "selected": true,
+      "file": "docs/screenshots/java/rusty-schematic-materials.png"
+    },
+    {
+      "edition": "neoforge",
+      "version": "1.4.0-beta.1",
+      "qa_commit": "47da85fe10152ac9dd62036f1c916014a3c056b8",
+      "source_basename": "rusty-schematic-neoforge-1793977032965-d8909217-build-planner-page-2.png",
+      "page": "build-planner-page-2",
+      "sha256": "305c1a0962d4435f1d1f7cd2722494e0991775bca2589e4e6b9d8b30f3346183",
+      "width": 1280,
+      "height": 720,
+      "capture": "Actual Minecraft framebuffer through Screenshot.grab; original PNG, no retouching",
+      "visual_review": {
+        "correct_screen": true,
+        "readable": true,
+        "toast_free": true,
+        "method": "Opened and inspected each of all eight final80-check captures with the local image viewer"
+      },
+      "selected": true,
+      "file": "docs/screenshots/java/rusty-schematic-construction-export.png"
+    },
+    {
+      "edition": "horizon",
+      "version": "1.4.0",
+      "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+      "source_basename": "rusty-1.4-schematic-settings.png",
+      "page": "settings",
+      "sha256": "e77b4ba9f24205388997ea53f1f5d2eac2db737fe6e8ceea846b88859abd985e",
+      "width": 1600,
+      "height": 1000,
+      "capture": "Original owned development-game framebuffer; no retouching",
+      "visual_review": {
+        "method": "Opened and inspected each original PNG with the local image viewer",
+        "note": "Correct native Build Planner controls, readable with appropriate spacing."
+      },
+      "selected": true,
+      "file": "docs/screenshots/rusty-1.4-schematic-settings.png"
+    },
+    {
+      "edition": "horizon",
+      "version": "1.4.0",
+      "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+      "source_basename": "rusty-1.4-schematic-materials.png",
+      "page": "materials",
+      "sha256": "db4cd4b6af9a3cebc1fd943e08bd6b1c23f429b44a38e01013e2c42deff2c4e1",
+      "width": 1600,
+      "height": 1000,
+      "capture": "Original owned development-game framebuffer; no retouching",
+      "visual_review": {
+        "method": "Opened and inspected each original PNG with the local image viewer",
+        "note": "All eight item rows are legible; full-plan basis and Copy materials instruction are explicit."
+      },
+      "selected": true,
+      "file": "docs/screenshots/rusty-1.4-schematic-materials.png"
+    }
+  ]
+}

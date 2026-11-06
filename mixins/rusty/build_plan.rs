@@ -11,6 +11,8 @@ pub struct BuildSettings {
     pub hollow: bool,
     pub floor: bool,
     pub roof: bool,
+    pub schematic_min_health: u8,
+    pub schematic_min_food: u8,
 }
 impl Default for BuildSettings {
     fn default() -> Self {
@@ -22,11 +24,16 @@ impl Default for BuildSettings {
             hollow: true,
             floor: true,
             roof: false,
+            schematic_min_health: 12,
+            schematic_min_food: 10,
         }
     }
 }
 impl BuildSettings {
     pub fn validate(&self) -> Result<(), String> {
+        if !(1..=20).contains(&self.schematic_min_health) || self.schematic_min_food > 20 {
+            return Err("Schematic minimum health must be 1–20 and food must be 0–20".into());
+        }
         if [self.width, self.depth, self.height]
             .iter()
             .all(|v| (1..=16).contains(v))

@@ -112,6 +112,7 @@ pub(super) fn toggle(game: &mut Game<'_>) -> Result<(), String> {
         reset(game);
         return Ok(());
     }
+    if super::rusty_schematic_native::busy(){return Err("Finish or stop schematic construction first".into());}
     if !available(game) || !game.native_playing() || !game.focused || rusty_freecam::active() {
         return Err("Open the world, close menus and leave Freecam before walking".into());
     }

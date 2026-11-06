@@ -104,7 +104,7 @@ public final class RustyClient {
     publish();
     terrainHash = terrainHash();
     LOG.info(
-        "Rusty Java 1.3.0-beta.8 initialized ({})", System.getProperty("rusty.edition", "loader"));
+        "Rusty Java 1.4.0-beta.1 initialized ({})", System.getProperty("rusty.edition", "loader"));
   }
 
   public static Path configPath() {
@@ -298,6 +298,7 @@ public final class RustyClient {
       RustyHud.reset();
       refresh();
     }
+    RustySchematics.scopeTick();
     boolean focused = mc.isWindowActive() && mc.gui.screen() == null;
     zoomHeld = focused && down("zoom");
     boolean menu =
@@ -371,6 +372,7 @@ public final class RustyClient {
     RustyAssistance.tick(focused);
     RustyCamera.tick();
     RustyPlanner.tick(focused);
+    RustySchematics.tick(focused);
     RustyOverlay.capture();
     RustyHud.capture();
   }

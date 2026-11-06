@@ -261,6 +261,7 @@ public final class RustyMining {
         || mc.gui.screen() != null
         || !mc.isWindowActive()
         || !RustyClient.POLICY.allows(clearing ? "area_clear" : "auto_mine")
+        || SchematicConstruction.active()
         || RustyAssistance.eating()
         || RustyNavigation.walking()
         || RustyClient.active("freecam")) {
@@ -373,14 +374,9 @@ public final class RustyMining {
     return loaded(p) && Minecraft.getInstance().level.getBlockState(block(p)).isAir();
   }
 
-  static int classify(Mining.Pos p) {
-    if (!loaded(p) || !settled(p)) return Mining.UNKNOWN;
-    var mc = Minecraft.getInstance();
-    var at = block(p);
-    var state = mc.level.getBlockState(at);
-    if (state.isAir()) return Mining.AIR;
+  static boolean hazardous(BlockState state) {
     String id = BuiltInRegistries.BLOCK.getKey(state.getBlock()).toString();
-    if (!state.getFluidState().isEmpty()
+    return (!state.getFluidState().isEmpty()
         || state.getBlock() instanceof FallingBlock
         || List.of(
                 "lava",
@@ -395,7 +391,17 @@ public final class RustyMining {
                 "wither_rose",
                 "pointed_dripstone")
             .stream()
-            .anyMatch(id::contains)) return Mining.HAZARD;
+            .anyMatch(id::contains));
+  }
+
+  static int classify(Mining.Pos p) {
+    if (!loaded(p) || !settled(p)) return Mining.UNKNOWN;
+    var mc = Minecraft.getInstance();
+    var at = block(p);
+    var state = mc.level.getBlockState(at);
+    if (state.isAir()) return Mining.AIR;
+    String id = BuiltInRegistries.BLOCK.getKey(state.getBlock()).toString();
+    if (hazardous(state)) return Mining.HAZARD;
     boolean full = state.isCollisionShapeFullBlock(mc.level, at);
     if (areaActive()) {
       var tool = state.hasBlockEntity() ? null : tool(state, at);

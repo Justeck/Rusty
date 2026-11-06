@@ -1,0 +1,911 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-06T16:14:55.705642+00:00",
+  "native_version": "1.4.0",
+  "java_version": "1.4.0-beta.1",
+  "scope": "Owned disposable worlds and a separate unmodified vanilla Java26.3 loopback server. No personal save or public-server character. Candidate acceptance; publication and launcher GUI have separate receipts.",
+  "horizon": "66f3981f522b24c250b21523a70080965b940424",
+  "native_api": 411,
+  "launcher_version": "0.2.47",
+  "official_performance_build": {
+    "product_source_commit": "25974aa36814a494b5b501744ad82466136f7324",
+    "selected_build": "native-66f3981-258e68b91497",
+    "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+    "exit_code": 0,
+    "wall_seconds": 1620.8007291,
+    "package_sha256": "0d6127db4297a3ecd81d4d8c0c49f2e576188c52bc5e6a7edc48682dc34831ac",
+    "package_bytes": 276768,
+    "package_entries": 137,
+    "archived_source_matches_git": true
+  },
+  "source_checks": {
+    "rust_tests": 240,
+    "python_tests": 19,
+    "strict_clippy": true,
+    "exact_sdk_rust_warnings_denied": true,
+    "java_junit": 60,
+    "java_shared_assertions": 1231,
+    "java_host_regressions": 18
+  },
+  "native_game_suites": [
+    {
+      "suite": "schematic-singleplayer",
+      "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+      "receipt_sha256": "777ec8cdb03e793381b1fd52db5b54afe8058101218f01324fe35bcce4516c57",
+      "checks": [
+        "Fresh isolated offline world ready",
+        "Directional and coupled hotbar build",
+        "Actual settings and materials screens remain paused and return to gameplay",
+        "Full-hotbar main-inventory build",
+        "Double slab final state after two ordinary acknowledgments",
+        "Door outside the blueprint is refused before any write",
+        "Inclusive received states-only export/import and clipboard action",
+        "Construction safety stop: missing",
+        "Construction safety stop: manual",
+        "Construction safety stop: health",
+        "Construction safety stop: absorbed",
+        "Construction safety stop: menu",
+        "Construction safety stop: denied",
+        "Construction safety stop: revoked",
+        "Already-scanned target invalidated by actual block mutation",
+        "Already-scanned target invalidated by actual bulk mutation",
+        "Stable multi-batch survey completes after retry",
+        "Stopped multi-batch survey refreshes without resuming",
+        "Construction safety stop: scope"
+      ],
+      "passed": true
+    },
+    {
+      "suite": "schematic-separate-vanilla-server",
+      "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+      "receipt_sha256": "92cc3f03a5c72371dc1ae6f26226242a0b69c447dc9e121fc77d653e1f53a46b",
+      "checks": [
+        "Directional and coupled hotbar build",
+        "Full-hotbar main-inventory build",
+        "Double slab final state after two ordinary acknowledgments",
+        "Door outside the blueprint is refused before any write",
+        "Inclusive received states-only export/import and clipboard action",
+        "Construction safety stop: missing",
+        "Construction safety stop: manual",
+        "Construction safety stop: health",
+        "Construction safety stop: absorbed",
+        "Construction safety stop: menu",
+        "Construction safety stop: denied",
+        "Construction safety stop: revoked",
+        "Already-scanned target invalidated by actual block mutation",
+        "Already-scanned target invalidated by actual bulk mutation",
+        "Stable multi-batch survey completes after retry",
+        "Stopped multi-batch survey refreshes without resuming",
+        "Construction safety stop: scope"
+      ],
+      "passed": true
+    },
+    {
+      "suite": "existing-area",
+      "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+      "receipt_sha256": "3c952f2edead301b7b563d9ecec2e37f864bd4ae6e7f7852bae86f14fd347737",
+      "checks": [
+        "Fresh isolated offline world ready",
+        "No movement or excavation can start without an explicit two-corner selection",
+        "Two-corner menu starts a full eight-block survival excavation; adjacent identical stone and support stay intact",
+        "Ordinary partial-shape blocks are mined through their actual visible outline",
+        "Actual corner button captures the crosshair block and preserves the inclusive box",
+        "Containers survive and protected leftovers are not reported as a cleared area",
+        "Protected partial objects inside the box preserve their adjacent support",
+        "Border route constraints preserve received outside attachments and their inside support",
+        "A previously captured box crossing a smaller live border is refused before activation",
+        "A changing border cancels the active selection before excavation",
+        "Fluid near the working region stops unsafe excavation",
+        "Manual movement cancels Area Clear and never resumes it",
+        "Opening the menu stops Area Clear before an action",
+        "Durability reserve protects worn tools without falsely reporting completion",
+        "Dimension changes stop the old route and discard both corners"
+      ],
+      "passed": true
+    },
+    {
+      "suite": "existing-mining",
+      "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+      "receipt_sha256": "1289b075b75dbe1fb405969d779fb786ea551cef7b9e54ebc8677e08903a82ac",
+      "checks": [
+        "Fresh isolated offline world ready",
+        "Menu starts Auto Mine; survival walking, normal ore break, drop pickup and quota stop",
+        "Conservative access tunnel clears safe ordinary terrain before mining ore",
+        "A harvest-correct tool replaces an ineligible golden pickaxe and the previous selection is restored",
+        "Tools below the durability reserve do not start resource actions",
+        "Full inventory rejects an explicit start before any movement",
+        "The menu rebinds Auto Mine; its shortcut explicitly starts and stops without resuming",
+        "Hazard blocks route execution before any movement or mining",
+        "Hazard blocks route execution before any movement or mining",
+        "Manual movement cancels automation and retains the user's held key",
+        "Menus cancel mining and closing them never resumes it",
+        "Observed damage immediately stops the mode",
+        "Server-denied break times out without counting a resource or retrying forever",
+        "Dimension changes cancel the old session and never resume it"
+      ],
+      "passed": true
+    },
+    {
+      "suite": "existing-area-server",
+      "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+      "receipt_sha256": "a402615f495ada252d5a4c5d6cebdd2a584bb06d57c4370a310d2203e94c2558",
+      "checks": [
+        "No movement or excavation can start without an explicit two-corner selection",
+        "Two-corner menu starts a full eight-block survival excavation; adjacent identical stone and support stay intact",
+        "Ordinary partial-shape blocks are mined through their actual visible outline",
+        "Actual corner button captures the crosshair block and preserves the inclusive box",
+        "Containers survive and protected leftovers are not reported as a cleared area",
+        "Protected partial objects inside the box preserve their adjacent support",
+        "Border route constraints preserve received outside attachments and their inside support",
+        "A previously captured box crossing a smaller live border is refused before activation",
+        "A changing border cancels the active selection before excavation",
+        "Fluid near the working region stops unsafe excavation",
+        "Manual movement cancels Area Clear and never resumes it",
+        "Opening the menu stops Area Clear before an action",
+        "Durability reserve protects worn tools without falsely reporting completion",
+        "Dimension changes stop the old route and discard both corners"
+      ],
+      "passed": true
+    }
+  ],
+  "separate_server_authority": [
+    {
+      "main_inventory": false,
+      "exact_blocks": [
+        {
+          "position": [
+            0,
+            200,
+            3
+          ],
+          "state": "minecraft:cobblestone"
+        },
+        {
+          "position": [
+            1,
+            200,
+            3
+          ],
+          "state": "minecraft:oak_planks"
+        },
+        {
+          "position": [
+            0,
+            200,
+            4
+          ],
+          "state": "minecraft:glass"
+        },
+        {
+          "position": [
+            1,
+            200,
+            4
+          ],
+          "state": "minecraft:oak_log[axis=x]"
+        },
+        {
+          "position": [
+            0,
+            200,
+            6
+          ],
+          "state": "minecraft:oak_slab[type=bottom,waterlogged=false]"
+        },
+        {
+          "position": [
+            1,
+            200,
+            6
+          ],
+          "state": "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+        },
+        {
+          "position": [
+            0,
+            200,
+            9
+          ],
+          "state": "minecraft:cobblestone"
+        },
+        {
+          "position": [
+            0,
+            201,
+            9
+          ],
+          "state": "minecraft:oak_planks"
+        },
+        {
+          "position": [
+            1,
+            200,
+            9
+          ],
+          "state": "minecraft:oak_door[facing=east,half=lower,hinge=left,open=false,powered=false]"
+        },
+        {
+          "position": [
+            1,
+            201,
+            9
+          ],
+          "state": "minecraft:oak_door[facing=east,half=upper,hinge=left,open=false,powered=false]"
+        },
+        {
+          "position": [
+            2,
+            200,
+            9
+          ],
+          "state": "minecraft:red_bed[facing=south,occupied=false,part=foot]"
+        },
+        {
+          "position": [
+            2,
+            200,
+            10
+          ],
+          "state": "minecraft:red_bed[facing=south,occupied=false,part=head]"
+        }
+      ],
+      "inventory": {
+        "inventory_nbt_sha256": "7a2b69a0edc97fbd7681b603e241c642ee8b79860704aaac49e18c0cd0534cba",
+        "selected_slot_zero_based": 0.0,
+        "player_health": 20.0,
+        "player_food": 20.0
+      }
+    },
+    {
+      "main_inventory": true,
+      "exact_blocks": [
+        {
+          "position": [
+            0,
+            200,
+            3
+          ],
+          "state": "minecraft:cobblestone"
+        },
+        {
+          "position": [
+            1,
+            200,
+            3
+          ],
+          "state": "minecraft:oak_planks"
+        },
+        {
+          "position": [
+            0,
+            200,
+            4
+          ],
+          "state": "minecraft:glass"
+        },
+        {
+          "position": [
+            1,
+            200,
+            4
+          ],
+          "state": "minecraft:oak_log[axis=x]"
+        },
+        {
+          "position": [
+            0,
+            200,
+            6
+          ],
+          "state": "minecraft:oak_slab[type=bottom,waterlogged=false]"
+        },
+        {
+          "position": [
+            1,
+            200,
+            6
+          ],
+          "state": "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+        },
+        {
+          "position": [
+            0,
+            200,
+            9
+          ],
+          "state": "minecraft:cobblestone"
+        },
+        {
+          "position": [
+            0,
+            201,
+            9
+          ],
+          "state": "minecraft:oak_planks"
+        },
+        {
+          "position": [
+            1,
+            200,
+            9
+          ],
+          "state": "minecraft:oak_door[facing=east,half=lower,hinge=left,open=false,powered=false]"
+        },
+        {
+          "position": [
+            1,
+            201,
+            9
+          ],
+          "state": "minecraft:oak_door[facing=east,half=upper,hinge=left,open=false,powered=false]"
+        },
+        {
+          "position": [
+            2,
+            200,
+            9
+          ],
+          "state": "minecraft:red_bed[facing=south,occupied=false,part=foot]"
+        },
+        {
+          "position": [
+            2,
+            200,
+            10
+          ],
+          "state": "minecraft:red_bed[facing=south,occupied=false,part=head]"
+        }
+      ],
+      "inventory": {
+        "inventory_nbt_sha256": "147a563e65e0e80c13ec990954eec8c27c15dff7468f0b086d0eb30a1f7ae9b3",
+        "selected_slot_zero_based": 0.0,
+        "player_health": 20.0,
+        "player_food": 20.0
+      }
+    }
+  ],
+  "java_game_suites": [
+    {
+      "edition": "fabric",
+      "suites": [
+        {
+          "suite": "schematic-and-ui",
+          "qa_commit": "47da85fe10152ac9dd62036f1c916014a3c056b8",
+          "checks": [
+            "Owned received platform, survival, full hotbar and main-only materials",
+            "Actual bounded path import of independent litematic",
+            "Actual bounded path import of independent nbt",
+            "Actual bounded path import of independent schem",
+            "Origin and transformed native state preview remain paused",
+            "Copy uses actual clipboard with sorted registry items and exact coupled quantities",
+            "Real Build Planner and Materials widgets capture paused controls and exact totals",
+            "Explicit construction starts beyond normal reach",
+            "Received multi-material construction walks, sources and places exact directional/coupled states",
+            "Two real crosshair corners capture received states and atomic export",
+            "Independent roundtrip verifies states-only export rather than predicted/unknown air",
+            "Existing destination preserved without overwrite confirmation",
+            "Cancelled/stale asynchronous result never replaces current document",
+            "Cancel import after an actual512-state registry-validation batch",
+            "Cancelled validation cannot later activate after multiple remaining batches",
+            "Overflowed transform cannot start or claim a new complete plan",
+            "Restore accepted document after transform-error check",
+            "Unused unknown declared palette entry rejects before activation",
+            "Planned existing SINGLE chest is protected from a new RIGHT chest neighbor",
+            "Original box planner is still available after clear",
+            "Partial slab and snow use repeated ordinary item actions",
+            "Partial-material copy counts two slabs and four snow items",
+            "Partial-material exact received completion",
+            "Obstructed target is preserved without demolition",
+            "Obstruction yields explicit manual result",
+            "Missing material setup",
+            "Missing material stops without phantom completion",
+            "Owned server inventory-rejection setup keeps material only in main inventory",
+            "Real rejected server swap cannot pass an older stats response or trigger placement",
+            "Denied Start setup receives real Adventure permission",
+            "Denied Start changes no world, inventory, selection, walking or use",
+            "Restore Survival for genuine ordinary placement rejection",
+            "Actual ordinary use is refused by owned server and never counted",
+            "Active permission revocation baseline uses multi-batch read-only survey",
+            "Actual mode revocation stops before next automatic action",
+            "Restoring permission never rearms stopped construction",
+            "Restore owned survival for cancellation tests",
+            "Manual keyboard input immediately relinquishes controls",
+            "Menus stop and never automatically resume",
+            "Damage owned healthy received baseline",
+            "Damage active construction baseline before server command",
+            "Damage stops before a new placement",
+            "Damage never resumes or dispatches another item use",
+            "Absorbed damage owned healthy received baseline",
+            "Absorbed damage active construction baseline before server command",
+            "Absorbed damage stops before a new placement",
+            "Absorbed damage never resumes or dispatches another item use",
+            "Health below12 stops immediately",
+            "Low-health start fails safety",
+            "Food below10 stops immediately",
+            "Low-food start fails safety",
+            "World transition setup heals before final scope check",
+            "Mixed terminal outcome owned world setup",
+            "Mixed preexisting, coupled, occupied, material, manual and data-detail plan",
+            "Mixed result distinguishes one ordinary action from two received completed cells",
+            "Late already-dispatched receipt setup",
+            "Stop while actual ordinary use waits for its received acknowledgment",
+            "Late received placement refreshes outcome without another action",
+            "Large received multi-batch survey setup",
+            "Prepare explicit controlled host-cache replacement snapshots",
+            "Begin controlled host-cache block invalidation after first batch",
+            "No stale Complete after controlled host-cache block",
+            "Stable read-only refresh after controlled host-cache block",
+            "Begin controlled host-cache column invalidation after first batch",
+            "No stale Complete after controlled host-cache column",
+            "Stable read-only refresh after controlled host-cache column",
+            "Begin controlled host-cache unload invalidation after first batch",
+            "No stale Complete after controlled host-cache unload",
+            "Stable read-only refresh after controlled host-cache unload",
+            "Begin controlled host-cache center invalidation after first batch",
+            "No stale Complete after controlled host-cache center",
+            "Stable read-only refresh after controlled host-cache center",
+            "Begin controlled host-cache radius invalidation after first batch",
+            "No stale Complete after controlled host-cache radius",
+            "Stable read-only refresh after controlled host-cache radius",
+            "Stable second large survey can complete",
+            "Continuous controlled target changes have a finite survey bound",
+            "Cancellation during multi-batch scan labels initial and final uncertainty",
+            "Stopped survey readback is coherent and never rearms",
+            "Dimension transition stops, clears transient selection and never resumes"
+          ],
+          "receipt_sha256": "bf58f81e74c46fd7917cccd9348d4fd4728b56adbc08df1af7e767046714bce9",
+          "passed": true,
+          "ui": {
+            "real_widgets_and_copy": true,
+            "displayed_totals": {
+              "airCells": 96,
+              "nonAirCells": 12,
+              "states": {
+                "minecraft:air": 96,
+                "minecraft:cobblestone": 2,
+                "minecraft:glass": 1,
+                "minecraft:oak_door[facing=east,half=lower,hinge=left,open=false,powered=false]": 1,
+                "minecraft:oak_door[facing=east,half=upper,hinge=left,open=false,powered=false]": 1,
+                "minecraft:oak_log[axis=x]": 1,
+                "minecraft:oak_planks": 2,
+                "minecraft:oak_slab[type=bottom,waterlogged=false]": 1,
+                "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]": 1,
+                "minecraft:red_bed[facing=south,occupied=false,part=foot]": 1,
+                "minecraft:red_bed[facing=south,occupied=false,part=head]": 1
+              },
+              "items": {
+                "minecraft:cobblestone": 2,
+                "minecraft:glass": 1,
+                "minecraft:oak_door": 1,
+                "minecraft:oak_log": 1,
+                "minecraft:oak_planks": 2,
+                "minecraft:oak_slab": 1,
+                "minecraft:oak_stairs": 1,
+                "minecraft:red_bed": 1
+              },
+              "allCells": 108
+            },
+            "capture_count": 4
+          },
+          "cache_fixture_scope": "controlled host-cache mutation; not observed network delivery",
+          "retained_outcome_scenarios": 8
+        },
+        {
+          "suite": "existing-features",
+          "qa_commit": "47da85fe10152ac9dd62036f1c916014a3c056b8",
+          "checks": [
+            "Permission payload rejects invalid versions, masks and lengths",
+            "Menu 50% fits actual widgets at compact baseline",
+            "Menu 100% fits actual widgets at compact baseline",
+            "Menu 300% fits actual widgets at compact baseline",
+            "Menu default restores compact 100% before gameplay checks",
+            "Fixture setup is received from owned integrated server",
+            "Singleplayer capabilities are granted locally",
+            "Minecraft module screen constructs its real widgets",
+            "Menu closes and normal gameplay resumes",
+            "Xray finds exposed and buried authoritative received ores",
+            "Xray alone does not render saved Finder lines or boxes",
+            "Finder explicitly enables target geometry alongside Xray",
+            "Disabling Xray preserves independently enabled Finder geometry",
+            "Disabling Finder restores Xray-only rendering without changing line preferences",
+            "Received block removal invalidates the target cache",
+            "Received block restoration is discovered again",
+            "Maximum texture context restores ordinary terrain rendering",
+            "Minimum texture context keeps thin original-texture edges",
+            "Default texture coverage and custom received block selection",
+            "Toggle off restores view without changing world blocks",
+            "Detached camera input moves the view and preserves body position",
+            "Settled rendered camera follows detached view without body rotation",
+            "Freecam disables cleanly",
+            "Ordinary inventory fixture arrives without modifying personal saves",
+            "Auto Tool replaces a fast ineligible golden pickaxe with a harvest-correct tool",
+            "Manual hotbar choice retains ownership until mining is released",
+            "Automatic eating consumes ordinary food on the integrated server",
+            "Eating restores the previous slot after consuming one item",
+            "Auto Totem fills only an empty offhand through the server",
+            "Auto Totem preserves an occupied shield offhand",
+            "Armor Assist fills an empty armor slot using an ordinary inventory action",
+            "Refill observes a real baseline stack",
+            "Refill moves an exact matching stack after observed depletion",
+            "Identical authoritative correction is not blindly retried",
+            "Explicit refill rearm retains its observed depletion candidate",
+            "Trigger fixture is an owned non-player living entity",
+            "Trigger uses an ordinary full-cooldown reachable attack",
+            "Automatic actions stop when the Minecraft menu opens",
+            "Action fixtures leave normal controls usable",
+            "Waypoint saves in current stable world/dimension scope",
+            "Visual HUD editor shows only enabled panels without modifying feature states",
+            "HUD dragging follows the grab point and remains an unsaved draft",
+            "HUD corner handle enlarges the overlay while holding its opposite corner",
+            "Visual HUD editor framebuffer capture",
+            "Enter confirms visual HUD changes and returns to the Rusty menu",
+            "Escape discards subsequent HUD changes and returns to the mod menu",
+            "Cancelled HUD draft never changes persisted preferences",
+            "HUD editor fixture restores its own previous settings",
+            "Overlay positions and cleared shortcuts persist to actual local JSON",
+            "Empty entity-tracer selection renders no geometry",
+            "Mobs-only entity tracers render a received pig",
+            "Mobs-only ESP adds a box without changing its tracer",
+            "Item tracers coexist with independent mob ESP",
+            "Different ESP and tracer targets framebuffer capture",
+            "Changing ESP targets does not remove an item tracer",
+            "Disabling tracers clears geometry while ESP remains enabled",
+            "Actual tracer menu exposes independent target buttons",
+            "Actual tracer Default button preserves independent ESP choices",
+            "Tracer menu framebuffer capture",
+            "Tracer fixture restores its prior settings",
+            "All module adapters tolerate received world and live rendering",
+            "Remote chunk loading removes targets from the former area",
+            "Returning to received chunks discovers the original ores again",
+            "Dimension change resets scanner and scoped markers",
+            "Returning dimension restores permission and target lifecycle",
+            "Profiles round-trip without acquiring multiplayer permission",
+            "Cleared menu binding retains Minecraft Options recovery",
+            "Thirty-second bounded rendering observation completes",
+            "Clean default controls remain ready for visual review",
+            "Actual Default button restores a numeric preference without changing another setting",
+            "Actual Default button restores a true boolean preference",
+            "Actual Default shortcut button restores X after a custom binding",
+            "Full reset uses Minecraft confirmation screen",
+            "Restore defaults presents a confirmation and Cancel preserves settings",
+            "Confirmed menu restore stops Xray and Freecam and resets all preferences and shortcuts",
+            "Saved quick profile survives full reset",
+            "Enabled Mods is an independent top-left panel with alphabetic rows",
+            "Active-list gameplay framebuffer capture completes",
+            "Deactivating a feature immediately removes its active-list row",
+            "Disabling Enabled Mods removes its rendered panel",
+            "Fixture returns to default settings after reset and list checks",
+            "Owned survival Auto Mine fixture receives terrain and tool",
+            "Auto Mine walks, mines, collects an authoritative diamond and stops at quota",
+            "Auto Mine does not restart after reaching its quota",
+            "Owned access tunnel fixture is ready",
+            "Auto Mine clears a safe access tunnel before normal resource mining",
+            "Owned hazardous ore fixture is ready",
+            "Fluid beside an ore refuses movement and mining",
+            "Owned manual takeover fixture is ready",
+            "Manual movement immediately takes over Auto Mine",
+            "Releasing manual movement never resumes Auto Mine",
+            "Owned explicit-binding fixture is ready",
+            "An explicit queued Auto Mine binding starts a transient session",
+            "The same queued binding explicitly stops Auto Mine",
+            "An explicit stop stays stopped across eligible ticks",
+            "Owned damage fixture is ready",
+            "Observed damage stops Auto Mine before resource actions",
+            "Owned denied-break fixture is ready",
+            "Adventure mode is authoritative",
+            "Rejected mining times out without claiming success",
+            "Auto Mine fixture restores default settings",
+            "Auto Mine settings use the actual Minecraft-style screen",
+            "Auto Mine settings framebuffer capture completes",
+            "Settings capture never starts Auto Mine",
+            "Area Clear owned survival fixture is received",
+            "Area Clear first corner uses an ordinary visible block ray",
+            "Area Clear second corner normalizes an inclusive two-by-two column",
+            "Area Clear removes four selected blocks and preserves outside stone and supporting bedrock",
+            "Area Clear remains stopped after completion",
+            "Partial-shape carpet fixture is received",
+            "Area Clear targets a real partial-shape block",
+            "Area Clear protected container fixture is received",
+            "Area Clear preserves a container and reports protected leftovers",
+            "Protected sign fixture receives both visible corner blocks",
+            "Named wall sign replaces a selected block with its placed text",
+            "Area Clear preserves inside wall-sign support and its actual server text",
+            "Live-border fixture receives safe terrain",
+            "A smaller world border arrives after normal selection capture",
+            "Area Clear rejects a captured box crossing the live world border",
+            "Restoring the live border permits reviewing the old selection",
+            "A border change cancels an already active Area Clear run",
+            "Owned fixture restores the border before further checks",
+            "Area Clear hazard fixture is received",
+            "Sealed fluid replaces a selected block after normal corner capture",
+            "Area Clear refuses the entire hazardous selection before any excavation",
+            "Area Clear cancellation fixture is received",
+            "Area Clear manual input takes over and does not resume",
+            "Area Clear releases controls and restores defaults",
+            "Area Clear uses the actual Minecraft-style settings screen",
+            "Area Clear settings framebuffer capture completes",
+            "Area Clear screenshot and menu never activate excavation",
+            "Final actual menu remains usable after module exercise",
+            "Final menu framebuffer capture completes"
+          ],
+          "receipt_sha256": "6b360172dc10011b126f68e19b709dcf31a8bb7c69e8a96de24831a0f1958584",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "edition": "neoforge",
+      "suites": [
+        {
+          "suite": "schematic-and-ui",
+          "qa_commit": "47da85fe10152ac9dd62036f1c916014a3c056b8",
+          "checks": [
+            "Owned received platform, survival, full hotbar and main-only materials",
+            "Actual bounded path import of independent litematic",
+            "Actual bounded path import of independent nbt",
+            "Actual bounded path import of independent schem",
+            "Origin and transformed native state preview remain paused",
+            "Copy uses actual clipboard with sorted registry items and exact coupled quantities",
+            "Real Build Planner and Materials widgets capture paused controls and exact totals",
+            "Explicit construction starts beyond normal reach",
+            "Received multi-material construction walks, sources and places exact directional/coupled states",
+            "Two real crosshair corners capture received states and atomic export",
+            "Independent roundtrip verifies states-only export rather than predicted/unknown air",
+            "Existing destination preserved without overwrite confirmation",
+            "Cancelled/stale asynchronous result never replaces current document",
+            "Cancel import after an actual512-state registry-validation batch",
+            "Cancelled validation cannot later activate after multiple remaining batches",
+            "Overflowed transform cannot start or claim a new complete plan",
+            "Restore accepted document after transform-error check",
+            "Unused unknown declared palette entry rejects before activation",
+            "Planned existing SINGLE chest is protected from a new RIGHT chest neighbor",
+            "Original box planner is still available after clear",
+            "Partial slab and snow use repeated ordinary item actions",
+            "Partial-material copy counts two slabs and four snow items",
+            "Partial-material exact received completion",
+            "Obstructed target is preserved without demolition",
+            "Obstruction yields explicit manual result",
+            "Missing material setup",
+            "Missing material stops without phantom completion",
+            "Owned server inventory-rejection setup keeps material only in main inventory",
+            "Real rejected server swap cannot pass an older stats response or trigger placement",
+            "Denied Start setup receives real Adventure permission",
+            "Denied Start changes no world, inventory, selection, walking or use",
+            "Restore Survival for genuine ordinary placement rejection",
+            "Actual ordinary use is refused by owned server and never counted",
+            "Active permission revocation baseline uses multi-batch read-only survey",
+            "Actual mode revocation stops before next automatic action",
+            "Restoring permission never rearms stopped construction",
+            "Restore owned survival for cancellation tests",
+            "Manual keyboard input immediately relinquishes controls",
+            "Menus stop and never automatically resume",
+            "Damage owned healthy received baseline",
+            "Damage active construction baseline before server command",
+            "Damage stops before a new placement",
+            "Damage never resumes or dispatches another item use",
+            "Absorbed damage owned healthy received baseline",
+            "Absorbed damage active construction baseline before server command",
+            "Absorbed damage stops before a new placement",
+            "Absorbed damage never resumes or dispatches another item use",
+            "Health below12 stops immediately",
+            "Low-health start fails safety",
+            "Food below10 stops immediately",
+            "Low-food start fails safety",
+            "World transition setup heals before final scope check",
+            "Mixed terminal outcome owned world setup",
+            "Mixed preexisting, coupled, occupied, material, manual and data-detail plan",
+            "Mixed result distinguishes one ordinary action from two received completed cells",
+            "Late already-dispatched receipt setup",
+            "Stop while actual ordinary use waits for its received acknowledgment",
+            "Late received placement refreshes outcome without another action",
+            "Large received multi-batch survey setup",
+            "Prepare explicit controlled host-cache replacement snapshots",
+            "Begin controlled host-cache block invalidation after first batch",
+            "No stale Complete after controlled host-cache block",
+            "Stable read-only refresh after controlled host-cache block",
+            "Begin controlled host-cache column invalidation after first batch",
+            "No stale Complete after controlled host-cache column",
+            "Stable read-only refresh after controlled host-cache column",
+            "Begin controlled host-cache unload invalidation after first batch",
+            "No stale Complete after controlled host-cache unload",
+            "Stable read-only refresh after controlled host-cache unload",
+            "Begin controlled host-cache center invalidation after first batch",
+            "No stale Complete after controlled host-cache center",
+            "Stable read-only refresh after controlled host-cache center",
+            "Begin controlled host-cache radius invalidation after first batch",
+            "No stale Complete after controlled host-cache radius",
+            "Stable read-only refresh after controlled host-cache radius",
+            "Stable second large survey can complete",
+            "Continuous controlled target changes have a finite survey bound",
+            "Cancellation during multi-batch scan labels initial and final uncertainty",
+            "Stopped survey readback is coherent and never rearms",
+            "Dimension transition stops, clears transient selection and never resumes"
+          ],
+          "receipt_sha256": "398343b839efbd2de8e7e7e8e22d702deb8398b1daf963b11a4295b1aede7b11",
+          "passed": true,
+          "ui": {
+            "real_widgets_and_copy": true,
+            "displayed_totals": {
+              "allCells": 108,
+              "airCells": 96,
+              "nonAirCells": 12,
+              "states": {
+                "minecraft:air": 96,
+                "minecraft:cobblestone": 2,
+                "minecraft:glass": 1,
+                "minecraft:oak_door[facing=east,half=lower,hinge=left,open=false,powered=false]": 1,
+                "minecraft:oak_door[facing=east,half=upper,hinge=left,open=false,powered=false]": 1,
+                "minecraft:oak_log[axis=x]": 1,
+                "minecraft:oak_planks": 2,
+                "minecraft:oak_slab[type=bottom,waterlogged=false]": 1,
+                "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]": 1,
+                "minecraft:red_bed[facing=south,occupied=false,part=foot]": 1,
+                "minecraft:red_bed[facing=south,occupied=false,part=head]": 1
+              },
+              "items": {
+                "minecraft:cobblestone": 2,
+                "minecraft:glass": 1,
+                "minecraft:oak_door": 1,
+                "minecraft:oak_log": 1,
+                "minecraft:oak_planks": 2,
+                "minecraft:oak_slab": 1,
+                "minecraft:oak_stairs": 1,
+                "minecraft:red_bed": 1
+              }
+            },
+            "capture_count": 4
+          },
+          "cache_fixture_scope": "controlled host-cache mutation; not observed network delivery",
+          "retained_outcome_scenarios": 8
+        },
+        {
+          "suite": "existing-features",
+          "qa_commit": "25974aa36814a494b5b501744ad82466136f7324",
+          "checks": [
+            "Permission payload rejects invalid versions, masks and lengths",
+            "Menu 50% fits actual widgets at compact baseline",
+            "Menu 100% fits actual widgets at compact baseline",
+            "Menu 300% fits actual widgets at compact baseline",
+            "Menu default restores compact 100% before gameplay checks",
+            "Fixture setup is received from owned integrated server",
+            "Singleplayer capabilities are granted locally",
+            "Minecraft module screen constructs its real widgets",
+            "Menu closes and normal gameplay resumes",
+            "Xray finds exposed and buried authoritative received ores",
+            "Xray alone does not render saved Finder lines or boxes",
+            "Finder explicitly enables target geometry alongside Xray",
+            "Disabling Xray preserves independently enabled Finder geometry",
+            "Disabling Finder restores Xray-only rendering without changing line preferences",
+            "Received block removal invalidates the target cache",
+            "Received block restoration is discovered again",
+            "Maximum texture context restores ordinary terrain rendering",
+            "Minimum texture context keeps thin original-texture edges",
+            "Default texture coverage and custom received block selection",
+            "Toggle off restores view without changing world blocks",
+            "Detached camera input moves the view and preserves body position",
+            "Settled rendered camera follows detached view without body rotation",
+            "Freecam disables cleanly",
+            "Ordinary inventory fixture arrives without modifying personal saves",
+            "Auto Tool replaces a fast ineligible golden pickaxe with a harvest-correct tool",
+            "Manual hotbar choice retains ownership until mining is released",
+            "Automatic eating consumes ordinary food on the integrated server",
+            "Eating restores the previous slot after consuming one item",
+            "Auto Totem fills only an empty offhand through the server",
+            "Auto Totem preserves an occupied shield offhand",
+            "Armor Assist fills an empty armor slot using an ordinary inventory action",
+            "Refill observes a real baseline stack",
+            "Refill moves an exact matching stack after observed depletion",
+            "Identical authoritative correction is not blindly retried",
+            "Explicit refill rearm retains its observed depletion candidate",
+            "Trigger fixture is an owned non-player living entity",
+            "Trigger uses an ordinary full-cooldown reachable attack",
+            "Automatic actions stop when the Minecraft menu opens",
+            "Action fixtures leave normal controls usable",
+            "Waypoint saves in current stable world/dimension scope",
+            "Visual HUD editor shows only enabled panels without modifying feature states",
+            "HUD dragging follows the grab point and remains an unsaved draft",
+            "HUD corner handle enlarges the overlay while holding its opposite corner",
+            "Visual HUD editor framebuffer capture",
+            "Enter confirms visual HUD changes and returns to the Rusty menu",
+            "Escape discards subsequent HUD changes and returns to the mod menu",
+            "Cancelled HUD draft never changes persisted preferences",
+            "HUD editor fixture restores its own previous settings",
+            "Overlay positions and cleared shortcuts persist to actual local JSON",
+            "Empty entity-tracer selection renders no geometry",
+            "Mobs-only entity tracers render a received pig",
+            "Mobs-only ESP adds a box without changing its tracer",
+            "Item tracers coexist with independent mob ESP",
+            "Different ESP and tracer targets framebuffer capture",
+            "Changing ESP targets does not remove an item tracer",
+            "Disabling tracers clears geometry while ESP remains enabled",
+            "Actual tracer menu exposes independent target buttons",
+            "Actual tracer Default button preserves independent ESP choices",
+            "Tracer menu framebuffer capture",
+            "Tracer fixture restores its prior settings",
+            "All module adapters tolerate received world and live rendering",
+            "Remote chunk loading removes targets from the former area",
+            "Returning to received chunks discovers the original ores again",
+            "Dimension change resets scanner and scoped markers",
+            "Returning dimension restores permission and target lifecycle",
+            "Profiles round-trip without acquiring multiplayer permission",
+            "Cleared menu binding retains Minecraft Options recovery",
+            "Thirty-second bounded rendering observation completes",
+            "Clean default controls remain ready for visual review",
+            "Actual Default button restores a numeric preference without changing another setting",
+            "Actual Default button restores a true boolean preference",
+            "Actual Default shortcut button restores X after a custom binding",
+            "Full reset uses Minecraft confirmation screen",
+            "Restore defaults presents a confirmation and Cancel preserves settings",
+            "Confirmed menu restore stops Xray and Freecam and resets all preferences and shortcuts",
+            "Saved quick profile survives full reset",
+            "Enabled Mods is an independent top-left panel with alphabetic rows",
+            "Active-list gameplay framebuffer capture completes",
+            "Deactivating a feature immediately removes its active-list row",
+            "Disabling Enabled Mods removes its rendered panel",
+            "Fixture returns to default settings after reset and list checks",
+            "Owned survival Auto Mine fixture receives terrain and tool",
+            "Auto Mine walks, mines, collects an authoritative diamond and stops at quota",
+            "Auto Mine does not restart after reaching its quota",
+            "Owned access tunnel fixture is ready",
+            "Auto Mine clears a safe access tunnel before normal resource mining",
+            "Owned hazardous ore fixture is ready",
+            "Fluid beside an ore refuses movement and mining",
+            "Owned manual takeover fixture is ready",
+            "Manual movement immediately takes over Auto Mine",
+            "Releasing manual movement never resumes Auto Mine",
+            "Owned explicit-binding fixture is ready",
+            "An explicit queued Auto Mine binding starts a transient session",
+            "The same queued binding explicitly stops Auto Mine",
+            "An explicit stop stays stopped across eligible ticks",
+            "Owned damage fixture is ready",
+            "Observed damage stops Auto Mine before resource actions",
+            "Owned denied-break fixture is ready",
+            "Adventure mode is authoritative",
+            "Rejected mining times out without claiming success",
+            "Auto Mine fixture restores default settings",
+            "Auto Mine settings use the actual Minecraft-style screen",
+            "Auto Mine settings framebuffer capture completes",
+            "Settings capture never starts Auto Mine",
+            "Area Clear owned survival fixture is received",
+            "Area Clear first corner uses an ordinary visible block ray",
+            "Area Clear second corner normalizes an inclusive two-by-two column",
+            "Area Clear removes four selected blocks and preserves outside stone and supporting bedrock",
+            "Area Clear remains stopped after completion",
+            "Partial-shape carpet fixture is received",
+            "Area Clear targets a real partial-shape block",
+            "Area Clear protected container fixture is received",
+            "Area Clear preserves a container and reports protected leftovers",
+            "Protected sign fixture receives both visible corner blocks",
+            "Named wall sign replaces a selected block with its placed text",
+            "Area Clear preserves inside wall-sign support and its actual server text",
+            "Live-border fixture receives safe terrain",
+            "A smaller world border arrives after normal selection capture",
+            "Area Clear rejects a captured box crossing the live world border",
+            "Restoring the live border permits reviewing the old selection",
+            "A border change cancels an already active Area Clear run",
+            "Owned fixture restores the border before further checks",
+            "Area Clear hazard fixture is received",
+            "Sealed fluid replaces a selected block after normal corner capture",
+            "Area Clear refuses the entire hazardous selection before any excavation",
+            "Area Clear cancellation fixture is received",
+            "Area Clear manual input takes over and does not resume",
+            "Area Clear releases controls and restores defaults",
+            "Area Clear uses the actual Minecraft-style settings screen",
+            "Area Clear settings framebuffer capture completes",
+            "Area Clear screenshot and menu never activate excavation",
+            "Final actual menu remains usable after module exercise",
+            "Final menu framebuffer capture completes"
+          ],
+          "receipt_sha256": "6b766d357c3cb7f2a29f490f0116187646f58cff453e327d80500366eca61042",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Physical OS Save/overwrite flow and normal launcher GUI delivery remain separate gates.",
+    "No arbitrary plugins, anticheat, modpacks, latency stress or endurance claim.",
+    "Native deliberate rejected-SWAP/stale-stats network fixture is not claimed; Java has actual rejected/stale fixtures and native successful full-main processing is tested.",
+    "States-only survival construction does not reconstruct entities, container contents or sign text; no demolition, flight, reach alteration or globally optimal route promise."
+  ]
+}

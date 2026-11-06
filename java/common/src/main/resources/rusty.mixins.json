@@ -19,7 +19,12 @@
     "OptionsMixin",
     "KeyboardMixin",
     "ClientPredictionAccessor",
-    "BlockPredictionAccessor"
+    "BlockPredictionAccessor",
+    "SchematicBlockItemAccessor",
+    "SchematicReceiptMixin",
+    "SchematicTerrainMixin",
+    "SchematicChunkCacheMixin",
+    "SchematicStatsRequestMixin"
   ],
   "injectors": {
     "defaultRequire": 1

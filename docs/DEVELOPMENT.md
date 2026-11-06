@@ -52,3 +52,11 @@ For the native menu logo, run the executable from its official launcher-installe
 ## Publishing accepted versions
 
 After the exact runtime source passes the supported build and applicable isolated game checks, merge an explicitly named **[release]** commit to `main`, or use the existing manual workflow dispatch. The native and Java publishers run only after their respective build/check jobs succeed. The native publisher keeps GitHub latest; Java remains a prerelease. Already published versions and tags are preserved. Bump the relevant version identities before a new release and retain exact package/game receipts. A release marker authorizes publishing; it does not substitute for real game acceptance.
+
+## Schematic integration
+
+The native codec and construction policy remain Rust. `mixins/rusty/platform` is a dependency-free native helper crate for the operating system file picker and failure-safe replacement. Its narrow safe interface isolates the required Windows calls; the injected game code retains Horizon's prohibition on unsafe code. The source packager follows the bundle's declared crate and includes its manifest and source, with build outputs excluded.
+
+`tests/schematic.rs` exercises independent NBT fixtures, gzip integrity, bounds and exact transformations. `tests/schematic_build.rs` covers walking and placement policy, material accounting and inventory processing. `tests/schematic_io.rs` exercises bounded Unicode file handling and cancellation. These checks do not establish live construction.
+
+Use `tools/game_schematic_smoke.py` with the exact candidate executable, prepared resources and a **new** output directory for disposable native survival construction. Its cases keep a twelve-cell, ten-item multi-material fixture, far targets requiring walking and full-hotbar main-inventory sourcing. Separate-server acceptance and operating-system picker/clipboard controls remain distinct checks. The script never opens a personal save. Java focused acceptance is selected with `RUSTY_QA_SCHEMATICS=1` and independently generated files supplied through `RUSTY_QA_SCHEMATIC_FIXTURES`; unset both for the original regression suite.

@@ -12,6 +12,7 @@ public abstract class UseKeyMixin {
   @Inject(method = "handleKeybinds", at = @At("HEAD"), cancellable = true)
   private void rusty$detachedInput(CallbackInfo ci) {
     dev.justeck.rusty.RustyMining.preInput();
+    dev.justeck.rusty.SchematicConstruction.guard();
     if (dev.justeck.rusty.RustyClient.active("freecam")) {
       for (KeyMapping key : Minecraft.getInstance().options.keyMappings)
         while (key.consumeClick()) {}

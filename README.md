@@ -6,7 +6,7 @@
 
 **Rusty is a native Rust toolkit for Horizon, with Fabric and NeoForge counterparts:** a familiar Minecraft interface, textured world views, independent HUD layouts, local navigation and ordinary player assistance. Press **Right Shift** to open the menu. Search by module, setting or description, then enable the tools you want.
 
-**New in 1.3.1: Area Clear.** Set two opposite corners, review the bounded box and explicitly start ordinary survival excavation. It works from the highest eligible layer, protects excavation boundaries and reports unsafe or unreachable leftovers. Off and unbound by default. [Area Clear guide](docs/AREA_CLEAR.md).
+**New in 1.4: Schematic Builder.** Choose a local schematic with the native file picker, review the transformed preview and copy its materials list. Start explicitly to walk, select inventory materials and place supported blocks through ordinary game actions. Select two corners in an opened world to export a states-only `.schem`. [Schematic guide and limits](docs/SCHEMATICS.md).
 
 **Auto Mine remains available.** Select a resource and block goal, then explicitly start a bounded route that weighs walking and mining time. Normal player controls perform each action, with live terrain checks, server acknowledgment, supported drop collection and immediate manual takeover. Off and unbound by default. [Auto Mine guide](docs/AUTO_MINE.md) · [Validation and limits](docs/VALIDATION.md).
 
@@ -20,13 +20,13 @@ Arrange your HUD directly in the game view: click **Edit HUD**, drag overlays in
 
 | Edition | Game/runtime | Installation |
 |---|---|---|
-| **Horizon native 1.3.1** | Horizon 66f3981 · API 411 · Minecraft 26.3 · Rust | Native GitHub input below |
-| **Fabric 1.3.0-beta.8** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
-| **NeoForge 1.3.0-beta.8** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
+| **Horizon native 1.4.0** | Horizon 66f3981 · API 411 · Minecraft 26.3 · Rust | Native GitHub input below |
+| **Fabric 1.4.0-beta.1** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
+| **NeoForge 1.4.0-beta.1** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
 
 The Java counterparts share Minecraft-style controls and a 45-module catalog, with edition-specific behavior and validation. Their restricted multiplayer tools require authoritative server opt-in; ordinary information tools work on unmodified servers. [Permissions and differences](java/README.md#multiplayer-permissions) · [Java validation](docs/JAVA_VALIDATION.md). The stable native release remains the GitHub `latest` so Horizon's installer keeps resolving its native package.
 
-The Fabric and NeoForge beta has been [submitted to Modrinth](https://modrinth.com/mod/rusty-toolkit) with explicit AI code, asset and text disclosures. It is **under review**, with approval unconfirmed. GitHub remains the available download source. [Submission record](docs/evidence/modrinth-submission.json) · [Area Clear acceptance](docs/evidence/area-clear-1.3.1.json) · [Published downloads and launcher installation](docs/evidence/area-clear-publication-1.3.1.json).
+An earlier Fabric and NeoForge beta was [submitted to Modrinth](https://modrinth.com/mod/rusty-toolkit) with explicit AI code, asset and text disclosures. Approval and public availability remain unconfirmed; GitHub remains the available download source. [Submission record](docs/evidence/modrinth-submission.json) · [Area Clear acceptance](docs/evidence/area-clear-1.3.1.json) · [Published downloads and launcher installation](docs/evidence/area-clear-publication-1.3.1.json).
 
 ## Install
 
@@ -38,7 +38,7 @@ https://github.com/Justeck/Rusty
 
 Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **66f3981**, native API **411**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
 
-The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.3.1`](https://github.com/Justeck/Rusty/releases/tag/v1.3.1). The [Area Clear](docs/AREA_CLEAR.md) and [Auto Mine](docs/AUTO_MINE.md) guides describe their controls and conservative limits. Historical receipts retain their original release scope. [Validation](docs/VALIDATION.md) distinguishes automated checks, actual game tests and launcher installation.
+The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.4.0`](https://github.com/Justeck/Rusty/releases/tag/v1.4.0). The [Schematic Builder](docs/SCHEMATICS.md), [Area Clear](docs/AREA_CLEAR.md) and [Auto Mine](docs/AUTO_MINE.md) guides describe their controls and conservative limits. Historical receipts retain their original release scope. [Validation](docs/VALIDATION.md) distinguishes automated checks, actual game tests and launcher installation.
 
 **Auto Mine** is an explicitly started resource mode with ore presets, aimed Custom blocks, weighted routes, ordinary walking and mining, a block goal and conservative safety stops. It uses received terrain and waits for normal server acknowledgments. It stays off by default and never resumes a stopped run. [Controls, defaults and limitations](docs/AUTO_MINE.md).
 
@@ -55,6 +55,16 @@ The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.3.
 **Right Shift** opens Rusty. **Options → Mods → Rusty** remains the recovery path. See [Installation](docs/INSTALLATION.md), [Usage](docs/USAGE.md) and [Modules](docs/MODULES.md).
 
 ## Familiar controls, less friction
+
+### A file, a materials list, a plan you control
+
+**Build Planner → Load schematic** opens the operating system file picker for modern `.schem`, `.litematic` and structure `.nbt` files. Import does not start building. Place the origin, rotate or mirror the plan and inspect exact states. The materials list includes item quantities, stacks, available inventory and missing amounts, with a **Copy materials** button.
+
+Construction uses bounded normal walking, main-inventory sourcing and received placement verification. It reports occupied, unsupported or inaccessible work instead of demolishing obstructions or adding scaffolding. Export captures settled received states between two inclusive corners, without container contents or entities. [Step-by-step workflow](docs/SCHEMATICS.md).
+
+![Native schematic materials, with separate required, available and missing quantities](docs/screenshots/rusty-1.4-schematic-materials.png)
+
+Original, unretouched Horizon capture from the owned survival-construction test. Quantities describe the full plan; already-built world blocks are not deducted. [Screenshot provenance](docs/evidence/schematic-media-1.4.0.json).
 
 ### Choose a box. Clear it under your control.
 

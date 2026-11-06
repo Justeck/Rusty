@@ -42,6 +42,10 @@ public final class RustyPlanner {
       cells = List.of();
       return;
     }
+    if (RustySchematics.loaded()) {
+      place = false;
+      return;
+    }
     var cfg = RustyClient.config;
     var list = new ArrayList<Cell>();
     BlockItem held = mc.player.getMainHandItem().getItem() instanceof BlockItem b ? b : null;
@@ -69,7 +73,7 @@ public final class RustyPlanner {
         }
     list.sort(Comparator.comparingDouble(c -> c.pos.distToCenterSqr(mc.player.position())));
     cells = List.copyOf(list.stream().limit(128).toList());
-    if (RustyMining.active()) {
+    if (RustyMining.active() || SchematicConstruction.active()) {
       place = false;
       return;
     }
@@ -91,19 +95,28 @@ public final class RustyPlanner {
             Vec3.atCenterOf(support)
                 .add(face.getStepX() * .5, face.getStepY() * .5, face.getStepZ() * .5);
         var ray =
-            mc.level.clip(
-                new ClipContext(
-                    mc.player.getEyePosition(),
-                    point,
-                    ClipContext.Block.COLLIDER,
-                    ClipContext.Fluid.NONE,
-                    mc.player));
-        if (ray.getType() != HitResult.Type.BLOCK || !ray.getBlockPos().equals(support)) continue;
+            SchematicPlacement.supportHit(
+                mc.player.getEyePosition(),
+                point,
+                face,
+                support,
+                mc.player.blockInteractionRange(),
+                end ->
+                    mc.level.clip(
+                        new ClipContext(
+                            mc.player.getEyePosition(),
+                            end,
+                            ClipContext.Block.COLLIDER,
+                            ClipContext.Fluid.NONE,
+                            mc.player)));
+        if (ray == null) continue;
+        point = ray.getLocation();
+        if (point.distanceTo(mc.player.getEyePosition()) > mc.player.blockInteractionRange())
+          continue;
         Vec3 d = point.subtract(mc.player.getEyePosition());
         mc.player.setYRot((float) Math.toDegrees(Math.atan2(-d.x, d.z)));
         mc.player.setXRot((float) -Math.toDegrees(Math.atan2(d.y, Math.hypot(d.x, d.z))));
-        mc.gameMode.useItemOn(
-            mc.player, InteractionHand.MAIN_HAND, new BlockHitResult(point, face, support, false));
+        mc.gameMode.useItemOn(mc.player, InteractionHand.MAIN_HAND, ray);
         RustyClient.notice = "Requested one ordinary placement; server decides the result.";
         return;
       }

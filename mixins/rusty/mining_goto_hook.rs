@@ -7,7 +7,7 @@ fn rusty_mining_landing(
     // Only Rusty's one-edge mining tasks carry this ownership marker.
     // Keep the deadline and all ordinary host behavior for other tasks.
     if !timed_out
-        && goto.warning.as_deref() == Some("Rusty checked mining step")
+        && matches!(goto.warning.as_deref(), Some("Rusty checked mining step" | "Rusty checked schematic step"))
         && game.player.as_ref().is_some_and(|p| {
             horizon_client_render::mesher::rusty_mining::brake_before_landing(
                 [p.position.x, p.position.y, p.position.z],

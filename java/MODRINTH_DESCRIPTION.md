@@ -1,10 +1,10 @@
 # Keep your bearings.
 
-**44 tools. One familiar interface.**
+**45 tools. One familiar interface.**
 
 Textured world views, local navigation, movable HUDs and optional player assistance—built around Minecraft's own buttons, sliders and controls. Turn on what you need, keep the world in view, and make the layout your own.
 
-**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.7**
+**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.4.0-beta.1**
 
 [Installation guide](https://github.com/Justeck/Rusty/blob/main/java/README.md) · [Source code](https://github.com/Justeck/Rusty) · [Report an issue](https://github.com/Justeck/Rusty/issues) · [Validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
@@ -58,6 +58,24 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 
 *Original, unretouched Fabric 26.3 gameplay capture from the owned acceptance world. Only Fullbright and No Fog are active; Status HUD is off.*
 
+## Build from a schematic
+
+**Build Planner → Load schematic…** opens the operating system file picker for modern `.schem`, `.litematic` and structure `.nbt` files. Set the origin, rotate or mirror the exact-state preview, and use **Copy all materials** for quantities, stacks, inventory availability and state totals. Loading never starts construction.
+
+**Start construction** uses ordinary walking, main-inventory sourcing and normal placement. Exact received settlement determines progress; coupled beds/doors and partial blocks keep their normal item semantics. Select two inclusive corners in an opened world and **Save states-only selection…** to export a portable `.schem`.
+
+| Import, transform and materials | Explicit construction and export |
+|---|---|
+| ![Actual Fabric schematic controls](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.4.0-beta.1/docs/screenshots/java/rusty-schematic-planner.png) | ![Actual NeoForge construction and two-corner export controls](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.4.0-beta.1/docs/screenshots/java/rusty-schematic-construction-export.png) |
+
+![Complete item quantities, inventory availability and exact-state totals](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.4.0-beta.1/docs/screenshots/java/rusty-schematic-materials.png)
+
+*Original, unretouched Minecraft26.3 captures. Materials describe the full imported plan; already-built world blocks are not deducted. Copy all materials includes every page.*
+
+**Construction result / details** separates initial matches, newly completed cells, ordinary actions and remaining work. Relevant terrain changes restart verification; unavailable or continually changing targets stay unverified. Stop leaves a bounded read-only result refresh and never restarts construction.
+
+No demolition, flight, extended reach or unrequested scaffolding is added. Occupied, unsupported or inaccessible work remains explicit. Entities, container contents and sign text are not reconstructed. Manual input, menus, received damage, safety thresholds and scope changes stop the run without automatic restart. Java multiplayer construction needs current-server **view + movement + assistance** grants. [Workflow, formats and limits →](https://github.com/Justeck/Rusty/blob/main/docs/SCHEMATICS.md)
+
 ## Choose your toolkit
 
 | Area | Included tools |
@@ -66,7 +84,7 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 | **Navigation** | Coordinates, compass, local waypoints, death markers, breadcrumbs, portal coordinates and a received-surface minimap |
 | **World awareness** | Target information, chunk borders, sampled floor-light warnings and approximate projectile paths |
 | **Information** | Enabled Mods list, equipment durability, biome/light, held-container contents, clock, speed, FPS and click counters |
-| **Optional assistance** | Auto Mine resource routes, sprint/crouch/jump requests, tool/food/armor/refill/totem assistance, owned-hook bite reeling, explicit waypoint walking, one-action build planning and full-cooldown crosshair attacks |
+| **Optional assistance** | Area Clear excavation, Auto Mine resource routes, sprint/crouch/jump requests, tool/food/armor/refill/totem assistance, owned-hook bite reeling, explicit waypoint walking, schematic construction, one-action box planning and full-cooldown crosshair attacks |
 
 **Start simple:** Status HUD is enabled by default. Other modules start off. Inventory and movement assistance use normal game actions; the server decides their results.
 
@@ -101,12 +119,12 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 
 | Loader | Requirements | Rusty file |
 |---|---|---|
-| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.7.jar` |
-| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.7.jar` |
+| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.4.0-beta.1.jar` |
+| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.4.0-beta.1.jar` |
 
 Install **one Rusty loader jar**, not both. Use the **Versions** tab for downloads. Earlier game versions and snapshots are not supported by this beta.
 
-**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.3.0 release](https://github.com/Justeck/Rusty/releases/tag/v1.3.0), targeting **Horizon Nightly 66f3981 · native API 411 · Minecraft 26.3**. Native 1.3.0 adds Auto Mine to the Rust toolkit. [Native installation and exact validation scope](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md). These Java jars do not go into Horizon's native mod installer.
+**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.4.0 release](https://github.com/Justeck/Rusty/releases/tag/v1.4.0), targeting **Horizon Nightly 66f3981 · native API 411 · Minecraft 26.3**. Native 1.4.0 adds Schematic Builder alongside Area Clear and Auto Mine. [Native installation and exact validation scope](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md). These Java jars do not go into Horizon's native mod installer.
 
 ## Multiplayer: permission is explicit
 
@@ -118,7 +136,9 @@ Rusty does not defeat server anti-X-ray, recover deliberately withheld blocks, b
 
 ## Tested, with clear limits
 
-This beta passed fresh builds, **1,231 shared behavioral assertions**, additional mining-planner regressions, and **106 actual disposable-world game checks per loader**. Those runs cover Auto Mine resource collection, safe access tunnels, fluid refusal, manual and binding stops, no automatic restart, damage cancellation and server-authoritative denied mining. They also retain visual HUD editing, independent tracer/ESP controls, defaults, active-list behavior, menu transforms, and X-Ray/Finder regressions. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this Java patch. The 44-module inventory is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
+The [validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md) separates source checks, actual disposable-world construction and the original module regressions. Import and compilation alone are not construction evidence. Final block states, normal inventory processing, published view, item consumption, safety stops and server authority have separate checks. The 45-tool catalog is not a claim of exhaustive option coverage or compatibility with every public server.
+
+This beta passed **80 schematic/UI checks and 133 existing-feature game checks per loader**, with **60 JUnit tests, 1,231 shared behavioral assertions and 18 host regressions**. The expanded scenarios cover denied/revoked construction permission, multi-batch verification, late received writes after Stop, mixed manual/occupied/missing results and real clipboard widget behavior. Cache replacement/unload/range tests use controlled actual client-cache operations; they are not claimed as observed network deliveries.
 
 ## Auto Mine
 

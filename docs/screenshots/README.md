@@ -2,6 +2,18 @@
 
 **Original game screenshots, grouped by edition.** Open a gallery below, then click any image for its full-resolution file. Game captures are separate from generated brand artwork and from automated test assertions.
 
+## Schematic Builder — Java 1.4.0-beta.1
+
+These original Fabric and NeoForge development-client frames show the actual Build Planner and Materials screens. The plan remains paused while browsing. Every frame was opened and checked for readable controls and pop-ups before selection. [Controls and limits](../SCHEMATICS.md) · [Capture provenance](../evidence/schematic-media-1.4.0.json).
+
+| Import, transform and materials — Fabric | Explicit construction and export — NeoForge |
+|---|---|
+| ![Actual Fabric schematic controls](java/rusty-schematic-planner.png) | ![Actual NeoForge construction and states-only export controls](java/rusty-schematic-construction-export.png) |
+
+![Copyable quantities and exact block-state totals](java/rusty-schematic-materials.png)
+
+The materials list distinguishes ten placement items from twelve non-air target cells. Air and unspecified gaps do not authorize clearing existing blocks. The second page retains the remaining exact bed states; **Copy all materials** includes every page. These pictures document the interface, with behavior established separately by the game checks.
+
 | Edition | Collection |
 |---|---|
 | **Horizon native** | 10 original captures below: menus, textured terrain, HUD placement, lighting and profiles |
@@ -29,6 +41,16 @@ The new tour covers **terrain and block selection**, **world tools**, **lighting
 The courtyard and dark chamber are owned test fixtures. Features are enabled for illustration; only Status HUD starts enabled by default. Restricted Java tools require server permission in multiplayer. The tour is presentation evidence, not a replacement for [Java validation](../JAVA_VALIDATION.md).
 
 ## Horizon native: original captures
+
+### Schematic Builder — native 1.4.0
+
+Original frames from the official Performance executable in a disposable owned test world. Both screenshots were opened and inspected before selection. The material popup preserves one item per row and explains the full-plan stock comparison. Longer lists at default and larger menu sizes were also inspected for legibility and a visible Copy-all continuation.
+
+| Schematic controls | Full-plan materials |
+|---|---|
+| ![Native schematic origin, transform and explicit construction controls](rusty-1.4-schematic-settings.png) | ![Eight readable item rows with required, available and missing amounts](rusty-1.4-schematic-materials.png) |
+
+[Original-file hashes and build identity](../evidence/schematic-media-1.4.0.json) · [Workflow and limits](../SCHEMATICS.md). These captures do not establish physical OS file-dialog behavior or launcher button verification.
 
 These are fresh, unedited native game captures. The accepted executable, original capture names, dimensions and exact file hashes are recorded in [media provenance](../evidence/media.json). Generated brand artwork lives separately in [assets](../assets/branding.json). No game photograph is generated, retouched or relabeled from a previous product.
 

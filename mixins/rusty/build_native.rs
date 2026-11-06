@@ -57,7 +57,7 @@ fn loaded(game: &Game<'_>, at: [i32; 3]) -> bool {
         && game.world.chunks.contains_key(&(at[0] >> 4, at[2] >> 4))
 }
 fn usable(game: &Game<'_>) -> bool {
-    if super::rusty_mining_native::active() { return false; }
+    if super::rusty_mining_native::active() || super::rusty_schematic_native::busy() { return false; }
     game.native_window()
         && game.native_on(rusty::ID)
         && game.remote.is_some()

@@ -23,6 +23,7 @@ public abstract class InputMixin extends ClientInput {
       moveVector = Vec2.ZERO;
       RustyNavigation.cancelWalk();
       RustyMining.stop("Menu opened or focus changed");
+      SchematicConstruction.stop("Menu opened or focus changed");
       return;
     }
     boolean forward = keyPresses.forward(),
@@ -37,6 +38,21 @@ public abstract class InputMixin extends ClientInput {
             || jump
             || shift
             || sprint)) RustyMining.manual();
+    if (SchematicConstruction.active()
+        && (forward
+            || keyPresses.backward()
+            || keyPresses.left()
+            || keyPresses.right()
+            || jump
+            || shift
+            || sprint)) SchematicConstruction.manual();
+    if (SchematicConstruction.active()) SchematicConstruction.guard();
+    if (SchematicConstruction.walking()) {
+      forward = true;
+      jump = SchematicConstruction.steppingUp();
+      sprint = false;
+      moveVector = new Vec2(0, 1);
+    }
     if (RustyMining.active()) RustyMining.guard();
     if (RustyMining.walking()) {
       forward = true;
@@ -56,8 +72,11 @@ public abstract class InputMixin extends ClientInput {
         moveVector = new Vec2(0, 1);
       }
     }
-    if (!RustyMining.active() && RustyClient.active("auto_sprint") && forward && !shift)
-      sprint = true;
+    if (!RustyMining.active()
+        && !SchematicConstruction.active()
+        && RustyClient.active("auto_sprint")
+        && forward
+        && !shift) sprint = true;
     if (p.onGround()
         && !jump
         && !shift
@@ -71,9 +90,11 @@ public abstract class InputMixin extends ClientInput {
                   Math.cos(angle) * f + Math.sin(angle) * s)
               .scale(.45);
       if (!RustyMining.active()
+          && !SchematicConstruction.active()
           && RustyClient.active("safe_walk")
           && mc.level.noCollision(p, p.getBoundingBox().move(step).move(0, -.6, 0))) shift = true;
       if (!RustyMining.active()
+          && !SchematicConstruction.active()
           && (RustyClient.active("auto_jump") || RustyNavigation.walking())
           && !mc.level.noCollision(p, p.getBoundingBox().move(step))
           && mc.level.noCollision(p, p.getBoundingBox().move(step).move(0, 1.1, 0))) jump = true;

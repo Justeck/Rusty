@@ -1,3 +1,16 @@
+## 1.4.0 / Java 1.4.0-beta.1 — Schematic Builder
+
+- Add native OS Load/Save buttons, bounded modern named-state schematic import and states-only Sponge export from two inclusive received-world corners.
+- Add exact-state preview, origin/rotation/mirror controls, sorted materials and block-state totals with clipboard copy. Keep the existing box planner and one-placement action.
+- Add explicit bounded walking construction, main-inventory sourcing with preserved displaced stacks, ordinary view publication and exact primary/coupled placement validation.
+- Require actual server processing and received placement settlement; retain separate terminal outcome counts and report unsupported/inaccessible work without demolition or unrequested scaffolding.
+- Require Survival/Creative build permission at Start and throughout construction. Invalidate incremental verification on relevant block, prediction and chunk-cache changes; bounded retries remain explicitly unverified when terrain will not settle.
+- Separate initial matches, newly completed cells and placement-action count in the retained result view. Late received writes can update stopped readback without restarting actions.
+- Add resettable health/food defaults, independent received-damage cancellation and existing manual/menu/correction/scope stops without automatic resume.
+- Bound parser, worker, validation, preview, route and per-frame work; share origin data and keep file cancellation responsive across the atomic commit boundary.
+- Keep native materials in readable full-plan rows with Copy-all continuation, and reset preview colors explicitly whenever an incremental survey restarts.
+- Add independent format, geometry, inventory, orientation, lifecycle and owned game acceptance fixtures. [Schematic workflow and limitations](docs/SCHEMATICS.md).
+
 ## 1.3.1 / Java 1.3.0-beta.8 — Area Clear
 
 - Add explicit corner capture, inclusive dimensions, selection details, Clear Selection and a green boundary preview.

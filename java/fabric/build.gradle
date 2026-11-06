@@ -18,6 +18,20 @@ if(project.hasProperty('rustyQa')) {
             compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
             runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
         }
+        // Package-private host tests use the product package, so they cannot be a separate mod.
+        hostRegression {
+            java.srcDir '../hostRegression/src/main/java'
+            compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output + sourceSets.qa.output
+            runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output + sourceSets.qa.output
+        }
+    }
+    tasks.register('hostRegression', JavaExec) {
+        group = 'verification'
+        description = 'Runs constructor-free host regressions without starting Minecraft.'
+        workingDir = layout.buildDirectory.get().asFile
+        classpath = sourceSets.hostRegression.runtimeClasspath
+        mainClass = 'dev.justeck.rusty.SchematicHostRegression'
+        javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(25) }
     }
     loom.mods {
         rusty { sourceSet sourceSets.main }

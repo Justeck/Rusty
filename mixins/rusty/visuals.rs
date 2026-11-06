@@ -544,6 +544,7 @@ pub(super) fn append_gizmos(
         .extend(line_gizmos(game, camera, view, true).lines);
     super::rusty_awareness_native::gizmos(game, &mut value, camera, view);
     super::rusty_builder::append_gizmos(game, &mut value);
+    super::rusty_schematic_native::append_gizmos(game, &mut value);
     value
 }
 fn entity_lines(game: &Game<'_>, cfg: &rusty::Config, camera: [f64; 3], g: &mut Gizmos) {

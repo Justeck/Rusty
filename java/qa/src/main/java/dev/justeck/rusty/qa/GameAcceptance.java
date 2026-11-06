@@ -53,6 +53,10 @@ public final class GameAcceptance {
 
   public static void tick() {
     if (MODE.isEmpty() || finished) return;
+    if ("1".equals(System.getenv("RUSTY_QA_SCHEMATICS"))) {
+      SchematicAcceptance.tick();
+      return;
+    }
     var mc = Minecraft.getInstance();
     ticks++;
     try {

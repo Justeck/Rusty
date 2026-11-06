@@ -1,7 +1,15 @@
 from pathlib import Path
 import zipfile,json,hashlib
 b=Path(__file__).resolve().parent
-version='1.3.0-beta.8'
+version='1.4.0-beta.1'
+# A development QA mod must not split the product package in NeoForge's module graph.
+# The package-private host executable belongs only to the non-mod hostRegression output.
+for loader in ['fabric', 'neoforge']:
+ qa=b/loader/'build/classes/java/qa'
+ if qa.is_dir():
+  leaked=list((qa/'dev/justeck/rusty').glob('*.class'))
+  assert not leaked,f'Product package leaked into {loader} game QA mod: {[p.name for p in leaked]}'
+  assert not list(qa.rglob('SchematicHostRegression*.class')),f'Host regression leaked into {loader} game QA mod'
 rows=[]
 for loader in ['fabric','neoforge']:
  for suffix in ['', '-sources']:
@@ -10,7 +18,7 @@ for loader in ['fabric','neoforge']:
   with zipfile.ZipFile(p) as z:
    names=z.namelist()
    assert 'LICENSE' in names and 'NOTICE' in names,'License notices missing'
-   assert not any('/qa/' in n or 'rusty-qa' in n or 'GameAcceptance' in n for n in names),'Development fixture leaked into download'
+   assert not any('/qa/' in n or 'rusty-qa' in n or 'GameAcceptance' in n or 'SchematicHostRegression' in n for n in names),'Development fixture leaked into download'
    assert not any(n.startswith(('net/minecraft/','net/fabricmc/','net/neoforged/','com/mojang/','org/spongepowered/')) for n in names),'Game/loader dependencies must not be bundled'
    if suffix:
     assert 'dev/justeck/rusty/RustyClient.java' in names and 'dev/justeck/rusty/core/Settings.java' in names
