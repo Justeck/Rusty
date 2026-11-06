@@ -31,6 +31,7 @@ loom {
             if(project.hasProperty('rustyQa')) {
                 source sourceSets.qa
                 vmArg "-Drusty.qa=${project.property('rustyQa')}"
+                if(project.hasProperty('rustyMiningOnly'))vmArg '-Drusty.qa.miningOnly=true'
                 if(project.hasProperty('rustyKeepOpen'))vmArg '-Drusty.qa.keepOpen=true'
                 programArgs '--username','RustyQA','--width','1280','--height','720'
                 if(project.property('rustyQa')=='singleplayer')programArgs '--quickPlaySingleplayer','RustyLab'

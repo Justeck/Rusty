@@ -22,6 +22,7 @@ neoForge {
             client(); gameDirectory = file('run'); systemProperty 'rusty.edition', 'neoforge'
             if(project.hasProperty('rustyQa')) {
                 systemProperty 'rusty.qa',project.property('rustyQa')
+                if(project.hasProperty('rustyMiningOnly'))systemProperty 'rusty.qa.miningOnly','true'
                 if(project.hasProperty('rustyKeepOpen'))systemProperty 'rusty.qa.keepOpen','true'
                 programArguments.addAll '--username','RustyQA','--width','1280','--height','720'
                 if(project.property('rustyQa')=='singleplayer')programArguments.addAll '--quickPlaySingleplayer','RustyLab'

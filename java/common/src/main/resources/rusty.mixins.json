@@ -2,6 +2,26 @@
   "required": true,
   "package": "dev.justeck.rusty.mixin",
   "compatibilityLevel": "JAVA_25",
-  "client": ["MinecraftMixin", "TerrainMixin", "VisibilityMixin", "GameRendererMixin", "CameraMixin", "MouseMixin", "LightmapMixin", "FogMixin", "WeatherMixin", "InputMixin", "HudMixin", "FishingAccessor", "UseKeyMixin", "OptionsMixin", "KeyboardMixin"],
-  "injectors": {"defaultRequire": 1}
+  "client": [
+    "MinecraftMixin",
+    "TerrainMixin",
+    "VisibilityMixin",
+    "GameRendererMixin",
+    "CameraMixin",
+    "MouseMixin",
+    "LightmapMixin",
+    "FogMixin",
+    "WeatherMixin",
+    "InputMixin",
+    "HudMixin",
+    "FishingAccessor",
+    "UseKeyMixin",
+    "OptionsMixin",
+    "KeyboardMixin",
+    "ClientPredictionAccessor",
+    "BlockPredictionAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

@@ -1,4 +1,16 @@
-# 1.3.0-beta.5 independent tracer targets
+# Java edition validation
+
+## 1.3.0-beta.7 — Auto Mine
+
+Both supported Java 25 loader builds and QA compilation passed. The shared core passed **1,231 existing behavioral assertions** and **four mining-planner test methods** covering route costs, hazards, bounded search and collection sequencing. Fabric and NeoForge each completed **106 actual owned singleplayer game checks**. The final production code includes explicit transient activation, server-prediction acknowledgment guards, supported collection steps and safe route-queue handling.
+
+Auto Mine checks exercise actual resource break and inventory pickup, conservative access tunnels, fluid and falling-block refusal, harvest-correct tool selection, worn-tool and full-inventory refusal, shortcut start/stop, manual takeover, menus with no restart, damage, denied mining and world lifecycle cancellation. The full suites also retain HUD editing, defaults, tracers, X-Ray/Finder and other existing regressions. [Exact named checks and package identities](evidence/auto-mine-1.3.0.json).
+
+The game fixtures use isolated development clients and disposable worlds. No personal save or public-server character was used. Fresh Java dedicated-server permission tests, arbitrary modpacks, alternate renderers, latency stress and endurance runs are not claimed for this patch. Auto Mine still requires authoritative multiplayer **view + movement + assistance** grants; it cannot reveal server-withheld resources. Bounded cost routing reduces known risks rather than guaranteeing invulnerability or a globally fastest path.
+
+![Actual Fabric Auto Mine settings](screenshots/java/rusty-auto-mine-settings.png)
+
+## 1.3.0-beta.5 independent tracer targets (historical)
 
 ## Beta.6 published package verification
 

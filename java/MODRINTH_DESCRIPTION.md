@@ -1,10 +1,10 @@
 # Keep your bearings.
 
-**43 tools. One familiar interface.**
+**44 tools. One familiar interface.**
 
 Textured world views, local navigation, movable HUDs and optional player assistance—built around Minecraft's own buttons, sliders and controls. Turn on what you need, keep the world in view, and make the layout your own.
 
-**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.6**
+**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.7**
 
 [Installation guide](https://github.com/Justeck/Rusty/blob/main/java/README.md) · [Source code](https://github.com/Justeck/Rusty) · [Report an issue](https://github.com/Justeck/Rusty/issues) · [Validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
@@ -101,12 +101,12 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 
 | Loader | Requirements | Rusty file |
 |---|---|---|
-| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.6.jar` |
-| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.6.jar` |
+| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.7.jar` |
+| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.7.jar` |
 
 Install **one Rusty loader jar**, not both. Use the **Versions** tab for downloads. Earlier game versions and snapshots are not supported by this beta.
 
-**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.2.6 release](https://github.com/Justeck/Rusty/releases/tag/v1.2.6), targeting **Horizon Nightly 38609b7 · native API 409 · Minecraft 26.3**. Native 1.2.6 adds independent Players, Mobs and Dropped Items choices to Entity Tracers. [Native installation and exact validation scope](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md). These Java jars do not go into Horizon's native mod installer.
+**Playing through Horizon?** Use the separate [Horizon-native Rusty 1.3.0 release](https://github.com/Justeck/Rusty/releases/tag/v1.3.0), targeting **Horizon Nightly 66f3981 · native API 411 · Minecraft 26.3**. Native 1.3.0 adds Auto Mine to the Rust toolkit. [Native installation and exact validation scope](https://github.com/Justeck/Rusty/blob/main/docs/VALIDATION.md). These Java jars do not go into Horizon's native mod installer.
 
 ## Multiplayer: permission is explicit
 
@@ -118,7 +118,15 @@ Rusty does not defeat server anti-X-ray, recover deliberately withheld blocks, b
 
 ## Tested, with clear limits
 
-This beta passed fresh builds, **1,231 shared behavioral assertions** and **83 actual disposable-world game checks per loader**, including visual HUD dragging, proportional resizing, Enter confirmation and Escape cancellation, clear-world rendering, independent entity tracer/ESP targets, actual tracer menu controls and Default buttons, confirmation/cancel behavior, runtime resets, active-list placement/update/removal, menu transforms at 50%, 100% and 300%, and the existing X-ray/Finder regressions. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this patch. These are separate kinds of evidence: the 43-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
+This beta passed fresh builds, **1,231 shared behavioral assertions**, additional mining-planner regressions, and **106 actual disposable-world game checks per loader**. Those runs cover Auto Mine resource collection, safe access tunnels, fluid refusal, manual and binding stops, no automatic restart, damage cancellation and server-authoritative denied mining. They also retain visual HUD editing, independent tracer/ESP controls, defaults, active-list behavior, menu transforms, and X-Ray/Finder regressions. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this Java patch. The 44-module inventory is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
+
+## Auto Mine
+
+Choose one of eleven ore presets or an aimed Custom block, a search radius and a block goal. The bounded planner weighs walking and mining time, optionally opens conservative access tunnels and shows a green route preview. Ordinary controls perform actions. Server acknowledgments must settle predicted openings before they count. Supported collection steps approach the drops; manual input, menus, damage and unsafe or failed actions stop the mode. Off and unbound by default, with no automatic resume.
+
+Multiplayer Auto Mine retains the existing **view + movement + assistance** server grants. It cannot discover ore hidden by server-side anti-X-Ray. [Full controls and limitations](https://github.com/Justeck/Rusty/blob/main/docs/AUTO_MINE.md).
+
+![Actual Auto Mine settings in Fabric beta.7](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.7/docs/screenshots/java/rusty-auto-mine-settings.png)
 
 - **Rendering:** shaders, rendering replacements and arbitrary modpacks are unverified. Textured frames add geometry and can reduce FPS; terrain rebuilds are asynchronous.
 - **World information:** the minimap shows received surface colors. Projectile paths do not predict entities, random spread or future movement. Light Risk samples floor light rather than proving spawn safety.

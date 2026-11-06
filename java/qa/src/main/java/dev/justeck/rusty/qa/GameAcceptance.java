@@ -26,7 +26,7 @@ public final class GameAcceptance {
   private static net.minecraft.world.entity.LivingEntity combatTarget;
   private static float combatHealth;
   private static String savedSettings, savedWaypoints, savedProfile;
-  private static volatile boolean listCaptureComplete;
+  private static volatile boolean listCaptureComplete, miningCaptureComplete;
   private static final List<Map<String, Object>> performance = new ArrayList<>();
   private static final List<Step> steps = new ArrayList<>();
 
@@ -130,6 +130,10 @@ public final class GameAcceptance {
     RustyClient.config.bindings.put("xray", com.mojang.blaze3d.platform.InputConstants.KEY_X);
     RustyClient.config.bindings.put("zoom", com.mojang.blaze3d.platform.InputConstants.KEY_C);
     RustyClient.save();
+    if (Boolean.getBoolean("rusty.qa.miningOnly")) {
+      addMiningChecks();
+      return;
+    }
     addCodecChecks();
     for (double physical : new double[] {.35, .7, 2.1}) {
       add(
@@ -453,6 +457,7 @@ public final class GameAcceptance {
         () -> !RustyClient.view.xray(),
         10);
     addDefaultAndListChecks();
+    addMiningChecks();
     add(
         "Final actual menu remains usable after module exercise",
         () -> mc.gui.setScreen(new RustyScreen()),
@@ -907,6 +912,238 @@ public final class GameAcceptance {
         5);
   }
 
+  private static void miningFixture(boolean tunnel, boolean hazard) {
+    var mc = Minecraft.getInstance();
+    RustyMining.stop("Preparing owned fixture");
+    mc.options.keyUp.setDown(false);
+    mc.options.keyAttack.setDown(false);
+    mc.options.keyUse.setDown(false);
+    mc.gui.setScreen(null);
+    RustyClient.restoreDefaults();
+    RustyClient.config.mineRadius = 8;
+    RustyClient.config.mineGoal = 1;
+    RustyClient.save();
+    for (String cmd :
+        List.of(
+            "gamerule block_drops true",
+            "gamemode spectator @a",
+            "tp @a 0.5 210 0.5 0 0",
+            "fill -3 200 -3 3 205 12 air",
+            "fill -3 199 -3 3 199 12 bedrock",
+            "fill -1 200 -1 -1 202 10 bedrock",
+            "fill 1 200 -1 1 202 10 bedrock",
+            "clear @a",
+            "kill @e[type=minecraft:item]",
+            "item replace entity @a hotbar.0 with diamond_pickaxe",
+            "setblock 0 200 7 diamond_ore")) command(cmd);
+    if (tunnel) {
+      command("setblock 0 200 3 stone");
+      command("setblock 0 201 3 stone");
+    }
+    if (hazard) {
+      command("setblock 0 200 9 bedrock");
+      command("setblock 0 201 8 bedrock");
+      command("setblock 0 200 8 water");
+    }
+    command("effect give @a instant_health 1 10");
+    command("effect give @a saturation 1 10");
+    command("tp @a 0.5 200 0.5 0 0");
+    command("gamemode survival @a");
+  }
+
+  private static boolean miningReady() {
+    var mc = Minecraft.getInstance();
+    return mc.player.onGround()
+        && Math.abs(mc.player.getY() - 200) < .1
+        && mc.player.getInventory().getItem(0).is(net.minecraft.world.item.Items.DIAMOND_PICKAXE)
+        && mc.level.getBlockState(new BlockPos(0, 200, 7)).is(Blocks.DIAMOND_ORE);
+  }
+
+  private static boolean minedResource() {
+    var mc = Minecraft.getInstance();
+    return !RustyMining.active()
+        && RustyMining.count == 1
+        && RustyMining.result.equals("Block goal reached")
+        && mc.getSingleplayerServer().overworld().getBlockState(new BlockPos(0, 200, 7)).isAir()
+        && serverPlayer()
+            .getInventory()
+            .contains(
+                new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.DIAMOND));
+  }
+
+  private static void addMiningChecks() {
+    var mc = Minecraft.getInstance();
+    add(
+        "Owned survival Auto Mine fixture receives terrain and tool",
+        () -> miningFixture(false, false),
+        () -> miningReady(),
+        40);
+    add(
+        "Auto Mine walks, mines, collects an authoritative diamond and stops at quota",
+        () -> {
+          if (!RustyMining.start()) throw new AssertionError(RustyClient.notice);
+        },
+        () -> minedResource(),
+        40);
+    add(
+        "Auto Mine does not restart after reaching its quota",
+        () -> {},
+        () -> !RustyMining.active(),
+        40);
+    add(
+        "Owned access tunnel fixture is ready",
+        () -> miningFixture(true, false),
+        () -> miningReady(),
+        40);
+    add(
+        "Auto Mine clears a safe access tunnel before normal resource mining",
+        () -> {
+          if (!RustyMining.start()) throw new AssertionError(RustyClient.notice);
+        },
+        () ->
+            minedResource()
+                && mc.getSingleplayerServer()
+                    .overworld()
+                    .getBlockState(new BlockPos(0, 200, 3))
+                    .isAir()
+                && mc.getSingleplayerServer()
+                    .overworld()
+                    .getBlockState(new BlockPos(0, 201, 3))
+                    .isAir(),
+        40);
+    add(
+        "Owned hazardous ore fixture is ready",
+        () -> miningFixture(false, true),
+        () -> miningReady(),
+        40);
+    add(
+        "Fluid beside an ore refuses movement and mining",
+        () -> {
+          body = mc.player.position();
+          RustyMining.start();
+        },
+        () ->
+            !RustyMining.active()
+                && RustyMining.count == 0
+                && mc.player.position().distanceToSqr(body) < .01
+                && mc.level.getBlockState(new BlockPos(0, 200, 7)).is(Blocks.DIAMOND_ORE),
+        40);
+    add(
+        "Owned manual takeover fixture is ready",
+        () -> miningFixture(false, false),
+        () -> miningReady(),
+        40);
+    add(
+        "Manual movement immediately takes over Auto Mine",
+        () -> {
+          RustyMining.start();
+          mc.options.keyUp.setDown(true);
+        },
+        () -> !RustyMining.active() && mc.options.keyUp.isDown(),
+        5);
+    add(
+        "Releasing manual movement never resumes Auto Mine",
+        () -> mc.options.keyUp.setDown(false),
+        () -> !RustyMining.active(),
+        20);
+    add(
+        "Owned explicit-binding fixture is ready",
+        () -> miningFixture(false, false),
+        () -> miningReady(),
+        40);
+    add(
+        "An explicit queued Auto Mine binding starts a transient session",
+        () -> {
+          RustyClient.config.bindings.put(
+              "auto_mine", com.mojang.blaze3d.platform.InputConstants.KEY_K);
+          RustyClient.keyPressed(com.mojang.blaze3d.platform.InputConstants.KEY_K);
+        },
+        () -> RustyMining.active(),
+        5);
+    add(
+        "The same queued binding explicitly stops Auto Mine",
+        () -> RustyClient.keyPressed(com.mojang.blaze3d.platform.InputConstants.KEY_K),
+        () -> !RustyMining.active(),
+        5);
+    add(
+        "An explicit stop stays stopped across eligible ticks",
+        () -> {},
+        () -> !RustyMining.active(),
+        40);
+    add(
+        "Owned damage fixture is ready",
+        () -> miningFixture(false, false),
+        () -> miningReady(),
+        40);
+    add(
+        "Observed damage stops Auto Mine before resource actions",
+        () -> {
+          RustyMining.start();
+          command("damage @a[limit=1] 1 generic");
+        },
+        () -> !RustyMining.active() && RustyMining.count == 0,
+        10);
+    add(
+        "Owned denied-break fixture is ready",
+        () -> miningFixture(false, false),
+        () -> miningReady(),
+        40);
+    add(
+        "Adventure mode is authoritative",
+        () -> command("gamemode adventure @a"),
+        () -> mc.gameMode.getPlayerMode() == net.minecraft.world.level.GameType.ADVENTURE,
+        10);
+    add(
+        "Rejected mining times out without claiming success",
+        () -> RustyMining.start(),
+        () ->
+            !RustyMining.active()
+                && RustyMining.count == 0
+                && mc.level.getBlockState(new BlockPos(0, 200, 7)).is(Blocks.DIAMOND_ORE),
+        40);
+    add(
+        "Auto Mine fixture restores default settings",
+        () -> {
+          RustyMining.stop("Fixture complete");
+          RustyClient.restoreDefaults();
+          command("gamemode survival @a");
+          command("tp @a 0.5 100 0.5 0 25");
+        },
+        () -> !RustyMining.active() && RustyClient.config.enabled.equals(Set.of("status_hud")),
+        20);
+    add(
+        "Auto Mine settings use the actual Minecraft-style screen",
+        () -> {
+          var screen = new RustyScreen();
+          try {
+            var field = RustyScreen.class.getDeclaredField("selected");
+            field.setAccessible(true);
+            field.set(screen, "auto_mine");
+          } catch (ReflectiveOperationException e) {
+            throw new AssertionError(e);
+          }
+          mc.gui.setScreen(screen);
+        },
+        () -> mc.gui.screen() instanceof RustyScreen,
+        20);
+    add(
+        "Auto Mine settings framebuffer capture completes",
+        () ->
+            net.minecraft.client.Screenshot.grab(
+                mc.gameDirectory,
+                "rusty-auto-mine-settings.png",
+                mc.gameRenderer.mainRenderTarget(),
+                1,
+                message -> miningCaptureComplete = true),
+        () -> miningCaptureComplete,
+        30);
+    add(
+        "Settings capture never starts Auto Mine",
+        () -> mc.gui.setScreen(null),
+        () -> !RustyMining.active(),
+        5);
+  }
+
   private static boolean menuFits(double requested) {
     var mc = Minecraft.getInstance();
     if (!(mc.gui.screen() instanceof RustyScreen screen)) return false;
@@ -1250,6 +1487,54 @@ public final class GameAcceptance {
       receipt.put("time", Instant.now().toString());
       receipt.put("checks", checks);
       receipt.put("stage", stage);
+      receipt.put("mining", RustyMining.status());
+      if (finalResult && mc.hasSingleplayerServer() && mc.player != null) {
+        try {
+          receipt.put(
+              "server_inventory",
+              mc.getSingleplayerServer()
+                  .submit(() -> {
+                    var rows = new ArrayList<String>();
+                    var inv = serverPlayer().getInventory();
+                    for (int i = 0; i < 36; i++) {
+                      var stack = inv.getItem(i);
+                      if (!stack.isEmpty())
+                        rows.add(
+                            i
+                                + ":"
+                                + net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(
+                                    stack.getItem())
+                                + ":"
+                                + stack.getCount());
+                    }
+                    return rows;
+                  })
+                  .get(2, java.util.concurrent.TimeUnit.SECONDS));
+          receipt.put(
+              "server_ore_air",
+              mc.getSingleplayerServer()
+                  .submit(
+                      () -> serverPlayer().level().getBlockState(new BlockPos(0, 200, 7)).isAir())
+                  .get(2, java.util.concurrent.TimeUnit.SECONDS));
+          receipt.put("dimension", mc.level.dimension().toString());
+          receipt.put(
+              "server_drops",
+              mc.getSingleplayerServer()
+                  .submit(() ->
+                      serverPlayer()
+                          .level()
+                          .getEntitiesOfClass(
+                              net.minecraft.world.entity.item.ItemEntity.class,
+                              new net.minecraft.world.phys.AABB(-4, 198, -3, 4, 206, 12))
+                          .stream()
+                          .map(e -> e.getItem().toString() + ":" + e.position().toString())
+                          .toList())
+                  .get(2, java.util.concurrent.TimeUnit.SECONDS));
+        } catch (Exception e) {
+          receipt.put("server_readback_error", e.getClass().getSimpleName());
+        }
+      }
+      receipt.put("notice", RustyClient.notice);
       receipt.put("ticks", ticks);
       if (mc.player != null) {
         receipt.put("body_position", List.of(mc.player.getX(), mc.player.getY(), mc.player.getZ()));

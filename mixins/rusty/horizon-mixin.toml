@@ -1,10 +1,10 @@
 # Rusty, Apache-2.0; native Freecam component MIT.
 [mod]
 id = "rusty"
-version = "1.2.7"
+version = "1.3.0"
 priority = 100
 [compatibility]
-horizon_revision = "38609b7b1f261b530261ead7855d41e3a850e310"
+horizon_revision = "66f3981f522b24c250b21523a70080965b940424"
 
 [[module]]
 id = "runtime"
@@ -1003,3 +1003,38 @@ bindings = [
   { name = "_value", ty = "()", value = "$value" },
   { name = "batch", ty = "&mut HudBatch", value = "&mut *batch" },
 ]
+
+[[module]]
+id="auto-mine-core"
+file="crates/horizon-client-render/src/mesher.rs"
+name="rusty_mining"
+source="mining.rs"
+visibility="pub"
+
+[[module]]
+id="auto-mine-native"
+file="crates/horizon-client/src/game.rs"
+name="rusty_mining_native"
+source="mining_native.rs"
+visibility="pub"
+
+[[module]]
+id="auto-mine-agent"
+file="crates/horizon-client/src/game/agent.rs"
+name="rusty_mining_agent"
+source="mining_agent.rs"
+visibility="pub"
+
+[[injection]]
+id="auto-mine-mouse-takeover"
+kind="HEAD"
+target="horizon_client::game::Game<'_>::look_turn"
+helper="mining_look_hook.rs"
+bindings=[{name="game",ty="&crate::game::Game<'_>",value="&*self"},{name="x",ty="f64",value="x"},{name="y",ty="f64",value="y"}]
+
+[[module]]
+id="auto-mine-confirmation"
+file="crates/horizon-client/src/game/remote.rs"
+name="rusty_mining_confirmation"
+source="mining_confirmation.rs"
+visibility="pub"

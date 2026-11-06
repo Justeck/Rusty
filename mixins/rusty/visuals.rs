@@ -475,6 +475,7 @@ fn line_gizmos(game: &Game<'_>, camera: [f64; 3], view: glam::Mat4, on_top: bool
             g.line(a, b, 0xffdca56f, 1.5);
         }
     }
+    if !on_top { for [a,b] in super::rusty_mining_native::segments() {g.line(a,b,0xff80d89b,1.5);} }
     // Finder owns target geometry; X-ray only changes terrain rendering.
     if cfg.finder_enabled {
         let c = cache().lock().unwrap_or_else(|e| e.into_inner());

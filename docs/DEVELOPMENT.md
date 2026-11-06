@@ -14,7 +14,7 @@ cargo run --locked --features native-tools --bin rusty-native -- package
 python tools/native.py verify-package
 ```
 
-The current native target is Horizon 38609b7 / API 409. Use stable Rust, the host's C/C++ linker/system dependencies, and Python 3.12+. Linux needs `libasound2-dev` and `libudev-dev`. The official Windows native lane uses the launcher's GNU toolchain. Keep pure MSVC and native GNU target caches separate. Prepared legal Minecraft resources are required for rendering/game checks and are not distributed.
+The current native target is Horizon 66f3981 / API 411. Use stable Rust, the host's C/C++ linker/system dependencies, and Python 3.12+. Linux needs `libasound2-dev` and `libudev-dev`. The official Windows native lane uses the launcher's GNU toolchain. Keep pure MSVC and native GNU target caches separate. Prepared legal Minecraft resources are required for rendering/game checks and are not distributed.
 
 The Python helper stages the exact source mixins into an isolated pinned host. `check` performs SDK/type checking; `build` uses Performance by default. `--profile dev` is for iteration. Optional prepared paths can avoid repeated downloads:
 

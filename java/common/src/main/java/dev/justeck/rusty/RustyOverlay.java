@@ -48,6 +48,7 @@ public final class RustyOverlay {
     Vec3 eye = RustyClient.active("freecam") ? RustyCamera.position : mc.player.getEyePosition();
     Vec3 start =
         eye.add(Vec3.directionFromRotation(mc.player.getXRot(), mc.player.getYRot()).scale(.25));
+    for (var segment : RustyMining.segments()) line(out, segment[0], segment[1], 0xff80d89b, false);
     // Target geometry belongs to Finder; X-ray only changes terrain rendering.
     if (RustyClient.active("finder")) {
       var targets =

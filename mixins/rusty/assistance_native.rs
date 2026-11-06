@@ -51,6 +51,7 @@ struct Eating {
 thread_local! { static STATE: RefCell<State> = RefCell::new(State::default()); }
 
 fn allowed(game: &Game<'_>) -> bool {
+    if super::rusty_mining_native::active() { return false; }
     game.native_window()
         && game.native_on(rusty::ID)
         && game.native_playing()
@@ -218,7 +219,7 @@ pub(super) fn busy() -> bool {
     STATE.with_borrow(|state| state.eat.is_some() || state.tool.owns_selection())
 }
 
-fn remaining(game: &Game<'_>, stack: &ItemStack) -> Option<Option<u8>> {
+pub(super) fn remaining(game: &Game<'_>, stack: &ItemStack) -> Option<Option<u8>> {
     let component = |id| stack.data().and_then(|data| data.other(id));
     if component("minecraft:unbreakable").is_some()
         || component("!minecraft:damage").is_some()

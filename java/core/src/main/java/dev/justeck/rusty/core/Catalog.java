@@ -25,6 +25,12 @@ public final class Catalog {
   public static final List<Module> ALL =
       List.of(
           new Module(
+              "auto_mine",
+              "Auto Mine",
+              "World",
+              "Explicit resource mining with conservative received-terrain routes, normal controls,"
+                  + " quotas and safety stops."),
+          new Module(
               "xray",
               "X-Ray",
               "Render",

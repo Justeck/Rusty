@@ -104,7 +104,7 @@ public final class RustyClient {
     publish();
     terrainHash = terrainHash();
     LOG.info(
-        "Rusty Java 1.3.0-beta.6 initialized ({})", System.getProperty("rusty.edition", "loader"));
+        "Rusty Java 1.3.0-beta.7 initialized ({})", System.getProperty("rusty.edition", "loader"));
   }
 
   public static Path configPath() {
@@ -138,6 +138,7 @@ public final class RustyClient {
     RustyAssistance.reset();
     RustyCamera.reset();
     RustyNavigation.reset();
+    RustyMining.stop("World or settings changed");
     zoomHeld = false;
     config = new Settings();
     for (var id : List.of("menu", "xray", "zoom")) config.bindings.put(id, defaultBinding(id));
@@ -184,10 +185,12 @@ public final class RustyClient {
   }
 
   public static boolean requested(String id) {
+    if (id.equals("auto_mine")) return RustyMining.active();
     return config.enabled.contains(id);
   }
 
   public static boolean active(String id) {
+    if (id.equals("auto_mine")) return RustyMining.active() && POLICY.allows(id);
     return effective.contains(id);
   }
 
@@ -197,6 +200,11 @@ public final class RustyClient {
   }
 
   public static void set(String id, boolean enabled) {
+    if (id.equals("auto_mine")) {
+      if (enabled) RustyMining.start();
+      else RustyMining.stop("Stopped");
+      return;
+    }
     if (enabled && !requested(id)) RustyAssistance.rearm(id);
     if (enabled) config.enabled.add(id);
     else config.enabled.remove(id);
@@ -252,6 +260,7 @@ public final class RustyClient {
     if (connection != mc.getConnection()) {
       KEY_EVENTS.clear();
       connection = mc.getConnection();
+      RustyMining.stop("Connection changed");
       POLICY.disconnect();
       token = UUID.randomUUID().toString();
       if (connection != null) POLICY.connect(token, mc.hasSingleplayerServer());
@@ -273,6 +282,7 @@ public final class RustyClient {
       lastBody = null;
       trail.clear();
       RustyNavigation.reset();
+      RustyMining.stop("World or settings changed");
       RustyAssistance.reset();
       RustyCamera.reset();
       RustyHud.reset();
@@ -292,6 +302,10 @@ public final class RustyClient {
     }
     for (var module : Catalog.ALL) {
       if (module.id().equals("zoom")) continue;
+      if (module.id().equals("auto_mine")) {
+        if (focused && presses(module.id()) % 2 == 1) set(module.id(), !requested(module.id()));
+        continue;
+      }
       var input =
           INPUT.computeIfAbsent(
               module.id(),
@@ -342,6 +356,7 @@ public final class RustyClient {
       targets = Map.of();
       partial = false;
     }
+    RustyMining.tick(focused);
     RustyNavigation.tick(focused);
     RustyAssistance.tick(focused);
     RustyCamera.tick();

@@ -97,6 +97,7 @@ public final class RustyAssistance {
     if (cooldown > 0) cooldown--;
     var mc = Minecraft.getInstance();
     var p = mc.player;
+    if (RustyMining.active()) return;
     if (p == null
         || mc.level == null
         || mc.gameMode == null

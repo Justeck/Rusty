@@ -1137,6 +1137,136 @@ pub static MODULES: &[ModuleSpec] = &[
         default_enabled: false,
     },
     ModuleSpec {
+        id: "auto_mine",
+        name: "Auto Mine",
+        description: "Explicitly mine a chosen resource using received terrain and normal controls. Conservative routes stop on danger, damage or manual input; no automatic resume.",
+        category: Category::World,
+        aliases: &["miner resource ore bot pathfind tunnel"],
+        settings: &[
+            SettingSpec {
+                id: "mine_resource",
+                label: "Resource",
+                description: "Choose an ore preset, or Custom for a block selected from your crosshair.",
+                aliases: &["target ore"],
+                kind: SettingKind::Choice {
+                    options: &[
+                        ChoiceOption {
+                            id: "0",
+                            label: "Coal",
+                        },
+                        ChoiceOption {
+                            id: "1",
+                            label: "Iron",
+                        },
+                        ChoiceOption {
+                            id: "2",
+                            label: "Copper",
+                        },
+                        ChoiceOption {
+                            id: "3",
+                            label: "Gold",
+                        },
+                        ChoiceOption {
+                            id: "4",
+                            label: "Redstone",
+                        },
+                        ChoiceOption {
+                            id: "5",
+                            label: "Lapis",
+                        },
+                        ChoiceOption {
+                            id: "6",
+                            label: "Diamond",
+                        },
+                        ChoiceOption {
+                            id: "7",
+                            label: "Emerald",
+                        },
+                        ChoiceOption {
+                            id: "8",
+                            label: "Quartz",
+                        },
+                        ChoiceOption {
+                            id: "9",
+                            label: "Nether gold",
+                        },
+                        ChoiceOption {
+                            id: "10",
+                            label: "Ancient debris",
+                        },
+                        ChoiceOption {
+                            id: "11",
+                            label: "Custom",
+                        },
+                    ],
+                    default: "6",
+                },
+            },
+            SettingSpec {
+                id: "mine_aimed",
+                label: "Use Aimed Block",
+                description: "Close the menu, aim at a safe natural block, then use this button to choose its registered block type as the custom resource.",
+                aliases: &[],
+                kind: SettingKind::Action,
+            },
+            integer(
+                "mine_radius",
+                "Search Radius",
+                "Horizontal blocks searched. Only terrain already received by the client is used.",
+                8,
+                32,
+                24,
+            ),
+            integer(
+                "mine_goal",
+                "Block Goal",
+                "Stop after this many observed resource blocks. Drops depend on the normal tool and server rules.",
+                1,
+                256,
+                16,
+            ),
+            integer(
+                "mine_health",
+                "Minimum Health",
+                "Stop below this health in half-heart units, or immediately after any observed damage.",
+                1,
+                20,
+                12,
+            ),
+            integer(
+                "mine_food",
+                "Minimum Food",
+                "Stop below this food level; Auto Mine does not eat for you.",
+                0,
+                20,
+                10,
+            ),
+            integer(
+                "mine_durability",
+                "Tool Reserve",
+                "Stop using tools at or below this remaining durability percentage.",
+                1,
+                100,
+                10,
+            ),
+            boolean(
+                "mine_tunnels",
+                "Access Tunnels",
+                "Allow short access tunnels through safe ordinary terrain. Never break containers, unknown blocks or the player’s floor.",
+                true,
+            ),
+            boolean(
+                "mine_preview",
+                "Route Preview",
+                "Show the checked route in the world. Route estimates include walking and mining time.",
+                true,
+            ),
+        ],
+        keybind_id: Some("auto_mine"),
+        default_key: Some("key.keyboard.unknown"),
+        default_enabled: false,
+    },
+    ModuleSpec {
         id: "waypoint_walk",
         name: "Waypoint Walk",
         description: "Explicitly walk to the selected waypoint through loaded terrain. Manual input or opening a menu stops walking.",

@@ -19,6 +19,14 @@ public final class Settings {
     return Math.max(.001, Math.min(scale, Math.min(width / 390, height / 250)));
   }
 
+  public int mineResource = 6,
+      mineRadius = 24,
+      mineGoal = 16,
+      mineHealth = 12,
+      mineFood = 10,
+      mineDurability = 10;
+  public String mineCustom = "minecraft:diamond_ore";
+  public boolean mineTunnels = true, minePreview = true;
   public int scanRadius = 64;
   public boolean holdXray;
   public int schema = 1, maxTargets = 1024, scanBudget = 8192, minY = -64, maxY = 319;
@@ -83,6 +91,15 @@ public final class Settings {
   }
 
   public void validate() {
+    mineResource = Math.clamp(mineResource, 0, 11);
+    mineRadius = Math.clamp(mineRadius, 8, 32);
+    mineGoal = Math.clamp(mineGoal, 1, 256);
+    mineHealth = Math.clamp(mineHealth, 1, 20);
+    mineFood = Math.clamp(mineFood, 0, 20);
+    mineDurability = Math.clamp(mineDurability, 1, 100);
+    if (mineCustom == null
+        || mineCustom.length() > 256
+        || !mineCustom.matches("[a-z0-9_.-]+:[a-z0-9/._-]+")) mineCustom = "minecraft:diamond_ore";
     menuScale = bound(menuScale, MIN_MENU_SCALE, MAX_MENU_SCALE, DEFAULT_MENU_SCALE);
     hudScale = bound(hudScale, .5, 2, 1);
     textureVisibility = bound(textureVisibility, 0, 100, 25);
@@ -111,6 +128,7 @@ public final class Settings {
     var known = new LinkedHashSet<String>();
     Catalog.ALL.forEach(m -> known.add(m.id()));
     enabled.retainAll(known);
+    enabled.remove("auto_mine");
     favorites.retainAll(known);
     if (recent == null) recent = new java.util.ArrayList<>();
     recent =

@@ -2,6 +2,10 @@
 
 Rusty exposes implemented native modules rather than placeholder entries for the reference clients' much larger catalogs. Search names, aliases, descriptions and individual setting labels with **Right Shift**, then **Ctrl+F**. Every module has a configurable shortcut; most start unbound. New action and awareness modules start disabled. Test receipts and the supported binary belong in [Validation](VALIDATION.md), not in this feature inventory.
 
+## Auto Mine
+
+Explicitly mine a chosen resource through a conservative weighted route, with normal movement and mining, suitable hotbar tools, a block goal and live safety stops. Includes eleven ore presets, aimed Custom selection, optional access tunnels and a green route preview. Off and unbound by default; stops never resume themselves. Predicted openings wait for normal server acknowledgment. [Controls, defaults and limitations](AUTO_MINE.md).
+
 ## Seeing received world data
 
 | Module | Operation and limits |

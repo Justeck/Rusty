@@ -5,7 +5,7 @@ use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::{Arc, RwLock};
 
 pub const ID: &str = "rusty";
-pub const VERSION: &str = "1.2.7";
+pub const VERSION: &str = "1.3.0";
 pub const TITLE: &str = "Rusty";
 pub const DEFAULT_KEY: &str = "key.keyboard.x";
 pub const MAX_PROFILE_BYTES: usize = 4 * 1024 * 1024;
@@ -79,6 +79,7 @@ pub struct Config {
     pub awareness: super::rusty_awareness::AwarenessSettings,
     pub assistance: super::rusty_assistance::AssistanceSettings,
     pub build: super::rusty_build_plan::BuildSettings,
+    pub mining: super::rusty_mining::Settings,
     pub activation: ActivationMode,
     pub context_outlines: bool,
     pub context_radius: u32,
@@ -121,6 +122,7 @@ impl Default for Config {
             awareness: Default::default(),
             assistance: Default::default(),
             build: Default::default(),
+            mining: Default::default(),
             activation: ActivationMode::Toggle,
             context_outlines: true,
             context_radius: 18,
@@ -210,6 +212,7 @@ impl Config {
         self.awareness.validate()?;
         self.assistance.validate()?;
         self.build.validate()?;
+        self.mining.validate()?;
         if self.schema != 1 {
             return Err("Unsupported profile schema (expected 1)".into());
         }

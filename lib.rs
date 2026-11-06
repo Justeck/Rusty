@@ -1,6 +1,9 @@
 #[path = "mixins/rusty/runtime.rs"]
 pub mod core;
 
+#[path = "mixins/rusty/mining.rs"]
+pub mod rusty_mining;
+
 #[path = "mixins/rusty/freecam.rs"]
 pub mod freecam;
 

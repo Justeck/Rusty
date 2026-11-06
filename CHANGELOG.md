@@ -1,3 +1,12 @@
+## 1.3.0 / Java 1.3.0-beta.7 — Auto Mine
+
+- Update the native target to Horizon Nightly 66f3981 / native API 411; preserve the original Horizon instance.
+- Add an explicitly started resource-mining mode with ore presets and aimed Custom blocks, a block goal and bounded weighted routes.
+- Use normal controls for walking, tool selection and mining. Wait for normal server acknowledgments before counting or using a predicted opening.
+- Add conservative terrain, tool, health/food, inventory, input and session guards; never save or automatically resume an active session.
+- Preserve existing module preferences and temporarily suspend conflicting automatic actions.
+- Add original Rust/Java planner regressions and owned survival/separate-server acceptance fixtures. See [Auto Mine](docs/AUTO_MINE.md) and validation for tested scope.
+
 ## 1.2.6 / Java 1.3.0-beta.5 — independent entity tracer targets
 
 - Add separate Players, Mobs and Dropped Items controls to Entity Tracers, with saved preferences and individual defaults.

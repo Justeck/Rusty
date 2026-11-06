@@ -241,6 +241,12 @@ public final class RustyScreen extends Screen {
           ys[0],
           bw - 62,
           b -> {
+            if (selected.equals("auto_mine")) {
+              boolean start = !RustyMining.active();
+              onClose();
+              RustyClient.set(selected, start);
+              return;
+            }
             RustyClient.set(selected, !RustyClient.requested(selected));
             rebuildWidgets();
           });
@@ -425,6 +431,135 @@ public final class RustyScreen extends Screen {
               v -> RustyClient.config.espItems = v,
               x,
               ys));
+    } else if (selected.equals("auto_mine")) {
+      options.add(() -> {
+        button(
+            "Resource: " + dev.justeck.rusty.core.Mining.RESOURCES[RustyClient.config.mineResource],
+            x,
+            ys[0],
+            bw - 62,
+            b -> {
+              RustyClient.config.mineResource = (RustyClient.config.mineResource + 1) % 12;
+              RustyClient.save();
+              rebuildWidgets();
+            });
+        button(
+            "Default",
+            x + bw - 56,
+            ys[0],
+            56,
+            b -> {
+              RustyClient.config.restoreField("mineResource");
+              RustyClient.save();
+              rebuildWidgets();
+            });
+        ys[0] += 26;
+      });
+      options.add(() -> {
+        button(
+            "Use aimed block",
+            x,
+            ys[0],
+            bw,
+            b -> {
+              var mc = net.minecraft.client.Minecraft.getInstance();
+              if (mc.hitResult instanceof net.minecraft.world.phys.BlockHitResult hit) {
+                RustyClient.config.mineCustom =
+                    net.minecraft.core.registries.BuiltInRegistries.BLOCK
+                        .getKey(mc.level.getBlockState(hit.getBlockPos()).getBlock())
+                        .toString();
+                RustyClient.config.mineResource = 11;
+                RustyClient.save();
+                popup = "Custom resource: " + RustyClient.config.mineCustom;
+              } else popup = "Aim at a block before opening the menu.";
+              rebuildWidgets();
+            });
+        ys[0] += 26;
+      });
+      options.add(() ->
+          slider(
+              "mineRadius",
+              "Search radius",
+              8,
+              32,
+              RustyClient.config.mineRadius,
+              v -> RustyClient.config.mineRadius = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          slider(
+              "mineGoal",
+              "Block goal",
+              1,
+              256,
+              RustyClient.config.mineGoal,
+              v -> RustyClient.config.mineGoal = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          slider(
+              "mineHealth",
+              "Minimum health",
+              1,
+              20,
+              RustyClient.config.mineHealth,
+              v -> RustyClient.config.mineHealth = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          slider(
+              "mineFood",
+              "Minimum food",
+              0,
+              20,
+              RustyClient.config.mineFood,
+              v -> RustyClient.config.mineFood = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          slider(
+              "mineDurability",
+              "Tool reserve %",
+              1,
+              100,
+              RustyClient.config.mineDurability,
+              v -> RustyClient.config.mineDurability = (int) v,
+              x,
+              ys));
+      options.add(() ->
+          toggle(
+              "mineTunnels",
+              "Access tunnels",
+              () -> RustyClient.config.mineTunnels,
+              v -> RustyClient.config.mineTunnels = v,
+              x,
+              ys));
+      options.add(() ->
+          toggle(
+              "minePreview",
+              "Route preview",
+              () -> RustyClient.config.minePreview,
+              v -> RustyClient.config.minePreview = v,
+              x,
+              ys));
+      options.add(() -> {
+        button(
+            "? Safety and progress",
+            x,
+            ys[0],
+            bw,
+            b -> {
+              popup =
+                  "Lowest estimated walking + mining cost in received terrain. Avoids fluids,"
+                      + " unstable blocks, unknown ground and unsafe drops. Manual input, menus,"
+                      + " damage or low resources stop it. Never resumes automatically. "
+                      + RustyMining.result
+                      + "; "
+                      + RustyMining.count
+                      + " blocks.";
+            });
+        ys[0] += 26;
+      });
     } else if (selected.equals("waypoints")
         || selected.equals("death_markers")
         || selected.equals("waypoint_walk")) {

@@ -69,6 +69,10 @@ public final class RustyPlanner {
         }
     list.sort(Comparator.comparingDouble(c -> c.pos.distToCenterSqr(mc.player.position())));
     cells = List.copyOf(list.stream().limit(128).toList());
+    if (RustyMining.active()) {
+      place = false;
+      return;
+    }
     if (!place) return;
     place = false;
     if (!focused

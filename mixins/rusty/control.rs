@@ -7,6 +7,7 @@ use winit::event::{ElementState, WindowEvent};
 use winit::keyboard::PhysicalKey;
 thread_local! {
  static INPUT: RefCell<Activation> = RefCell::new(Activation::default());
+ static MINE_REQUEST: Cell<u8> = const { Cell::new(0) };
  static WALK_REQUEST: Cell<bool> = const { Cell::new(false) };
  static LOADED: Cell<bool> = const { Cell::new(false) };
  static ZOOM: Cell<bool> = const { Cell::new(false) };
@@ -64,6 +65,7 @@ pub(super) fn observe_key(
     pressed: bool,
     repeat: bool,
 ) {
+    if pressed && !repeat {super::rusty_mining_native::manual_look();}
     if game.native_window()
         && let Some(name) = horizon_client::keybinds::key_name(key)
     {
@@ -243,11 +245,12 @@ pub(super) fn default_module(game: &mut Game<'_>, id: &str) {
         "freecam" => super::rusty_camera::exit(game),
         "zoom" => ZOOM.set(false),
         "waypoint_walk" => super::rusty_waypoint_walk::reset(game),
+        "auto_mine" => super::rusty_mining_native::reset(game),
         _ => {}
     }
 }
 pub(super) fn default_runtime(game: &mut Game<'_>) {
-    for id in ["xray", "freecam", "zoom", "waypoint_walk"] {
+    for id in ["xray", "freecam", "zoom", "waypoint_walk", "auto_mine"] {
         default_module(game, id);
     }
     super::rusty_assist::reset(game);
@@ -334,6 +337,10 @@ pub(super) fn key(game: &mut Game<'_>, key: &str, pressed: bool) {
     if key == game.native_mod_key(rusty::ID, "freecam", "key.keyboard.u") {
         super::rusty_camera::toggle(game);
     }
+    let mine_binding = game.native_mod_key(rusty::ID, "auto_mine", "key.keyboard.unknown");
+    if mine_binding != "key.keyboard.unknown" && key == mine_binding {
+        if let Err(error) = super::rusty_mining_native::toggle(game) { game.native_chat(&error); }
+    }
     let walk_binding = game.native_mod_key(rusty::ID, "waypoint_walk", "key.keyboard.unknown");
     if walk_binding != "key.keyboard.unknown" && key == walk_binding {
         if let Err(error) = super::rusty_waypoint_walk::toggle(game) {
@@ -396,12 +403,14 @@ pub(super) fn frame(game: &mut Game<'_>) {
             }
         });
     }
+    match MINE_REQUEST.replace(0) {1 if !super::rusty_mining_native::active()=>{if let Err(e)=super::rusty_mining_native::toggle(game){game.native_chat(&e);}},2=>super::rusty_mining_native::reset(game),_=>{}}
     if WALK_REQUEST.replace(false) {
         if let Err(error) = super::rusty_waypoint_walk::toggle(game) {
             game.native_chat(&error);
         }
     }
     super::rusty_waypoint_walk::frame(game);
+    super::rusty_mining_native::frame(game);
     super::rusty_clickgui::frame(game);
     super::rusty_ui::frame(game);
     super::rusty_navigation_native::frame(game);
@@ -435,6 +444,7 @@ pub(super) fn sprint(game: &mut Game<'_>) {
             .any(|mapped| matches!(mapped, Ok(KeyCode::ControlLeft)))
     });
     let want = game.native_on(rusty::ID)
+        && !super::rusty_mining_native::active()
         && rusty::config().auto_sprint
         && game.native_playing()
         && game.focused
@@ -457,7 +467,9 @@ pub(super) fn reset(game: &mut Game<'_>) {
     ZOOM.set(false);
     super::rusty_navigation_native::reset();
     super::rusty_waypoint_walk::reset(game);
+    super::rusty_mining_native::reset(game);
     WALK_REQUEST.set(false);
+    MINE_REQUEST.set(0);
     super::rusty_builder::reset();
     super::rusty_assist::reset(game);
     super::rusty_automations::reset();
@@ -472,10 +484,12 @@ pub(super) fn reset(game: &mut Game<'_>) {
     brightness(game);
 }
 pub(super) fn window(game: &mut Game<'_>, event: &WindowEvent) {
+    if matches!(event,WindowEvent::MouseInput{state:ElementState::Pressed,..}|WindowEvent::MouseWheel{..}){super::rusty_mining_native::manual_look();}
     if !game.native_window() {
         return;
     }
     if matches!(event, WindowEvent::Focused(false)) {
+        super::rusty_mining_native::reset(game);
         INPUT.with_borrow_mut(|a| {
             a.down = false;
             if rusty::config().activation == ActivationMode::Hold {
@@ -545,6 +559,9 @@ pub(super) fn command(game: &mut Game<'_>, command: &str, ran: &mut bool) {
     match args.trim() {
         "" | "menu" => super::rusty_clickgui::open(game),
         "settings" => super::rusty_ui::open(game, true),
+        "mine start" => MINE_REQUEST.set(1),
+        "mine stop" => MINE_REQUEST.set(2),
+        "mine status" => game.native_chat(&super::rusty_mining_native::status().to_string()),
         "scan" => {
             let mut cfg = (*rusty::config()).clone();
             cfg.finder_enabled = true;
@@ -569,7 +586,7 @@ pub(super) fn command(game: &mut Game<'_>, command: &str, ran: &mut bool) {
                 game.native_chat(&error);
             }
         }
-        _ => game.native_chat("Rusty: /rusty, /rusty settings, /rusty scan, /rusty status, /rusty waypoint add NAME|list|select ID|delete ID|copy ID"),
+        _ => game.native_chat("Rusty: /rusty, /rusty settings, /rusty scan, /rusty status, /rusty mine start|stop|status, /rusty waypoint add NAME|list|select ID|delete ID|copy ID"),
     }
 }
 
@@ -665,6 +682,7 @@ pub(super) fn control(
             "inventory_assist":super::rusty_inventory::status(),
             "minimap":game.native_minimap_now().map(|m|serde_json::json!({"size":m.size,"scale":m.blocks_per_pixel,"rotate":m.rotate,"round":m.round})),
             "walking":super::rusty_waypoint_walk::status(),
+            "mining":super::rusty_mining_native::status(),
         }))));
     }
     if line.trim() == "rusty-build-status" {
@@ -681,6 +699,8 @@ pub(super) fn control(
             Err(error) => serde_json::json!({"error":error}),
         })));
     }
+    if line.trim() == "rusty-mine-status" {return ControlFlow::Break(Ok(Some(super::rusty_mining_native::status())));}
+    if line.trim() == "rusty-mine-toggle" {return ControlFlow::Break(Ok(Some(match super::rusty_mining_native::toggle(game){Ok(())=>super::rusty_mining_native::status(),Err(error)=>serde_json::json!({"error":error})})));}
     if line.trim() == "rusty-walk-status" {
         return ControlFlow::Break(Ok(Some(super::rusty_waypoint_walk::status())));
     }

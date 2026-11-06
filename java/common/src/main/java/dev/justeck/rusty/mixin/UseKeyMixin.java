@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class UseKeyMixin {
   @Inject(method = "handleKeybinds", at = @At("HEAD"), cancellable = true)
   private void rusty$detachedInput(CallbackInfo ci) {
+    dev.justeck.rusty.RustyMining.preInput();
     if (dev.justeck.rusty.RustyClient.active("freecam")) {
       for (KeyMapping key : Minecraft.getInstance().options.keyMappings)
         while (key.consumeClick()) {}
@@ -22,7 +23,9 @@ public abstract class UseKeyMixin {
       method = "handleKeybinds",
       at = @At(value = "INVOKE", target = "Lnet/minecraft/client/KeyMapping;isDown()Z"))
   private boolean rusty$ordinaryFoodHold(KeyMapping key) {
-    return key.isDown()
+    return key == Minecraft.getInstance().options.keyAttack
+            && dev.justeck.rusty.RustyMining.attacking()
+        || key.isDown()
         || key == Minecraft.getInstance().options.keyUse && RustyAssistance.eating();
   }
 }

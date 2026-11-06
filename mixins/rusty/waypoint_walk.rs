@@ -22,7 +22,7 @@ struct State {
 }
 thread_local! { static STATE: RefCell<State> = RefCell::new(State::default()); }
 
-fn available(game: &Game<'_>) -> bool {
+pub(super) fn available(game: &Game<'_>) -> bool {
     game.native_window()
         && game.native_on(rusty::ID)
         && game.riding.is_none()
@@ -31,7 +31,7 @@ fn available(game: &Game<'_>) -> bool {
             !p.health.dead_or_dying() && !p.sleeping && !p.flying && !p.fall_flying
         })
 }
-fn manual(game: &Game<'_>) -> bool {
+pub(super) fn manual(game: &Game<'_>) -> bool {
     let controller = &game.settings.controller;
     let pad = controller.enabled
         && (game.pad_move().is_some()

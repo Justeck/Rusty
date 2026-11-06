@@ -65,6 +65,8 @@ pub enum Intent {
     Numeric(&'static str, f64),
     Nudge(&'static str, f64),
     Activation,
+    MiningResource,
+    MiningAimed,
     Favorite(&'static str),
     Visit(&'static str),
     Theme,
@@ -90,6 +92,8 @@ impl Intent {
             | Self::Nudge(..)
             | Self::ToggleBool(..)
             | Self::Activation
+            | Self::MiningResource
+            | Self::MiningAimed
             | Self::Favorite(..)
             | Self::Visit(..)
             | Self::Theme
@@ -100,7 +104,10 @@ impl Intent {
             | Self::RestoreDefaults
             | Self::Bind(..)
             | Self::Flush => true,
-            Self::ToggleModule(id) => !matches!(*id, "xray" | "freecam" | "zoom" | "waypoint_walk"),
+            Self::ToggleModule(id) => !matches!(
+                *id,
+                "xray" | "freecam" | "zoom" | "waypoint_walk" | "auto_mine"
+            ),
             _ => false,
         }
     }
@@ -186,7 +193,7 @@ pub enum Action {
     ConfirmDefaults,
     CancelDefaults,
     Bool(&'static str),
-    Choice,
+    Choice(&'static str),
     Numeric(&'static str, [f32; 4], SettingKind),
     Step(&'static str, f64),
     Bind(&'static str),

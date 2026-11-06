@@ -22,12 +22,28 @@ public abstract class InputMixin extends ClientInput {
       keyPresses = Input.EMPTY;
       moveVector = Vec2.ZERO;
       RustyNavigation.cancelWalk();
+      RustyMining.stop("Menu opened or focus changed");
       return;
     }
     boolean forward = keyPresses.forward(),
         jump = keyPresses.jump(),
         shift = keyPresses.shift(),
         sprint = keyPresses.sprint();
+    if (RustyMining.active()
+        && (forward
+            || keyPresses.backward()
+            || keyPresses.left()
+            || keyPresses.right()
+            || jump
+            || shift
+            || sprint)) RustyMining.manual();
+    if (RustyMining.active()) RustyMining.guard();
+    if (RustyMining.walking()) {
+      forward = true;
+      jump = RustyMining.steppingUp();
+      sprint = false;
+      moveVector = new Vec2(0, 1);
+    }
     if (RustyNavigation.walking()) {
       if (forward
           || keyPresses.backward()
@@ -40,7 +56,8 @@ public abstract class InputMixin extends ClientInput {
         moveVector = new Vec2(0, 1);
       }
     }
-    if (RustyClient.active("auto_sprint") && forward && !shift) sprint = true;
+    if (!RustyMining.active() && RustyClient.active("auto_sprint") && forward && !shift)
+      sprint = true;
     if (p.onGround()
         && !jump
         && !shift
@@ -53,9 +70,11 @@ public abstract class InputMixin extends ClientInput {
                   0,
                   Math.cos(angle) * f + Math.sin(angle) * s)
               .scale(.45);
-      if (RustyClient.active("safe_walk")
+      if (!RustyMining.active()
+          && RustyClient.active("safe_walk")
           && mc.level.noCollision(p, p.getBoundingBox().move(step).move(0, -.6, 0))) shift = true;
-      if ((RustyClient.active("auto_jump") || RustyNavigation.walking())
+      if (!RustyMining.active()
+          && (RustyClient.active("auto_jump") || RustyNavigation.walking())
           && !mc.level.noCollision(p, p.getBoundingBox().move(step))
           && mc.level.noCollision(p, p.getBoundingBox().move(step).move(0, 1.1, 0))) jump = true;
     }
