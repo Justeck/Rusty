@@ -1,8 +1,22 @@
 # Rusty validation
 
+## 1.2.7 — visual HUD editor
+
+**Edit HUD** replaces native coordinate sliders with direct interaction in the clear game view. Drag an overlay’s body to move it; select it and drag a corner handle to resize proportionally. Enter/Done confirms the draft and returns to the same menu. Escape/Cancel discards it. Default panel/layout actions are provisional until confirmation. Opening the editor preserves feature states.
+
+The actual Windows Horizon Launcher **Performance** build succeeded with Rust 1.99.1 GNU on the pinned Horizon 38609b7/API409 host. The accepted executable is `native-38609b7-9fa4cf1ba4b5`, SHA256 `eb27f2d92907e2cd033d733eabd7288d2ef44cc90ff2b7692fda38a4383c761b`. Compilation and installation took 975 seconds in this environment. The official native package checker accepted the 116-entry package; all 115 source payloads equal the installed build candidate, with semantically equal root manifests.
+
+**157 Rust library tests, 18 native-tool tests, 14 Python tests, strict Clippy and formatting passed.** Thirty actual native game checks passed: eight editor checks, nine defaults/active-list checks, eight independent tracer checks and five X-ray/Finder checks. Editor tests exercise direct drag offsets, corner resizing, Enter save/same-menu return, Escape cancel, topmost overlap picks, bottom-edge access and blocked gameplay movement. Four-corner anchors, screen-edge limits, viewport changes and fitted-size preservation have additional core coverage.
+
+Fabric and NeoForge beta.6 each passed **83 actual game checks**, with **1,231 shared assertions**, both package builds and QA compilation. [Java details](JAVA_VALIDATION.md). [Exact acceptance receipt](evidence/hud-editor-1.2.7.json).
+
+Screenshots were opened and visually checked before publication. All new game tests use owned offline fixtures, not personal worlds or public servers. No fresh public-server, second-player, alternate-renderer, arbitrary-modpack or extended endurance acceptance is claimed. Release download and final launcher installation checks are recorded separately after publication.
+
+![Direct native HUD editing](screenshots/rusty-1.2.7-hud-editor.png)
+
 ## 1.2.6 published assets and launcher acceptance
 
-The immutable [native 1.2.6](https://github.com/Justeck/Rusty/releases/tag/v1.2.6) and [Java beta.5](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.5) releases resolve to `04b5cee91222e14d5aa4b29570220a1b8570d0c1`. Both release workflows passed, and native remains GitHub latest. Public native bytes equal the accepted package; all Java runtime archive entries equal the game-tested packages.
+The immutable [native 1.2.6](https://github.com/Justeck/Rusty/releases/tag/v1.2.6) and [Java beta.5](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.5) releases resolve to `04b5cee91222e14d5aa4b29570220a1b8570d0c1`. Both release workflows passed, and native was GitHub latest at that acceptance. Public native bytes equal the accepted package; all Java runtime archive entries equal the game-tested packages.
 
 Horizon Launcher accepted both the fixed native release URL and repository URL, installed the exact public asset, and retained the accepted executable and sole **Horizon** instance. Both existing Rusty preference files were preserved byte-for-byte. A bookkeeping refresh reinstalled the same executable without recompiling it; the subsequent normal Performance check reported **Up to date** in **4.596 seconds**, exit 0. Selected build: `native-38609b7-b664e1ab8deb`; executable SHA-256: `929a989dc7d8f0845a0e47e1e5b1414c6a118299291c077e6b0838ffe15737ed`.
 

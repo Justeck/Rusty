@@ -1,5 +1,15 @@
 # 1.3.0-beta.5 independent tracer targets
 
+## Java 1.3.0-beta.6 — visual HUD editor
+
+Both supported loader builds and QA compilation passed, with **1,231 shared core assertions** and **83 actual owned-world checks per loader**. The new checks select enabled-only HUD panels, drag real screen bounds without changing the saved configuration, resize with corner handles, confirm with Minecraft’s Enter key, cancel with Escape and return to the same menu. Existing target, texture, permission, action, default/reset, active-list, chunk and dimension checks also ran.
+
+The editor keeps a draft of positions and sizes; feature states are unchanged. Its world background remains clear without changing the player’s video options. Core tests cover all corner anchors, viewport-edge constraints and movement clamping. A read-only review also caught the physical menu-key polling path; it is suppressed while the editor is active. Physical-device input is not claimed by the automated fixture.
+
+Original frames were visually inspected. An initial test used obsolete GLFW Enter/Escape values; Minecraft26.3 uses InputConstants, and the corrected full fixtures passed. These are supported development-client game runs, not fresh public-server or personal-launcher published-jar acceptance. Public archive equivalence is checked separately. [Exact receipt](evidence/hud-editor-1.2.7.json).
+
+![Clear-world Java HUD editing](screenshots/java/rusty-visual-hud-editor.png)
+
 Both loader builds, source packages, **1,215 shared core assertions** and **76 actual disposable-world game checks per loader** passed. Tests cover independent received pig/item lines and ESP boxes, empty selections, independent disable/default actions, actual tracer menu widgets, and the existing X-ray/Finder, chunk/dimension, menu/HUD and inventory regressions.
 
 The renderer gives entity tracers an independent **128-line budget**, alongside the existing **768 main geometry entries**. A saturation regression failed with the former shared pool, then passed with stable endpoint identities under ESP and Finder saturation. This is a core-buffer contract; the game fixture uses controlled pig/item targets. Old Java profiles inherit missing tracer flags from their former shared ESP choices once; explicit new false values survive reload/import.

@@ -8,6 +8,15 @@
 
 # Changelog
 
+## Rusty 1.2.7 / Java 1.3.0-beta.6
+
+- Replace native HUD coordinate sliders with an Edit HUD button and actual game-view editing.
+- Drag overlays directly; select them to reveal proportional corner resize handles.
+- Confirm with Enter/Done to save and return to the same menu, or Escape/Cancel to discard the draft.
+- Keep feature states and existing saved layouts intact. Default panel/layout actions remain provisional until confirmation.
+- Preserve opposite resize anchors at screen edges, correct overlapping picks, and retain saved size when moving a temporarily fitted native panel.
+- Give Java editions the same draft/handle interaction, clear world background and protection against the menu shortcut discarding a draft.
+
 ## Rusty 1.2.5
 
 - Added an opt-in Enabled Mods overlay: alphabetic vertical rows, top-left by default, with independent HUD placement and size.

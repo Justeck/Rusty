@@ -1,11 +1,24 @@
 # Rusty in the game
 
-**53 original screenshots, grouped by edition.** Open a gallery below, then click any image for its full-resolution file. Game captures are separate from generated brand artwork and from automated test assertions.
+**Original game screenshots, grouped by edition.** Open a gallery below, then click any image for its full-resolution file. Game captures are separate from generated brand artwork and from automated test assertions.
 
 | Edition | Collection |
 |---|---|
 | **Horizon native** | 10 original captures below: menus, textured terrain, HUD placement, lighting and profiles |
 | **Fabric / NeoForge** | [39-scene Java tour](java/tour/README.md), plus [4 original loader acceptance captures](java/README.md) |
+
+## Visual HUD editing — native 1.2.7 / Java beta.6
+
+These are original, visually reviewed captures from owned test worlds. The native
+editor shows the real overlay with four resize handles; the next frame shows the
+confirmed placement in ordinary gameplay. Opening the editor does not enable a
+feature. The Java editor follows the same flow with Minecraft widgets.
+
+![Native drag and corner resize editor](rusty-1.2.7-hud-editor.png)
+
+![Confirmed native HUD arrangement in normal view](rusty-1.2.7-hud-confirmed.png)
+
+![Java visual HUD editor in the clear world view](java/rusty-visual-hud-editor.png)
 
 ## Java edition: the expanded tour
 

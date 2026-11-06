@@ -30,3 +30,12 @@ Native Rust is primary; provide the equivalent interaction on Java editions.
 Viewport/menu scale independence; resize anchors; overlapping panels; hidden
 overlays not enabled by editing; draft isolation; no actions reaching gameplay;
 return to same menu; no modified player worlds or running personal sessions.
+
+## Implementation record
+
+- Rust geometry tests cover grab offsets, four corner anchors, edge limits, fitted-size preservation, viewport changes, footer bounds and source paint order.
+- A fresh read-only reviewer identified five interaction issues; the consolidated fix pass addressed all five. No findings were deferred.
+- The first full Fabric attempt exposed an outdated GLFW constant in the test fixture. Minecraft 26.3 uses InputConstants key values; the fixture was corrected. A subsequent full run passed.
+- Visual inspection identified the host Screen's default blur. The Java editor now overrides only its own background extraction, keeping world rendering clear without changing video options.
+- Native source payloads in the maintained package match the installed build candidate exactly; root manifests differ only in JSON formatting.
+- Validation and final release/install receipts are recorded separately; this plan is not proof of game behavior.

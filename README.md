@@ -6,9 +6,9 @@
 
 **Rusty is a native Rust toolkit for Horizon, with Fabric and NeoForge counterparts:** a familiar Minecraft interface, textured world views, independent HUD layouts, local navigation and ordinary player assistance. Press **Right Shift** to open the menu. Search by module, setting or description, then enable the tools you want.
 
-**New in 1.2.6: independent entity tracer targets.** Choose Players, Mobs and Dropped Items separately from Entity ESP boxes and Finder block pointers. [Validation](docs/VALIDATION.md) records the build, game and launcher checks, exact identities and known limits.
+**New in 1.2.7: arrange your HUD directly in the game view.** Click **Edit HUD**, drag overlays into place, and use corner handles to resize. **Enter** saves and returns to the same menu; **Escape** cancels. Independent Entity Tracers target choices remain available. [Validation](docs/VALIDATION.md) records the build, game and launcher checks, exact identities and known limits.
 
-<p align="center"><img src="docs/screenshots/rusty-1.2.6-tracer-settings.png" width="960" alt="Native Rusty Entity Tracers with independent Players, Mobs and Dropped Items controls"></p>
+<p align="center"><img src="docs/screenshots/rusty-1.2.7-hud-editor.png" width="960" alt="Rusty visual HUD editor with direct dragging and corner resize handles"></p>
 
 <p align="center"><a href="https://github.com/Justeck/Rusty/releases/latest">Download</a> · <a href="docs/INSTALLATION.md">Installation</a> · <a href="docs/MODULES.md">Modules</a> · <a href="docs/screenshots/README.md">Screenshots</a> · <a href="docs/VALIDATION.md">Validation</a></p>
 
@@ -16,9 +16,9 @@
 
 | Edition | Game/runtime | Installation |
 |---|---|---|
-| **Horizon native 1.2.6** | Horizon 38609b7 · API 409 · Minecraft 26.3 · Rust | Native GitHub input below |
-| **Fabric 1.3.0-beta.5** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
-| **NeoForge 1.3.0-beta.5** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
+| **Horizon native 1.2.7** | Horizon 38609b7 · API 409 · Minecraft 26.3 · Rust | Native GitHub input below |
+| **Fabric 1.3.0-beta.6** | Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1+ and Fabric API | [Java guide](java/README.md) |
+| **NeoForge 1.3.0-beta.6** | Minecraft 26.3 · Java 25 · NeoForge 26.3.0.101 | [Java guide](java/README.md) |
 
 The Java counterparts share Minecraft-style controls and a 43-module catalog, with edition-specific behavior and validation. Their restricted multiplayer tools require authoritative server opt-in; ordinary information tools work on unmodified servers. [Permissions and differences](java/README.md#multiplayer-permissions) · [Java validation](docs/JAVA_VALIDATION.md). The stable native release remains the GitHub `latest` so Horizon's installer keeps resolving its native package.
 
@@ -34,7 +34,7 @@ https://github.com/Justeck/Rusty
 
 Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **38609b7**, native API **409**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
 
-The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.6`](https://github.com/Justeck/Rusty/releases/tag/v1.2.6). The [1.2.6 acceptance receipt](docs/evidence/tracer-targets-1.2.6.json) identifies the native source payloads and tested executable. [Validation](docs/VALIDATION.md) records the actual Build/Play checks and distinguishes release installation from source-build acceptance.
+The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.7`](https://github.com/Justeck/Rusty/releases/tag/v1.2.7). The [HUD editor acceptance receipt](docs/evidence/hud-editor-1.2.7.json) records exact source/package identities and test scope. [Validation](docs/VALIDATION.md) distinguishes automated checks, actual game tests and launcher installation.
 
 **X-Ray changes terrain only.** Block-target boxes, block tracer lines and Finder readouts require **Finder** to be enabled separately. X-ray toggles preserve Finder and line preferences.
 
@@ -42,7 +42,7 @@ The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.
 
 **Entity Tracers** has its own **Players**, **Mobs** and **Dropped Items** switches, independent of Entity ESP. Select any combination or none, with individual Default controls and saved profile choices. For example, show mob boxes while tracing dropped items. Finder still controls block tracers separately.
 
-**Enabled Mods** adds a vertical, alphabetically ordered list of active Rusty tools in the top-left. It is opt-in and has its own position and size controls.
+**Enabled Mods** adds a vertical, alphabetically ordered list of active Rusty tools in the top-left. It is opt-in and has its own draggable position and corner handles in **Edit HUD**.
 
 **Default** buttons restore individual preferences or shortcuts. **Restore defaults** in the menu header restores all Rusty settings after confirmation, including shortcuts, appearance and HUD layout. Active tools stop; saved waypoint and named profile files are kept.
 

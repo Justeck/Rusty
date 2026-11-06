@@ -12,6 +12,11 @@ from game_ui12_smoke import Ui12Smoke, same_native_layout
 
 
 class HudEditorSmoke(Ui12Smoke):
+    def __init__(self,args):
+        super().__init__(args)
+        for key in ['pixel_contract','fixture_correction','photo_readiness','paired_camera_receipts','hud_input_transitions','hud_control_receipts']:
+            self.report.pop(key,None)
+        self.report.update(suite='native-visual-hud-editor',claims='Actual overlay pointer routing, proportional resize handles, draft save/cancel, paint-order and bottom-edge picking, and blocked gameplay movement in an owned offline world.',not_exercised=['Public servers, physical-device input, arbitrary modpacks and alternate renderers.'])
     def panel(self, name='coordinates'):
         return next(p for p in self.ui()['hud_panels'] if p['id'] == name)
 
@@ -24,6 +29,8 @@ class HudEditorSmoke(Ui12Smoke):
         self.launch();self.command("options-set guiScale 2")
         self.open_browser();self.select('coordinates');self.click('Toggle("coordinates")',pane='detail')
         self.wait_for(self.config,lambda c:c['coords_hud'],'coordinates enabled')
+        self.close_browser();self.set_module('enabled_mods',['enabled_mods'],True)
+        self.open_browser();self.select('coordinates')
         before=copy.deepcopy(self.config())
         self.click('EditHud',pane='detail')
         self.wait_for(self.ui,lambda s:s.get('hud_editing'),'visual HUD editor')
@@ -52,7 +59,7 @@ class HudEditorSmoke(Ui12Smoke):
         self.require(self.config()==saved,'Escape must discard the entire draft')
         self.passed('Escape discards edits without changing features, saved layout or menu selection')
         self.click('EditHud',pane='detail');self.wait_for(self.ui,lambda s:s['hud_editing'],'input safety editor')
-        p=self.panel();status=self.panel('status_hud');x,y,w,h=p['rect']
+        p=self.panel();status=self.panel('enabled_mods');x,y,w,h=p['rect']
         self.gesture([x+w/2,y+h/2],[status['rect'][0]+w/2,status['rect'][1]+h/2])
         p=self.panel();x,y,w,h=p['rect']
         self.command(f'click-at {x+w/2:.4f} {y+h/2:.4f}')
@@ -90,7 +97,7 @@ def main():
         s=HudEditorSmoke(args);s.exercise();s.report['passed']=True;return 0
     except (AcceptanceFailure,OSError,ValueError,KeyError,TypeError,StopIteration,subprocess.SubprocessError) as e:
         if s:
-            s.report['passed']=False;s.report['checks'].append({'name':s.phase,'passed':False,'reason':str(e)})
+            s.report['passed']=False;s.report['checks'].append({'name':s.phase,'passed':False,'reason':str(e) or type(e).__name__})
             try:s.shot('failure')
             except Exception:pass
         print('FAIL '+str(e),file=sys.stderr,flush=True);return 1

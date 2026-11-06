@@ -8,14 +8,14 @@ The menu now defaults to **100% at the former 70% physical size**. Its **50–30
 
 ## Install
 
-[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.5).
+[Download the Java beta](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.6).
 
 Choose exactly one loader:
 
 | Edition | Required environment | Download |
 |---|---|---|
-| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.5.jar` |
-| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.5.jar` |
+| Fabric | Minecraft 26.3, Fabric Loader 0.20.1+, Fabric API 0.165.2+26.3 | `rusty-fabric-1.3.0-beta.6.jar` |
+| NeoForge | Minecraft 26.3, NeoForge 26.3.0.101 | `rusty-neoforge-1.3.0-beta.6.jar` |
 
 Install the matching jar in that Java installation's `mods` folder. Fabric also needs Fabric API. Do not install both Rusty loader jars together. Java 25 is required. Earlier game versions, snapshots, shader replacements and third-party rendering mods are not validated.
 
@@ -33,7 +33,7 @@ X-ray retains the surrounding blocks' original material, tint and texture coordi
 
 ![Textured terrain at 25%](../docs/screenshots/java/rusty-fabric-textured-view.png)
 
-The menu uses Minecraft buttons, text fields and sliders. Search tools; browse Enabled, Favorites, Recent and categories. Click **?** for a short explanation. Adjust menu size independently of HUD size. **HUD layout** offers 19 panels: drag to move, scroll over one to resize, or reset the layout. Default full-width packing keeps panels apart and reserves the hotbar area; manually placed panels can overlap by choice. Small viewports constrain the requested size so controls remain usable. Feature profiles preserve local bindings, theme, favorites and HUD arrangements.
+The menu uses Minecraft buttons, text fields and sliders. Search tools; browse Enabled, Favorites, Recent and categories. Click **?** for a short explanation. Adjust menu size independently of HUD size. **Edit HUD** opens the clear game view with your enabled overlays. Drag a panel to move it, or drag a corner handle to resize it proportionally. Press **Enter / Done** to save and return to the same menu; **Escape / Cancel** discards the draft. **Default panel** and **Default layout** reset provisional arrangements. Default full-width packing keeps panels apart and reserves the hotbar area; manually placed panels can overlap by choice. Small viewports constrain the requested size so controls remain usable. Feature profiles preserve local bindings, theme, favorites and HUD arrangements.
 
 ## Tools
 
@@ -94,6 +94,6 @@ Apache-2.0 with applicable project notices. Preserve [LICENSE](../LICENSE), [NOT
 
 ## Settings defaults and active list
 
-**Enabled Mods** is an opt-in Interface tool: active Rusty tools appear alphabetically in separate top-left rows. Move or resize the panel in **HUD layout**. A selected panel has **Default panel**, and **Default layout** restores all panel arrangements.
+**Enabled Mods** is an opt-in Interface tool: active Rusty tools appear alphabetically in separate top-left rows. Move or resize the panel in **Edit HUD**. A selected panel has **Default panel**, and **Default layout** restores all panel arrangements.
 
 Visible **Default** buttons restore individual values and bindings; **Clear** removes a binding. **Restore defaults** in the menu footer opens Minecraft’s confirmation screen and restores all preferences and default shortcuts, stops active tools, and keeps saved waypoint/profile files. **Default ores** restores the normal block selection.

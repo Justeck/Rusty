@@ -4,7 +4,7 @@
 
 Textured world views, local navigation, movable HUDs and optional player assistance—built around Minecraft's own buttons, sliders and controls. Turn on what you need, keep the world in view, and make the layout your own.
 
-**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.5**
+**Fabric & NeoForge · Minecraft 26.3 · Java 25 · 1.3.0-beta.6**
 
 [Installation guide](https://github.com/Justeck/Rusty/blob/main/java/README.md) · [Source code](https://github.com/Justeck/Rusty) · [Report an issue](https://github.com/Justeck/Rusty/issues) · [Validation report](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
@@ -12,7 +12,7 @@ Textured world views, local navigation, movable HUDs and optional player assista
 
 *Actual Fabric 26.3 test-world capture. The default 25% texture coverage keeps selected ores clear while showing the materials around you.*
 
-[Browse all 29 gallery images →](https://modrinth.com/mod/rusty-toolkit/gallery) · [Full 39-scene Java tour and menu controls →](https://github.com/Justeck/Rusty/blob/main/docs/screenshots/java/tour/README.md)
+[Browse the gallery images →](https://modrinth.com/mod/rusty-toolkit/gallery) · [Full 39-scene Java tour and menu controls →](https://github.com/Justeck/Rusty/blob/main/docs/screenshots/java/tour/README.md)
 
 ## See the blocks. Read the terrain.
 
@@ -28,11 +28,11 @@ Typical ores are preselected. Add any registered block ID to your selection. Fin
 
 **Entity Tracers** has its own **Players**, **Mobs** and **Dropped items** switches. Select any combination or none, independently of **Entity ESP** boxes and **Finder** block pointers. Each choice has a Default button and is saved in profiles. Entity tracers have their own 128-line budget, so ESP boxes and Finder geometry cannot crowd them out. Older Java profiles inherit their former shared choices once; fresh settings select players and leave the feature off.
 
-![Separate entity tracer target controls](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.5/docs/screenshots/java/rusty-tracer-settings.png)
+![Separate entity tracer target controls](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.6/docs/screenshots/java/rusty-tracer-settings.png)
 
 *Actual Fabric menu: independent Players, Mobs and Dropped items controls, each with a Default button.*
 
-![Dropped-item tracer with a separate mob ESP box](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.5/docs/screenshots/java/rusty-independent-tracers.png)
+![Dropped-item tracer with a separate mob ESP box](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.6/docs/screenshots/java/rusty-independent-tracers.png)
 
 *Actual owned test-world frame: the line targets the dropped diamond on the left; the box highlights the pig on the right. Different target selections, both active together.*
 
@@ -40,17 +40,17 @@ Typical ores are preselected. Add any registered block ID to your selection. Fin
 
 Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog, browse **Enabled**, **Favorites**, **Recent** or categories, and click **?** for a short explanation. Rebind a shortcut, clear it completely, or choose Hold mode for X-ray.
 
-**The former 70% menu size is now the 100% default.** Scale from **50% to 300%**, or reset to **100%**. Saved physical sizes are preserved. Menu size is independent of the HUD. Drag any of **19 panels**, scroll over a panel to resize it, or reset the layout. Profiles preserve your local settings, shortcuts, favorites and arrangements.
+**The former 70% menu size is now the 100% default.** Scale from **50% to 300%**, or reset to **100%**. Saved physical sizes are preserved. Menu size is independent of the HUD. Click **Edit HUD** for the clear game view, then drag an enabled overlay to move it or drag a corner handle to resize it proportionally. **Enter / Done** saves the draft and returns to the same menu; **Escape / Cancel** discards it. Opening the editor never enables a feature. Profiles preserve your local settings, shortcuts, favorites and arrangements.
 
 ![Rusty Java compact menu at the new 100% default](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.4/docs/screenshots/java/rusty-java-default-controls.png)
 
 *Original Fabric 26.3 capture of the compact 100% menu, with per-setting Default buttons, shortcut Default/Clear and Restore defaults.*
 
-![Rusty's Minecraft-style HUD layout editor with movable information panels](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.3/docs/screenshots/java/rusty-java-hud-editor.png)
+![Direct HUD dragging and image-like corner resizing in the clear game view](https://raw.githubusercontent.com/Justeck/Rusty/java-v1.3.0-beta.6/docs/screenshots/java/rusty-visual-hud-editor.png)
 
-*Earlier NeoForge 26.3 HUD editor capture, before Enabled Mods added the nineteenth panel. Only Status HUD starts enabled in normal play.*
+*Original Fabric beta.6 game capture: the coordinates overlay has been dragged and resized, with four corner handles visible. The world stays clear while editing. Only Status HUD starts enabled by default.*
 
-**Default** buttons restore individual values and shortcuts. **Restore defaults** in the footer opens a confirmation and resets all Rusty preferences, shortcuts, menu size and HUD layout. Active tools stop. Saved waypoint and profile files are kept. HUD layout also offers **Default panel** and **Default layout**.
+**Default** buttons restore individual values and shortcuts. **Restore defaults** in the footer opens a confirmation and resets all Rusty preferences, shortcuts, menu size and HUD layout. Active tools stop. Saved waypoint and profile files are kept. Edit HUD also offers **Default panel** and **Default layout**.
 
 **Enabled Mods** adds an optional alphabetical list of active Rusty tools, one per row in the top-left. It excludes its own name, updates as tools activate or stop, and can be moved/resized independently. Other tools do not turn it on automatically.
 
@@ -90,8 +90,8 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 | Toggle X-ray | **X**; optional Hold mode |
 | Hold Zoom | **C** |
 | Change or remove a shortcut | The module's keybind control |
-| Move a HUD panel | Drag it in **HUD layout** |
-| Resize a HUD panel | Scroll over it in **HUD layout** |
+| Move a HUD panel | Drag its body in **Edit HUD** |
+| Resize a HUD panel | Drag a corner handle in **Edit HUD** |
 
 ## Install the Java edition
 
@@ -101,8 +101,8 @@ Open the menu with **Right Shift** or **Options → Rusty**. Search the catalog,
 
 | Loader | Requirements | Rusty file |
 |---|---|---|
-| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.5.jar` |
-| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.5.jar` |
+| **Fabric** | Fabric Loader **0.20.1+**, Fabric API **0.165.2+26.3** | `rusty-fabric-1.3.0-beta.6.jar` |
+| **NeoForge** | NeoForge **26.3.0.101** | `rusty-neoforge-1.3.0-beta.6.jar` |
 
 Install **one Rusty loader jar**, not both. Use the **Versions** tab for downloads. Earlier game versions and snapshots are not supported by this beta.
 
@@ -118,7 +118,7 @@ Rusty does not defeat server anti-X-ray, recover deliberately withheld blocks, b
 
 ## Tested, with clear limits
 
-This beta passed fresh builds, **1,215 shared behavioral assertions** and **76 actual disposable-world game checks per loader**, including independent entity tracer/ESP targets, actual tracer menu controls and Default buttons, confirmation/cancel behavior, runtime resets, active-list placement/update/removal, menu transforms at 50%, 100% and 300%, and the existing X-ray/Finder regressions. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this patch. These are separate kinds of evidence: the 43-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
+This beta passed fresh builds, **1,231 shared behavioral assertions** and **83 actual disposable-world game checks per loader**, including visual HUD dragging, proportional resizing, Enter confirmation and Escape cancellation, clear-world rendering, independent entity tracer/ESP targets, actual tracer menu controls and Default buttons, confirmation/cancel behavior, runtime resets, active-list placement/update/removal, menu transforms at 50%, 100% and 300%, and the existing X-ray/Finder regressions. Earlier dedicated loopback-server permission tests remain documented separately; they were not rerun for this patch. These are separate kinds of evidence: the 43-module catalog is not a claim that every option has exhaustive game coverage. [Read the full validation report →](https://github.com/Justeck/Rusty/blob/main/docs/JAVA_VALIDATION.md)
 
 - **Rendering:** shaders, rendering replacements and arbitrary modpacks are unverified. Textured frames add geometry and can reduce FPS; terrain rebuilds are asynchronous.
 - **World information:** the minimap shows received surface colors. Projectile paths do not predict entities, random spread or future movement. Light Risk samples floor light rather than proving spawn safety.

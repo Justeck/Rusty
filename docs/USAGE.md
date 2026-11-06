@@ -1,6 +1,6 @@
 # Usage and settings
 
-This guide describes Rusty **1.2.5**. The [module guide](MODULES.md) covers all 43 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
+This guide describes Rusty **1.2.7**. The [module guide](MODULES.md) covers all 43 registered tools, ordinary-action requirements and data limits. See [validation](VALIDATION.md) for exact artifacts and actual test evidence, and [installation](INSTALLATION.md) for the pinned native host.
 
 ## The live ClickGUI
 
@@ -15,7 +15,7 @@ Press **Right Shift** in the world. Rusty uses Horizon's native mod-owned screen
 - Select a binding, then press a key or mouse button. **Escape** leaves it unchanged. The bottom **Menu** control rebinds Right Shift itself.
 - Use **Clear** beside a binding to leave it unbound. Right-click its binding control to restore the default. The native **Options → Mods → Rusty** screen remains available, and `/rusty menu` recovers an unbound menu.
 - Adjust **Menu size** independently from Minecraft's GUI scale: 50–300%, with step buttons and a 100% reset. **100% is now the former 70% physical size**, and is the new default. Existing saved physical sizes stay unchanged and display their equivalent new percentage. Small windows fit the requested size to the available area.
-- Screen HUD modules expose **HUD X (%)**, **HUD Y (%)** and **HUD size** controls, plus a per-panel reset. Position is a percentage of the space remaining after the panel fits. HUD size is independent from menu size; world-space indicators remain anchored to their targets.
+- Click **Edit HUD** in the menu header or a screen HUD feature. The menu gives way to the actual world view. Click an overlay and drag its body to move it; drag a corner handle to resize it proportionally. **Enter / Done** saves the draft and returns to the same mod menu. **Escape / Cancel** discards it. **Default panel** resets the selected overlay; with nothing selected, **Default layout** resets the whole arrangement. Changes stay provisional until confirmed. Only enabled, currently rendered overlays appear; the editor never enables a feature. HUD sizing remains independent of menu sizing.
 
 Favorites, recent selections, menu size and HUD placement persist locally and survive feature-profile imports; recent items are capped at **16**. **Horizon Options → Mods → Keys** remains the binding fallback. Check for conflicts there when a shortcut behaves unexpectedly.
 
@@ -110,7 +110,7 @@ The source registry contains **43 modules**. The [research matrix](research/READ
 
 Default overlays form left, center and right columns. Each column uses the visible panels' actual sizes, so expanded Target Info, Finder counts and container contents receive space. The right column reserves room above the default minimap. Columns fit within the screen when needed. Changing a panel’s position or size gives it an independent saved placement; Reset returns that panel to automatic default placement. Custom placements can intentionally overlap, so leave space for expanded content.
 
-Automatic spacing covers Rusty's default panels and default minimap. Chat, host notifications and other mods can still cover an overlay; use the individual HUD controls to arrange a layout around the information you normally keep visible.
+Automatic spacing covers Rusty's default panels and default minimap. Chat, host notifications and other mods can still cover an overlay; use **Edit HUD** to arrange a layout around the information you normally keep visible.
 
 ## Restore defaults
 
@@ -120,4 +120,4 @@ Choose **Restore defaults** in the main menu header to reset all Rusty preferenc
 
 ## Enabled Mods overlay
 
-Enable **Interface → Enabled Mods** to list active Rusty tools in separate rows, alphabetically. The list starts at the top-left and excludes its own name. It reflects runtime activation, including key-held tools. Its settings provide independent HUD X, Y and size controls. Other modules, X-ray and Finder do not enable this overlay automatically.
+Enable **Interface → Enabled Mods** to list active Rusty tools in separate rows, alphabetically. The list starts at the top-left and excludes its own name. It reflects runtime activation, including key-held tools. Use **Edit HUD** to drag or resize the list directly on screen. Other modules, X-ray and Finder do not enable this overlay automatically.
