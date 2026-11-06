@@ -60,6 +60,8 @@ Rusty captures settled block states already available to the client, incremental
 
 Cancelling a file operation or changing worlds invalidates its result. A native picker already open may need to be closed before another picker can open. Files are written with bounded, failure-safe replacement; an unsupported filesystem operation reports an error. Cancel before atomic commit prevents the write. If commit has already begun, that explicitly chosen snapshot may finish saving; Rusty reports this boundary and keeps cancellation responsive. Cancelling never activates a stale import or starts construction.
 
+The Horizon-native chooser uses Windows' Explorer dialog, the macOS system chooser, or the installed `zenity` helper on Linux. An unavailable desktop helper reports an error. Native compilation and actual-game acceptance here used Windows; other desktops have not received live dialog testing. Final physical Save/overwrite acceptance has its own delivery gate, separate from the parser, real-I/O tests and command-path export/import checks.
+
 ## Fabric and NeoForge controls
 
 The shared Minecraft-style menu groups import, transform and materials controls on one page, with explicit construction and export on the next. **More >** switches pages. **Materials / exact states** opens a readable list; its **Copy all materials** button copies all pages. The native Horizon menu exposes the corresponding actions in the Build Planner's scrolling settings panel.

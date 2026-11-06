@@ -1,5 +1,9 @@
 # Java edition validation
 
+## 1.4.0-beta.1 published package verification
+
+Both loader runtimes, both source jars and `SHA256SUMS` were downloaded from the [immutable GitHub release](https://github.com/Justeck/Rusty/releases/tag/java-v1.4.0-beta.1). Its actual tag resolves to `a81e700be67e5fc59b88beac52b1fbefcfa76f0f`, and the Java workflow passed. All compiled product classes match the actual game-tested builds. The only permitted text variations are CRLF/LF in Java sources and runtime `rusty.mixins.json`; every other archive entry matches. The repository's Java checksum list now records the public assets. Modrinth's 1.4 upload remains pending after the Computer Use Escape stop; its existing beta.8 downloads are not relabeled as this release. [Exact distribution receipt and remaining gates](evidence/schematic-distribution-1.4.0.json).
+
 ## 1.4.0-beta.1 — Schematic Builder
 
 Fabric and NeoForge each pass **80 actual schematic/UI checks** and **133 existing feature checks** in fresh owned disposable development worlds. Both packages compile on Java25, with **60 JUnit tests**, **1,231 shared behavioral assertions** and **18 direct host regressions** passing. Host tests are isolated from both game QA mods and downloadable jars.

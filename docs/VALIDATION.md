@@ -1,5 +1,13 @@
 # Rusty validation
 
+## 1.4 published downloads and CLI installation
+
+[Native 1.4.0](https://github.com/Justeck/Rusty/releases/tag/v1.4.0) and [Java 1.4.0-beta.1](https://github.com/Justeck/Rusty/releases/tag/java-v1.4.0-beta.1) are immutable releases of `a81e700be67e5fc59b88beac52b1fbefcfa76f0f`. Both GitHub workflows passed and both actual tags resolve to that commit. The downloaded native package exactly equals the final game-tested archive: SHA256 `0d6127db4297a3ecd81d4d8c0c49f2e576188c52bc5e6a7edc48682dc34831ac`, 137 entries. Every compiled Java product class matches its game-tested counterpart; source Java and mixin-JSON text differ only in CRLF/LF line endings. The public Java checksums are synchronized with the downloaded assets.
+
+The official launcher accepted the fixed native release URL and repository URL. Its CLI reported **Up to date (no build needed)** in Performance mode on both checks, selecting `native-66f3981-258e68b91497` with executable SHA256 `50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14`. The checks took 15.085 and 12.184 seconds. Existing Rusty preferences stayed byte-for-byte unchanged. There is one **Horizon** instance and one Rusty native mod.
+
+These are CLI observations. Final physical OS Save/overwrite/clipboard and the normal launcher **Build / Up to date / Play / title / Quit** flow remain unverified for this release because Computer Use was stopped by physical Escape. Modrinth's last owner-page observation showed **under review**, with two older beta.8 loader downloads; no 1.4 file upload or page save was performed. Superseded downloads/builds are retained until the separate launcher and Modrinth replacement checks pass. The final cleanup gate has not been created. [Exact distribution and installation receipt](evidence/schematic-distribution-1.4.0.json).
+
 ## 1.4.0 — Schematic Builder acceptance
 
 The official launcher **0.2.47** compiled the native candidate in **Performance** mode for **Horizon 66f3981 / API411 / Minecraft26.3**, exited successfully and selected `native-66f3981-258e68b91497`. The command took 27.0 minutes including installation and cleanup. This is a completed official build; normal launcher GUI delivery is verified separately.

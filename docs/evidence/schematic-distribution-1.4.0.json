@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-06T16:31:56.308134+00:00",
+  "scope": "Verified public distribution and official CLI installation. This is not the final desktop/Modrinth delivery gate.",
+  "source_commit": "a81e700be67e5fc59b88beac52b1fbefcfa76f0f",
+  "ci": [
+    {
+      "id": 42251770357,
+      "name": "Java edition checks",
+      "conclusion": "success"
+    },
+    {
+      "id": 42251770518,
+      "name": "Native mod checks",
+      "conclusion": "success"
+    }
+  ],
+  "releases": {
+    "v1.4.0": {
+      "url": "https://github.com/Justeck/Rusty/releases/tag/v1.4.0",
+      "tag": "v1.4.0",
+      "verified_tag_commit": "a81e700be67e5fc59b88beac52b1fbefcfa76f0f",
+      "assets": [
+        {
+          "name": "rusty-1.4.0.hnmod",
+          "bytes": 276768,
+          "sha256": "0d6127db4297a3ecd81d4d8c0c49f2e576188c52bc5e6a7edc48682dc34831ac",
+          "url": "https://github.com/Justeck/Rusty/releases/download/v1.4.0/rusty-1.4.0.hnmod"
+        },
+        {
+          "name": "SHA256SUMS",
+          "bytes": 84,
+          "sha256": "94ffc6ae84a8886f8f9f41d26c8a08776eae3d4af8e616c0ae091d1f313d1eb7",
+          "url": "https://github.com/Justeck/Rusty/releases/download/v1.4.0/SHA256SUMS"
+        }
+      ]
+    },
+    "java-v1.4.0-beta.1": {
+      "url": "https://github.com/Justeck/Rusty/releases/tag/java-v1.4.0-beta.1",
+      "tag": "java-v1.4.0-beta.1",
+      "verified_tag_commit": "a81e700be67e5fc59b88beac52b1fbefcfa76f0f",
+      "assets": [
+        {
+          "name": "rusty-fabric-1.4.0-beta.1-sources.jar",
+          "bytes": 1687944,
+          "sha256": "e3f42c15a4b29cd3a202c3acf477f799c43b5d53eaf929017694262d9f25be71",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.4.0-beta.1/rusty-fabric-1.4.0-beta.1-sources.jar"
+        },
+        {
+          "name": "rusty-fabric-1.4.0-beta.1.jar",
+          "bytes": 1878688,
+          "sha256": "033e636a9c83a7d009e3ddc7c9a02400cb4a6d03a864e33272d00c6c75ca706c",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.4.0-beta.1/rusty-fabric-1.4.0-beta.1.jar"
+        },
+        {
+          "name": "rusty-neoforge-1.4.0-beta.1-sources.jar",
+          "bytes": 1686493,
+          "sha256": "a191a840cfa5ec4e0e14da9eb8b38ebc8dc14a1846643ef0596f447c57e185b6",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.4.0-beta.1/rusty-neoforge-1.4.0-beta.1-sources.jar"
+        },
+        {
+          "name": "rusty-neoforge-1.4.0-beta.1.jar",
+          "bytes": 1872044,
+          "sha256": "a31412d25423f5efc81b0883abb1351503e6d39227f7c947c1fd774b44a3a14d",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.4.0-beta.1/rusty-neoforge-1.4.0-beta.1.jar"
+        },
+        {
+          "name": "SHA256SUMS",
+          "bytes": 404,
+          "sha256": "b3b0536d65105e148ed02be44f7c44704b2453edcd33b421d83b6e6bbf03600f",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.4.0-beta.1/SHA256SUMS"
+        }
+      ]
+    }
+  },
+  "verification": {
+    "immutable_tags_match_source": true,
+    "native_package_exactly_matches_game_tested_archive": true,
+    "java_compiled_product_entries_match_game_tested_builds": true,
+    "java_text_variations": "Only CRLF/LF in source Java files and runtime rusty.mixins.json; all other archive entry contents match."
+  },
+  "horizon_cli": {
+    "selected_build": "native-66f3981-258e68b91497",
+    "binary_sha256": "50b0b50fed277f9893166f01738ab8c499f243de83e323a12e0fe615dca52d14",
+    "asset_sha256": "0d6127db4297a3ecd81d4d8c0c49f2e576188c52bc5e6a7edc48682dc34831ac",
+    "public_asset_exact": true,
+    "fixed_release_url_accepted": true,
+    "repository_url_accepted": true,
+    "user_preferences_unchanged": true,
+    "only_horizon_instance": true,
+    "only_rusty_native_mod": true,
+    "first_build_seconds": 15.085,
+    "cache_check_seconds": 12.184
+  },
+  "remaining_delivery": {
+    "physical_native_save_overwrite_clipboard": "Not completed on the final binary. Computer Use stopped by physical Escape.",
+    "normal_launcher_build_play_title_quit": "Not completed for this public release. Official CLI build/cache verification passed.",
+    "modrinth_1_4_upload": "Not performed. Last owner-page observation showed under review and two1.3.0-beta.8 loader downloads.",
+    "superseded_download_cleanup": "Deferred until the separate launcher GUI and Modrinth replacement checks pass."
+  },
+  "modrinth_last_observation": {
+    "project_url": "https://modrinth.com/mod/rusty-toolkit",
+    "status": "under_review",
+    "approval_verified": false,
+    "new_java_1_4_versions_uploaded": false,
+    "existing_versions": [
+      "1.3.0-beta.8+fabric",
+      "1.3.0-beta.8+neoforge"
+    ]
+  }
+}
