@@ -1,5 +1,17 @@
 # Rusty validation
 
+## 1.3.1 — Area Clear
+
+The official Horizon launcher built the exact native source with its supported **GNU Rust1.99.1** toolchain and **Performance** profile on the latest verified **66f3981 / API411 / Minecraft26.3** host. Accepted build: `native-66f3981-3fe0b000f7c3`; executable SHA-256 `3687069499d78b442c872d218a15426c72650d86ad91aa97ee746e58faac1392`.
+
+That exact executable passed **15 owned singleplayer Area Clear checks**, **14 Auto Mine regression checks** and **14 Area Clear checks against a separate unmodified Java26.3 server**. The server console independently verifies removed blocks, adjacent stone, supporting bedrock and the retained text of protected wall signs, including a sign just outside a smaller offset border. Other cases cover full-box removal, real carpet geometry, containers, live border rejection/cancellation, whole-selection hazard refusal, manual/menu stops, worn tools and dimension-scoped corners. Each fixture uses a disposable world or owned loopback server and stops its process afterward.
+
+Fresh checks passed **201 Rust tests** (157 library, 18 packaging, 11 Area Clear, 15 mining), formatting, strict Clippy and **14 Python tests**. The final source archive contains **122 verified entries**. Both Java editions passed **133 actual owned-world checks each**, plus 1,231 shared assertions, four mining methods and nine Area Clear methods. [Exact named acceptance and artifact identities](evidence/area-clear-1.3.1.json) · [Java scope](JAVA_VALIDATION.md).
+
+A fresh independent source review found two safety gaps: support beneath protected partial block entities, and live world-border validation. Both received reproducing regressions and verified fixes. The final border route filter also preserves received unknown, hazard and attachment facts outside the border. The native landing gate was checked against the exact host source and verified by real excavation after the original host's loose arrival tolerance caused drift during a descent.
+
+These results do not guarantee survival, globally optimal clearing, arbitrary server/plugin compatibility, high latency, alternate renderers or long-session stability. Containers, fluids, unstable terrain, unknown data and unsafe/unreachable leftovers remain conservative stops or protected objects. No personal save, public-server character or account inventory was used. Public-download installation and final launcher Build/Play are recorded separately after publication.
+
 ## 1.3.0 published downloads and launcher acceptance
 
 [Native 1.3.0](https://github.com/Justeck/Rusty/releases/tag/v1.3.0) and [Java beta.7](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.7) are releases of `09d06e44783fc25a3479c53e5c86c66eccedcc33`. Both publication workflows passed, and both actual tags resolve to that commit. The public native archive exactly equals the game-tested source package: SHA-256 `68b0a9859a3bbb4e0399670cb56e43492a016a924ba86b6a327fb1066de0fd12`, 121 entries. Public Java product classes equal the game-tested classes; differences in the mixin JSON and Java source text are CRLF/LF only. Both saved Modrinth downloads are byte-identical to GitHub.

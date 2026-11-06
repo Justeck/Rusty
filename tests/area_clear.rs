@@ -1,6 +1,37 @@
 use rusty_horizon::rusty_mining::*;
 
 #[test]
+fn border_route_walls_keep_received_unknowns_and_outside_support_dependencies() {
+    let region = Region::new([2, 1, 2], [2, 1, 2]).unwrap();
+    let mut g = Grid::new([0, 0, 0], [6, 5, 5]).unwrap();
+    for i in 0..g.len() {
+        let p = g.position(i);
+        g.set(p, Cell::air());
+    }
+    let border = [0.0, 0.0, 3.0, 5.0];
+    g.set(
+        [2, 1, 2],
+        region.constrain_border(Cell::resource(1), [2, 1, 2], Some(1), border),
+    );
+    g.set(
+        [3, 1, 2],
+        region.constrain_border(Cell::passive(false), [3, 1, 2], Some(1), border),
+    );
+    assert!(!g.can_mine([2, 1, 2], false));
+    g.set(
+        [3, 1, 2],
+        region.constrain_border(Cell::unknown(), [3, 1, 2], Some(1), border),
+    );
+    assert!(!g.can_mine([2, 1, 2], false));
+    g.set(
+        [3, 1, 2],
+        region.constrain_border(Cell::air(), [3, 1, 2], Some(1), border),
+    );
+    assert!(g.can_mine([2, 1, 2], false));
+    assert!(!g.get([3, 1, 2]).is_air());
+}
+
+#[test]
 fn protected_partial_objects_inside_the_box_keep_their_support_without_blocking_safe_nearby_standing()
  {
     let area = Region::new([2, 1, 2], [3, 1, 2]).unwrap();

@@ -10,7 +10,7 @@ Select two opposite block corners to clear an inclusive box using ordinary playe
 4. Return to safe ground near the box with suitable hotbar tools and free inventory space. Explicitly enable **Area Clear**. The menu closes before controls are acquired.
 5. Let it work, or stop it with its assigned shortcut, manual input or by opening a menu. It never resumes automatically.
 
-Both corners may be the same block. Reversed corners are normalized. Each axis is limited to **32 blocks**, for at most **32,768 cells**. Corners are temporary: disconnects and world/dimension changes discard them. Active runs are never saved in profiles. Area Clear and Auto Mine cannot run together. Its shortcut starts **unbound** and can be assigned or cleared in the menu.
+Both corners may be the same block. Reversed corners are normalized. Each axis is limited to **32 blocks**, for at most **32,768 cells**. The entire box must fit the current world border; a shrinking border stops an active run. Corners are temporary: disconnects and world/dimension changes discard them. Active runs are never saved in profiles. Area Clear and Auto Mine cannot run together. Its shortcut starts **unbound** and can be assigned or cleared in the menu.
 
 ## Safety preferences
 
@@ -28,7 +28,7 @@ Each preference has its own Default control. The global Restore defaults stops a
 
 Ordinary breakable blocks with suitable available hotbar tools, including ordinary partial shapes such as carpet. It reviews received terrain incrementally and works on the highest remaining eligible layer. Weighted routes account for ordinary walking and estimated breaking time; it does not claim a globally optimal excavation order.
 
-Every mining action stays inside the box. It never digs an access tunnel outside it and does not mine directly above or beneath the player's column. Other layers remain protected as potential support until their turn. Thin shapes are never treated as full supporting cubes. Outside partial shapes are treated conservatively so neighboring support is not deliberately removed beneath an attachment or half of a tall block.
+Every mining action stays inside the box. It never digs an access tunnel outside it and does not mine directly above or beneath the player's column. Other layers remain protected as potential support until their turn. Thin shapes are never treated as full supporting cubes. Protected partial objects inside the box and outside partial shapes retain neighboring support, including wall signs with placed text. Border route constraints preserve received attachment, hazard and unknown-terrain facts beyond the border.
 
 Containers and other block entities, unbreakable blocks, fluids, hazardous or unstable blocks, unknown cells and unsuitable tools are protected. A survey containing any fluid, hazard, unstable or unknown cell stops the entire operation before planning excavation; deal with those hazards manually first. Containers and ordinary protected leftovers can remain while other safe blocks are cleared. It stops on unsafe or unreachable leftovers and reports them. **Area cleared** is used only after a fresh survey finds every selected cell is received, settled air; a protected leftover is not success. Natural block updates, external players and future world changes remain outside its control.
 

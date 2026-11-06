@@ -27,7 +27,7 @@ class RemoteAreaClear(JavaPeer):
 
     def ended(self):
         result = AreaClearSmoke.ended(self)
-        if self.phase=="protected named wall sign":
+        if self.phase in ("protected named wall sign","outside-border protected sign"):
             rows=self.java.run("data get block 1 200 3 front_text")
             self.require(any("KEEP RUSTY" in row for row in rows),"Server lost protected sign text")
             self.report.setdefault("authoritative_checks",[]).append("Protected wall sign text KEEP RUSTY and its support survive")

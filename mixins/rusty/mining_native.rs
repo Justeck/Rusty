@@ -299,11 +299,7 @@ fn position_cell(
     cell: core::Cell,
 ) -> core::Cell {
     area.map_or(cell, |region| {
-        if (core::Region { min: p, max: p }).within_border(game.border.bounds_at(1.0)) {
-            region.constrain(cell, p, layer)
-        } else {
-            core::Cell::wall()
-        }
+        region.constrain_border(cell, p, layer, game.border.bounds_at(1.0))
     })
 }
 fn snapshot(

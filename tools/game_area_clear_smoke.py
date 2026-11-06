@@ -65,6 +65,12 @@ class AreaClearSmoke(MiningSmoke):
             for y in range(200,202):
                 for z in range(3,5): self.require("air" in str(self.command(f"block {x} {y} {z}")),"Selected block remains")
         self.outside();self.passed("Two-corner menu starts a full eight-block survival excavation; adjacent identical stone and support stay intact",result=state);self.shot("area-cleared")
+        self.phase="ordinary partial-shape blocks"
+        self.fixture();self.server("fill 0 200 3 1 201 4 air");self.server("setblock 0 200 3 red_carpet")
+        self.wait_for(lambda:self.command("block 0 200 3"),lambda b:"red_carpet" in str(b),"received thin carpet")
+        self.begin();state=self.ended()
+        self.require(state["result"]=="Area cleared" and state["count"]==1,"Thin block was not aimed at and cleared: "+str(state))
+        self.outside();self.passed("Ordinary partial-shape blocks are mined through their actual visible outline",result=state)
         self.phase="actual corner buttons"
         self.fixture();self.corner((0,200,3),False,ui=True)
         self.require("2 × 2 × 2" in self.clear()["selection"],"Menu did not retain the two-corner region")
@@ -83,8 +89,20 @@ class AreaClearSmoke(MiningSmoke):
         self.require(state["count"]==0 and state["result"]!="Area cleared","Protected sign support was excavated")
         self.require("oak_wall_sign" in str(self.command("block 1 200 3")) and "stone" in str(self.command("block 0 200 3")),"Protected sign or its support was removed")
         self.passed("Protected partial objects inside the box preserve their adjacent support",result=state)
+        self.phase="outside-border protected sign"
+        self.fixture();self.corner((0,200,3),False);self.corner((0,200,3),True)
+        for cmd in ["fill 0 200 3 1 201 4 air","setblock 0 200 3 stone",'setblock 1 200 3 oak_wall_sign[facing=east]{front_text:{messages:["KEEP RUSTY","","",""]}}',"worldborder center -1.5 3.5","worldborder set 5","tp @s 0.5 200 2.5 0 0"]:self.server(cmd)
+        self.wait_for(self.player,lambda p:p["on_ground"] and abs(p["position"][2]-2.5)<.05,"safe body inside the offset border")
+        self.wait_for(lambda:self.command("block 1 200 3"),lambda b:"oak_wall_sign" in str(b),"received protected sign beyond border")
+        try:
+            self.begin();state=self.ended()
+            self.require(state["count"]==0 and state["result"]!="Area cleared","Border route wall hid an outside attachment")
+            self.require("stone" in str(self.command("block 0 200 3")) and "oak_wall_sign" in str(self.command("block 1 200 3")),"An outside-border sign or its inside support was destroyed")
+            self.passed("Border route constraints preserve received outside attachments and their inside support",result=state)
+        finally:
+            self.server("worldborder center 0.0 0.0");self.server("worldborder set 59999968");time.sleep(.3)
         self.phase="live world border refusal"
-        self.fixture();self.server("worldborder center 0 0");self.server("worldborder set 8");time.sleep(.5)
+        self.fixture();self.server("worldborder center 0.0 0.0");self.server("worldborder set 8");time.sleep(.5)
         rejected=False
         try:
             try:self.command("rusty-clear-toggle")

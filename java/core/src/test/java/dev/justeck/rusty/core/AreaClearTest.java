@@ -6,6 +6,23 @@ import org.junit.jupiter.api.Test;
 
 class AreaClearTest {
   @Test
+  void borderRouteWallsPreserveOutsideDependenciesAndUnknownTerrain() {
+    var region = new Mining.Region(new Mining.Pos(2, 1, 2), new Mining.Pos(2, 1, 2));
+    var g = new Mining.Grid(new Mining.Pos(0, 0, 0), 6, 5, 5);
+    for (int i = 0; i < g.size(); i++) g.set(g.position(i), Mining.AIR);
+    var target = new Mining.Pos(2, 1, 2);
+    var outside = new Mining.Pos(3, 1, 2);
+    g.set(target, region.constrainBorder(Mining.resource(1), target, 1, 0, 0, 3, 5));
+    g.set(outside, region.constrainBorder(Mining.passive(false), outside, 1, 0, 0, 3, 5));
+    assertFalse(g.canMine(target, false));
+    g.set(outside, region.constrainBorder(Mining.UNKNOWN, outside, 1, 0, 0, 3, 5));
+    assertFalse(g.canMine(target, false));
+    g.set(outside, region.constrainBorder(Mining.AIR, outside, 1, 0, 0, 3, 5));
+    assertTrue(g.canMine(target, false));
+    assertFalse(Mining.air(region.constrainBorder(Mining.AIR, outside, 1, 0, 0, 3, 5)));
+  }
+
+  @Test
   void liveBorderMustContainTheFullBlockVolume() {
     var inside = new Mining.Region(new Mining.Pos(-4, 1, -4), new Mining.Pos(3, 2, 3));
     var crossing = new Mining.Region(new Mining.Pos(0, 1, 3), new Mining.Pos(1, 2, 4));

@@ -86,6 +86,21 @@ impl Region {
             }
         }
     }
+    pub fn constrain_border(
+        self,
+        cell: Cell,
+        p: Node,
+        layer: Option<i32>,
+        bounds: [f64; 4],
+    ) -> Cell {
+        // Only known air becomes a route wall. Preserve unknown/hazard and
+        // attachment facts beyond the border before testing nearby excavation.
+        if cell.is_air() && !(Self { min: p, max: p }).within_border(bounds) {
+            Cell::wall()
+        } else {
+            self.constrain(cell, p, layer)
+        }
+    }
     pub fn edges(self) -> Vec<[[f64; 3]; 2]> {
         let mut out = Vec::with_capacity(12);
         for axis in 0..3 {

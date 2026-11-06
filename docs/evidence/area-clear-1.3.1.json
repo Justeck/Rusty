@@ -1,0 +1,1392 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-06T06:13:55.557032+00:00",
+  "native_version": "1.3.1",
+  "java_version": "1.3.0-beta.8",
+  "horizon": "66f3981f522b24c250b21523a70080965b940424",
+  "native_api": 411,
+  "scope": "Owned disposable native/Java singleplayer worlds and a separate owned unmodified vanilla Java26.3 loopback server. No personal save or public-server character.",
+  "official_performance_build": {
+    "selected_build": "native-66f3981-3fe0b000f7c3",
+    "binary_sha256": "3687069499d78b442c872d218a15426c72650d86ad91aa97ee746e58faac1392",
+    "package": {
+      "sha256": "f3abce1e1283610b6fc0c09512f466bdcc8b5b0088f46cd4bb712f922315968a",
+      "bytes": 231037,
+      "local_payload_commit": "d6e40bed53b8ef62f790ff40f40a9b86a28c3a01"
+    },
+    "official_performance_build": true
+  },
+  "native_archive": {
+    "sha256": "f3abce1e1283610b6fc0c09512f466bdcc8b5b0088f46cd4bb712f922315968a",
+    "bytes": 231037,
+    "entries": 122,
+    "all_entries_equal_git_source_after_lf_normalization": true
+  },
+  "static_checks": {
+    "rust_library_tests": 157,
+    "rust_packaging_tests": 18,
+    "rust_area_tests": 11,
+    "rust_mining_tests": 15,
+    "rust_total": 201,
+    "strict_clippy": true,
+    "formatting": true,
+    "python_tests": 14,
+    "java_shared_assertions": 1231,
+    "java_mining_methods": 4,
+    "java_area_methods": 9,
+    "official_horizon_gnu_rust": "1.99.1",
+    "standalone_rust_clippy": "1.99.0 MSVC, isolated target"
+  },
+  "native_suites": {
+    "native_singleplayer": {
+      "suite": "native-area-clear",
+      "passed": true,
+      "binary_sha256": "3687069499d78b442c872d218a15426c72650d86ad91aa97ee746e58faac1392",
+      "script_sha256": "c597356c21ec1d0e121ec4997df7c57be5b8318549e0f49efc857e12ebfa6d9b",
+      "started_utc": "2026-11-06T05:54:00Z",
+      "finished_utc": "2026-11-06T05:55:19Z",
+      "owned_process_stopped": true,
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "No movement or excavation can start without an explicit two-corner selection",
+          "passed": true
+        },
+        {
+          "name": "Two-corner menu starts a full eight-block survival excavation; adjacent identical stone and support stay intact",
+          "passed": true
+        },
+        {
+          "name": "Ordinary partial-shape blocks are mined through their actual visible outline",
+          "passed": true
+        },
+        {
+          "name": "Actual corner button captures the crosshair block and preserves the inclusive box",
+          "passed": true
+        },
+        {
+          "name": "Containers survive and protected leftovers are not reported as a cleared area",
+          "passed": true
+        },
+        {
+          "name": "Protected partial objects inside the box preserve their adjacent support",
+          "passed": true
+        },
+        {
+          "name": "Border route constraints preserve received outside attachments and their inside support",
+          "passed": true
+        },
+        {
+          "name": "A previously captured box crossing a smaller live border is refused before activation",
+          "passed": true
+        },
+        {
+          "name": "A changing border cancels the active selection before excavation",
+          "passed": true
+        },
+        {
+          "name": "Fluid near the working region stops unsafe excavation",
+          "passed": true
+        },
+        {
+          "name": "Manual movement cancels Area Clear and never resumes it",
+          "passed": true
+        },
+        {
+          "name": "Opening the menu stops Area Clear before an action",
+          "passed": true
+        },
+        {
+          "name": "Durability reserve protects worn tools without falsely reporting completion",
+          "passed": true
+        },
+        {
+          "name": "Dimension changes stop the old route and discard both corners",
+          "passed": true
+        }
+      ],
+      "authoritative_checks": []
+    },
+    "native_auto_mine_regression": {
+      "suite": "native-auto-mine",
+      "passed": true,
+      "binary_sha256": "3687069499d78b442c872d218a15426c72650d86ad91aa97ee746e58faac1392",
+      "script_sha256": "e19207b5ecb628bf1e339dfb5875bcf321034d2f2b1ca15e1a934a503e5b2a73",
+      "started_utc": "2026-11-06T05:55:19Z",
+      "finished_utc": "2026-11-06T05:56:25Z",
+      "owned_process_stopped": true,
+      "checks": [
+        {
+          "name": "Fresh isolated offline world ready",
+          "passed": true
+        },
+        {
+          "name": "Menu starts Auto Mine; survival walking, normal ore break, drop pickup and quota stop",
+          "passed": true
+        },
+        {
+          "name": "Conservative access tunnel clears safe ordinary terrain before mining ore",
+          "passed": true
+        },
+        {
+          "name": "A harvest-correct tool replaces an ineligible golden pickaxe and the previous selection is restored",
+          "passed": true
+        },
+        {
+          "name": "Tools below the durability reserve do not start resource actions",
+          "passed": true
+        },
+        {
+          "name": "Full inventory rejects an explicit start before any movement",
+          "passed": true
+        },
+        {
+          "name": "The menu rebinds Auto Mine; its shortcut explicitly starts and stops without resuming",
+          "passed": true
+        },
+        {
+          "name": "Hazard blocks route execution before any movement or mining",
+          "passed": true
+        },
+        {
+          "name": "Hazard blocks route execution before any movement or mining",
+          "passed": true
+        },
+        {
+          "name": "Manual movement cancels automation and retains the user's held key",
+          "passed": true
+        },
+        {
+          "name": "Menus cancel mining and closing them never resumes it",
+          "passed": true
+        },
+        {
+          "name": "Observed damage immediately stops the mode",
+          "passed": true
+        },
+        {
+          "name": "Server-denied break times out without counting a resource or retrying forever",
+          "passed": true
+        },
+        {
+          "name": "Dimension changes cancel the old session and never resume it",
+          "passed": true
+        }
+      ],
+      "authoritative_checks": []
+    },
+    "native_separate_vanilla_java_server": {
+      "suite": "native-area-clear-java-server",
+      "passed": true,
+      "binary_sha256": "3687069499d78b442c872d218a15426c72650d86ad91aa97ee746e58faac1392",
+      "script_sha256": "ec2f2b5ce69a2fdb70f02df207609ca1b4e3b888112188f09799abafc4537400",
+      "started_utc": "2026-11-06T05:56:39Z",
+      "finished_utc": "2026-11-06T05:57:45Z",
+      "owned_process_stopped": true,
+      "checks": [
+        {
+          "name": "No movement or excavation can start without an explicit two-corner selection",
+          "passed": true
+        },
+        {
+          "name": "Two-corner menu starts a full eight-block survival excavation; adjacent identical stone and support stay intact",
+          "passed": true
+        },
+        {
+          "name": "Ordinary partial-shape blocks are mined through their actual visible outline",
+          "passed": true
+        },
+        {
+          "name": "Actual corner button captures the crosshair block and preserves the inclusive box",
+          "passed": true
+        },
+        {
+          "name": "Containers survive and protected leftovers are not reported as a cleared area",
+          "passed": true
+        },
+        {
+          "name": "Protected partial objects inside the box preserve their adjacent support",
+          "passed": true
+        },
+        {
+          "name": "Border route constraints preserve received outside attachments and their inside support",
+          "passed": true
+        },
+        {
+          "name": "A previously captured box crossing a smaller live border is refused before activation",
+          "passed": true
+        },
+        {
+          "name": "A changing border cancels the active selection before excavation",
+          "passed": true
+        },
+        {
+          "name": "Fluid near the working region stops unsafe excavation",
+          "passed": true
+        },
+        {
+          "name": "Manual movement cancels Area Clear and never resumes it",
+          "passed": true
+        },
+        {
+          "name": "Opening the menu stops Area Clear before an action",
+          "passed": true
+        },
+        {
+          "name": "Durability reserve protects worn tools without falsely reporting completion",
+          "passed": true
+        },
+        {
+          "name": "Dimension changes stop the old route and discard both corners",
+          "passed": true
+        }
+      ],
+      "authoritative_checks": [
+        "All eight selected cells are server-confirmed air",
+        "Adjacent stone and supporting bedrock remain server-side",
+        "All eight selected cells are server-confirmed air",
+        "Adjacent stone and supporting bedrock remain server-side",
+        "Adjacent stone and supporting bedrock remain server-side",
+        "Protected wall sign text KEEP RUSTY and its support survive",
+        "Protected wall sign text KEEP RUSTY and its support survive",
+        "Adjacent stone and supporting bedrock remain server-side"
+      ]
+    }
+  },
+  "java_suites": {
+    "fabric": {
+      "edition": "fabric",
+      "passed": true,
+      "finished": true,
+      "time": "2026-11-06T05:57:06.843420Z",
+      "checks": [
+        {
+          "name": "Permission payload rejects invalid versions, masks and lengths",
+          "passed": true
+        },
+        {
+          "name": "Menu 50% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu 100% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu 300% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu default restores compact 100% before gameplay checks",
+          "passed": true
+        },
+        {
+          "name": "Fixture setup is received from owned integrated server",
+          "passed": true
+        },
+        {
+          "name": "Singleplayer capabilities are granted locally",
+          "passed": true
+        },
+        {
+          "name": "Minecraft module screen constructs its real widgets",
+          "passed": true
+        },
+        {
+          "name": "Menu closes and normal gameplay resumes",
+          "passed": true
+        },
+        {
+          "name": "Xray finds exposed and buried authoritative received ores",
+          "passed": true
+        },
+        {
+          "name": "Xray alone does not render saved Finder lines or boxes",
+          "passed": true
+        },
+        {
+          "name": "Finder explicitly enables target geometry alongside Xray",
+          "passed": true
+        },
+        {
+          "name": "Disabling Xray preserves independently enabled Finder geometry",
+          "passed": true
+        },
+        {
+          "name": "Disabling Finder restores Xray-only rendering without changing line preferences",
+          "passed": true
+        },
+        {
+          "name": "Received block removal invalidates the target cache",
+          "passed": true
+        },
+        {
+          "name": "Received block restoration is discovered again",
+          "passed": true
+        },
+        {
+          "name": "Maximum texture context restores ordinary terrain rendering",
+          "passed": true
+        },
+        {
+          "name": "Minimum texture context keeps thin original-texture edges",
+          "passed": true
+        },
+        {
+          "name": "Default texture coverage and custom received block selection",
+          "passed": true
+        },
+        {
+          "name": "Toggle off restores view without changing world blocks",
+          "passed": true
+        },
+        {
+          "name": "Detached camera input moves the view and preserves body position",
+          "passed": true
+        },
+        {
+          "name": "Settled rendered camera follows detached view without body rotation",
+          "passed": true
+        },
+        {
+          "name": "Freecam disables cleanly",
+          "passed": true
+        },
+        {
+          "name": "Ordinary inventory fixture arrives without modifying personal saves",
+          "passed": true
+        },
+        {
+          "name": "Auto Tool replaces a fast ineligible golden pickaxe with a harvest-correct tool",
+          "passed": true
+        },
+        {
+          "name": "Manual hotbar choice retains ownership until mining is released",
+          "passed": true
+        },
+        {
+          "name": "Automatic eating consumes ordinary food on the integrated server",
+          "passed": true
+        },
+        {
+          "name": "Eating restores the previous slot after consuming one item",
+          "passed": true
+        },
+        {
+          "name": "Auto Totem fills only an empty offhand through the server",
+          "passed": true
+        },
+        {
+          "name": "Auto Totem preserves an occupied shield offhand",
+          "passed": true
+        },
+        {
+          "name": "Armor Assist fills an empty armor slot using an ordinary inventory action",
+          "passed": true
+        },
+        {
+          "name": "Refill observes a real baseline stack",
+          "passed": true
+        },
+        {
+          "name": "Refill moves an exact matching stack after observed depletion",
+          "passed": true
+        },
+        {
+          "name": "Identical authoritative correction is not blindly retried",
+          "passed": true
+        },
+        {
+          "name": "Explicit refill rearm retains its observed depletion candidate",
+          "passed": true
+        },
+        {
+          "name": "Trigger fixture is an owned non-player living entity",
+          "passed": true
+        },
+        {
+          "name": "Trigger uses an ordinary full-cooldown reachable attack",
+          "passed": true
+        },
+        {
+          "name": "Automatic actions stop when the Minecraft menu opens",
+          "passed": true
+        },
+        {
+          "name": "Action fixtures leave normal controls usable",
+          "passed": true
+        },
+        {
+          "name": "Waypoint saves in current stable world/dimension scope",
+          "passed": true
+        },
+        {
+          "name": "Visual HUD editor shows only enabled panels without modifying feature states",
+          "passed": true
+        },
+        {
+          "name": "HUD dragging follows the grab point and remains an unsaved draft",
+          "passed": true
+        },
+        {
+          "name": "HUD corner handle enlarges the overlay while holding its opposite corner",
+          "passed": true
+        },
+        {
+          "name": "Visual HUD editor framebuffer capture",
+          "passed": true
+        },
+        {
+          "name": "Enter confirms visual HUD changes and returns to the Rusty menu",
+          "passed": true
+        },
+        {
+          "name": "Escape discards subsequent HUD changes and returns to the mod menu",
+          "passed": true
+        },
+        {
+          "name": "Cancelled HUD draft never changes persisted preferences",
+          "passed": true
+        },
+        {
+          "name": "HUD editor fixture restores its own previous settings",
+          "passed": true
+        },
+        {
+          "name": "Overlay positions and cleared shortcuts persist to actual local JSON",
+          "passed": true
+        },
+        {
+          "name": "Empty entity-tracer selection renders no geometry",
+          "passed": true
+        },
+        {
+          "name": "Mobs-only entity tracers render a received pig",
+          "passed": true
+        },
+        {
+          "name": "Mobs-only ESP adds a box without changing its tracer",
+          "passed": true
+        },
+        {
+          "name": "Item tracers coexist with independent mob ESP",
+          "passed": true
+        },
+        {
+          "name": "Different ESP and tracer targets framebuffer capture",
+          "passed": true
+        },
+        {
+          "name": "Changing ESP targets does not remove an item tracer",
+          "passed": true
+        },
+        {
+          "name": "Disabling tracers clears geometry while ESP remains enabled",
+          "passed": true
+        },
+        {
+          "name": "Actual tracer menu exposes independent target buttons",
+          "passed": true
+        },
+        {
+          "name": "Actual tracer Default button preserves independent ESP choices",
+          "passed": true
+        },
+        {
+          "name": "Tracer menu framebuffer capture",
+          "passed": true
+        },
+        {
+          "name": "Tracer fixture restores its prior settings",
+          "passed": true
+        },
+        {
+          "name": "All module adapters tolerate received world and live rendering",
+          "passed": true
+        },
+        {
+          "name": "Remote chunk loading removes targets from the former area",
+          "passed": true
+        },
+        {
+          "name": "Returning to received chunks discovers the original ores again",
+          "passed": true
+        },
+        {
+          "name": "Dimension change resets scanner and scoped markers",
+          "passed": true
+        },
+        {
+          "name": "Returning dimension restores permission and target lifecycle",
+          "passed": true
+        },
+        {
+          "name": "Profiles round-trip without acquiring multiplayer permission",
+          "passed": true
+        },
+        {
+          "name": "Cleared menu binding retains Minecraft Options recovery",
+          "passed": true
+        },
+        {
+          "name": "Thirty-second bounded rendering observation completes",
+          "passed": true
+        },
+        {
+          "name": "Clean default controls remain ready for visual review",
+          "passed": true
+        },
+        {
+          "name": "Actual Default button restores a numeric preference without changing another setting",
+          "passed": true
+        },
+        {
+          "name": "Actual Default button restores a true boolean preference",
+          "passed": true
+        },
+        {
+          "name": "Actual Default shortcut button restores X after a custom binding",
+          "passed": true
+        },
+        {
+          "name": "Full reset uses Minecraft confirmation screen",
+          "passed": true
+        },
+        {
+          "name": "Restore defaults presents a confirmation and Cancel preserves settings",
+          "passed": true
+        },
+        {
+          "name": "Confirmed menu restore stops Xray and Freecam and resets all preferences and shortcuts",
+          "passed": true
+        },
+        {
+          "name": "Saved quick profile survives full reset",
+          "passed": true
+        },
+        {
+          "name": "Enabled Mods is an independent top-left panel with alphabetic rows",
+          "passed": true
+        },
+        {
+          "name": "Active-list gameplay framebuffer capture completes",
+          "passed": true
+        },
+        {
+          "name": "Deactivating a feature immediately removes its active-list row",
+          "passed": true
+        },
+        {
+          "name": "Disabling Enabled Mods removes its rendered panel",
+          "passed": true
+        },
+        {
+          "name": "Fixture returns to default settings after reset and list checks",
+          "passed": true
+        },
+        {
+          "name": "Owned survival Auto Mine fixture receives terrain and tool",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine walks, mines, collects an authoritative diamond and stops at quota",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine does not restart after reaching its quota",
+          "passed": true
+        },
+        {
+          "name": "Owned access tunnel fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine clears a safe access tunnel before normal resource mining",
+          "passed": true
+        },
+        {
+          "name": "Owned hazardous ore fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Fluid beside an ore refuses movement and mining",
+          "passed": true
+        },
+        {
+          "name": "Owned manual takeover fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Manual movement immediately takes over Auto Mine",
+          "passed": true
+        },
+        {
+          "name": "Releasing manual movement never resumes Auto Mine",
+          "passed": true
+        },
+        {
+          "name": "Owned explicit-binding fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "An explicit queued Auto Mine binding starts a transient session",
+          "passed": true
+        },
+        {
+          "name": "The same queued binding explicitly stops Auto Mine",
+          "passed": true
+        },
+        {
+          "name": "An explicit stop stays stopped across eligible ticks",
+          "passed": true
+        },
+        {
+          "name": "Owned damage fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Observed damage stops Auto Mine before resource actions",
+          "passed": true
+        },
+        {
+          "name": "Owned denied-break fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Adventure mode is authoritative",
+          "passed": true
+        },
+        {
+          "name": "Rejected mining times out without claiming success",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine fixture restores default settings",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine settings use the actual Minecraft-style screen",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine settings framebuffer capture completes",
+          "passed": true
+        },
+        {
+          "name": "Settings capture never starts Auto Mine",
+          "passed": true
+        },
+        {
+          "name": "Area Clear owned survival fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Area Clear first corner uses an ordinary visible block ray",
+          "passed": true
+        },
+        {
+          "name": "Area Clear second corner normalizes an inclusive two-by-two column",
+          "passed": true
+        },
+        {
+          "name": "Area Clear removes four selected blocks and preserves outside stone and supporting bedrock",
+          "passed": true
+        },
+        {
+          "name": "Area Clear remains stopped after completion",
+          "passed": true
+        },
+        {
+          "name": "Partial-shape carpet fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Area Clear targets a real partial-shape block",
+          "passed": true
+        },
+        {
+          "name": "Area Clear protected container fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Area Clear preserves a container and reports protected leftovers",
+          "passed": true
+        },
+        {
+          "name": "Protected sign fixture receives both visible corner blocks",
+          "passed": true
+        },
+        {
+          "name": "Named wall sign replaces a selected block with its placed text",
+          "passed": true
+        },
+        {
+          "name": "Area Clear preserves inside wall-sign support and its actual server text",
+          "passed": true
+        },
+        {
+          "name": "Live-border fixture receives safe terrain",
+          "passed": true
+        },
+        {
+          "name": "A smaller world border arrives after normal selection capture",
+          "passed": true
+        },
+        {
+          "name": "Area Clear rejects a captured box crossing the live world border",
+          "passed": true
+        },
+        {
+          "name": "Restoring the live border permits reviewing the old selection",
+          "passed": true
+        },
+        {
+          "name": "A border change cancels an already active Area Clear run",
+          "passed": true
+        },
+        {
+          "name": "Owned fixture restores the border before further checks",
+          "passed": true
+        },
+        {
+          "name": "Area Clear hazard fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Sealed fluid replaces a selected block after normal corner capture",
+          "passed": true
+        },
+        {
+          "name": "Area Clear refuses the entire hazardous selection before any excavation",
+          "passed": true
+        },
+        {
+          "name": "Area Clear cancellation fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Area Clear manual input takes over and does not resume",
+          "passed": true
+        },
+        {
+          "name": "Area Clear releases controls and restores defaults",
+          "passed": true
+        },
+        {
+          "name": "Area Clear uses the actual Minecraft-style settings screen",
+          "passed": true
+        },
+        {
+          "name": "Area Clear settings framebuffer capture completes",
+          "passed": true
+        },
+        {
+          "name": "Area Clear screenshot and menu never activate excavation",
+          "passed": true
+        },
+        {
+          "name": "Final actual menu remains usable after module exercise",
+          "passed": true
+        },
+        {
+          "name": "Final menu framebuffer capture completes",
+          "passed": true
+        }
+      ],
+      "raw_report_sha256": "a06db0b7076f287611fdb807809fed80cec009bc6fb3f9c508251c1d92f2812d"
+    },
+    "neoforge": {
+      "edition": "neoforge",
+      "passed": true,
+      "finished": true,
+      "time": "2026-11-06T06:01:52.408238900Z",
+      "checks": [
+        {
+          "name": "Permission payload rejects invalid versions, masks and lengths",
+          "passed": true
+        },
+        {
+          "name": "Menu 50% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu 100% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu 300% fits actual widgets at compact baseline",
+          "passed": true
+        },
+        {
+          "name": "Menu default restores compact 100% before gameplay checks",
+          "passed": true
+        },
+        {
+          "name": "Fixture setup is received from owned integrated server",
+          "passed": true
+        },
+        {
+          "name": "Singleplayer capabilities are granted locally",
+          "passed": true
+        },
+        {
+          "name": "Minecraft module screen constructs its real widgets",
+          "passed": true
+        },
+        {
+          "name": "Menu closes and normal gameplay resumes",
+          "passed": true
+        },
+        {
+          "name": "Xray finds exposed and buried authoritative received ores",
+          "passed": true
+        },
+        {
+          "name": "Xray alone does not render saved Finder lines or boxes",
+          "passed": true
+        },
+        {
+          "name": "Finder explicitly enables target geometry alongside Xray",
+          "passed": true
+        },
+        {
+          "name": "Disabling Xray preserves independently enabled Finder geometry",
+          "passed": true
+        },
+        {
+          "name": "Disabling Finder restores Xray-only rendering without changing line preferences",
+          "passed": true
+        },
+        {
+          "name": "Received block removal invalidates the target cache",
+          "passed": true
+        },
+        {
+          "name": "Received block restoration is discovered again",
+          "passed": true
+        },
+        {
+          "name": "Maximum texture context restores ordinary terrain rendering",
+          "passed": true
+        },
+        {
+          "name": "Minimum texture context keeps thin original-texture edges",
+          "passed": true
+        },
+        {
+          "name": "Default texture coverage and custom received block selection",
+          "passed": true
+        },
+        {
+          "name": "Toggle off restores view without changing world blocks",
+          "passed": true
+        },
+        {
+          "name": "Detached camera input moves the view and preserves body position",
+          "passed": true
+        },
+        {
+          "name": "Settled rendered camera follows detached view without body rotation",
+          "passed": true
+        },
+        {
+          "name": "Freecam disables cleanly",
+          "passed": true
+        },
+        {
+          "name": "Ordinary inventory fixture arrives without modifying personal saves",
+          "passed": true
+        },
+        {
+          "name": "Auto Tool replaces a fast ineligible golden pickaxe with a harvest-correct tool",
+          "passed": true
+        },
+        {
+          "name": "Manual hotbar choice retains ownership until mining is released",
+          "passed": true
+        },
+        {
+          "name": "Automatic eating consumes ordinary food on the integrated server",
+          "passed": true
+        },
+        {
+          "name": "Eating restores the previous slot after consuming one item",
+          "passed": true
+        },
+        {
+          "name": "Auto Totem fills only an empty offhand through the server",
+          "passed": true
+        },
+        {
+          "name": "Auto Totem preserves an occupied shield offhand",
+          "passed": true
+        },
+        {
+          "name": "Armor Assist fills an empty armor slot using an ordinary inventory action",
+          "passed": true
+        },
+        {
+          "name": "Refill observes a real baseline stack",
+          "passed": true
+        },
+        {
+          "name": "Refill moves an exact matching stack after observed depletion",
+          "passed": true
+        },
+        {
+          "name": "Identical authoritative correction is not blindly retried",
+          "passed": true
+        },
+        {
+          "name": "Explicit refill rearm retains its observed depletion candidate",
+          "passed": true
+        },
+        {
+          "name": "Trigger fixture is an owned non-player living entity",
+          "passed": true
+        },
+        {
+          "name": "Trigger uses an ordinary full-cooldown reachable attack",
+          "passed": true
+        },
+        {
+          "name": "Automatic actions stop when the Minecraft menu opens",
+          "passed": true
+        },
+        {
+          "name": "Action fixtures leave normal controls usable",
+          "passed": true
+        },
+        {
+          "name": "Waypoint saves in current stable world/dimension scope",
+          "passed": true
+        },
+        {
+          "name": "Visual HUD editor shows only enabled panels without modifying feature states",
+          "passed": true
+        },
+        {
+          "name": "HUD dragging follows the grab point and remains an unsaved draft",
+          "passed": true
+        },
+        {
+          "name": "HUD corner handle enlarges the overlay while holding its opposite corner",
+          "passed": true
+        },
+        {
+          "name": "Visual HUD editor framebuffer capture",
+          "passed": true
+        },
+        {
+          "name": "Enter confirms visual HUD changes and returns to the Rusty menu",
+          "passed": true
+        },
+        {
+          "name": "Escape discards subsequent HUD changes and returns to the mod menu",
+          "passed": true
+        },
+        {
+          "name": "Cancelled HUD draft never changes persisted preferences",
+          "passed": true
+        },
+        {
+          "name": "HUD editor fixture restores its own previous settings",
+          "passed": true
+        },
+        {
+          "name": "Overlay positions and cleared shortcuts persist to actual local JSON",
+          "passed": true
+        },
+        {
+          "name": "Empty entity-tracer selection renders no geometry",
+          "passed": true
+        },
+        {
+          "name": "Mobs-only entity tracers render a received pig",
+          "passed": true
+        },
+        {
+          "name": "Mobs-only ESP adds a box without changing its tracer",
+          "passed": true
+        },
+        {
+          "name": "Item tracers coexist with independent mob ESP",
+          "passed": true
+        },
+        {
+          "name": "Different ESP and tracer targets framebuffer capture",
+          "passed": true
+        },
+        {
+          "name": "Changing ESP targets does not remove an item tracer",
+          "passed": true
+        },
+        {
+          "name": "Disabling tracers clears geometry while ESP remains enabled",
+          "passed": true
+        },
+        {
+          "name": "Actual tracer menu exposes independent target buttons",
+          "passed": true
+        },
+        {
+          "name": "Actual tracer Default button preserves independent ESP choices",
+          "passed": true
+        },
+        {
+          "name": "Tracer menu framebuffer capture",
+          "passed": true
+        },
+        {
+          "name": "Tracer fixture restores its prior settings",
+          "passed": true
+        },
+        {
+          "name": "All module adapters tolerate received world and live rendering",
+          "passed": true
+        },
+        {
+          "name": "Remote chunk loading removes targets from the former area",
+          "passed": true
+        },
+        {
+          "name": "Returning to received chunks discovers the original ores again",
+          "passed": true
+        },
+        {
+          "name": "Dimension change resets scanner and scoped markers",
+          "passed": true
+        },
+        {
+          "name": "Returning dimension restores permission and target lifecycle",
+          "passed": true
+        },
+        {
+          "name": "Profiles round-trip without acquiring multiplayer permission",
+          "passed": true
+        },
+        {
+          "name": "Cleared menu binding retains Minecraft Options recovery",
+          "passed": true
+        },
+        {
+          "name": "Thirty-second bounded rendering observation completes",
+          "passed": true
+        },
+        {
+          "name": "Clean default controls remain ready for visual review",
+          "passed": true
+        },
+        {
+          "name": "Actual Default button restores a numeric preference without changing another setting",
+          "passed": true
+        },
+        {
+          "name": "Actual Default button restores a true boolean preference",
+          "passed": true
+        },
+        {
+          "name": "Actual Default shortcut button restores X after a custom binding",
+          "passed": true
+        },
+        {
+          "name": "Full reset uses Minecraft confirmation screen",
+          "passed": true
+        },
+        {
+          "name": "Restore defaults presents a confirmation and Cancel preserves settings",
+          "passed": true
+        },
+        {
+          "name": "Confirmed menu restore stops Xray and Freecam and resets all preferences and shortcuts",
+          "passed": true
+        },
+        {
+          "name": "Saved quick profile survives full reset",
+          "passed": true
+        },
+        {
+          "name": "Enabled Mods is an independent top-left panel with alphabetic rows",
+          "passed": true
+        },
+        {
+          "name": "Active-list gameplay framebuffer capture completes",
+          "passed": true
+        },
+        {
+          "name": "Deactivating a feature immediately removes its active-list row",
+          "passed": true
+        },
+        {
+          "name": "Disabling Enabled Mods removes its rendered panel",
+          "passed": true
+        },
+        {
+          "name": "Fixture returns to default settings after reset and list checks",
+          "passed": true
+        },
+        {
+          "name": "Owned survival Auto Mine fixture receives terrain and tool",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine walks, mines, collects an authoritative diamond and stops at quota",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine does not restart after reaching its quota",
+          "passed": true
+        },
+        {
+          "name": "Owned access tunnel fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine clears a safe access tunnel before normal resource mining",
+          "passed": true
+        },
+        {
+          "name": "Owned hazardous ore fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Fluid beside an ore refuses movement and mining",
+          "passed": true
+        },
+        {
+          "name": "Owned manual takeover fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Manual movement immediately takes over Auto Mine",
+          "passed": true
+        },
+        {
+          "name": "Releasing manual movement never resumes Auto Mine",
+          "passed": true
+        },
+        {
+          "name": "Owned explicit-binding fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "An explicit queued Auto Mine binding starts a transient session",
+          "passed": true
+        },
+        {
+          "name": "The same queued binding explicitly stops Auto Mine",
+          "passed": true
+        },
+        {
+          "name": "An explicit stop stays stopped across eligible ticks",
+          "passed": true
+        },
+        {
+          "name": "Owned damage fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Observed damage stops Auto Mine before resource actions",
+          "passed": true
+        },
+        {
+          "name": "Owned denied-break fixture is ready",
+          "passed": true
+        },
+        {
+          "name": "Adventure mode is authoritative",
+          "passed": true
+        },
+        {
+          "name": "Rejected mining times out without claiming success",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine fixture restores default settings",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine settings use the actual Minecraft-style screen",
+          "passed": true
+        },
+        {
+          "name": "Auto Mine settings framebuffer capture completes",
+          "passed": true
+        },
+        {
+          "name": "Settings capture never starts Auto Mine",
+          "passed": true
+        },
+        {
+          "name": "Area Clear owned survival fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Area Clear first corner uses an ordinary visible block ray",
+          "passed": true
+        },
+        {
+          "name": "Area Clear second corner normalizes an inclusive two-by-two column",
+          "passed": true
+        },
+        {
+          "name": "Area Clear removes four selected blocks and preserves outside stone and supporting bedrock",
+          "passed": true
+        },
+        {
+          "name": "Area Clear remains stopped after completion",
+          "passed": true
+        },
+        {
+          "name": "Partial-shape carpet fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Area Clear targets a real partial-shape block",
+          "passed": true
+        },
+        {
+          "name": "Area Clear protected container fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Area Clear preserves a container and reports protected leftovers",
+          "passed": true
+        },
+        {
+          "name": "Protected sign fixture receives both visible corner blocks",
+          "passed": true
+        },
+        {
+          "name": "Named wall sign replaces a selected block with its placed text",
+          "passed": true
+        },
+        {
+          "name": "Area Clear preserves inside wall-sign support and its actual server text",
+          "passed": true
+        },
+        {
+          "name": "Live-border fixture receives safe terrain",
+          "passed": true
+        },
+        {
+          "name": "A smaller world border arrives after normal selection capture",
+          "passed": true
+        },
+        {
+          "name": "Area Clear rejects a captured box crossing the live world border",
+          "passed": true
+        },
+        {
+          "name": "Restoring the live border permits reviewing the old selection",
+          "passed": true
+        },
+        {
+          "name": "A border change cancels an already active Area Clear run",
+          "passed": true
+        },
+        {
+          "name": "Owned fixture restores the border before further checks",
+          "passed": true
+        },
+        {
+          "name": "Area Clear hazard fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Sealed fluid replaces a selected block after normal corner capture",
+          "passed": true
+        },
+        {
+          "name": "Area Clear refuses the entire hazardous selection before any excavation",
+          "passed": true
+        },
+        {
+          "name": "Area Clear cancellation fixture is received",
+          "passed": true
+        },
+        {
+          "name": "Area Clear manual input takes over and does not resume",
+          "passed": true
+        },
+        {
+          "name": "Area Clear releases controls and restores defaults",
+          "passed": true
+        },
+        {
+          "name": "Area Clear uses the actual Minecraft-style settings screen",
+          "passed": true
+        },
+        {
+          "name": "Area Clear settings framebuffer capture completes",
+          "passed": true
+        },
+        {
+          "name": "Area Clear screenshot and menu never activate excavation",
+          "passed": true
+        },
+        {
+          "name": "Final actual menu remains usable after module exercise",
+          "passed": true
+        },
+        {
+          "name": "Final menu framebuffer capture completes",
+          "passed": true
+        }
+      ],
+      "raw_report_sha256": "5870216ea3b849ac376ed3d8dec3ef3b5e004ac2b1774249797d528d22603bbf"
+    }
+  },
+  "java_game_tested_packages": [
+    {
+      "file": "rusty-fabric-1.3.0-beta.8-sources.jar",
+      "bytes": 1646197,
+      "sha256": "8d84d77da75d1424aa5b394510ccc8bf821bafba5390e1cfc1991c4e7ad24406"
+    },
+    {
+      "file": "rusty-fabric-1.3.0-beta.8.jar",
+      "bytes": 1765845,
+      "sha256": "6fe99fb41480970acd764d0d0b9ab972a01165db9fb0f95eb0609c7ff8d48ca2"
+    },
+    {
+      "file": "rusty-neoforge-1.3.0-beta.8-sources.jar",
+      "bytes": 1644746,
+      "sha256": "11fd8b9b6040b032641cf4d3149dc4bcf36858be8fba72086ec016e1e1504938"
+    },
+    {
+      "file": "rusty-neoforge-1.3.0-beta.8.jar",
+      "bytes": 1759855,
+      "sha256": "6237a7bc6e98f56a6881e5821d1649c575a9e3f54d049f080067fbb070f9304e"
+    }
+  ],
+  "source_review": {
+    "fresh_independent_review": true,
+    "critical": 0,
+    "important": 2,
+    "minor": 0,
+    "important_fixes": [
+      "Preserve support and placed text of protected partial block entities inside/outside selection",
+      "Validate live configurable world border at capture/start and during execution; preserve received safety facts beyond it"
+    ],
+    "regressions_red_then_green": true,
+    "gameplay_checks_for_both_fixes": true
+  },
+  "reviewed_screenshot": {
+    "path": "docs/screenshots/java/rusty-area-clear-settings.png",
+    "sha256": "4c135718c7289e9dff7867a61b7e7a7bdc70e19107cc3fb6aa1261bdd6cee686",
+    "width": 1280,
+    "height": 720,
+    "original_unretouched_framebuffer": true,
+    "shows": "Actual Area Clear settings, corner controls, defaults and safety preferences; not a pause menu"
+  },
+  "limits": [
+    "Conservative safe-route refusal is possible; no guarantee of survival or globally optimal excavation.",
+    "Fluids, unstable or unknown selected cells reject planning; containers and protected/unreachable leftovers do not count as completion.",
+    "High latency, arbitrary server plugins/anticheats, rendering replacements and long-session endurance are not established.",
+    "Java restricted multiplayer tools retain current-server view+movement+assistance grants.",
+    "Public downloads, Modrinth and final launcher Build/Play are verified separately after publication."
+  ]
+}

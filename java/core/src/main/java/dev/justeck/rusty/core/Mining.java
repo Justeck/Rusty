@@ -130,6 +130,13 @@ public final class Mining {
           && max.z + 1.0 <= maxZ;
     }
 
+    public int constrainBorder(
+        int cell, Pos p, int layer, double minX, double minZ, double maxX, double maxZ) {
+      if (air(cell) && (p.x < minX || p.z < minZ || p.x + 1.0 > maxX || p.z + 1.0 > maxZ))
+        return WALL;
+      return constrain(cell, p, layer);
+    }
+
     public List<Pos[]> edges() {
       var out = new ArrayList<Pos[]>();
       int[] lo = {min.x, min.y, min.z}, hi = {max.x + 1, max.y + 1, max.z + 1};

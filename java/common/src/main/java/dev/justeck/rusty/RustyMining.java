@@ -324,11 +324,14 @@ public final class RustyMining {
   private static int positionCell(int cell, Mining.Pos p) {
     if (!areaActive()) return cell;
     var border = Minecraft.getInstance().level.getWorldBorder();
-    if (p.x() < border.getMinX()
-        || p.z() < border.getMinZ()
-        || p.x() + 1.0 > border.getMaxX()
-        || p.z() + 1.0 > border.getMaxZ()) return Mining.WALL;
-    return run.area.constrain(cell, p, run.highest);
+    return run.area.constrainBorder(
+        cell,
+        p,
+        run.highest,
+        border.getMinX(),
+        border.getMinZ(),
+        border.getMaxX(),
+        border.getMaxZ());
   }
 
   private record Tool(int slot, int ticks) {}

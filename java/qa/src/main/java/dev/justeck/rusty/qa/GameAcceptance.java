@@ -926,6 +926,8 @@ public final class GameAcceptance {
     for (String cmd :
         List.of(
             "gamerule block_drops true",
+            "worldborder center 0.0 0.0",
+            "worldborder set 59999968",
             "gamemode spectator @a",
             "tp @a 0.5 210 0.5 0 0",
             "fill -3 200 -3 3 205 12 air",
@@ -1188,6 +1190,25 @@ public final class GameAcceptance {
         && RustyMining.result.equals("Area cleared");
   }
 
+  private static boolean namedSignIntact() {
+    var server = Minecraft.getInstance().getSingleplayerServer();
+    if (server == null) return false;
+    // ServerLevel intentionally returns null for block entities off its thread.
+    return server
+        .submit(() -> {
+          var level = server.overworld();
+          var sign = level.getBlockEntity(new BlockPos(1, 200, 3));
+          return level.getBlockState(new BlockPos(0, 200, 3)).is(Blocks.STONE)
+              && sign instanceof net.minecraft.world.level.block.entity.SignBlockEntity text
+              && text.getText(net.minecraft.world.level.block.entity.SignTextSlot.FRONT)
+                  .getMessages(false)
+                  .getFirst()
+                  .getString()
+                  .contains("KEEP RUSTY");
+        })
+        .join();
+  }
+
   private static void addAreaClearChecks() {
     var mc = Minecraft.getInstance();
     add(
@@ -1293,6 +1314,7 @@ public final class GameAcceptance {
         "Protected sign fixture receives both visible corner blocks",
         () -> {
           clearFixture();
+          command("fill 1 200 0 1 202 3 air");
           command("fill 0 200 3 1 201 3 stone");
         },
         () ->
@@ -1311,25 +1333,18 @@ public final class GameAcceptance {
                   "setblock 1 200 3 oak_wall_sign[facing=east]{front_text:{messages:[\"KEEP"
                       + " RUSTY\",\"\",\"\",\"\"]}}")) command(cmd);
         },
-        () -> mc.level.getBlockState(new BlockPos(1, 200, 3)).is(Blocks.OAK_WALL_SIGN),
+        () ->
+            mc.level.getBlockState(new BlockPos(1, 200, 3)).is(Blocks.OAK_WALL_SIGN)
+                && namedSignIntact(),
         20);
     add(
         "Area Clear preserves inside wall-sign support and its actual server text",
         () -> RustyMining.startArea(),
-        () -> {
-          var level = mc.getSingleplayerServer().overworld();
-          var sign = level.getBlockEntity(new BlockPos(1, 200, 3));
-          return !RustyMining.active()
-              && RustyMining.count == 0
-              && !RustyMining.result.equals("Area cleared")
-              && level.getBlockState(new BlockPos(0, 200, 3)).is(Blocks.STONE)
-              && sign instanceof net.minecraft.world.level.block.entity.SignBlockEntity text
-              && text.getText(net.minecraft.world.level.block.entity.SignTextSlot.FRONT)
-                  .getMessages(false)
-                  .getFirst()
-                  .getString()
-                  .contains("KEEP RUSTY");
-        },
+        () ->
+            !RustyMining.active()
+                && RustyMining.count == 0
+                && !RustyMining.result.equals("Area cleared")
+                && namedSignIntact(),
         20);
     add(
         "Live-border fixture receives safe terrain",
@@ -1343,7 +1358,7 @@ public final class GameAcceptance {
         () -> {
           clearCorner(new BlockPos(0, 200, 3), false);
           clearCorner(new BlockPos(0, 201, 3), true);
-          command("worldborder center 0 0");
+          command("worldborder center 0.0 0.0");
           command("worldborder set 6");
         },
         () -> mc.level.getWorldBorder().getMaxZ() <= 3.01,
