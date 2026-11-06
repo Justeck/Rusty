@@ -1,5 +1,15 @@
 # Rusty validation
 
+## 1.2.7 published assets and launcher acceptance
+
+[Native 1.2.7](https://github.com/Justeck/Rusty/releases/tag/v1.2.7) and [Java beta.6](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.6) are immutable releases of `01598bf28c22e249f24cd2b224845ab5bceebfed`. Both publication workflows passed. The native public asset exactly equals the maintained package. Both Java runtime archives have the same entries and bytes as the game-tested builds. Source-jar Java files differ only in Windows/Linux line endings; the public release checksums identify the Linux-produced assets.
+
+The official launcher accepted both the fixed release URL and repository URL and installed the public native asset. The only instance is **Horizon**, with Rusty 1.2.7 as its only native mod. Existing Rusty preferences remained byte-for-byte unchanged.
+
+An interim source package and the release package had identical native source payloads and semantically equal root manifests, but different root JSON formatting. Horizon reused their identical compiled build while retaining the interim package digest, so its GUI incorrectly said Needs rebuild even when Build returned Up to date. After verifying payload equivalence, the stale cache completion marker was backed up and invalidated. Horizon’s official Performance builder reinstalled the cached executable and generated the correct package record; no mod code or test binary was changed. A reopened **Launcher 0.2.44** then visibly showed the green **Up to date** badge. Its actual **Build** button was exercised, and **Play** reached the Minecraft title screen. The launched executable hash matched the accepted game-test executable. The title screen was exited normally without entering a personal world or server.
+
+Both Modrinth beta.6 files were saved, with required Fabric API dependency, updated guide and a reviewed original HUD screenshot. CDN downloads are byte-identical to the GitHub runtime assets. The project remains **under review**, with approval unconfirmed. [Publication and installation receipt](evidence/hud-publication-1.2.7.json).
+
 ## 1.2.7 — visual HUD editor
 
 **Edit HUD** replaces native coordinate sliders with direct interaction in the clear game view. Drag an overlay’s body to move it; select it and drag a corner handle to resize proportionally. Enter/Done confirms the draft and returns to the same menu. Escape/Cancel discards it. Default panel/layout actions are provisional until confirmation. Opening the editor preserves feature states.

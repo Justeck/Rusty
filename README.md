@@ -34,7 +34,7 @@ https://github.com/Justeck/Rusty
 
 Review the selected immutable source revision and enable Rusty. If Horizon offers **Build**, choose **Performance** and wait for **Up to date** before **Play**. An identical native mod set can reuse its verified build. The supported base is Horizon **38609b7**, native API **409**, Minecraft Java **26.3**. Every enabled native mod must support the selected host.
 
-The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.7`](https://github.com/Justeck/Rusty/releases/tag/v1.2.7). The [HUD editor acceptance receipt](docs/evidence/hud-editor-1.2.7.json) records exact source/package identities and test scope. [Validation](docs/VALIDATION.md) distinguishes automated checks, actual game tests and launcher installation.
+The fixed release input is [`https://github.com/Justeck/Rusty/releases/tag/v1.2.7`](https://github.com/Justeck/Rusty/releases/tag/v1.2.7). The [HUD editor acceptance receipt](docs/evidence/hud-editor-1.2.7.json) records exact source/package identities and test scope. [Publication and launcher verification](docs/evidence/hud-publication-1.2.7.json) confirms the public downloads, green Up to date badge and actual Play-to-title check. [Validation](docs/VALIDATION.md) distinguishes automated checks, actual game tests and launcher installation.
 
 **X-Ray changes terrain only.** Block-target boxes, block tracer lines and Finder readouts require **Finder** to be enabled separately. X-ray toggles preserve Finder and line preferences.
 

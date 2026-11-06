@@ -1,5 +1,9 @@
 # 1.3.0-beta.5 independent tracer targets
 
+## Beta.6 published package verification
+
+The [GitHub Java release](https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.6) and both saved Modrinth beta.6 versions were downloaded and checked. All runtime archive entries equal the actual game-tested builds; Modrinth downloads are byte-identical to GitHub. Source archive Java files differ only in CRLF/LF line endings, and `SHA256SUMS` records public asset bytes. Modrinth’s guide and reviewed HUD screenshot were verified after reloading the public page. Its project remains under review. [Publication receipt](evidence/hud-publication-1.2.7.json).
+
 ## Java 1.3.0-beta.6 — visual HUD editor
 
 Both supported loader builds and QA compilation passed, with **1,231 shared core assertions** and **83 actual owned-world checks per loader**. The new checks select enabled-only HUD panels, drag real screen bounds without changing the saved configuration, resize with corner handles, confirm with Minecraft’s Enter key, cancel with Escape and return to the same menu. Existing target, texture, permission, action, default/reset, active-list, chunk and dimension checks also ran.

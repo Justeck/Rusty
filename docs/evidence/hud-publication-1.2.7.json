@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "source_commit": "01598bf28c22e249f24cd2b224845ab5bceebfed",
+  "releases": {
+    "v1.2.7": {
+      "url": "https://github.com/Justeck/Rusty/releases/tag/v1.2.7",
+      "tag": "v1.2.7",
+      "assets": [
+        {
+          "name": "rusty-1.2.7.hnmod",
+          "bytes": 209949,
+          "sha256": "eb00536d5d8c8c35f5bc86087d319e845fa967b29ffb129f88b8d1d3c6f424f8",
+          "url": "https://github.com/Justeck/Rusty/releases/download/v1.2.7/rusty-1.2.7.hnmod"
+        },
+        {
+          "name": "SHA256SUMS",
+          "bytes": 84,
+          "sha256": "bc2b404831e9aeec258af79165dcebc53d37ec2733979c41b09446eb4f237638",
+          "url": "https://github.com/Justeck/Rusty/releases/download/v1.2.7/SHA256SUMS"
+        }
+      ]
+    },
+    "java-v1.3.0-beta.6": {
+      "url": "https://github.com/Justeck/Rusty/releases/tag/java-v1.3.0-beta.6",
+      "tag": "java-v1.3.0-beta.6",
+      "assets": [
+        {
+          "name": "rusty-fabric-1.3.0-beta.6-sources.jar",
+          "bytes": 1630895,
+          "sha256": "0138497868c6562b92d1ca5eed6938402b59987ed816b2a1115b80500e3763e7",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.6/rusty-fabric-1.3.0-beta.6-sources.jar"
+        },
+        {
+          "name": "rusty-fabric-1.3.0-beta.6.jar",
+          "bytes": 1719341,
+          "sha256": "796c03fdce9239688ffa8a4551b6a47dc492f93bb81beed22bcb27b14ba5b744",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.6/rusty-fabric-1.3.0-beta.6.jar"
+        },
+        {
+          "name": "rusty-neoforge-1.3.0-beta.6-sources.jar",
+          "bytes": 1629444,
+          "sha256": "06d49acfd74653692f43d6e80b02dd398a203621dc4a0c55466a880a518a6b86",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.6/rusty-neoforge-1.3.0-beta.6-sources.jar"
+        },
+        {
+          "name": "rusty-neoforge-1.3.0-beta.6.jar",
+          "bytes": 1713656,
+          "sha256": "bd0b5ec29d72b024561b4b9b19395d7d3d4e8fbab3db3f32bf838f75e18c0876",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.6/rusty-neoforge-1.3.0-beta.6.jar"
+        },
+        {
+          "name": "SHA256SUMS",
+          "bytes": 404,
+          "sha256": "2ffe5f774c9fd5d569bfcde9527590a20186afce6eb926e72dc97b1180cb3b5b",
+          "url": "https://github.com/Justeck/Rusty/releases/download/java-v1.3.0-beta.6/SHA256SUMS"
+        }
+      ]
+    }
+  },
+  "release_workflows": [
+    {
+      "id": 42134083706,
+      "name": "Java edition checks",
+      "conclusion": "success"
+    },
+    {
+      "id": 42134083654,
+      "name": "Native mod checks",
+      "conclusion": "success"
+    }
+  ],
+  "native_public_asset_equals_maintained_package": true,
+  "java_runtime_entries_equal_game_tested_archives": true,
+  "java_source_archive_comparison": "File sets equal; Java text equal after CRLF/LF normalization. Public release SHA256SUMS records the Linux-produced bytes.",
+  "installation": {
+    "source_commit": "01598bf28c22e249f24cd2b224845ab5bceebfed",
+    "selected_build": "native-38609b7-9fa4cf1ba4b5",
+    "binary_sha256": "eb27f2d92907e2cd033d733eabd7288d2ef44cc90ff2b7692fda38a4383c761b",
+    "asset_sha256": "eb00536d5d8c8c35f5bc86087d319e845fa967b29ffb129f88b8d1d3c6f424f8",
+    "public_asset_exact": true,
+    "fixed_release_url_accepted": true,
+    "repository_url_accepted": true,
+    "user_preferences_unchanged": true,
+    "only_horizon_instance": true,
+    "only_rusty_native_mod": true,
+    "first_build_seconds": 4.847,
+    "cache_check_seconds": 5.102
+  },
+  "launcher_cache_refresh": {
+    "seconds": 312.124,
+    "package_source_digest": "a6d6b8645b311301c39f76125afc231dfde63dc8729b879fd73de9ba5fc83c26",
+    "official_builder_metadata_matches": true,
+    "accepted_binary_unchanged": true,
+    "binary_sha256": "eb27f2d92907e2cd033d733eabd7288d2ef44cc90ff2b7692fda38a4383c761b"
+  },
+  "launcher_ui_and_play": {
+    "clicked_build_in_launcher": true,
+    "visible_build_returned_up_to_date": true,
+    "stale_digest_refreshed_by_official_builder": true,
+    "launcher_reopened_and_green_up_to_date_badge_observed": true,
+    "clicked_play": true,
+    "game_title_screen_observed": true,
+    "play_binary_equals_game_tested_binary": true,
+    "binary_sha256": "eb27f2d92907e2cd033d733eabd7288d2ef44cc90ff2b7692fda38a4383c761b",
+    "entered_personal_world_or_server": false
+  },
+  "final_user_preferences_unchanged": true,
+  "modrinth": {
+    "project": "https://modrinth.com/mod/rusty-toolkit",
+    "status_observed": "under review",
+    "approval_confirmed": false,
+    "versions": [
+      {
+        "loader": "fabric",
+        "version_id": "YBmUTJUU",
+        "url": "https://modrinth.com/mod/rusty-toolkit/version/YBmUTJUU",
+        "download": "https://cdn.modrinth.com/data/tQFy3VCO/versions/YBmUTJUU/rusty-fabric-1.3.0-beta.6.jar?mr_download_reason=standalone",
+        "bytes": 1719341,
+        "sha256": "796c03fdce9239688ffa8a4551b6a47dc492f93bb81beed22bcb27b14ba5b744",
+        "exact_github_bytes": true
+      },
+      {
+        "loader": "neoforge",
+        "version_id": "vHt8ttlI",
+        "url": "https://modrinth.com/mod/rusty-toolkit/version/vHt8ttlI",
+        "download": "https://cdn.modrinth.com/data/tQFy3VCO/versions/vHt8ttlI/rusty-neoforge-1.3.0-beta.6.jar?mr_download_reason=standalone",
+        "bytes": 1713656,
+        "sha256": "bd0b5ec29d72b024561b4b9b19395d7d3d4e8fbab3db3f32bf838f75e18c0876",
+        "exact_github_bytes": true
+      }
+    ],
+    "fabric_api_dependency": "Required Fabric API 0.165.2+26.3",
+    "guide_updated_and_verified_by_independent_reload": true,
+    "gallery_image_count": 30,
+    "new_gallery_title": "Drag, resize, confirm \u2014 visual HUD editor",
+    "new_gallery_caption": "Fabric beta.6 HUD editor. Drag to move, use corners to resize. Enter saves, Escape cancels.",
+    "original_game_image_sha256": "06e092e4c1a13b07c83670f180ed665dc1d625979a695b857fedb339320676bf",
+    "existing_gallery_banner_and_icon_preserved": true
+  },
+  "ui_proof_sha256": {
+    "launcher-up-to-date.png": "f4717033b9975bf64bc42852df0d9a5bc7c313f35efec9e50293a5c6543ecf67",
+    "launcher-play-title.png": "c2d30174d21fa95587c1ea7687e3151da9fc7a628df5fe8e407580d7e25d055b",
+    "modrinth-gallery-proof.png": "cd4c3b048b65000c21ecd0f86f369c8a67959ac3db8695b1165c4b5a8597b18a",
+    "modrinth-versions-proof.png": "e15c0e18b3dc9df569de37fbf63edd0045296940d7d3ea1b9d5fa4c3087c98c7"
+  },
+  "scope": "GUI Play reached the title screen and exited normally. Actual feature checks used owned offline worlds. No personal world or public server was entered."
+}
